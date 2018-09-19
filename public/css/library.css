@@ -1,0 +1,35 @@
+.enabled{
+    background-color:white; 
+    pointer-events: all ;
+}
+.disabled{
+    background: lightgrey;
+    pointer-events: none;
+}
+#tagsdialog{
+    height:200px;
+    width:300px;
+    position: absolute;
+    top:0;
+    left:15%;
+    padding-top: 15px;
+    padding-left: 10px;
+    
+}
+
+.body{
+    background: white;
+    padding: 15px;
+}
+.close {
+    cursor: pointer;
+    /* position: absolute; */
+    top: 50%;
+    right: 0%;
+    padding: 12px 16px;
+    transform: translate(1%, -35%);
+}
+.close:hover {
+    background: #bbb;
+}
+  
