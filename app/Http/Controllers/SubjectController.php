@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Question;
 use App\Topic;
 use App\Subject;
+use App\Instruction;
+use Requests;
 
 class SubjectController extends Controller
 {
@@ -59,4 +61,19 @@ class SubjectController extends Controller
         }
         return response()->json(array("msg","try later"),200);
     }
-}
+
+
+    public function fetchSubjects()
+    {
+         $subjects = Subject::all();
+         return response()->json($subjects);
+    }
+    
+    public function fetchInstructions(Request $request)
+    {
+        $instructions = Instruction::where('subject_id',$request->id)->get();
+        return response()->json($instructions);
+     }
+     
+ }
+ 
