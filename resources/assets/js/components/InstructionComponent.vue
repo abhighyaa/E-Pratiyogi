@@ -2,15 +2,13 @@
     <div class="card card-default">
         <div class="card-header">Instructions</div>
         <div class="card-body">
-            <h2 v-if="SelectSubject === false">Select A Category</h2>
+            <h2 v-if="show === false">Select a Category</h2>
               <ul class="list-group">
-
                 <li class="list-group-item" :key="instruction.id" v-for="instruction in Instructions">
                     {{ instruction.instruction }}
                 </li>
-   
              </ul><br>
-                   <button class="btn btn-success" v-if="SelectSubject">Start Test</button>
+            <button class="btn btn-success" v-if="show">Start Test</button>
         </div>
     </div>
 </template>
@@ -21,7 +19,7 @@ import { EventBus } from '../app.js'
         data(){
             return{
                 Instructions:[],
-                SelectSubject:false
+                show:false
                 
             };
         },
@@ -31,7 +29,7 @@ import { EventBus } from '../app.js'
                 
             });
              EventBus.$on('Buttonevent', data => {
-                this.SelectSubject = data;
+                this.show = data;
                 
             });
          }

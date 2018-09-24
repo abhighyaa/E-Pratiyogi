@@ -18,7 +18,7 @@ import { EventBus } from '../app.js';
          return{
                 subjects:[],
                 instructions:[],
-                SelectSubject:false
+                show:false
         };
         },
 
@@ -41,8 +41,8 @@ import { EventBus } from '../app.js';
             },
             SetButton()
             {
-                this.SelectSubject = true;
-                 EventBus.$emit('Buttonevent',this.SelectSubject);
+                this.show = true;
+                 EventBus.$emit('Buttonevent',this.show);
             }
         }
     }
