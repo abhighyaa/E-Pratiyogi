@@ -6,7 +6,7 @@
     background: lightgrey;
     pointer-events: none;
 }
-#tagsdialog{
+#subjectsdialog{
     height:200px;
     width:300px;
     position: absolute;
@@ -14,12 +14,18 @@
     left:15%;
     padding-top: 15px;
     padding-left: 10px;
-    
 }
 
-.body{
+.hidden{
+    display:none;
+}
+.show{
+    display: block;
+}
+
+.sbody{
     background: white;
-    padding: 15px;
+    padding: 5px;
 }
 .close {
     cursor: pointer;
