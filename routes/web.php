@@ -30,3 +30,6 @@ Route::get('/createtag','TagsController@create');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/subjects/get/all', 'SubjectController@fetchSubjects');
+Route::get('/subjects/{id}/get/instructions', 'SubjectController@fetchInstructions');
+
