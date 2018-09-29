@@ -4,10 +4,12 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-3">
-            <subject-component></subject-component>  
+            <!-- <router-view name="subject"></router-view> -->
+            <subject-component></subjet-component>
         </div>
         <div class="col-md-8">
-            <instruction-component></instruction-component>  
+             <!-- <router-view name="instruction"></router-view> -->
+             <instruction-component></instruction-component>
         </div>
     </div>
 </div>

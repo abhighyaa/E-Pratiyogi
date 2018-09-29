@@ -5,21 +5,30 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Auth;
 use App\User;
-use App\Tag;
+use App\Topic;
+use App\Subject;
 
 class Question extends Model
 {
-    public function user()
+    protected $casts=[
+        'choices'=>'array'
+    ];
+    protected $fillable=['id','question','answer','choices','complexity','type'];
+    // public function user()
+    // {
+    //     return $this->belongsTo(User::class);
+    // }
+    public function topics()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsToMany(Topic::class);
     }
-    public function tags()
+    public function subjects()
     {
-        return $this->belongsToMany(Tag::class);
+        return $this->belongsToMany(Subject::class);
     }
 
     static public function getQuestions(){
         $userid = 1;//Auth::user();
-        return Question::where('user_id','=',$userid)->get();
+        return Question::all();
     }
 }

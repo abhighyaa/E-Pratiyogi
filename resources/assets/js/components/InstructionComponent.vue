@@ -1,14 +1,14 @@
 <template>
     <div class="card card-default">
-        <div class="card-header">Instructions</div>
+        <div class="card-header">Remember</div>
         <div class="card-body">
-            <h2 v-if="show === false">Select a Category</h2>
+            <h2 v-if="visible === false" class="text-center">Select a Category</h2>
               <ul class="list-group">
                 <li class="list-group-item" :key="instruction.id" v-for="instruction in Instructions">
                     {{ instruction.instruction }}
                 </li>
              </ul><br>
-            <button class="btn btn-success" v-if="show">Start Test</button>
+            <button class="btn btn-success" v-if="visible" @click="startTest(subjectID)">Start Test</button>
         </div>
     </div>
 </template>
@@ -19,27 +19,29 @@ import { EventBus } from '../app.js'
         data(){
             return{
                 Instructions:[],
-                show:false
+                visible:false,
+                subjectID:null
                 
             };
         },
         mounted(){
             EventBus.$on('InstEvent', data => {
-                this.Instructions = data;
-                
+                this.Instructions = data.instructionKey;
+                this.subjectID =  data.subjectKey;
+                this.visible = data.visibleKey;      
             });
-             EventBus.$on('Buttonevent', data => {
-                this.show = data;
-                
-            });
+         },
+         methods:{
+             startTest(sujectId){
+                 alert(sujectId)
+;             }
          }
 }
 </script>
 
 <style scoped>
 h2
-{
-    margin-left: 40%;
+{  
    color: lightgray;
 }
 </style>
