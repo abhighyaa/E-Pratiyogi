@@ -19,6 +19,18 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('welcome');
 });
+Route::get('/library','SubjectController@index');
+
+Route::get('/getsubjects','SubjectController@getsubjects');
+Route::get('/addsubject','SubjectController@addsubject');
+Route::get('/subjects/{subject}','SubjectController@subj');
+Route::get('/subjects/delete/+{subject}','SubjectController@delsubject');
+Route::post('/addquestions','QuestionController@addquestions');
+// Route::get('/gettopics','TopicsController@gettopics');
+Route::get('/addtopic','TopicsController@addtopic');
+Route::get('/activatetopic','TopicsController@activatetopic');
+Route::get('/editques','QuestionController@editques');
+Route::post('/savequestion','QuestionController@savequestions');
 
 Route::get('/loggedin','HomeController@index');
 
@@ -28,6 +40,10 @@ Route::get('/createtest','TestController@createtest');
 // Route::get('/tags/{tag}','TagsController@show');
 // Route::get('/createtag','TagsController@create');
 // Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/topics/{topic}','TagsController@show');
+Route::get('/createtag','TagsController@create');
+
 
 Route::prefix('subjects')->group(function () {
     Route::get('get/all', 'SubjectController@fetchSubjects');

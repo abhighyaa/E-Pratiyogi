@@ -8,11 +8,12 @@
         <title>E-Pratiyogi</title>
 
         <!-- Fonts -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
         <!-- Styles -->
         <style>
-            html, body {
+           html, body {
                 background-color: #fff;
                 color: #636b6f;
                 font-family: 'Raleway', sans-serif;
@@ -94,7 +95,6 @@
                     <a href="https://laravel.com/docs">Contact</a>
 
                 </div>
-            </div>
         </div>
     </body>
 </html>

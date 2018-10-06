@@ -19,6 +19,6 @@ class UserMiddleware
         $user = User::where('email',Auth::user()->email)->first();
         if($user->role->first()->name == 'student')
                  return $next($request);
-        return redirect('/home');
+        return redirect()->back();
     }
 }

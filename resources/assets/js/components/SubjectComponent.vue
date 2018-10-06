@@ -4,7 +4,7 @@
         <div class="card-body">
               <ul class="list-group">
                   <li class="list-group-item" :key="sub.id" v-for="sub in subjects">
-                     <a href="#" @click="fetchInstructions(sub.id),SetButton()" :id="sub.id">{{ sub.subject}}</a> 
+                     <a href="#" @click="fetchInstructions(sub.id)" :id="sub.id">{{ sub.subject}}</a> 
                   </li>
               </ul>
         </div>
@@ -18,7 +18,8 @@ import { EventBus } from '../app.js';
          return{
                 subjects:[],
                 instructions:[],
-                visible:false
+                visible:false,
+                
         };
         },
 
@@ -31,18 +32,17 @@ import { EventBus } from '../app.js';
                 .then((response)=>(this.subjects = response.data))
                 .catch(function(error){console.log(error)});
             },
-           async fetchInstructions(id)
-            {
-                await axios.get('http://localhost:8000/subjects/'+id+'/get/instructions')
-                .then((response)=>(this.instructions = response.data))
-                .catch(function(error){console.log(error)});
-                 EventBus.$emit('InstEvent',this.instructions);
-                 
-            },
-            SetButton()
+           async fetchInstructions(subjectId)
             {
                 this.visible = true;
-                 EventBus.$emit('Buttonevent',this.visible);
+                await axios.get('http://localhost:8000/subjects/'+subjectId+'/get/instructions')
+                .then((response)=>(this.instructions = response.data))
+                .catch(function(error){console.log(error)});
+                 EventBus.$emit('InstEvent',{
+                     instructionKey:this.instructions,
+                     subjectKey:subjectId,
+                     visibleKey:this.visible
+                     });
             }
         }
     }

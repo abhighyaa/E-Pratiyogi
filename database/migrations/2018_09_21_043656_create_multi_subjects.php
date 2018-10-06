@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMultiQuestionsForSubjects extends Migration
+class CreateMultiSubjects extends Migration
 {
     /**
      * Run the migrations.
@@ -29,6 +29,9 @@ class CreateMultiQuestionsForSubjects extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('question_subject');
+        Schema::table('question_subject', function (Blueprint $table) {
+            //
+            Schema::drop('question_subject');
+        });
     }
 }

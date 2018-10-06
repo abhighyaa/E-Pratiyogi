@@ -36,9 +36,16 @@ class User extends Authenticatable
         return $this->hasMany(Question::class);
     }
 
-    public function tags()
+    public function topics()
     {
-        return $this->hasMany(Tag::class);
+        return $this->hasMany(Topic::class);
+    }
+
+    public function is_admin()
+    {
+        if($this->admin)
+            return true;
+        return false;
     }
 
     public function role()
