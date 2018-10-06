@@ -13,80 +13,87 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
         <!-- Styles -->
         <style>
-            html, body {
-                background-color: #F5F7FA;
+           html, body {
+                background-color: #fff;
                 color: #636b6f;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
-                height: auto;
+                height: 100vh;
                 margin: 0;
             }
-            .title {
-                font-size: 84px;
-                text-transform:uppercase;
-                text-align: center;
-            }
-            .box{
-               
-                text-align: center;
-                width:100%;
-                height:400px;
-                padding-top: 140px;
-                background-color:rgba(219, 221, 221,0.4);
-                border-radius:8px;
-                cursor:pointer;
-                color:rgba(67, 194, 216,1);  
-                display:inline-block;
-            
-            }
-            .col-sm-4{
-                padding:25px;
-            }
-            label{
-                padding:0;
-                margin-left:-7px;
-                font-weight:bold;
-                font-size:18px;
-            }
-            a{
-                text-decoration:none;
-                color: #636b6f;
+
+            .full-height {
+                height: 100vh;
             }
 
-            
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .top-right {
+                position: absolute;
+                right: 10px;
+                top: 18px;
+            }
+
+            .content {
+                text-align: center;
+            }
+
+            .title {
+                font-size: 84px;
+            }
+
+            .links > a {
+                color: #636b6f;
+                padding: 0 25px;
+                font-size: 12px;
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+
+            .m-b-md {
+                margin-bottom: 30px;
+            }
         </style>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-                <div class="title ">
-                    E-pratiyogi
+            @if (Route::has('login'))
+                <div class="top-right links">
+                    @auth
+                        <a href="{{ url('/home') }}">Home</a>
+                    @else
+                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('register') }}">Register</a>
+                    @endauth
+                </div>
+            @endif
+
+            <div class="content">
+                <div class="title m-b-md">
+                    E-PRATIYOGI
                 </div>
 
-                <div class="row">
-                    <div class="col-sm-4">
-                    <a href="{{ route('login') }}">
-                        <div class="box">
-                            <i class="fas fa-users fa-5x"></i><br>
-                            <label for="">Students</label>
-                        </div>
-                        </a>
-                    </div>                    
-                    <div class="col-sm-4">
-                    <a href="{{ route('login') }}">
-                        <div class="box ">
-                            <i class="fas fa-chalkboard-teacher fa-5x"></i><br>
-                            <label for="">Teacher</label>
-                        </div>
-                        </a>
-                    </div>
-                    <div class="col-sm-4">
-                    <a href="{{ route('login') }}">
-                        <div class="box">
-                            <i class="fas fa-user-cog fa-5x"></i><br>
-                            <label for="">Admin</label>
-                        </div>
-                        </a>
-                    </div>
+                <div class="links">
+                    Hey Hi!!!
+                    <a href="https://laravel.com/docs">Documentation</a>
+                    <a href="https://laravel.com/docs">Blog</a>
+                    <a href="https://laravel.com/docs">News</a>
+                  
+                    
+                    <a href="https://laravel.com/docs">About us</a>
+                    <a href="https://laravel.com/docs">Search</a>
+                    <a href="https://laravel.com/docs">Contact</a>
+
                 </div>
         </div>
     </body>

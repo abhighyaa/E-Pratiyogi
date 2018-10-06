@@ -2,7 +2,7 @@
     <div class="card card-default">
         <div class="card-header">Remember</div>
         <div class="card-body">
-            <h2 v-if="visible === false" class="text-center">Select a Category</h2>
+            <h2 v-if="visible === false">Select a Category</h2>
               <ul class="list-group">
                 <li class="list-group-item" :key="instruction.id" v-for="instruction in Instructions">
                     {{ instruction.instruction }}

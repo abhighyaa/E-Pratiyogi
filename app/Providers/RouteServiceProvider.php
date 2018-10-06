@@ -23,8 +23,10 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-
+        //validate id parameter as an integer only
+        Route::pattern('id', '[0-9]+');
+        // explicit model bindings
+        // Route::model('subject', App\Subject::class);
         parent::boot();
     }
 

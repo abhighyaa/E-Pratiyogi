@@ -12,10 +12,14 @@ class StudentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
-    }
+    public function __construct(){
+        $this->middleware('auth'); 
+        $this->middleware('user');
+      }
+        public function index()
+      {
+          return view('home');
+      }
 
     /**
      * Show the form for creating a new resource.
@@ -82,4 +86,6 @@ class StudentController extends Controller
     {
         //
     }
+  
+ 
 }

@@ -11,20 +11,14 @@
 |
 */
 
-Route::get('/welcome', function () {
+Auth::routes();
+
+Route::get('/', function () {
     return view('welcome');
 });
-
-Route::post('/login/custom',[
-    'uses' => 'LoginController@login',
-    'as' => 'login.custom'
-]);
-Route::group(['middleware' => 'auth'],function(){
-    Route::get('/', function () {
-    return view('welcome')->name('home');
+Route::get('/home', function () {
+    return view('welcome');
 });
-});
-
 Route::get('/library','SubjectController@index');
 
 Route::get('/getsubjects','SubjectController@getsubjects');
@@ -38,20 +32,31 @@ Route::get('/activatetopic','TopicsController@activatetopic');
 Route::get('/editques','QuestionController@editques');
 Route::post('/savequestion','QuestionController@savequestions');
 
-
 Route::get('/loggedin','HomeController@index');
 
 Route::get('/createtest','TestController@createtest');
 
+// Route::get('/library','QuestionController@index');
+// Route::get('/tags/{tag}','TagsController@show');
+// Route::get('/createtag','TagsController@create');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/topics/{topic}','TagsController@show');
 Route::get('/createtag','TagsController@create');
 
 
+Route::prefix('subjects')->group(function () {
+    Route::get('get/all', 'SubjectController@fetchSubjects');
+    Route::get('{id}/get/instructions', 'SubjectController@fetchInstructions');
+});
+Route::prefix('admin')->group(function () {
+    Route::get('/dashboard','AdminController@index');
+});
+Route::prefix('teacher')->group(function () {
+    Route::get('/home','TeacherController@index');
+});
+Route::prefix('student')->group(function () {
+    Route::get('/home', 'StudentController@index');
+});
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/subjects/get/all', 'SubjectController@fetchSubjects');
-Route::get('/subjects/{id}/get/instructions', 'SubjectController@fetchInstructions');
 

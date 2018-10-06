@@ -9,10 +9,20 @@ use Illuminate\Http\Request;
 
 class QuestionController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+     public function __construct(){
+        $this->middleware('auth'); 
+        $this->middleware('admin');
+      }
+      
+    // public function index()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     public function addquestions(Request $request){
         $input = $this->validate($request,[

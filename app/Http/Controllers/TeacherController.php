@@ -12,10 +12,14 @@ class TeacherController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
-    }
+    public function __construct(){
+        $this->middleware('auth'); 
+        $this->middleware('teacher');
+      }
+        public function index()
+      {
+          return "hello teacher";
+      }
 
     /**
      * Show the form for creating a new resource.
@@ -82,4 +86,5 @@ class TeacherController extends Controller
     {
         //
     }
+    
 }
