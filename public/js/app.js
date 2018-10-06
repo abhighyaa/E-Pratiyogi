@@ -47494,7 +47494,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         return {
             subjects: [],
             instructions: [],
-            show: false
+            visible: false
         };
     },
     mounted: function mounted() {
@@ -47544,8 +47544,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             return fetchInstructions;
         }(),
         SetButton: function SetButton() {
-            this.show = true;
-            __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$emit('Buttonevent', this.show);
+            this.visible = true;
+            __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$emit('Buttonevent', this.visible);
         }
     }
 });
@@ -48838,7 +48838,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             Instructions: [],
-            show: false
+            visible: false
 
         };
     },
@@ -48849,7 +48849,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             _this.Instructions = data;
         });
         __WEBPACK_IMPORTED_MODULE_0__app_js__["EventBus"].$on('Buttonevent', function (data) {
-            _this.show = data;
+            _this.visible = data;
         });
     }
 });
@@ -48866,7 +48866,9 @@ var render = function() {
     _c("div", { staticClass: "card-header" }, [_vm._v("Instructions")]),
     _vm._v(" "),
     _c("div", { staticClass: "card-body" }, [
-      _vm.show === false ? _c("h2", [_vm._v("Select a Category")]) : _vm._e(),
+      _vm.visible === false
+        ? _c("h2", [_vm._v("Select a Category")])
+        : _vm._e(),
       _vm._v(" "),
       _c(
         "ul",
@@ -48887,7 +48889,7 @@ var render = function() {
       ),
       _c("br"),
       _vm._v(" "),
-      _vm.show
+      _vm.visible
         ? _c("button", { staticClass: "btn btn-success" }, [
             _vm._v("Start Test")
           ])

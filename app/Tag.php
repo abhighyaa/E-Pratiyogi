@@ -21,8 +21,9 @@ class Tag extends Model
     }
     
     static public function getTags(){
-        $userid = Auth::user()->id; 
-        return Tag::where('user_id','=',$userid)->get();
+        // $userid = Auth::user()->id; 
+        // return Tag::where('user_id','=',$userid)->get();
+        return array();
     }
 
 }

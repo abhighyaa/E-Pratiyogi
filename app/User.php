@@ -40,4 +40,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Tag::class);
     }
+
+    public function role()
+    {
+        return $this->belongsToMany(role::class,'role_users');
+    }
 }

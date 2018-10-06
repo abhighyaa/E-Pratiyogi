@@ -18,7 +18,7 @@ import { EventBus } from '../app.js';
          return{
                 subjects:[],
                 instructions:[],
-                show:false
+                visible:false
         };
         },
 
@@ -41,8 +41,8 @@ import { EventBus } from '../app.js';
             },
             SetButton()
             {
-                this.show = true;
-                 EventBus.$emit('Buttonevent',this.show);
+                this.visible = true;
+                 EventBus.$emit('Buttonevent',this.visible);
             }
         }
     }
