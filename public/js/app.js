@@ -49371,7 +49371,11 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
+<<<<<<< HEAD
 exports.push([module.i, "\n.adminSidePanel{\n  height: 100%;\n}\n.list-group-item {\n    background:rgba(10,113,138);\n    cursor: pointer;\n    color: white;\n    border:none;\n}\n\n", ""]);
+=======
+exports.push([module.i, "\n.adminSidePanel{\n  height: 100%;\n   width:100%;\n}\n.list-group{\n  width:100%;\n}\n.list-group-item {\n    background:rgba(10,113,138);\n    cursor: pointer;\n    color: white;\n    border:none;\n    border-top: 1px solid rgba(255,255,255,0.5);\n    border-bottom: 1px solid rgba(255,255,255,0.5);\n}\n\n", ""]);
+>>>>>>> 5e7167102a93601f6666ff378d693936da142300
 
 // exports
 
@@ -49511,7 +49515,11 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+<<<<<<< HEAD
   return _c("div", { staticClass: "pl-3 adminSidePanel" }, [
+=======
+  return _c("div", { staticClass: " adminSidePanel" }, [
+>>>>>>> 5e7167102a93601f6666ff378d693936da142300
     _c("ul", { staticClass: "list-group" }, [
       _c(
         "li",
