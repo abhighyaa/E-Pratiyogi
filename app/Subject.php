@@ -10,6 +10,7 @@ use App\Question;
 class Subject extends Model
 {
     protected $fillable=['id','subject'];
+    
     public function topics()
     {
         return $this->belongsToMany(Topic::class);

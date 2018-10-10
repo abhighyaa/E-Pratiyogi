@@ -36,7 +36,7 @@ Route::get('/loggedin','HomeController@index');
 
 Route::get('/createtest','TestController@createtest');
 
-// Route::get('/library','QuestionController@index');
+Route::get('/library','QuestionController@index');
 // Route::get('/tags/{tag}','TagsController@show');
 // Route::get('/createtag','TagsController@create');
 // Route::get('/home', 'HomeController@index')->name('home');
@@ -48,9 +48,18 @@ Route::get('/createtag','TagsController@create');
 Route::prefix('subjects')->group(function () {
     Route::get('get/all', 'SubjectController@fetchSubjects');
     Route::get('{id}/get/instructions', 'SubjectController@fetchInstructions');
+    Route::get('remove/{id}', 'SubjectController@remove');
+    Route::get('add/{name}', 'SubjectController@CreateSubject');
+    Route::get('update/{id}/{subject}','SubjectController@update');
 });
 Route::prefix('admin')->group(function () {
     Route::get('/dashboard','AdminController@index');
+    Route::get('get/all/users','AdminController@FetchUsers');
+    Route::get('get/all/teachers','AdminController@Fetch_all_teachers');
+    Route::get('get/all/students','AdminController@Fetch_all_students');
+    Route::get('get/all/roles','AdminController@Fetch_all_roles');
+    Route::get('update/role/{id}/user/{name}','AdminController@update_role_of_user');
+    Route::get('remove/user/{id}','AdminController@Remove_user');
 });
 Route::prefix('teacher')->group(function () {
     Route::get('/home','TeacherController@index');

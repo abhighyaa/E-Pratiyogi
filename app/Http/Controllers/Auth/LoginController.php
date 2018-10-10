@@ -51,7 +51,7 @@ class LoginController extends Controller
             if($user->role->first()->name == 'student')
                 return redirect('/student/home');
             elseif($user->role->first()->name == 'teacher')
-                return redirect('/teacher/home');
+                return redirect('/library');
             elseif($user->role->first()->name == 'admin')
                 return redirect('/admin/dashboard');
     }

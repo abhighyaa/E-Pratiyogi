@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
     <style>
         html,body{
-            height:100vh;
+            height:100%;  
         }
     </style>
 </head>

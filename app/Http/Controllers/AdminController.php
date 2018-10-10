@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Tag;
+use App\User;
+use App\role;
+
 class AdminController extends Controller
 {
     public function __construct(){
@@ -12,7 +15,55 @@ class AdminController extends Controller
       }
         public function index()
       {
-        $tags=Tag::getTags();
-        return view('backend.library',compact('tags'));
+        // $tags=Tag::getTags();
+        return view('layouts.AdminPanel');
       }
+
+      public function FetchUsers()
+    {
+      //  $user = new User;
+      //  return $user->with('role')->get();
+      $users = User::whereHas('role', function($q) {
+        $q->where('role_id','!=', 1);      
+      })->with('role')->get();
+      return $users;
+    }
+    public function Fetch_all_teachers()
+    {
+         $teachers = User::whereHas('role', function($q) {
+           $q->where('role_id', 2);                 
+         })->with('role')->get();
+        return $teachers;
+    }
+     public function Fetch_all_students()
+    {
+         $students = User::whereHas('role', function($q) {
+           $q->where('role_id', 3);                 
+         })->with('role')->get();
+        return $students;
+    }
+    public function Fetch_all_roles()
+    {
+      $roles = role::all();
+      return $roles;
+    }
+    public function Remove_user(Request $request)
+    {
+      User::where('id',$request->id)->delete();
+      $users = User::whereHas('role', function($q) {
+        $q->where('role_id','!=', 1);      
+      })->with('role')->get();
+      return $users;
+    }
+    public function update_role_of_user(Request $request)
+    {
+       $user = User::where('id',$request->id)->first();
+       $user->role()->detach($user->role()->first()->id);
+      $role = role::where('name',$request->name)->first();
+      
+      $user->role()->attach($role->id);
+      return $user->role()->first();
+    }
+
+
 }
