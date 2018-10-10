@@ -68,12 +68,34 @@ class SubjectController extends Controller
          $subjects = Subject::all();
          return response()->json($subjects);
     }
-    
+
+    public function remove(Request $request){
+        Subject::where('id',$request->id)->delete();
+        $subject = Subject::all();
+        return $subject;
+    }
+
+    public function CreateSubject(Request $request){
+        if($request->name == 'null')
+        {
+            return 'Empty subject name can not be added';
+        }
+        else{
+            Subject::create(['subject' => $request->name]);
+            $subject = Subject::all();
+            return $subject;
+        }
+    }
+
     public function fetchInstructions(Request $request)
     {
         $instructions = Instruction::where('subject_id',$request->id)->get();
         return response()->json($instructions);
      }
-     
+     public function update(Request $request){
+       Subject::where('id',$request->id)->update(['subject' => $request->subject]);
+       $subjects = Subject::all();
+       return response()->json($subjects);
+    }
  }
  

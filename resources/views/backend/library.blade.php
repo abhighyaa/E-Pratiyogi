@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+@include('partials.error')
 <subject>
     <ul>
         <li v-for="s in sub" >

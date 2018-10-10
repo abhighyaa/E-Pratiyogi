@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Question;
 use App\Topic;
 use App\Subject;
+use App\Tag;
 use Illuminate\Http\Request;
 
 class QuestionController extends Controller
@@ -16,14 +17,18 @@ class QuestionController extends Controller
      */
      public function __construct(){
         $this->middleware('auth'); 
-        $this->middleware('admin');
+        $this->middleware('teacher');
       }
       
     // public function index()
     // {
     //     $this->middleware('auth');
     // }
-
+        public function index()
+        {
+            // $tags = Tag::all();
+            return view('backend.library');
+        }
     public function addquestions(Request $request){
         $input = $this->validate($request,[
             'newquestion'=> 'required',

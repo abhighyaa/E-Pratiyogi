@@ -85,9 +85,9 @@
 
                 <div class="links">
                     Hey Hi!!!
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laravel.com/docs">Blog</a>
-                    <a href="https://laravel.com/docs">News</a>
+                    <a href="/student/home">Student</a>
+                    <a href="/teacher/home">Teacher</a>
+                    <a href="/admin/dashboard">Admin</a>
                   
                     
                     <a href="https://laravel.com/docs">About us</a>

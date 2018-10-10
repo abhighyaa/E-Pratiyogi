@@ -20,6 +20,6 @@ class TeacherMiddleware
         $user = User::where('email',Auth::user()->email)->first();
         if($user->role->first()->name == 'teacher')
                  return $next($request);
-        return redirect()->back();
+        return redirect()->back()->with('error',"You don't have access to this URL");
     }
 }
