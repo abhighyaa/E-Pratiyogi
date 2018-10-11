@@ -48,10 +48,12 @@ class Errors{
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('course-component', require('./components/CourseComponent.vue'));
 Vue.component('subject-component', require('./components/SubjectComponent.vue'));
 Vue.component('instruction-component', require('./components/InstructionComponent.vue'));
 Vue.component('admin-component', require('./components/AdminComponent.vue'));
 Vue.component('dashboard-component', require('./components/DashboardComponent.vue'));
+
 
 
 Vue.component('mcontent',{
