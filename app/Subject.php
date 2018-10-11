@@ -24,4 +24,8 @@ class Subject extends Model
     {
         return $this->hasMany(Instruction::class);
     } 
+    public function branch()
+    {
+        return $this->belongsToMany(Branch::class,'branch_subjects');
+    }
 }
