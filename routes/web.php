@@ -60,6 +60,8 @@ Route::prefix('admin')->group(function () {
     Route::get('get/all/roles','AdminController@Fetch_all_roles');
     Route::get('update/role/{id}/user/{name}','AdminController@update_role_of_user');
     Route::get('remove/user/{id}','AdminController@Remove_user');
+    Route::get('get/all/courses','AdminController@FetchCourses');
+    Route::get('get/all/branches','AdminController@Fetch_branches_with_course');
 });
 Route::prefix('teacher')->group(function () {
     Route::get('/home','TeacherController@index');
@@ -67,5 +69,3 @@ Route::prefix('teacher')->group(function () {
 Route::prefix('student')->group(function () {
     Route::get('/home', 'StudentController@index');
 });
-
-

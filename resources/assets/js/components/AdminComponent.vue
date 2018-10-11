@@ -1,9 +1,5 @@
 <template>
-<<<<<<< HEAD
-      <div class="pl-3 adminSidePanel">
-=======
       <div class=" adminSidePanel">
->>>>>>> 5e7167102a93601f6666ff378d693936da142300
         <ul class="list-group" >
            <li class="list-group-item"  @click="FetchUsers()"><i class="fa fa-users"></i>&ensp;&ensp;Users</li>  
            <li class="list-group-item" ><i class="fa fa-folder-open"></i>&ensp;&ensp;Categories</li>  
@@ -70,24 +66,18 @@ import { EventBus } from '../app.js';
 <style>
 .adminSidePanel{
   height: 100%;
-<<<<<<< HEAD
-=======
-   width:100%;
+   width:100%;da
 }
 .list-group{
   width:100%;
->>>>>>> 5e7167102a93601f6666ff378d693936da142300
 }
 .list-group-item {
     background:rgba(10,113,138);
     cursor: pointer;
     color: white;
     border:none;
-<<<<<<< HEAD
-=======
     border-top: 1px solid rgba(255,255,255,0.5);
     border-bottom: 1px solid rgba(255,255,255,0.5);
->>>>>>> 5e7167102a93601f6666ff378d693936da142300
 }
 
 </style>
