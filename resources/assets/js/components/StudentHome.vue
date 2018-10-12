@@ -5,9 +5,9 @@
             <course-component v-if="visible"></course-component>
         </div>
         <div class="col-md-6">
-             <!-- <router-view name="instruction"></router-view> -->
-             <instructions  v-if="!visible"></instructions>
-             <subject-container v-else></subject-container>
+             <!-- <router-view name="#"></router-view> -->
+             <!-- <instructions  v-if="!visible"></instructions> -->
+             <subject-container  v-if="visible"></subject-container>
         </div>
         <div class="col-md-3">
              <!-- <router-view name="instruction"></router-view> -->

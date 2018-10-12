@@ -526,9 +526,15 @@
     var defaultOrdinal = '%d';
     var defaultDayOfMonthOrdinalParse = /\d{1,2}/;
 
+<<<<<<< HEAD
     function ordinal (number) {
         return this._ordinal.replace('%d', number);
     }
+=======
+// import VueRouter from 'vue-router';
+// import router from './route';
+__webpack_require__(22);
+>>>>>>> ac0357500c5fde4ae5a285df419e8c7aa98cdfb2
 
     var defaultRelativeTime = {
         future : 'in %s',
@@ -679,8 +685,16 @@
             return m.localeData().invalidDate();
         }
 
+<<<<<<< HEAD
         format = expandFormat(format, m.localeData());
         formatFunctions[format] = formatFunctions[format] || makeFormatFunction(format);
+=======
+var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
+    el: '#app',
+    //  router:router,
+    data: function data() {
+        var _ref;
+>>>>>>> ac0357500c5fde4ae5a285df419e8c7aa98cdfb2
 
         return formatFunctions[format](m);
     }
@@ -50550,6 +50564,7 @@ if (token) {
       var isBind = bitmask & WRAP_BIND_FLAG,
           Ctor = createCtor(func);
 
+<<<<<<< HEAD
       function wrapper() {
         var fn = (this && this !== root && this instanceof wrapper) ? Ctor : func;
         return fn.apply(isBind ? thisArg : this, arguments);
@@ -50567,6 +50582,27 @@ if (token) {
     function createCaseFirst(methodName) {
       return function(string) {
         string = toString(string);
+=======
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
+                                alert(courseID);
+                                _context2.next = 3;
+                                return axios.get('http://localhost:8000/courses/' + courseID + '/get/branches').then(function (response) {
+                                    return _this2.branches = response.data;
+                                }).catch(function (error) {
+                                    console.log(error);
+                                });
+
+                            case 3:
+                            case 'end':
+                                return _context2.stop();
+                        }
+                    }
+                }, _callee2, this);
+            }));
+>>>>>>> ac0357500c5fde4ae5a285df419e8c7aa98cdfb2
 
         var strSymbols = hasUnicode(string)
           ? stringToArray(string)
@@ -50630,6 +50666,7 @@ if (token) {
       };
     }
 
+<<<<<<< HEAD
     /**
      * Creates a function that wraps `func` to enable currying.
      *
@@ -50641,6 +50678,85 @@ if (token) {
      */
     function createCurry(func, bitmask, arity) {
       var Ctor = createCtor(func);
+=======
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "card card-default" }, [
+    _c("div", { staticClass: "card-header" }, [_vm._v("Course")]),
+    _vm._v(" "),
+    _c("div", { staticClass: "card-body" }, [
+      _c(
+        "ul",
+        { staticClass: "list-group" },
+        [
+          _vm._l(_vm.courses, function(course) {
+            return _c(
+              "li",
+              {
+                key: course.id,
+                staticClass: "list-group-item dropdown-toggle",
+                attrs: {
+                  "data-toggle": "dropdown",
+                  "aria-haspopup": "true",
+                  "aria-expanded": "false",
+                  id: "dropdownMenuLink"
+                },
+                on: {
+                  click: function($event) {
+                    _vm.fetchBranch(course.id)
+                  }
+                }
+              },
+              [
+                _c("a", { attrs: { href: "#", id: course.id } }, [
+                  _vm._v(_vm._s(course.name))
+                ]),
+                _c("i", { staticClass: "pull-right fa fa-caret-right" })
+              ]
+            )
+          }),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "dropdown-menu",
+              attrs: { "aria-labelledby": "dropdownMenuLink" }
+            },
+            _vm._l(_vm.branches, function(branch) {
+              return _c(
+                "a",
+                {
+                  key: branch.id,
+                  staticClass: "dropdown-item",
+                  attrs: { href: "#", id: branch.id },
+                  on: {
+                    click: function($event) {
+                      _vm.fetchSubjects(branch.id)
+                    }
+                  }
+                },
+                [_vm._v(_vm._s(branch.name))]
+              )
+            })
+          )
+        ],
+        2
+      )
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-3328158a", module.exports)
+  }
+}
+>>>>>>> ac0357500c5fde4ae5a285df419e8c7aa98cdfb2
 
       function wrapper() {
         var length = arguments.length,
@@ -51138,6 +51254,7 @@ if (token) {
         argPos, ary, arity
       ];
 
+<<<<<<< HEAD
       if (data) {
         mergeData(newData, data);
       }
@@ -51209,6 +51326,35 @@ if (token) {
       }
       return objValue;
     }
+=======
+    methods: {
+        TakeTest: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(sujectId) {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                //  await axios.get('http://localhost:8000/subjects/'+sujectId+'/get/instructions')
+                                //     .then((response)=>(this.instructions = response.data))
+                                //     .catch(function(error){console.log(error)});
+                                window.location.assign('http://localhost:8000/student/home/' + sujectId);
+                                // alert(this.instructions);
+                                // EventBus.$emit('fetchInstructions',{
+                                //     instructionsKey:this.instructions,
+                                //     visibleKey:this.visible
+                                // });
+                                // await axios.get('http://localhost:8000/student/home/'+sujectId)
+                                //     .then((response)=>(this.instructions = response.data))
+                                //     .catch(function(error){console.log(error)});
+
+                            case 1:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+>>>>>>> ac0357500c5fde4ae5a285df419e8c7aa98cdfb2
 
     /**
      * Used by `_.omit` to customize its `_.cloneDeep` use to only clone plain
@@ -51223,6 +51369,7 @@ if (token) {
       return isPlainObject(value) ? undefined : value;
     }
 
+<<<<<<< HEAD
     /**
      * A specialized version of `baseIsEqualDeep` for arrays with support for
      * partial deep comparisons.
@@ -51252,6 +51399,24 @@ if (token) {
       var index = -1,
           result = true,
           seen = (bitmask & COMPARE_UNORDERED_FLAG) ? new SetCache : undefined;
+=======
+            return TakeTest;
+        }(),
+        defaultsubjects: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
+                var _this2 = this;
+
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
+                                _context2.next = 2;
+                                return axios.get('http://localhost:8000/subjects/get/default').then(function (response) {
+                                    return _this2.subjects = response.data;
+                                }).catch(function (error) {
+                                    console.log(error);
+                                });
+>>>>>>> ac0357500c5fde4ae5a285df419e8c7aa98cdfb2
 
       stack.set(array, other);
       stack.set(other, array);
@@ -82173,7 +82338,12 @@ module.exports = function(Chart) {
 "use strict";
 
 
+<<<<<<< HEAD
 module.exports = function(Chart) {
+=======
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+>>>>>>> ac0357500c5fde4ae5a285df419e8c7aa98cdfb2
 
 	Chart.Doughnut = function(context, config) {
 		config.type = 'doughnut';
@@ -82189,6 +82359,28 @@ module.exports = function(Chart) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+<<<<<<< HEAD
+=======
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app_js__ = __webpack_require__(2);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+>>>>>>> ac0357500c5fde4ae5a285df419e8c7aa98cdfb2
 
 
 module.exports = function(Chart) {
@@ -82201,11 +82393,22 @@ module.exports = function(Chart) {
 
 };
 
+<<<<<<< HEAD
+=======
+        __WEBPACK_IMPORTED_MODULE_0__app_js__["EventBus"].$on('fetchInstructions', function (data) {
+            _this.instructions = data.instructionsKey;
+        });
+    },
+
+    methods: {}
+});
+>>>>>>> ac0357500c5fde4ae5a285df419e8c7aa98cdfb2
 
 /***/ }),
 /* 256 */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 "use strict";
 
 
@@ -82219,6 +82422,54 @@ module.exports = function(Chart) {
 
 };
 
+=======
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "card card-default" }, [
+    _c("div", { staticClass: "card-header" }, [_vm._v("Remember")]),
+    _vm._v(" "),
+    _c("div", { staticClass: "card-body" }, [
+      _c(
+        "ul",
+        { staticClass: "list-group" },
+        _vm._l(_vm.instructions, function(inst) {
+          return _c("li", { key: inst.id, staticClass: "list-group-item" }, [
+            _vm._v(
+              "\n                    " +
+                _vm._s(inst.instruction) +
+                "\n                "
+            )
+          ])
+        })
+      ),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c("button", { staticClass: "btn btn-primary" }, [_vm._v("Start")])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { attrs: { href: "/student/home" } }, [
+      _c("button", { staticClass: "btn btn-primary" }, [_vm._v("Back")])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-1f795cdc", module.exports)
+  }
+}
+>>>>>>> ac0357500c5fde4ae5a285df419e8c7aa98cdfb2
 
 /***/ }),
 /* 257 */
@@ -83209,9 +83460,48 @@ var Title = Element.extend({
 		var me = this;
 		helpers.extend(me, config);
 
+<<<<<<< HEAD
 		// Contains hit boxes for each dataset (in dataset order)
 		me.legendHitBoxes = [];
 	},
+=======
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row" }, [
+    _c(
+      "div",
+      { staticClass: "col-md-3" },
+      [_vm.visible ? _c("course-component") : _vm._e()],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "col-md-6" },
+      [_vm.visible ? _c("subject-container") : _vm._e()],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "col-md-3" },
+      [_vm.visible ? _c("previous-attempt") : _vm._e()],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-11855c53", module.exports)
+  }
+}
+>>>>>>> ac0357500c5fde4ae5a285df419e8c7aa98cdfb2
 
 	// These methods are ordered by lifecycle. Utilities then follow.
 
