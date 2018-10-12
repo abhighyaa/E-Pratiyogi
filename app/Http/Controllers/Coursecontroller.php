@@ -2,30 +2,39 @@
 
 namespace App\Http\Controllers;
 
-use App\Teacher;
 use Illuminate\Http\Request;
+use App\Course;
+use App\Branch;
 
-class TeacherController extends Controller
+class Coursecontroller extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct(){
-        $this->middleware('auth'); 
-        $this->middleware('teacher');
-      }
-        public function index()
-      {
-          return "hello teacher";
-      }
+    public function index()
+    {
+        $courses = Course::all();
+        return response()->json($courses);
+    }
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
+    public function Fetch_branches_by_Course(Request $request)
+    {
+        $branches = Course::findOrfail($request->id)->branches->pluck('name');
+        return response()->json($branches);
+    }
+
+    public function Fetch_subjects_by_Branch(Request $request)
+    {
+
+    }
+
     public function create()
     {
         //
@@ -45,10 +54,10 @@ class TeacherController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Teacher  $teacher
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Teacher $teacher)
+    public function show($id)
     {
         //
     }
@@ -56,10 +65,10 @@ class TeacherController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Teacher  $teacher
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Teacher $teacher)
+    public function edit($id)
     {
         //
     }
@@ -68,10 +77,10 @@ class TeacherController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Teacher  $teacher
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Teacher $teacher)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -79,12 +88,11 @@ class TeacherController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Teacher  $teacher
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Teacher $teacher)
+    public function destroy($id)
     {
         //
     }
-    
 }

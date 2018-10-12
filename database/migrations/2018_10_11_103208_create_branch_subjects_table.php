@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateInstructionsTable extends Migration
+class CreateBranchSubjectsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,16 @@ class CreateInstructionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('instructions', function (Blueprint $table) {
+        Schema::create('branch_subjects', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('branch_id');
             $table->integer('subject_id');
-            $table->string('instruction');            
             $table->timestamps();
+
+            // $table->foreign('branch_id')->references('id')->on('branches')->onDelete('cascade');
+            // $table->foreign('subject_id')->references('id')->on('subjects')->onDelete('cascade');
+
+            // $table->unique(['branch_id','subject_id']);
         });
     }
 
@@ -28,8 +33,6 @@ class CreateInstructionsTable extends Migration
      */
     public function down()
     {
-        
-        Schema::dropIfExists('instructions');  
-        
-}
+        Schema::dropIfExists('branch_subjects');
+    }
 }

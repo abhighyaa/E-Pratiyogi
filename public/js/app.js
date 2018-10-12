@@ -569,6 +569,7 @@ var Errors = function () {
  */
 
 __WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('example-component', __webpack_require__(55));
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('course-component', __webpack_require__(83));
 __WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('subject-component', __webpack_require__(9));
 __WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('instruction-component', __webpack_require__(10));
 __WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('admin-component', __webpack_require__(60));
@@ -26974,12 +26975,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            Instructions: [],
+            subjects: [],
             visible: false,
             subjectID: null
 
@@ -27011,46 +27021,31 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "card card-default" }, [
-    _c("div", { staticClass: "card-header" }, [_vm._v("Remember")]),
-    _vm._v(" "),
     _c("div", { staticClass: "card-body" }, [
-      _vm.visible === false
-        ? _c("h2", [_vm._v("Select a Category")])
-        : _vm._e(),
-      _vm._v(" "),
       _c(
-        "ul",
-        { staticClass: "list-group" },
-        _vm._l(_vm.Instructions, function(instruction) {
-          return _c(
-            "li",
-            { key: instruction.id, staticClass: "list-group-item" },
-            [
-              _vm._v(
-                "\n                " +
-                  _vm._s(instruction.instruction) +
-                  "\n            "
-              )
-            ]
-          )
+        "div",
+        { staticClass: "row" },
+        _vm._l(_vm.subjects, function(subject) {
+          return _c("div", { key: subject.id, staticClass: "col-sm-4" }, [
+            _c(
+              "div",
+              {
+                staticClass: "card card-default",
+                staticStyle: { border: "1px solid black" }
+              },
+              [
+                _c("div", { staticClass: "card-body" }, [
+                  _vm._v(
+                    "\n                         " +
+                      _vm._s(subject.subject) +
+                      "\n                     "
+                  )
+                ])
+              ]
+            )
+          ])
         })
-      ),
-      _c("br"),
-      _vm._v(" "),
-      _vm.visible
-        ? _c(
-            "button",
-            {
-              staticClass: "btn btn-success",
-              on: {
-                click: function($event) {
-                  _vm.startTest(_vm.subjectID)
-                }
-              }
-            },
-            [_vm._v("Start Test")]
-          )
-        : _vm._e()
+      )
     ])
   ])
 }
@@ -49407,101 +49402,208 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      showDashboard: false,
-      showSubjects: false,
-      subjects: [],
-      showUsers: false,
-      users: []
-    };
-  },
+   data: function data() {
+      return {
+         showDashboard: false,
+         showSubjects: false,
+         showCourses: false,
+         showUsers: false,
+         showBranches: false,
+         users: [],
+         subjects: [],
+         courses: [],
+         branches: []
+      };
+   },
 
-  methods: {
-    SetShowDashboard: function SetShowDashboard() {
-      this.showDashboard = true;
-      __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$emit('dashboard_Event1', this.showDashboard);
-    },
-    FetchSubjects: function () {
-      var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
-        var _this = this;
+   methods: {
+      SetShowDashboard: function SetShowDashboard() {
+         this.showDashboard = true;
+         __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$emit('dashboard_Event1', this.showDashboard);
+      },
+      FetchUsers: function () {
+         var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+            var _this = this;
 
-        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                this.showDashboard = false;
-                this.showUsers = false;
-                this.showSubjects = true;
-                _context.next = 5;
-                return axios.get('http://localhost:8000/subjects/get/all').then(function (response) {
-                  return _this.subjects = response.data;
-                }).catch(function (error) {
-                  console.log(error);
-                });
+            return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+               while (1) {
+                  switch (_context.prev = _context.next) {
+                     case 0:
+                        this.showDashboard = false;
+                        this.showSubjects = false;
+                        this.showUsers = true;
+                        this.showCourses = false;
+                        this.showBranches = false;
+                        _context.next = 7;
+                        return axios.get('http://localhost:8000/admin/get/all/users').then(function (response) {
+                           return _this.users = response.data;
+                        }).catch(function (error) {
+                           console.log(error);
+                        });
 
-              case 5:
-                __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$emit('subject_Event1', this.subjects);
-                __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$emit('subject_Event2', this.showDashboard);
-                __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$emit('subject_Event3', this.showSubjects);
-                __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$emit('subject_Event4', this.showUsers);
+                     case 7:
+                        __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$emit('user_events', {
+                           usersKey: this.users,
+                           showUsersKey: this.showUsers,
+                           showDashboardKey: this.showDashboard,
+                           showCoursesKey: this.showCourses,
+                           showBranchesKey: this.showBranches,
+                           showSubjectsKey: this.showSubjects
+                        });
 
-              case 9:
-              case 'end':
-                return _context.stop();
-            }
-          }
-        }, _callee, this);
-      }));
+                     case 8:
+                     case 'end':
+                        return _context.stop();
+                  }
+               }
+            }, _callee, this);
+         }));
 
-      function FetchSubjects() {
-        return _ref.apply(this, arguments);
-      }
+         function FetchUsers() {
+            return _ref.apply(this, arguments);
+         }
 
-      return FetchSubjects;
-    }(),
-    FetchUsers: function () {
-      var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
-        var _this2 = this;
+         return FetchUsers;
+      }(),
+      FetchCourses: function () {
+         var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
+            var _this2 = this;
 
-        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                this.showDashboard = false;
-                this.showSubjects = false;
-                this.showUsers = true;
-                _context2.next = 5;
-                return axios.get('http://localhost:8000/admin/get/all/users').then(function (response) {
-                  return _this2.users = response.data;
-                }).catch(function (error) {
-                  console.log(error);
-                });
+            return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+               while (1) {
+                  switch (_context2.prev = _context2.next) {
+                     case 0:
+                        this.showDashboard = false;
+                        this.showUsers = false;
+                        this.showSubjects = false;
+                        this.showCourses = true;
+                        this.showBranches = false;
+                        _context2.next = 7;
+                        return axios.get('http://localhost:8000/admin/get/all/courses').then(function (response) {
+                           return _this2.courses = response.data;
+                        }).catch(function (error) {
+                           console.log(error);
+                        });
 
-              case 5:
-                __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$emit('user_Event4', this.users);
-                __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$emit('user_Event5', this.showUsers);
-                __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$emit('user_Event6', this.showDashboard);
-                __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$emit('user_Event7', this.showSubjects);
+                     case 7:
+                        __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$emit('courses_events', {
+                           coursesKey: this.courses,
+                           showDashboardKey: this.showDashboard,
+                           showCoursesKey: this.showCourses,
+                           showUsersKey: this.showUsers,
+                           showBranchesKey: this.showBranches,
+                           showSubjectsKey: this.showSubjects
 
-              case 9:
-              case 'end':
-                return _context2.stop();
-            }
-          }
-        }, _callee2, this);
-      }));
+                        });
 
-      function FetchUsers() {
-        return _ref2.apply(this, arguments);
-      }
+                     case 8:
+                     case 'end':
+                        return _context2.stop();
+                  }
+               }
+            }, _callee2, this);
+         }));
 
-      return FetchUsers;
-    }()
-  },
-  mounted: function mounted() {
-    console.log('admin component mounted');
-  }
+         function FetchCourses() {
+            return _ref2.apply(this, arguments);
+         }
+
+         return FetchCourses;
+      }(),
+      FetchBranches: function () {
+         var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
+            var _this3 = this;
+
+            return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+               while (1) {
+                  switch (_context3.prev = _context3.next) {
+                     case 0:
+                        this.showDashboard = false;
+                        this.showUsers = false;
+                        this.showSubjects = false;
+                        this.show_teacher_user = false;
+                        this.show_student_user = false;
+                        this.showCourses = false;
+                        this.showBranches = true;
+                        _context3.next = 9;
+                        return axios.get('http://localhost:8000/admin/get/all/branches').then(function (response) {
+                           return _this3.branches = response.data;
+                        }).catch(function (error) {
+                           console.log(error);
+                        });
+
+                     case 9:
+                        __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$emit('branch_events', {
+                           branchesKey: this.branches,
+                           showDashboardKey: this.showDashboard,
+                           showCoursesKey: this.showCourses,
+                           showUsersKey: this.showUsers,
+                           showBranchesKey: this.showBranches,
+                           showSubjectsKey: this.showSubjects
+                        });
+
+                     case 10:
+                     case 'end':
+                        return _context3.stop();
+                  }
+               }
+            }, _callee3, this);
+         }));
+
+         function FetchBranches() {
+            return _ref3.apply(this, arguments);
+         }
+
+         return FetchBranches;
+      }(),
+      FetchSubjects: function () {
+         var _ref4 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee4() {
+            var _this4 = this;
+
+            return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
+               while (1) {
+                  switch (_context4.prev = _context4.next) {
+                     case 0:
+                        this.showDashboard = false;
+                        this.showUsers = false;
+                        this.showSubjects = true;
+                        this.showCourses = false;
+                        this.showBranches = false;
+                        _context4.next = 7;
+                        return axios.get('http://localhost:8000/subjects/get/all').then(function (response) {
+                           return _this4.subjects = response.data;
+                        }).catch(function (error) {
+                           console.log(error);
+                        });
+
+                     case 7:
+                        __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$emit('subject_events', {
+                           subjectsKey: this.subjects,
+                           showSubjectsKey: this.showSubjects,
+                           showDashboardKey: this.showDashboard,
+                           showUsersKey: this.showUsers,
+                           showBranchesKey: this.showBranches,
+                           showCoursesKey: this.showCourses
+                        });
+
+                     case 8:
+                     case 'end':
+                        return _context4.stop();
+                  }
+               }
+            }, _callee4, this);
+         }));
+
+         function FetchSubjects() {
+            return _ref4.apply(this, arguments);
+         }
+
+         return FetchSubjects;
+      }()
+   },
+   mounted: function mounted() {
+      console.log('admin component mounted');
+   }
 });
 
 /***/ }),
@@ -49527,9 +49629,31 @@ var render = function() {
         [_c("i", { staticClass: "fa fa-users" }), _vm._v("  Users")]
       ),
       _vm._v(" "),
-      _vm._m(0),
+      _c(
+        "li",
+        {
+          staticClass: "list-group-item",
+          on: {
+            click: function($event) {
+              _vm.FetchCourses()
+            }
+          }
+        },
+        [_c("i", { staticClass: "fa fa-folder-open" }), _vm._v("  Courses")]
+      ),
       _vm._v(" "),
-      _vm._m(1),
+      _c(
+        "li",
+        {
+          staticClass: "list-group-item",
+          on: {
+            click: function($event) {
+              _vm.FetchBranches()
+            }
+          }
+        },
+        [_c("i", { staticClass: "fa fa-folder" }), _vm._v("  Branches")]
+      ),
       _vm._v(" "),
       _c(
         "li",
@@ -49544,35 +49668,17 @@ var render = function() {
         [_c("i", { staticClass: "fa fa-tag" }), _vm._v("  Subjects")]
       ),
       _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
       _vm._m(2),
       _vm._v(" "),
-      _vm._m(3),
-      _vm._v(" "),
-      _vm._m(4),
-      _vm._v(" "),
-      _vm._m(5)
+      _vm._m(3)
     ])
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "list-group-item" }, [
-      _c("i", { staticClass: "fa fa-folder-open" }),
-      _vm._v("  Categories")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "list-group-item" }, [
-      _c("i", { staticClass: "fa fa-folder" }),
-      _vm._v("  Sub-categories")
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -49896,6 +50002,70 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -49910,11 +50080,14 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
       show_teacher_user: false,
       show_student_user: false,
       Input_for_subject: false,
+      showCourses: false,
+      showBranches: false,
       new_subject_name: null,
       users: [],
       roles: [],
+      courses: [],
+      branches: [],
       subjects: []
-
     };
   },
 
@@ -49974,8 +50147,10 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
       this.showUsers = false;
       this.show_teacher_user = false;
       this.show_student_user = false;
+      this.showCourses = false;
+      this.showBranches = false;
     },
-    FetchSubjects: function () {
+    FetchUsers: function () {
       var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
         var _this2 = this;
 
@@ -49983,19 +50158,21 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-
                 this.showDashboard = false;
-                this.showUsers = false;
-                this.showSubjects = true;
-
-                _context2.next = 5;
-                return axios.get('http://localhost:8000/subjects/get/all').then(function (response) {
-                  return _this2.subjects = response.data;
+                this.showSubjects = false;
+                this.showUsers = true;
+                this.show_teacher_user = false;
+                this.show_student_user = false;
+                this.showCourses = false;
+                this.showBranches = false;
+                _context2.next = 9;
+                return axios.get('http://localhost:8000/admin/get/all/users').then(function (response) {
+                  return _this2.users = response.data;
                 }).catch(function (error) {
                   console.log(error);
                 });
 
-              case 5:
+              case 9:
               case 'end':
                 return _context2.stop();
             }
@@ -50003,28 +50180,36 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         }, _callee2, this);
       }));
 
-      function FetchSubjects() {
+      function FetchUsers() {
         return _ref2.apply(this, arguments);
       }
 
-      return FetchSubjects;
+      return FetchUsers;
     }(),
-    RemoveSubject: function () {
-      var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3(id) {
+    Fetch_all_Teachers: function () {
+      var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
         var _this3 = this;
 
         return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                _context3.next = 2;
-                return axios.get('http://localhost:8000/subjects/remove/' + id).then(function (response) {
-                  return _this3.subjects = response.data;
+                this.showDashboard = false;
+                this.show_teacher_user = true;
+                this.showDashboard = false;
+                this.showSubjects = false;
+                this.showUsers = true;
+                this.show_student_user = false;
+                this.showCourses = false;
+                this.showBranches = false;
+                _context3.next = 10;
+                return axios.get('http://localhost:8000/admin/get/all/teachers').then(function (response) {
+                  return _this3.users = response.data;
                 }).catch(function (error) {
                   console.log(error);
                 });
 
-              case 2:
+              case 10:
               case 'end':
                 return _context3.stop();
             }
@@ -50032,28 +50217,289 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         }, _callee3, this);
       }));
 
-      function RemoveSubject(_x3) {
+      function Fetch_all_Teachers() {
         return _ref3.apply(this, arguments);
       }
 
-      return RemoveSubject;
+      return Fetch_all_Teachers;
     }(),
-    AddSubject: function () {
-      var _ref4 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee4(name) {
+    Fetch_all_Students: function () {
+      var _ref4 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee4() {
         var _this4 = this;
 
         return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
-                _context4.next = 2;
+
+                this.showDashboard = false;
+                this.showSubjects = false;
+                this.showUsers = true;
+                this.show_teacher_user = false;
+                this.show_student_user = true;
+                this.showCourses = false;
+                this.showBranches = false;
+                _context4.next = 9;
+                return axios.get('http://localhost:8000/admin/get/all/students').then(function (response) {
+                  return _this4.users = response.data;
+                }).catch(function (error) {
+                  console.log(error);
+                });
+
+              case 9:
+              case 'end':
+                return _context4.stop();
+            }
+          }
+        }, _callee4, this);
+      }));
+
+      function Fetch_all_Students() {
+        return _ref4.apply(this, arguments);
+      }
+
+      return Fetch_all_Students;
+    }(),
+    FetchRoles: function () {
+      var _ref5 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee5() {
+        var _this5 = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                _context5.next = 2;
+                return axios.get('http://localhost:8000/admin/get/all/roles').then(function (response) {
+                  return _this5.roles = response.data;
+                }).catch(function (error) {
+                  console.log(error);
+                });
+
+              case 2:
+              case 'end':
+                return _context5.stop();
+            }
+          }
+        }, _callee5, this);
+      }));
+
+      function FetchRoles() {
+        return _ref5.apply(this, arguments);
+      }
+
+      return FetchRoles;
+    }(),
+    RemoveUser: function () {
+      var _ref6 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee6(id) {
+        var _this6 = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee6$(_context6) {
+          while (1) {
+            switch (_context6.prev = _context6.next) {
+              case 0:
+                _context6.next = 2;
+                return axios.get('http://localhost:8000/admin/remove/user/' + id).then(function (response) {
+                  return _this6.users = response.data;
+                }).catch(function (error) {
+                  console.log(error);
+                });
+
+              case 2:
+              case 'end':
+                return _context6.stop();
+            }
+          }
+        }, _callee6, this);
+      }));
+
+      function RemoveUser(_x3) {
+        return _ref6.apply(this, arguments);
+      }
+
+      return RemoveUser;
+    }(),
+    update_role_of_user: function () {
+      var _ref7 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee7(id, name) {
+        var _this7 = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee7$(_context7) {
+          while (1) {
+            switch (_context7.prev = _context7.next) {
+              case 0:
+                _context7.next = 2;
+                return axios.get('http://localhost:8000/admin/update/role/' + id + '/user/' + name).then(function (response) {
+                  return _this7.users = response.data;
+                }).catch(function (error) {
+                  console.log(error);
+                });
+
+              case 2:
+              case 'end':
+                return _context7.stop();
+            }
+          }
+        }, _callee7, this);
+      }));
+
+      function update_role_of_user(_x4, _x5) {
+        return _ref7.apply(this, arguments);
+      }
+
+      return update_role_of_user;
+    }(),
+    FetchCourses: function () {
+      var _ref8 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee8() {
+        var _this8 = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee8$(_context8) {
+          while (1) {
+            switch (_context8.prev = _context8.next) {
+              case 0:
+                this.showDashboard = false;
+                this.showUsers = false;
+                this.showSubjects = false;
+                this.show_teacher_user = false;
+                this.show_student_user = false;
+                this.showCourses = true;
+                this.showBranches = false;
+                _context8.next = 9;
+                return axios.get('http://localhost:8000/admin/get/all/courses').then(function (response) {
+                  return _this8.courses = response.data;
+                }).catch(function (error) {
+                  console.log(error);
+                });
+
+              case 9:
+              case 'end':
+                return _context8.stop();
+            }
+          }
+        }, _callee8, this);
+      }));
+
+      function FetchCourses() {
+        return _ref8.apply(this, arguments);
+      }
+
+      return FetchCourses;
+    }(),
+    FetchBranches: function () {
+      var _ref9 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee9() {
+        var _this9 = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee9$(_context9) {
+          while (1) {
+            switch (_context9.prev = _context9.next) {
+              case 0:
+                this.showDashboard = false;
+                this.showUsers = false;
+                this.showSubjects = false;
+                this.show_teacher_user = false;
+                this.show_student_user = false;
+                this.showCourses = false;
+                this.showBranches = true;
+                _context9.next = 9;
+                return axios.get('http://localhost:8000/admin/get/all/branches').then(function (response) {
+                  return _this9.branches = response.data;
+                }).catch(function (error) {
+                  console.log(error);
+                });
+
+              case 9:
+              case 'end':
+                return _context9.stop();
+            }
+          }
+        }, _callee9, this);
+      }));
+
+      function FetchBranches() {
+        return _ref9.apply(this, arguments);
+      }
+
+      return FetchBranches;
+    }(),
+    FetchSubjects: function () {
+      var _ref10 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee10() {
+        var _this10 = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee10$(_context10) {
+          while (1) {
+            switch (_context10.prev = _context10.next) {
+              case 0:
+
+                this.showDashboard = false;
+                this.showUsers = false;
+                this.showSubjects = true;
+                this.showCourses = false;
+                this.showBranches = false;
+
+                _context10.next = 7;
+                return axios.get('http://localhost:8000/subjects/get/all').then(function (response) {
+                  return _this10.subjects = response.data;
+                }).catch(function (error) {
+                  console.log(error);
+                });
+
+              case 7:
+              case 'end':
+                return _context10.stop();
+            }
+          }
+        }, _callee10, this);
+      }));
+
+      function FetchSubjects() {
+        return _ref10.apply(this, arguments);
+      }
+
+      return FetchSubjects;
+    }(),
+    RemoveSubject: function () {
+      var _ref11 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee11(id) {
+        var _this11 = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee11$(_context11) {
+          while (1) {
+            switch (_context11.prev = _context11.next) {
+              case 0:
+                _context11.next = 2;
+                return axios.get('http://localhost:8000/subjects/remove/' + id).then(function (response) {
+                  return _this11.subjects = response.data;
+                }).catch(function (error) {
+                  console.log(error);
+                });
+
+              case 2:
+              case 'end':
+                return _context11.stop();
+            }
+          }
+        }, _callee11, this);
+      }));
+
+      function RemoveSubject(_x6) {
+        return _ref11.apply(this, arguments);
+      }
+
+      return RemoveSubject;
+    }(),
+    AddSubject: function () {
+      var _ref12 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee12(name) {
+        var _this12 = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee12$(_context12) {
+          while (1) {
+            switch (_context12.prev = _context12.next) {
+              case 0:
+                _context12.next = 2;
                 return axios.get('http://localhost:8000/subjects/add/' + name).then(function (response) {
                   if (response.data == 'Empty subject name can not be added') {
-                    _this4.message = response.data;
-                    alert(_this4.message);
-                    _this4.message = '';
+                    _this12.message = response.data;
+                    alert(_this12.message);
+                    _this12.message = '';
                   } else {
-                    _this4.subjects = response.data;
+                    _this12.subjects = response.data;
                   }
                 }).catch(function (error) {
                   console.log(error);
@@ -50064,239 +50510,56 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
               case 3:
               case 'end':
-                return _context4.stop();
+                return _context12.stop();
             }
           }
-        }, _callee4, this);
+        }, _callee12, this);
       }));
 
-      function AddSubject(_x4) {
-        return _ref4.apply(this, arguments);
+      function AddSubject(_x7) {
+        return _ref12.apply(this, arguments);
       }
 
       return AddSubject;
-    }(),
-    FetchUsers: function () {
-      var _ref5 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee5() {
-        var _this5 = this;
-
-        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
-          while (1) {
-            switch (_context5.prev = _context5.next) {
-              case 0:
-                this.showDashboard = false;
-                this.showSubjects = false;
-                this.showUsers = true;
-                this.show_teacher_user = false;
-                this.show_student_user = false;
-                _context5.next = 7;
-                return axios.get('http://localhost:8000/admin/get/all/users').then(function (response) {
-                  return _this5.users = response.data;
-                }).catch(function (error) {
-                  console.log(error);
-                });
-
-              case 7:
-              case 'end':
-                return _context5.stop();
-            }
-          }
-        }, _callee5, this);
-      }));
-
-      function FetchUsers() {
-        return _ref5.apply(this, arguments);
-      }
-
-      return FetchUsers;
-    }(),
-    Fetch_all_Teachers: function () {
-      var _ref6 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee6() {
-        var _this6 = this;
-
-        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee6$(_context6) {
-          while (1) {
-            switch (_context6.prev = _context6.next) {
-              case 0:
-                this.showDashboard = false;
-                this.show_teacher_user = true;
-                this.showDashboard = false;
-                this.showSubjects = false;
-                this.showUsers = true;
-                this.show_student_user = false;
-                _context6.next = 8;
-                return axios.get('http://localhost:8000/admin/get/all/teachers').then(function (response) {
-                  return _this6.users = response.data;
-                }).catch(function (error) {
-                  console.log(error);
-                });
-
-              case 8:
-              case 'end':
-                return _context6.stop();
-            }
-          }
-        }, _callee6, this);
-      }));
-
-      function Fetch_all_Teachers() {
-        return _ref6.apply(this, arguments);
-      }
-
-      return Fetch_all_Teachers;
-    }(),
-    Fetch_all_Students: function () {
-      var _ref7 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee7() {
-        var _this7 = this;
-
-        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee7$(_context7) {
-          while (1) {
-            switch (_context7.prev = _context7.next) {
-              case 0:
-
-                this.showDashboard = false;
-                this.showSubjects = false;
-                this.showUsers = true;
-                this.show_teacher_user = false;
-                this.show_student_user = true;
-                _context7.next = 7;
-                return axios.get('http://localhost:8000/admin/get/all/students').then(function (response) {
-                  return _this7.users = response.data;
-                }).catch(function (error) {
-                  console.log(error);
-                });
-
-              case 7:
-              case 'end':
-                return _context7.stop();
-            }
-          }
-        }, _callee7, this);
-      }));
-
-      function Fetch_all_Students() {
-        return _ref7.apply(this, arguments);
-      }
-
-      return Fetch_all_Students;
-    }(),
-    FetchRoles: function () {
-      var _ref8 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee8() {
-        var _this8 = this;
-
-        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee8$(_context8) {
-          while (1) {
-            switch (_context8.prev = _context8.next) {
-              case 0:
-                _context8.next = 2;
-                return axios.get('http://localhost:8000/admin/get/all/roles').then(function (response) {
-                  return _this8.roles = response.data;
-                }).catch(function (error) {
-                  console.log(error);
-                });
-
-              case 2:
-              case 'end':
-                return _context8.stop();
-            }
-          }
-        }, _callee8, this);
-      }));
-
-      function FetchRoles() {
-        return _ref8.apply(this, arguments);
-      }
-
-      return FetchRoles;
-    }(),
-    RemoveUser: function () {
-      var _ref9 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee9(id) {
-        var _this9 = this;
-
-        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee9$(_context9) {
-          while (1) {
-            switch (_context9.prev = _context9.next) {
-              case 0:
-                _context9.next = 2;
-                return axios.get('http://localhost:8000/admin/remove/user/' + id).then(function (response) {
-                  return _this9.users = response.data;
-                }).catch(function (error) {
-                  console.log(error);
-                });
-
-              case 2:
-              case 'end':
-                return _context9.stop();
-            }
-          }
-        }, _callee9, this);
-      }));
-
-      function RemoveUser(_x5) {
-        return _ref9.apply(this, arguments);
-      }
-
-      return RemoveUser;
-    }(),
-    update_role_of_user: function () {
-      var _ref10 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee10(id, name) {
-        var _this10 = this;
-
-        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee10$(_context10) {
-          while (1) {
-            switch (_context10.prev = _context10.next) {
-              case 0:
-                _context10.next = 2;
-                return axios.get('http://localhost:8000/admin/update/role/' + id + '/user/' + name).then(function (response) {
-                  return _this10.users = response.data;
-                }).catch(function (error) {
-                  console.log(error);
-                });
-
-              case 2:
-              case 'end':
-                return _context10.stop();
-            }
-          }
-        }, _callee10, this);
-      }));
-
-      function update_role_of_user(_x6, _x7) {
-        return _ref10.apply(this, arguments);
-      }
-
-      return update_role_of_user;
     }()
   },
   mounted: function mounted() {
-    var _this11 = this;
+    var _this13 = this;
 
     __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$on('dashboard_Event1', function (data) {
-      _this11.showDashboard = data;
+      _this13.showDashboard = data;
     });
-    __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$on('subject_Event1', function (data) {
-      _this11.subjects = data;
+    __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$on('user_events', function (data) {
+      _this13.users = data.usersKey;
+      _this13.showDashboard = data.showDashboardKey;
+      _this13.showSubjects = data.showSubjectsKey;
+      _this13.showUsers = data.showUsersKey;
+      _this13.showCourses = data.showCoursesKey;
+      _this13.showBranches = data.showBranchesKey;
     });
-    __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$on('subject_Event2', function (data) {
-      _this11.showDashboard = data;
+    __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$on('courses_events', function (data) {
+      _this13.courses = data.coursesKey;
+      _this13.showDashboard = data.showDashboardKey;
+      _this13.showSubjects = data.showSubjectsKey;
+      _this13.showUsers = data.showUsersKey;
+      _this13.showCourses = data.showCoursesKey;
+      _this13.showBranches = data.showBranchesKey;
     });
-    __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$on('subject_Event3', function (data) {
-      _this11.showSubjects = data;
+    __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$on('branch_events', function (data) {
+      _this13.branches = data.branchesKey;
+      _this13.showDashboard = data.showDashboardKey;
+      _this13.showSubjects = data.showSubjectsKey;
+      _this13.showUsers = data.showUsersKey;
+      _this13.showCourses = data.showCoursesKey;
+      _this13.showBranches = data.showBranchesKey;
     });
-    __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$on('subject_Event4', function (data) {
-      _this11.showUsers = data;
-    });
-    __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$on('user_Event4', function (data) {
-      _this11.users = data;
-    });
-    __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$on('user_Event5', function (data) {
-      _this11.showUsers = data;
-    });
-    __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$on('user_Event6', function (data) {
-      _this11.showDashboard = data;
-    });
-    __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$on('user_Event7', function (data) {
-      _this11.showSubjects = data;
+    __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$on('subject_events', function (data) {
+      _this13.subjects = data.subjectsKey;
+      _this13.showDashboard = data.showDashboardKey;
+      _this13.showSubjects = data.showSubjectsKey;
+      _this13.showUsers = data.showUsersKey;
+      _this13.showCourses = data.showCoursesKey;
+      _this13.showBranches = data.showBranchesKey;
     });
     console.log('dashboard component mounted');
   }
@@ -50329,7 +50592,7 @@ var render = function() {
             [_vm._v("\n              Dashboard\n            ")]
           ),
           _vm._v(" "),
-          _vm.showDashboard === false
+          _vm.showSubjects === true
             ? _c("i", { staticClass: "fa fa-angle-double-right" })
             : _vm._e(),
           _vm._v(" "),
@@ -50346,6 +50609,10 @@ var render = function() {
                 },
                 [_vm._v("\n              Subjects\n            ")]
               )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.showUsers === true
+            ? _c("i", { staticClass: "fa fa-angle-double-right" })
             : _vm._e(),
           _vm._v(" "),
           _vm.showUsers
@@ -50398,6 +50665,44 @@ var render = function() {
                   }
                 },
                 [_vm._v("\n             Students\n            ")]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.showCourses === true
+            ? _c("i", { staticClass: "fa fa-angle-double-right" })
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.showCourses
+            ? _c(
+                "button",
+                {
+                  staticClass: "location-button btn pt-2 pb-2 pl-3 pr-3",
+                  on: {
+                    click: function($event) {
+                      _vm.FetchCourses()
+                    }
+                  }
+                },
+                [_vm._v("\n             Courses\n            ")]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.showBranches === true
+            ? _c("i", { staticClass: "fa fa-angle-double-right" })
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.showBranches
+            ? _c(
+                "button",
+                {
+                  staticClass: "location-button btn pt-2 pb-2 pl-3 pr-3",
+                  on: {
+                    click: function($event) {
+                      _vm.FetchBranches()
+                    }
+                  }
+                },
+                [_vm._v("\n             Branches\n            ")]
               )
             : _vm._e()
         ])
@@ -50707,6 +51012,101 @@ var render = function() {
         ])
       : _vm._e(),
     _vm._v(" "),
+    _vm.showCourses === true
+      ? _c("div", [
+          _c("table", { staticClass: "table mt-3 ml-4 table_of_contents" }, [
+            _vm._m(4),
+            _vm._v(" "),
+            _c(
+              "tbody",
+              _vm._l(_vm.courses, function(course, index) {
+                return _c("tr", { key: course.id }, [
+                  _c("td", [_vm._v(_vm._s(++index))]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(course.name) +
+                        "\n              "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger",
+                        on: {
+                          click: function($event) {
+                            _vm.RemoveCourse(course.id)
+                          }
+                        }
+                      },
+                      [_vm._v("Delete")]
+                    )
+                  ])
+                ])
+              })
+            )
+          ])
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.showBranches === true
+      ? _c("div", [
+          _c("table", { staticClass: "table mt-3 ml-4 table_of_contents" }, [
+            _vm._m(5),
+            _vm._v(" "),
+            _c(
+              "tbody",
+              _vm._l(_vm.branches, function(branch, index) {
+                return _c(
+                  "tr",
+                  { key: branch.id },
+                  [
+                    _c("td", [_vm._v(_vm._s(++index))]),
+                    _vm._v(" "),
+                    _vm._l(branch.courses, function(course) {
+                      return _c("td", { key: course.id }, [
+                        _vm._v(
+                          "\n                " +
+                            _vm._s(course.name) +
+                            "\n              "
+                        )
+                      ])
+                    }),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(
+                        "\n                " +
+                          _vm._s(branch.name) +
+                          "\n              "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-danger",
+                          on: {
+                            click: function($event) {
+                              _vm.RemoveBranch(_vm.course.id)
+                            }
+                          }
+                        },
+                        [_vm._v("Delete")]
+                      )
+                    ])
+                  ],
+                  2
+                )
+              })
+            )
+          ])
+        ])
+      : _vm._e(),
+    _vm._v(" "),
     _vm.showDashboard === true
       ? _c("div", [
           _c("div", { staticClass: "row mt-3 ml-4" }, [
@@ -50727,9 +51127,39 @@ var render = function() {
               ]
             ),
             _vm._v(" "),
-            _vm._m(4),
+            _c(
+              "div",
+              {
+                staticClass: "col-sm-2 grid-icon text-center ml-2 pt-3 pb-3",
+                on: {
+                  click: function($event) {
+                    _vm.FetchCourses()
+                  }
+                }
+              },
+              [
+                _c("i", { staticClass: "fa fa-folder-open" }),
+                _vm._v(" "),
+                _c("h5", [_vm._v("Courses")])
+              ]
+            ),
             _vm._v(" "),
-            _vm._m(5),
+            _c(
+              "div",
+              {
+                staticClass: "col-sm-2 grid-icon text-center ml-2 pt-3 pb-3",
+                on: {
+                  click: function($event) {
+                    _vm.FetchBranches()
+                  }
+                }
+              },
+              [
+                _c("i", { staticClass: "fa fa-folder" }),
+                _vm._v(" "),
+                _c("h5", [_vm._v("Branches")])
+              ]
+            ),
             _vm._v(" "),
             _c(
               "div",
@@ -50823,29 +51253,31 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col-sm-2 grid-icon text-center ml-2 pt-3 pb-3" },
-      [
-        _c("i", { staticClass: "fa fa-folder-open" }),
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("S.No.")]),
         _vm._v(" "),
-        _c("h5", [_vm._v("Categories")])
-      ]
-    )
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Course Name")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Manage")])
+      ])
+    ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col-sm-2 grid-icon text-center ml-2 pt-3 pb-3" },
-      [
-        _c("i", { staticClass: "fa fa-folder" }),
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("S.No.")]),
         _vm._v(" "),
-        _c("h5", [_vm._v("Sub-Categories")])
-      ]
-    )
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Course Name")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Branch Name")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Manage")])
+      ])
+    ])
   },
   function() {
     var _vm = this
@@ -51764,6 +52196,326 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 80 */,
+/* 81 */,
+/* 82 */,
+/* 83 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(84)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(86)
+/* template */
+var __vue_template__ = __webpack_require__(87)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-3328158a"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/CourseComponent.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-3328158a", Component.options)
+  } else {
+    hotAPI.reload("data-v-3328158a", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 84 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(85);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(6)("ad5f6b44", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3328158a\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./CourseComponent.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3328158a\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./CourseComponent.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 85 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(5)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.dropdown-menu[data-v-3328158a] {\n  margin-left: 90%;\n  margin-top: -48px;\n  padding: 0;\n}\n.dropdown-toggle[data-v-3328158a]::after {\n  display: none;\n}\n.list-group-item[data-v-3328158a] {\n  cursor: pointer;\n}\n.dropdown-item[data-v-3328158a] {\n  border-bottom: 1px solid rgba(0, 0, 0, 0.2);\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 86 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_js__ = __webpack_require__(2);
+
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            courses: [],
+            branches: []
+        };
+    },
+    mounted: function mounted() {
+        this.fetchCourses();
+    },
+
+    methods: {
+        fetchCourses: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+                var _this = this;
+
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                _context.next = 2;
+                                return axios.get('http://localhost:8000/courses/get/all').then(function (response) {
+                                    return _this.courses = response.data;
+                                }).catch(function (error) {
+                                    console.log(error);
+                                });
+
+                            case 2:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function fetchCourses() {
+                return _ref.apply(this, arguments);
+            }
+
+            return fetchCourses;
+        }(),
+        fetchBranch: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2(courseID) {
+                var _this2 = this;
+
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
+                                _context2.next = 2;
+                                return axios.get('http://localhost:8000/courses/' + courseID + '/get/branches').then(function (response) {
+                                    return _this2.branches = response.data;
+                                }).catch(function (error) {
+                                    console.log(error);
+                                });
+
+                            case 2:
+                            case 'end':
+                                return _context2.stop();
+                        }
+                    }
+                }, _callee2, this);
+            }));
+
+            function fetchBranch(_x) {
+                return _ref2.apply(this, arguments);
+            }
+
+            return fetchBranch;
+        }(),
+        fetchSubjects: function () {
+            var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3(branchID) {
+                var _this3 = this;
+
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+                    while (1) {
+                        switch (_context3.prev = _context3.next) {
+                            case 0:
+                                _context3.next = 2;
+                                return axios.get('http://localhost:8000/course/branch/' + branchID + '/get/subjects').then(function (response) {
+                                    return _this3.branches = response.data;
+                                }).catch(function (error) {
+                                    console.log(error);
+                                });
+
+                            case 2:
+                            case 'end':
+                                return _context3.stop();
+                        }
+                    }
+                }, _callee3, this);
+            }));
+
+            function fetchSubjects(_x2) {
+                return _ref3.apply(this, arguments);
+            }
+
+            return fetchSubjects;
+        }()
+    }
+});
+
+/***/ }),
+/* 87 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "card card-default" }, [
+    _c("div", { staticClass: "card-header" }, [_vm._v("Course")]),
+    _vm._v(" "),
+    _c("div", { staticClass: "card-body" }, [
+      _c(
+        "ul",
+        { staticClass: "list-group" },
+        [
+          _vm._l(_vm.courses, function(course) {
+            return _c(
+              "li",
+              {
+                key: course.id,
+                staticClass: "list-group-item dropdown-toggle",
+                attrs: {
+                  "data-toggle": "dropdown",
+                  "aria-haspopup": "true",
+                  "aria-expanded": "false",
+                  id: "dropdownMenuLink"
+                },
+                on: {
+                  click: function($event) {
+                    _vm.fetchBranch(course.id)
+                  }
+                }
+              },
+              [
+                _c(
+                  "a",
+                  {
+                    attrs: { href: "#", id: course.id },
+                    on: {
+                      click: function($event) {
+                        _vm.fetchBranch(course.id)
+                      }
+                    }
+                  },
+                  [_vm._v(_vm._s(course.name))]
+                ),
+                _c("i", { staticClass: "pull-right fa fa-caret-right" })
+              ]
+            )
+          }),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "dropdown-menu",
+              attrs: { "aria-labelledby": "dropdownMenuLink" }
+            },
+            _vm._l(_vm.branches, function(branch) {
+              return _c(
+                "a",
+                {
+                  key: branch.id,
+                  staticClass: "dropdown-item",
+                  attrs: { href: "#" },
+                  on: {
+                    click: function($event) {
+                      _vm.fetchSubjects(branch.id)
+                    }
+                  }
+                },
+                [_vm._v(_vm._s(branch))]
+              )
+            })
+          )
+        ],
+        2
+      )
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-3328158a", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

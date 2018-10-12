@@ -20,10 +20,11 @@
             <button class="location-button btn pt-2 pb-2 pl-3 pr-3" @click="ShowDashboardScreen()">
               Dashboard
             </button>
-            <i class="fa fa-angle-double-right" v-if="showDashboard === false"></i>
+            <i class="fa fa-angle-double-right" v-if="showSubjects === true"></i>
             <button v-if="showSubjects" class="location-button btn pt-2 pb-2 pl-3 pr-3" @click="FetchSubjects()">
               Subjects
             </button>
+            <i class="fa fa-angle-double-right" v-if="showUsers === true"></i>
             <button v-if="showUsers" class="location-button btn pt-2 pb-2 pl-3 pr-3" @click="FetchUsers()">
               Users
             </button>
@@ -35,7 +36,14 @@
             <button v-if="showUsers &&  show_student_user" class="location-button btn pt-2 pb-2 pl-3 pr-3" @click="FetchUsers()">
              Students
             </button>
-            
+            <i class="fa fa-angle-double-right" v-if="showCourses === true "></i>
+            <button  v-if="showCourses" class="location-button btn pt-2 pb-2 pl-3 pr-3" @click="FetchCourses()">
+             Courses
+            </button>
+            <i class="fa fa-angle-double-right" v-if="showBranches === true "></i>
+            <button  v-if="showBranches" class="location-button btn pt-2 pb-2 pl-3 pr-3" @click="FetchBranches()">
+             Branches
+            </button>
           </div>
       </div>  
     </div>
@@ -128,7 +136,63 @@
           </tbody>
         </table>
     </div>
-    <!-- table end -->
+    <!-- subjects table end -->
+    <!-- table for courses -->
+
+    <div v-if="showCourses === true">
+        <table class="table mt-3 ml-4 table_of_contents">
+          <thead>
+            <tr>
+              <th scope="col">S.No.</th>
+              <th scope="col">Course Name</th>
+              <th scope="col">Manage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(course,index) in courses" :key="course.id">
+              <td>{{ ++index }}</td>
+              <td>
+                {{ course.name }}
+              </td>
+              <td>
+                <button class="btn btn-danger" @click="RemoveCourse(course.id)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+   
+    <!--course table end -->
+    <!-- table for branches -->
+
+    <div v-if="showBranches === true">
+        <table class="table mt-3 ml-4 table_of_contents">
+          <thead>
+            <tr>
+              <th scope="col">S.No.</th>
+              <th scope="col">Course Name</th>
+              <th scope="col">Branch Name</th>
+              <th scope="col">Manage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(branch,index) in branches" :key="branch.id">
+              <td>{{ ++index }}</td>
+              <td v-for="course in branch.courses" :key="course.id">
+                {{ course.name }}
+              </td>
+              <td>
+                {{ branch.name }}
+              </td>
+              <td>
+                <button class="btn btn-danger" @click="RemoveBranch(course.id)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+   
+    <!--branch table end -->
 
     <div v-if="showDashboard === true">
       <div class="row mt-3 ml-4">
@@ -136,13 +200,13 @@
           <i class="fa fa-users"></i>
           <h5>Users</h5>
         </div>
-        <div class="col-sm-2 grid-icon text-center ml-2 pt-3 pb-3">
+        <div class="col-sm-2 grid-icon text-center ml-2 pt-3 pb-3" @click="FetchCourses()">
           <i class="fa fa-folder-open"></i>
-          <h5>Categories</h5>
+          <h5>Courses</h5>
         </div>
-        <div class="col-sm-2 grid-icon text-center ml-2 pt-3 pb-3">
+        <div class="col-sm-2 grid-icon text-center ml-2 pt-3 pb-3" @click="FetchBranches()">
           <i class="fa fa-folder"></i>
-          <h5>Sub-Categories</h5>
+          <h5>Branches</h5>
         </div>
         <div class="col-sm-2 grid-icon text-center ml-2 pt-3 pb-3" @click="FetchSubjects()">
           <i class="fa fa-tag"></i>
@@ -185,11 +249,14 @@ import { EventBus } from '../app.js';
         show_teacher_user:false,
         show_student_user:false,
         Input_for_subject : false,
+        showCourses:false,
+        showBranches:false,
         new_subject_name : null,
         users:[],
         roles:[],
+        courses:[],
+        branches:[],
         subjects:[]
-
       }
     },
     
@@ -214,43 +281,8 @@ import { EventBus } from '../app.js';
           this.showUsers = false;
           this.show_teacher_user = false;
           this.show_student_user = false;
-       },
-       async FetchSubjects() {
-        
-          this.showDashboard = false;
-          this.showUsers = false;
-          this.showSubjects = true;
-          
-          await axios.get('http://localhost:8000/subjects/get/all')
-                .then((response)=>(this.subjects = response.data))
-                .catch(function(error){console.log(error)}); 
-                      
-       },
-       async RemoveSubject(id) {
-         
-           await axios.get('http://localhost:8000/subjects/remove/'+id)
-                .then((response)=>(this.subjects = response.data))
-                .catch(function(error){console.log(error)}); 
-       },
-       async AddSubject(name) {
-           // alert(name);
-           await axios.get('http://localhost:8000/subjects/add/'+name)
-               .then((response)=>
-                  { 
-                    if(response.data == 'Empty subject name can not be added')
-                    { 
-                      this.message = response.data;
-                      alert(this.message);
-                      this.message = '';
-                    }
-                    else
-                    { 
-                      this.subjects = response.data;
-                    }
-                    }).catch(function(error){console.log(error)});
-                    this.new_subject_name = null;
-
-
+          this.showCourses = false;
+          this.showBranches = false;
        },
        async FetchUsers()
        {
@@ -259,6 +291,8 @@ import { EventBus } from '../app.js';
          this.showUsers = true;
          this.show_teacher_user = false;
          this.show_student_user = false;
+         this.showCourses = false;
+         this.showBranches = false;
          await axios.get('http://localhost:8000/admin/get/all/users')
                 .then((response)=>(this.users = response.data))
                 .catch(function(error){console.log(error)}); 
@@ -271,6 +305,8 @@ import { EventBus } from '../app.js';
          this.showSubjects = false; 
          this.showUsers = true;
          this.show_student_user = false;
+         this.showCourses = false;
+         this.showBranches = false;
          await axios.get('http://localhost:8000/admin/get/all/teachers')
                 .then((response)=>(this.users = response.data))
                 .catch(function(error){console.log(error)}); 
@@ -283,6 +319,8 @@ import { EventBus } from '../app.js';
          this.showUsers = true;
          this.show_teacher_user = false;
          this.show_student_user = true;
+         this.showCourses = false;
+         this.showBranches = false;
          await axios.get('http://localhost:8000/admin/get/all/students')
                 .then((response)=>(this.users = response.data))
                 .catch(function(error){console.log(error)}); 
@@ -303,35 +341,108 @@ import { EventBus } from '../app.js';
         await axios.get('http://localhost:8000/admin/update/role/'+id+'/user/'+name)
                 .then((response)=>(this.users = response.data))
                 .catch(function(error){console.log(error)}); 
-       }
+       },
+       async FetchCourses()
+       {
+          this.showDashboard = false;
+          this.showUsers = false;
+          this.showSubjects = false;
+          this.show_teacher_user = false;
+          this.show_student_user = false;
+          this.showCourses = true;
+          this.showBranches = false;
+          await axios.get('http://localhost:8000/admin/get/all/courses')
+                .then((response)=>(this.courses = response.data))
+                .catch(function(error){console.log(error)});    
+       },
+       async FetchBranches()
+       {
+          this.showDashboard = false;
+          this.showUsers = false;
+          this.showSubjects = false;
+          this.show_teacher_user = false;
+          this.show_student_user = false;
+          this.showCourses = false;
+          this.showBranches = true;
+          await axios.get('http://localhost:8000/admin/get/all/branches')
+                .then((response)=>(this.branches = response.data))
+                .catch(function(error){console.log(error)});    
+       },
+       async FetchSubjects() {
+        
+          this.showDashboard = false;
+          this.showUsers = false;
+          this.showSubjects = true;
+          this.showCourses = false;
+          this.showBranches = false;
+          
+          await axios.get('http://localhost:8000/subjects/get/all')
+                .then((response)=>(this.subjects = response.data))
+                .catch(function(error){console.log(error)}); 
+                      
+       },
+       async RemoveSubject(id) {
+         
+           await axios.get('http://localhost:8000/subjects/remove/'+id)
+                .then((response)=>(this.subjects = response.data))
+                .catch(function(error){console.log(error)}); 
+       },
+       async AddSubject(name) {
+           
+           await axios.get('http://localhost:8000/subjects/add/'+name)
+               .then((response)=>
+                  { 
+                    if(response.data == 'Empty subject name can not be added')
+                    { 
+                      this.message = response.data;
+                      alert(this.message);
+                      this.message = '';
+                    }
+                    else
+                    { 
+                      this.subjects = response.data;
+                    }
+                    }).catch(function(error){console.log(error)});
+                    this.new_subject_name = null;
+
+
+       },
     },
     mounted() {
       EventBus.$on('dashboard_Event1', data => {
                 this.showDashboard = data;
             });
-      EventBus.$on('subject_Event1', data => {
-                this.subjects = data;
+       EventBus.$on('user_events', data => {
+                this.users = data.usersKey;
+                this.showDashboard =  data.showDashboardKey;
+                this.showSubjects = data.showSubjectsKey;
+                this.showUsers = data.showUsersKey; 
+                this.showCourses = data.showCoursesKey; 
+                this.showBranches = data.showBranchesKey;    
             });
-      EventBus.$on('subject_Event2', data => {
-                this.showDashboard = data; 
+       EventBus.$on('courses_events', data => {
+                this.courses = data.coursesKey;
+                this.showDashboard =  data.showDashboardKey;
+                this.showSubjects = data.showSubjectsKey;
+                this.showUsers = data.showUsersKey; 
+                this.showCourses = data.showCoursesKey;
+                this.showBranches = data.showBranchesKey;         
             });
-      EventBus.$on('subject_Event3', data => {
-                this.showSubjects = data; 
+       EventBus.$on('branch_events', data => {
+                this.branches = data.branchesKey;
+                this.showDashboard =  data.showDashboardKey;
+                this.showSubjects = data.showSubjectsKey;
+                this.showUsers = data.showUsersKey; 
+                this.showCourses = data.showCoursesKey;  
+                this.showBranches = data.showBranchesKey;       
             });
-      EventBus.$on('subject_Event4', data => {
-                this.showUsers = data; 
-            });
-      EventBus.$on('user_Event4', data => {
-                this.users = data;
-            });
-      EventBus.$on('user_Event5', data => {
-                this.showUsers = data; 
-            });
-      EventBus.$on('user_Event6', data => {
-                this.showDashboard = data; 
-            });
-      EventBus.$on('user_Event7', data => {
-                this.showSubjects = data; 
+       EventBus.$on('subject_events', data => {
+                this.subjects = data.subjectsKey;
+                this.showDashboard =  data.showDashboardKey;
+                this.showSubjects = data.showSubjectsKey;
+                this.showUsers = data.showUsersKey; 
+                this.showCourses = data.showCoursesKey;  
+                this.showBranches = data.showBranchesKey;       
             });
       console.log('dashboard component mounted');
     }

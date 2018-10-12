@@ -52,6 +52,11 @@ Route::prefix('subjects')->group(function () {
     Route::get('add/{name}', 'SubjectController@CreateSubject');
     Route::get('update/{id}/{subject}','SubjectController@update');
 });
+Route::prefix('courses')->group(function(){
+    Route::get('get/all','Coursecontroller@index');
+    Route::get('{id}/get/branches','Coursecontroller@Fetch_branches_by_Course');
+    Route::get('branch/{id}/get/subjects','Coursecontroller@Fetch_subjects_by_Branch');
+});
 Route::prefix('admin')->group(function () {
     Route::get('/dashboard','AdminController@index');
     Route::get('get/all/users','AdminController@FetchUsers');
@@ -60,9 +65,11 @@ Route::prefix('admin')->group(function () {
     Route::get('get/all/roles','AdminController@Fetch_all_roles');
     Route::get('update/role/{id}/user/{name}','AdminController@update_role_of_user');
     Route::get('remove/user/{id}','AdminController@Remove_user');
+    Route::get('get/all/courses','AdminController@FetchCourses');
+    Route::get('get/all/branches','AdminController@Fetch_branches_with_course');
 });
 Route::prefix('teacher')->group(function () {
-    Route::get('/home','TeacherController@index');
+    Route::get('/home','QuestionController@index');
 });
 Route::prefix('student')->group(function () {
     Route::get('/home', 'StudentController@index');
