@@ -67,6 +67,9 @@ Route::prefix('admin')->group(function () {
     Route::get('remove/user/{id}','AdminController@Remove_user');
     Route::get('get/all/courses','AdminController@FetchCourses');
     Route::get('get/all/branches','AdminController@Fetch_branches_with_course');
+    Route::get('get/all/subjects','AdminController@Fetch_subjects_with_course_branch');
+    Route::get('update/{id}/course/{name}','AdminController@update_course');
+    Route::get('update/{id}/branch/{name}','AdminController@update_branch');
 });
 Route::prefix('teacher')->group(function () {
     Route::get('/home','QuestionController@index');
