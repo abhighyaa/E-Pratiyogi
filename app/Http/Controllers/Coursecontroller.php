@@ -26,13 +26,14 @@ class Coursecontroller extends Controller
      */
     public function Fetch_branches_by_Course(Request $request)
     {
-        $branches = Course::findOrfail($request->id)->branches->pluck('name');
+        $branches = Course::findOrfail($request->id)->branches;
         return response()->json($branches);
     }
 
     public function Fetch_subjects_by_Branch(Request $request)
     {
-
+        $subjects = Branch::findOrfail($request->id)->subjects;
+        return response()->json($subjects);
     }
 
     public function create()

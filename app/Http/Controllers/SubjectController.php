@@ -97,6 +97,11 @@ class SubjectController extends Controller
        $subjects = Subject::all();
        return response()->json($subjects);
     }
+    public function getDefaultSubjects(){
+
+        $subjects = Subject::all();
+        return response()->json($subjects);
+    }
 
     public function testQuestion(Request $request){
         $cnte=0;

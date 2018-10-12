@@ -9,7 +9,7 @@
                      <a href="#" @click="fetchBranch(course.id)" :id="course.id">{{ course.name}}</a><i class="pull-right fa fa-caret-right"></i>
                   </li>
                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                     <a class="dropdown-item" href="#" @click="fetchSubjects(branch.id)" v-for="branch in branches" :key="branch.id">{{ branch }}</a>
+                     <a class="dropdown-item" href="#" @click="fetchSubjects(branch.id)" v-for="branch in branches" :id="branch.id" :key="branch.id">{{ branch.name }}</a>
                    </div>
               </ul>
         </div>
@@ -22,7 +22,8 @@ import { EventBus } from '../app.js';
         data(){
          return{
                 courses:[],
-                branches:[]     
+                branches:[],
+                subjects:[]   
         };
         },
 
@@ -32,8 +33,8 @@ import { EventBus } from '../app.js';
         methods:{
             async fetchCourses(){
                  await axios.get('http://localhost:8000/courses/get/all')
-                .then((response)=>(this.courses = response.data))
-                .catch(function(error){console.log(error)});
+                    .then((response)=>(this.courses = response.data))
+                    .catch(function(error){console.log(error)});
             },
             async fetchBranch(courseID){
                 await axios.get('http://localhost:8000/courses/'+courseID+'/get/branches')
@@ -41,9 +42,12 @@ import { EventBus } from '../app.js';
                     .catch(function(error){console.log(error)});
             },
             async fetchSubjects(branchID){
-                await axios.get('http://localhost:8000/course/branch/'+branchID+'/get/subjects')
-                    .then((response)=>(this.branches = response.data))
+                await axios.get('http://localhost:8000/courses/branch/'+branchID+'/get/subjects')
+                    .then((response)=>(this.subjects = response.data))
                     .catch(function(error){console.log(error)});
+                EventBus.$emit('fetchSubjects',{
+                    subjectKey:this.subjects
+                });
             }
         }
     }
