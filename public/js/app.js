@@ -49006,6 +49006,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -49058,15 +49060,14 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                     while (1) {
                         switch (_context2.prev = _context2.next) {
                             case 0:
-                                alert(courseID);
-                                _context2.next = 3;
+                                _context2.next = 2;
                                 return axios.get('http://localhost:8000/courses/' + courseID + '/get/branches').then(function (response) {
                                     return _this2.branches = response.data;
                                 }).catch(function (error) {
                                     console.log(error);
                                 });
 
-                            case 3:
+                            case 2:
                             case 'end':
                                 return _context2.stop();
                         }

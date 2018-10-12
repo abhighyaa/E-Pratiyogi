@@ -10,4 +10,8 @@ class Branch extends Model
     {
         return $this->belongsToMany('App\Course','branch_courses');
     }
+    public function subjects()
+    {
+        return $this->belongsToMany('App\Subject','branch_subjects');
+    }
 }
