@@ -51,6 +51,7 @@ Route::prefix('subjects')->group(function () {
     Route::get('remove/{id}', 'SubjectController@remove');
     Route::get('add/{name}', 'SubjectController@CreateSubject');
     Route::get('update/{id}/{subject}','SubjectController@update');
+    Route::get('get/default','SubjectController@getDefaultSubjects');
 });
 Route::prefix('courses')->group(function(){
     Route::get('get/all','Coursecontroller@index');

@@ -1,11 +1,12 @@
 import Vue from 'vue';
 // import VueRouter from 'vue-router';
-import Routes from './route';
+// import Routes from './route';
 require('./bootstrap');
 
 // Vue.use(VueRouter);
 
 // const router = new VueRouter({
+//     mode: 'history',
 //     routes:Routes
 
 // });
@@ -49,10 +50,12 @@ class Errors{
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('course-component', require('./components/CourseComponent.vue'));
-Vue.component('subject-component', require('./components/SubjectComponent.vue'));
-Vue.component('instruction-component', require('./components/InstructionComponent.vue'));
+Vue.component('previous-attempt', require('./components/PreviousAttempt.vue'));
+Vue.component('subject-container', require('./components/SubjectComponent.vue'));
 Vue.component('admin-component', require('./components/AdminComponent.vue'));
 Vue.component('dashboard-component', require('./components/DashboardComponent.vue'));
+Vue.component('instructions', require('./components/Instructions.vue'));
+Vue.component('student-home', require('./components/StudentHome.vue'));
 
 
 

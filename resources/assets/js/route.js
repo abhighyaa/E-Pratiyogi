@@ -1,12 +1,12 @@
-import SubjectComponent from './components/SubjectComponent.vue'
-import InstructionComponent from './components/InstructionComponent.vue'
+// import SubjectComponent from './components/SubjectComponent.vue'
+import Instructions from './components/Instructions.vue'
 
 export default[
     
-    { path:'/',components: {
-        default: SubjectComponent,InstructionComponent,
-        subject:SubjectComponent,
-        instruction: InstructionComponent
-      }
+    { path:'/studnt/home',
+      components: {
+                    default:Instructions,
+                    instruction: Instructions
+                 }
     },
 ]
