@@ -25,7 +25,7 @@
 
     <h1>YOUR PERCENT :-={{marks}}% </h1>
     <h1>DETAILED TEST REPORT:</h1>
-    <div v-for="(value, key) in questionsdata" >
+    <div v-for="(value, key, index) in questionsdata" :key='index'>
     <h2>TOPIC NAME:-"{{ key }}"</h2> <br>
     <div v-if="value.right.easy.length + value.wrong.easy.length > 0">
     <h3>No of questions in easy:- {{value.right.easy.length + value.wrong.easy.length }}</h3><br>
@@ -48,11 +48,11 @@
 </div>
 <h3>TOPIC AND COMPLEXITY WISE WRONG QUESTION ANSWERS</h3>
 
-<div v-for="(value, key) in questionsdata">
+<div v-for="(value, key, index) in questionsdata" :key="index">
  <h2 v-if="value.wrong.easy.length >0|| value.wrong.med.length >0|| value.wrong.hard.length >0">TOPIC NAME:-"{{ key }}"</h2> <br>
  <div v-if="value.wrong.easy.length > 0">
  <h3>no of wrong in easy:- {{value.wrong.easy.length}}</h3>
- <div v-for="question in value.wrong.easy">
+ <div v-for="(question,index) in value.wrong.easy" :key="index">
     <h4>{{question.question}}</h4>
     <h4>{{question.answer}}</h4>
   </div>
@@ -60,7 +60,7 @@
 
  <div v-if="value.wrong.med.length > 0">
  <h3>no of wrong in med:- {{value.wrong.med.length}}</h3>
- <div v-for="question in value.wrong.med">
+ <div v-for="(question,index) in value.wrong.med" :key="index">
     <h4>{{question.question}}</h4>
     <h4>{{question.answer}}</h4>
   </div>
@@ -68,7 +68,7 @@
 
 <div v-if="value.wrong.hard.length > 0">
  <h3>no of wrong in hard:- {{value.wrong.hard.length}}</h3>
- <div v-for="question in value.wrong.hard">
+ <div v-for="(question,index) in value.wrong.hard" :key="index">
     <h4>{{question.question}}</h4>
     <h4>{{question.answer}}</h4>
   </div>
