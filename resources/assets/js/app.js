@@ -54,6 +54,7 @@ Vue.component('instruction-component', require('./components/InstructionComponen
 Vue.component('admin-component', require('./components/AdminComponent.vue'));
 Vue.component('dashboard-component', require('./components/DashboardComponent.vue'));
 Vue.component('test-component', require('./components/testComponent.vue'));
+Vue.component('piechart-component', require('./components/piechartComponent.vue'));
 
 
 

@@ -1,5 +1,7 @@
 <template>
 <div>
+    <piechart-component></piechart-component>
+    
    <div v-if="quizrunning" class='quesblock' style="max-width:700px;margin-top:50px;margin-left:50px">
    <div >
         <div>
