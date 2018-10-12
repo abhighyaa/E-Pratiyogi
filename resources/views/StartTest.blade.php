@@ -16,7 +16,7 @@
                         </ul>
                         <br>
                         <a href="/student/home"><button class="btn btn-primary">Back</button></a>
-                        <button class="btn btn-primary">Start</button>
+                        <button class="btn btn-primary" id="{{ $subjectId }}">Start</button>
                     </div>
             </div>
         </div>
