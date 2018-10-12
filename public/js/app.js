@@ -50261,6 +50261,26 @@ if (token) {
         return object;
       });
     }
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
     /**
      * Creates a `baseEach` or `baseEachRight` function.
@@ -50354,6 +50374,24 @@ if (token) {
         var chr = strSymbols
           ? strSymbols[0]
           : string.charAt(0);
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
+                                _context2.next = 2;
+                                return axios.get('http://localhost:8000/courses/' + courseID + '/get/branches').then(function (response) {
+                                    return _this2.branches = response.data;
+                                }).catch(function (error) {
+                                    console.log(error);
+                                });
+
+                            case 2:
+                            case 'end':
+                                return _context2.stop();
+                        }
+                    }
+                }, _callee2, this);
+            }));
 
         var trailing = strSymbols
           ? castSlice(strSymbols, 1).join('')
@@ -50553,6 +50591,8 @@ if (token) {
           isCurried = bitmask & (WRAP_CURRY_FLAG | WRAP_CURRY_RIGHT_FLAG),
           isFlip = bitmask & WRAP_FLIP_FLAG,
           Ctor = isBindKey ? undefined : createCtor(func);
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
       function wrapper() {
         var length = arguments.length,
@@ -50613,6 +50653,35 @@ if (token) {
         return baseInverter(object, setter, toIteratee(iteratee), {});
       };
     }
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app_js__ = __webpack_require__(2);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
     /**
      * Creates a function that performs a mathematical operation on two values.
@@ -50704,6 +50773,70 @@ if (token) {
     function createPartial(func, bitmask, thisArg, partials) {
       var isBind = bitmask & WRAP_BIND_FLAG,
           Ctor = createCtor(func);
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card card-default" }, [
+      _c("div", { staticClass: "card-header" }, [_vm._v("Previous Attempts")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-body" }, [
+        _c("ul", { staticClass: "list-group" }, [
+          _c("li", { staticClass: "list-group-item" }, [
+            _c("a", { attrs: { href: "#" } }, [_vm._v("English")]),
+            _c("span", { staticClass: "pull-right" }, [
+              _vm._v("Sept 02, 2018")
+            ]),
+            _c("br"),
+            _vm._v(" "),
+            _c("label", [_vm._v("Score: 41/50")])
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "list-group-item" }, [
+            _c("a", { attrs: { href: "#" } }, [_vm._v("Data Structure")]),
+            _c("span", { staticClass: "pull-right" }, [
+              _vm._v("Sept 08, 2018")
+            ]),
+            _c("br"),
+            _vm._v(" "),
+            _c("label", [_vm._v("Score: 48/50")])
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "list-group-item" }, [
+            _c("a", { attrs: { href: "#" } }, [_vm._v("Operating System")]),
+            _c("span", { staticClass: "pull-right" }, [_vm._v("Oct 06, 2018")]),
+            _c("br"),
+            _vm._v(" "),
+            _c("label", [_vm._v("Score: 32/60")])
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "list-group-item" }, [
+            _c("a", { attrs: { href: "#" } }, [_vm._v("Aptitude")]),
+            _c("span", { staticClass: "pull-right" }, [_vm._v("Oct 10, 2018")]),
+            _c("br"),
+            _vm._v(" "),
+            _c("label", [_vm._v("Score: 22/40")])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-48c5ebef", module.exports)
+  }
+}
 
       function wrapper() {
         var argsIndex = -1,
@@ -51279,6 +51412,8 @@ if (token) {
     var getData = !metaMap ? noop : function(func) {
       return metaMap.get(func);
     };
+// module
+exports.push([module.i, "\n.adminSidePanel{\n  height: 100%;\n   width:100%;\n}\n.list-group{\n  width:100%;\n}\n.list-group-item {\n    background:rgba(10,113,138);\n    cursor: pointer;\n    color: white;\n    border:none;\n    border-top: 1px solid rgba(255,255,255,0.5);\n    border-bottom: 1px solid rgba(255,255,255,0.5);\n}\n.questions,.settings,.results,.notifications\n{\n  cursor: not-allowed;\n}\n\n", ""]);
 
     /**
      * Gets the name of `func`.
@@ -51574,6 +51709,21 @@ if (token) {
         ? baseCreate(getPrototype(object))
         : {};
     }
+            return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
+               while (1) {
+                  switch (_context4.prev = _context4.next) {
+                     case 0:
+                        this.showDashboard = false;
+                        this.showUsers = false;
+                        this.showSubjects = true;
+                        this.showCourses = false;
+                        this.showBranches = false;
+                        _context4.next = 7;
+                        return axios.get('http://localhost:8000/admin/get/all/subjects').then(function (response) {
+                           return _this4.subjects = response.data;
+                        }).catch(function (error) {
+                           console.log(error);
+                        });
 
     /**
      * Initializes an object clone based on its `toStringTag`.
@@ -51611,6 +51761,120 @@ if (token) {
         case numberTag:
         case stringTag:
           return new Ctor(object);
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: " adminSidePanel" }, [
+    _c("ul", { staticClass: "list-group" }, [
+      _c(
+        "li",
+        {
+          staticClass: "list-group-item",
+          on: {
+            click: function($event) {
+              _vm.FetchUsers()
+            }
+          }
+        },
+        [_c("i", { staticClass: "fa fa-users" }), _vm._v("  Users")]
+      ),
+      _vm._v(" "),
+      _c(
+        "li",
+        {
+          staticClass: "list-group-item",
+          on: {
+            click: function($event) {
+              _vm.FetchCourses()
+            }
+          }
+        },
+        [_c("i", { staticClass: "fa fa-folder-open" }), _vm._v("  Courses")]
+      ),
+      _vm._v(" "),
+      _c(
+        "li",
+        {
+          staticClass: "list-group-item",
+          on: {
+            click: function($event) {
+              _vm.FetchBranches()
+            }
+          }
+        },
+        [_c("i", { staticClass: "fa fa-folder" }), _vm._v("  Branches")]
+      ),
+      _vm._v(" "),
+      _c(
+        "li",
+        {
+          staticClass: "list-group-item",
+          on: {
+            click: function($event) {
+              _vm.FetchSubjects()
+            }
+          }
+        },
+        [_c("i", { staticClass: "fa fa-tag" }), _vm._v("  Subjects")]
+      ),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _vm._m(2),
+      _vm._v(" "),
+      _vm._m(3)
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "list-group-item questions" }, [
+      _c("i", { staticClass: "fa fa-question-circle " }),
+      _vm._v("  Questions")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "list-group-item settings" }, [
+      _c("i", { staticClass: "fa fa-cogs" }),
+      _vm._v("  Settings")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "list-group-item results" }, [
+      _c("i", { staticClass: "fa fa-trophy" }),
+      _vm._v("  Results")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "list-group-item notifications" }, [
+      _c("i", { staticClass: "fa fa-bell" }),
+      _vm._v("  Notifications")
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-18f46165", module.exports)
+  }
+}
 
         case regexpTag:
           return cloneRegExp(object);
@@ -51752,6 +52016,8 @@ if (token) {
       var data = getData(other);
       return !!data && func === data[0];
     }
+// module
+exports.push([module.i, "\nh1{\n  color:rgba(0,0,0,0.7);\n}\n.Editable{\n  height: 35px;\n  padding-left: 10px;\n  border:1px solid lightblue;\n  outline: none;\n  border-radius: 20px;\n}\n.Editable:focus{\n border: 2px solid lightblue;\n}\nspan{\n  cursor: pointer;\ntext-transform: capitalize;\n}\n.grid-icon {\n    border-radius: 10px;\n    background-color: #8599ad;\n    color: white;\n}\n.grid-icon:hover\n  {\n    background-color: rgba(44,133,155);\n    /*cursor: pointer;*/\n}\nh5{\n    color: white;\n}\n.location\n  {\n    border:none;\n    width: 88%;\n    background-color: rgba(218,218,218,0.5);\n    border-radius: 6px;\n    margin-bottom: 5px;\n}\n.table_of_contents\n  {\n    width: 86%;\n}\n.location-button\n  {\n    background:transparent;\n    border:none;\n    cursor: pointer;\n    color: black;\n}\n.location-button:hover\n  {\n     background-color: #8599ad;\n     color: white;\n}\n.search_content\n  {\n    width: 540px;\n}\n.input-container\n  {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    width: 100%;\n    margin-bottom: 15px;\n}\n.icon \n  {\n    position: relative;\n    margin-left: -30px;\n    margin-top: 8px;\n    font-size: 18px;\n    color: #8599ad;\n}\n.input-field {\n    width: 74%;\n    height: 35px;\n    padding-left: 10px;\n  border:none;\n  outline: none;\n    border-radius: 20px;\n\n/*  border-radius: 3px;\n*/\n}\n.input-field:focus{\n  border: 1px solid lightblue;\n}\n.subject_list_text,.subject_add_button\n  {\n    border:solid 1px lightgrey;\n}\n.subject_add_button\n  {\n    background-color: white;\n    cursor:pointer;\n    color: black;\n    width: 110px;\n    padding: 5px 3px;\n    border-radius: 6px;\n}\n.subject_add_button:hover\n  {\n    background-color: rgba(44,133,155);\n}\n.subject_list_text\n  {\n    background-color: rgba(218,218,218,0.5);\n    border-radius: 6px;\n}\n.subject_input\n  {\n    height: 35px;\n    width: 784px;\n    border-radius: 20px;\n    margin-left: -8px;\n    outline: none;\n    border:1px solid lightblue;\n    padding:15px;\n}\n.subject_input:focus{\n     border:2px solid lightblue;\n}\n.btn-primary{\n    position: relative;\n    width: 110px;\n    border-radius: 20px;\n    padding:9px;\n}\n.question,.settings,.results,.notifications:hover\n   {\n    cursor: not-allowed;\n}\n", ""]);
 
     /**
      * Checks if `func` has its source masked.
@@ -51833,6 +52099,253 @@ if (token) {
         }
         return key;
       });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
       var cache = result.cache;
       return result;
@@ -51901,6 +52414,73 @@ if (token) {
       // Use source `arity` if one is not provided.
       if (data[9] == null) {
         data[9] = source[9];
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      edit: false,
+      newSubjectName: '',
+      showDashboard: true,
+      message: '',
+      showUsers: false,
+      showSubjects: false,
+      show_teacher_user: false,
+      show_student_user: false,
+      Input_for_subject: false,
+      showCourses: false,
+      showBranches: false,
+      new_subject_name: null,
+      users: [],
+      roles: [],
+      courses: [],
+      branches: [],
+      subjects: []
+    };
+  },
+
+
+  methods: {
+    ShowDashboardScreen: function ShowDashboardScreen() {
+
+      this.showDashboard = true;
+      this.showSubjects = false;
+      this.showUsers = false;
+      this.show_teacher_user = false;
+      this.show_student_user = false;
+      this.showCourses = false;
+      this.showBranches = false;
+    },
+    FetchUsers: function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+        var _this = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                this.showDashboard = false;
+                this.showSubjects = false;
+                this.showUsers = true;
+                this.show_teacher_user = false;
+                this.show_student_user = false;
+                this.showCourses = false;
+                this.showBranches = false;
+                _context.next = 9;
+                return axios.get('http://localhost:8000/admin/get/all/users').then(function (response) {
+                  return _this.users = response.data;
+                }).catch(function (error) {
+                  console.log(error);
+                });
+
+              case 9:
+              case 'end':
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function FetchUsers() {
+        return _ref.apply(this, arguments);
       }
       // Use source `func` and merge bitmasks.
       data[0] = source[0];
@@ -52088,6 +52668,125 @@ if (token) {
       return function() {
         var stamp = nativeNow(),
             remaining = HOT_SPAN - (stamp - lastCalled);
+      return FetchUsers;
+    }(),
+    Fetch_all_Teachers: function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
+        var _this2 = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                this.showDashboard = false;
+                this.show_teacher_user = true;
+                this.showDashboard = false;
+                this.showSubjects = false;
+                this.showUsers = true;
+                this.show_student_user = false;
+                this.showCourses = false;
+                this.showBranches = false;
+                _context2.next = 10;
+                return axios.get('http://localhost:8000/admin/get/all/teachers').then(function (response) {
+                  return _this2.users = response.data;
+                }).catch(function (error) {
+                  console.log(error);
+                });
+
+              case 10:
+              case 'end':
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function Fetch_all_Teachers() {
+        return _ref2.apply(this, arguments);
+      }
+
+      return Fetch_all_Teachers;
+    }(),
+    Fetch_all_Students: function () {
+      var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
+        var _this3 = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+
+                this.showDashboard = false;
+                this.showSubjects = false;
+                this.showUsers = true;
+                this.show_teacher_user = false;
+                this.show_student_user = true;
+                this.showCourses = false;
+                this.showBranches = false;
+                _context3.next = 9;
+                return axios.get('http://localhost:8000/admin/get/all/students').then(function (response) {
+                  return _this3.users = response.data;
+                }).catch(function (error) {
+                  console.log(error);
+                });
+
+              case 9:
+              case 'end':
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this);
+      }));
+
+      function Fetch_all_Students() {
+        return _ref3.apply(this, arguments);
+      }
+
+      return Fetch_all_Students;
+    }(),
+    FetchRoles: function () {
+      var _ref4 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee4() {
+        var _this4 = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _context4.next = 2;
+                return axios.get('http://localhost:8000/admin/get/all/roles').then(function (response) {
+                  return _this4.roles = response.data;
+                }).catch(function (error) {
+                  console.log(error);
+                });
+
+              case 2:
+              case 'end':
+                return _context4.stop();
+            }
+          }
+        }, _callee4, this);
+      }));
+
+      function FetchRoles() {
+        return _ref4.apply(this, arguments);
+      }
+
+      return FetchRoles;
+    }(),
+    RemoveUser: function () {
+      var _ref5 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee5(id) {
+        var _this5 = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                _context5.next = 2;
+                return axios.get('http://localhost:8000/admin/remove/user/' + id).then(function (response) {
+                  return _this5.users = response.data;
+                }).catch(function (error) {
+                  console.log(error);
+                });
 
         lastCalled = stamp;
         if (remaining > 0) {
@@ -52113,6 +52812,29 @@ if (token) {
       var index = -1,
           length = array.length,
           lastIndex = length - 1;
+        }, _callee5, this);
+      }));
+
+      function RemoveUser(_x) {
+        return _ref5.apply(this, arguments);
+      }
+
+      return RemoveUser;
+    }(),
+    update_role_of_user: function () {
+      var _ref6 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee6(id, name) {
+        var _this6 = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee6$(_context6) {
+          while (1) {
+            switch (_context6.prev = _context6.next) {
+              case 0:
+                _context6.next = 2;
+                return axios.get('http://localhost:8000/admin/update/role/' + id + '/user/' + name).then(function (response) {
+                  return _this6.users = response.data;
+                }).catch(function (error) {
+                  console.log(error);
+                });
 
       size = size === undefined ? length : size;
       while (++index < size) {
@@ -52121,6 +52843,8 @@ if (token) {
 
         array[rand] = array[index];
         array[index] = value;
+      function update_role_of_user(_x2, _x3) {
+        return _ref6.apply(this, arguments);
       }
       array.length = size;
       return array;
@@ -52137,6 +52861,40 @@ if (token) {
       var result = [];
       if (string.charCodeAt(0) === 46 /* . */) {
         result.push('');
+      return update_role_of_user;
+    }(),
+    FetchCourses: function () {
+      var _ref7 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee7() {
+        var _this7 = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee7$(_context7) {
+          while (1) {
+            switch (_context7.prev = _context7.next) {
+              case 0:
+                this.showDashboard = false;
+                this.showUsers = false;
+                this.showSubjects = false;
+                this.show_teacher_user = false;
+                this.show_student_user = false;
+                this.showCourses = true;
+                this.showBranches = false;
+                _context7.next = 9;
+                return axios.get('http://localhost:8000/admin/get/all/courses').then(function (response) {
+                  return _this7.courses = response.data;
+                }).catch(function (error) {
+                  console.log(error);
+                });
+
+              case 9:
+              case 'end':
+                return _context7.stop();
+            }
+          }
+        }, _callee7, this);
+      }));
+
+      function FetchCourses() {
+        return _ref7.apply(this, arguments);
       }
       string.replace(rePropName, function(match, number, quote, subString) {
         result.push(quote ? subString.replace(reEscapeChar, '$1') : (number || match));
@@ -52154,6 +52912,51 @@ if (token) {
     function toKey(value) {
       if (typeof value == 'string' || isSymbol(value)) {
         return value;
+      return FetchCourses;
+    }(),
+    UpdateCourse: function () {
+      var _ref8 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee8(CourseNewName, CourseId) {
+        var _this8 = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee8$(_context8) {
+          while (1) {
+            switch (_context8.prev = _context8.next) {
+              case 0:
+                if (!(CourseNewName === '')) {
+                  _context8.next = 6;
+                  break;
+                }
+
+                alert("Course name can not be NUll");
+                _context8.next = 4;
+                return axios.get('http://localhost:8000/admin/get/all/courses').then(function (response) {
+                  return _this8.courses = response.data;
+                }).catch(function (error) {
+                  console.log(error);
+                });
+
+              case 4:
+                _context8.next = 8;
+                break;
+
+              case 6:
+                _context8.next = 8;
+                return axios.get('http://localhost:8000/admin/update/' + CourseId + '/course/' + CourseNewName).then(function (response) {
+                  return _this8.courses = response.data;
+                }).catch(function (error) {
+                  console.log(error);
+                });
+
+              case 8:
+              case 'end':
+                return _context8.stop();
+            }
+          }
+        }, _callee8, this);
+      }));
+
+      function UpdateCourse(_x4, _x5) {
+        return _ref8.apply(this, arguments);
       }
       var result = (value + '');
       return (result == '0' && (1 / value) == -INFINITY) ? '-0' : result;
@@ -52174,6 +52977,40 @@ if (token) {
         try {
           return (func + '');
         } catch (e) {}
+      return UpdateCourse;
+    }(),
+    FetchBranches: function () {
+      var _ref9 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee9() {
+        var _this9 = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee9$(_context9) {
+          while (1) {
+            switch (_context9.prev = _context9.next) {
+              case 0:
+                this.showDashboard = false;
+                this.showUsers = false;
+                this.showSubjects = false;
+                this.show_teacher_user = false;
+                this.show_student_user = false;
+                this.showCourses = false;
+                this.showBranches = true;
+                _context9.next = 9;
+                return axios.get('http://localhost:8000/admin/get/all/branches').then(function (response) {
+                  return _this9.branches = response.data;
+                }).catch(function (error) {
+                  console.log(error);
+                });
+
+              case 9:
+              case 'end':
+                return _context9.stop();
+            }
+          }
+        }, _callee9, this);
+      }));
+
+      function FetchBranches() {
+        return _ref9.apply(this, arguments);
       }
       return '';
     }
@@ -52206,6 +53043,51 @@ if (token) {
     function wrapperClone(wrapper) {
       if (wrapper instanceof LazyWrapper) {
         return wrapper.clone();
+      return FetchBranches;
+    }(),
+    UpdateBranch: function () {
+      var _ref10 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee10(BranchNewName, BranchId) {
+        var _this10 = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee10$(_context10) {
+          while (1) {
+            switch (_context10.prev = _context10.next) {
+              case 0:
+                if (!(BranchNewName === '')) {
+                  _context10.next = 6;
+                  break;
+                }
+
+                alert("Branch name can not be NUll");
+                _context10.next = 4;
+                return axios.get('http://localhost:8000/admin/get/all/branches').then(function (response) {
+                  return _this10.branches = response.data;
+                }).catch(function (error) {
+                  console.log(error);
+                });
+
+              case 4:
+                _context10.next = 8;
+                break;
+
+              case 6:
+                _context10.next = 8;
+                return axios.get('http://localhost:8000/admin/update/' + BranchId + '/branch/' + BranchNewName).then(function (response) {
+                  return _this10.branches = response.data;
+                }).catch(function (error) {
+                  console.log(error);
+                });
+
+              case 8:
+              case 'end':
+                return _context10.stop();
+            }
+          }
+        }, _callee10, this);
+      }));
+
+      function UpdateBranch(_x6, _x7) {
+        return _ref10.apply(this, arguments);
       }
       var result = new LodashWrapper(wrapper.__wrapped__, wrapper.__chain__);
       result.__actions__ = copyArray(wrapper.__actions__);
@@ -52242,6 +53124,40 @@ if (token) {
         size = 1;
       } else {
         size = nativeMax(toInteger(size), 0);
+      return UpdateBranch;
+    }(),
+    FetchSubjects: function () {
+      var _ref11 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee11() {
+        var _this11 = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee11$(_context11) {
+          while (1) {
+            switch (_context11.prev = _context11.next) {
+              case 0:
+
+                this.showDashboard = false;
+                this.showUsers = false;
+                this.showSubjects = true;
+                this.showCourses = false;
+                this.showBranches = false;
+
+                _context11.next = 7;
+                return axios.get('http://localhost:8000/admin/get/all/subjects').then(function (response) {
+                  return _this11.subjects = response.data;
+                }).catch(function (error) {
+                  console.log(error);
+                });
+
+              case 7:
+              case 'end':
+                return _context11.stop();
+            }
+          }
+        }, _callee11, this);
+      }));
+
+      function FetchSubjects() {
+        return _ref11.apply(this, arguments);
       }
       var length = array == null ? 0 : array.length;
       if (!length || size < 1) {
@@ -52256,6 +53172,57 @@ if (token) {
       }
       return result;
     }
+      return FetchSubjects;
+    }(),
+    RemoveSubject: function () {
+      var _ref12 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee12(id) {
+        var _this12 = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee12$(_context12) {
+          while (1) {
+            switch (_context12.prev = _context12.next) {
+              case 0:
+                _context12.next = 2;
+                return axios.get('http://localhost:8000/subjects/remove/' + id).then(function (response) {
+                  return _this12.subjects = response.data;
+                }).catch(function (error) {
+                  console.log(error);
+                });
+
+              case 2:
+              case 'end':
+                return _context12.stop();
+            }
+          }
+        }, _callee12, this);
+      }));
+
+      function RemoveSubject(_x8) {
+        return _ref12.apply(this, arguments);
+      }
+
+      return RemoveSubject;
+    }(),
+    AddSubject: function () {
+      var _ref13 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee13(name) {
+        var _this13 = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee13$(_context13) {
+          while (1) {
+            switch (_context13.prev = _context13.next) {
+              case 0:
+                _context13.next = 2;
+                return axios.get('http://localhost:8000/subjects/add/' + name).then(function (response) {
+                  if (response.data == 'Empty subject name can not be added') {
+                    _this13.message = response.data;
+                    alert(_this13.message);
+                    _this13.message = '';
+                  } else {
+                    _this13.subjects = response.data;
+                  }
+                }).catch(function (error) {
+                  console.log(error);
+                });
 
     /**
      * Creates an array with all falsey values removed. The values `false`, `null`,
@@ -52313,6 +53280,16 @@ if (token) {
       var length = arguments.length;
       if (!length) {
         return [];
+              case 3:
+              case 'end':
+                return _context13.stop();
+            }
+          }
+        }, _callee13, this);
+      }));
+
+      function AddSubject(_x9) {
+        return _ref13.apply(this, arguments);
       }
       var args = Array(length - 1),
           array = arguments[0],
@@ -52418,6 +53395,93 @@ if (token) {
       return isArrayLikeObject(array)
         ? baseDifference(array, baseFlatten(values, 1, isArrayLikeObject, true), undefined, comparator)
         : [];
+      return AddSubject;
+    }(),
+    UpdateSubject: function () {
+      var _ref14 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee14(SubjectNewName, SubjectId) {
+        var _this14 = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee14$(_context14) {
+          while (1) {
+            switch (_context14.prev = _context14.next) {
+              case 0:
+                if (!(SubjectNewName === '')) {
+                  _context14.next = 6;
+                  break;
+                }
+
+                alert("Subejct can not be NUll");
+                _context14.next = 4;
+                return axios.get('http://localhost:8000/admin/get/all/subjects').then(function (response) {
+                  return _this14.subjects = response.data;
+                }).catch(function (error) {
+                  console.log(error);
+                });
+
+              case 4:
+                _context14.next = 8;
+                break;
+
+              case 6:
+                _context14.next = 8;
+                return axios.get('http://localhost:8000/subjects/update/' + SubjectId + '/' + SubjectNewName).then(function (response) {
+                  return _this14.subjects = response.data;
+                }).catch(function (error) {
+                  console.log(error);
+                });
+
+              case 8:
+              case 'end':
+                return _context14.stop();
+            }
+          }
+        }, _callee14, this);
+      }));
+
+      function UpdateSubject(_x10, _x11) {
+        return _ref14.apply(this, arguments);
+      }
+
+      return UpdateSubject;
+    }()
+  },
+  mounted: function mounted() {
+    var _this15 = this;
+
+    __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$on('dashboard_Event1', function (data) {
+      _this15.showDashboard = data;
+    });
+    __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$on('user_events', function (data) {
+      _this15.users = data.usersKey;
+      _this15.showDashboard = data.showDashboardKey;
+      _this15.showSubjects = data.showSubjectsKey;
+      _this15.showUsers = data.showUsersKey;
+      _this15.showCourses = data.showCoursesKey;
+      _this15.showBranches = data.showBranchesKey;
+    });
+    __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$on('courses_events', function (data) {
+      _this15.courses = data.coursesKey;
+      _this15.showDashboard = data.showDashboardKey;
+      _this15.showSubjects = data.showSubjectsKey;
+      _this15.showUsers = data.showUsersKey;
+      _this15.showCourses = data.showCoursesKey;
+      _this15.showBranches = data.showBranchesKey;
+    });
+    __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$on('branch_events', function (data) {
+      _this15.branches = data.branchesKey;
+      _this15.showDashboard = data.showDashboardKey;
+      _this15.showSubjects = data.showSubjectsKey;
+      _this15.showUsers = data.showUsersKey;
+      _this15.showCourses = data.showCoursesKey;
+      _this15.showBranches = data.showBranchesKey;
+    });
+    __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$on('subject_events', function (data) {
+      _this15.subjects = data.subjectsKey;
+      _this15.showDashboard = data.showDashboardKey;
+      _this15.showSubjects = data.showSubjectsKey;
+      _this15.showUsers = data.showUsersKey;
+      _this15.showCourses = data.showCoursesKey;
+      _this15.showBranches = data.showBranchesKey;
     });
 
     /**
@@ -69865,22 +70929,7 @@ var render = function() {
                           2
                         )
                       ])
-                    }),
-                    _vm._v(" "),
-                    _c("td", [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-danger",
-                          on: {
-                            click: function($event) {
-                              _vm.RemoveUser(user.id)
-                            }
-                          }
-                        },
-                        [_vm._v("Remove")]
-                      )
-                    ])
+                    })
                   ],
                   2
                 )
@@ -69893,21 +70942,6 @@ var render = function() {
     _vm.showSubjects
       ? _c("div", { staticClass: "row mt-2 ml-4 insertion_row" }, [
           _vm._m(2),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-sm-2 text-center " }, [
-            _c(
-              "div",
-              {
-                staticClass: "subject_add_button",
-                on: {
-                  click: function($event) {
-                    _vm.Input_for_subject = true
-                  }
-                }
-              },
-              [_vm._v("Add Subject")]
-            )
-          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-sm-" })
         ])
@@ -69969,81 +71003,102 @@ var render = function() {
             _c(
               "tbody",
               _vm._l(_vm.subjects, function(subject, index) {
-                return _c("tr", { key: subject.id }, [
-                  _c("td", [_vm._v(_vm._s(++index))]),
-                  _vm._v(" "),
-                  _c("td", [
-                    _vm.edit == subject.id
-                      ? _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: subject.subject,
-                              expression: "subject.subject"
-                            }
-                          ],
-                          staticClass: "Editable",
-                          attrs: { type: "text" },
-                          domProps: { value: subject.subject },
-                          on: {
-                            blur: function($event) {
-                              _vm.edit = false
-                              _vm.UpdateSubject(subject.subject, subject.id)
-                            },
-                            keyup: function($event) {
-                              if (
-                                !("button" in $event) &&
-                                _vm._k(
-                                  $event.keyCode,
-                                  "enter",
-                                  13,
-                                  $event.key,
-                                  "Enter"
-                                )
-                              ) {
-                                return null
+                return _c(
+                  "tr",
+                  { key: subject.id },
+                  [
+                    _c("td", [_vm._v(_vm._s(++index))]),
+                    _vm._v(" "),
+                    _vm._l(subject.courses, function(course) {
+                      return _c("td", { key: course.id }, [
+                        _vm._v(" " + _vm._s(course.name) + " ")
+                      ])
+                    }),
+                    _vm._v(" "),
+                    _vm._l(subject.branches, function(branch) {
+                      return _c("td", { key: branch.id }, [
+                        _vm._v(" " + _vm._s(branch.name) + " ")
+                      ])
+                    }),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm.edit == subject.id
+                        ? _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: subject.subject,
+                                expression: "subject.subject"
                               }
-                              _vm.edit = false
-                              _vm.UpdateSubject(subject.subject, subject.id)
-                            },
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(subject, "subject", $event.target.value)
-                            }
-                          }
-                        })
-                      : _c(
-                          "span",
-                          {
-                            attrs: { title: "Double click to Edit" },
+                            ],
+                            staticClass: "Editable",
+                            attrs: { type: "text" },
+                            domProps: { value: subject.subject },
                             on: {
-                              dblclick: function($event) {
-                                _vm.edit = subject.id
+                              blur: function($event) {
+                                _vm.edit = false
+                                _vm.UpdateSubject(subject.subject, subject.id)
+                              },
+                              keyup: function($event) {
+                                if (
+                                  !("button" in $event) &&
+                                  _vm._k(
+                                    $event.keyCode,
+                                    "enter",
+                                    13,
+                                    $event.key,
+                                    "Enter"
+                                  )
+                                ) {
+                                  return null
+                                }
+                                _vm.edit = false
+                                _vm.UpdateSubject(subject.subject, subject.id)
+                              },
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  subject,
+                                  "subject",
+                                  $event.target.value
+                                )
                               }
                             }
-                          },
-                          [_vm._v(_vm._s(subject.subject))]
-                        )
-                  ]),
-                  _vm._v(" "),
-                  _c("td", [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-danger",
-                        on: {
-                          click: function($event) {
-                            _vm.RemoveSubject(subject.id)
+                          })
+                        : _c(
+                            "span",
+                            {
+                              attrs: { title: "Double click to Edit" },
+                              on: {
+                                dblclick: function($event) {
+                                  _vm.edit = subject.id
+                                }
+                              }
+                            },
+                            [_vm._v(_vm._s(subject.subject))]
+                          )
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-danger",
+                          on: {
+                            click: function($event) {
+                              _vm.RemoveSubject(subject.id)
+                            }
                           }
-                        }
-                      },
-                      [_vm._v("Delete")]
-                    )
-                  ])
-                ])
+                        },
+                        [_vm._v("Delete Subject")]
+                      )
+                    ])
+                  ],
+                  2
+                )
               })
             )
           ])
@@ -70062,26 +71117,60 @@ var render = function() {
                   _c("td", [_vm._v(_vm._s(++index))]),
                   _vm._v(" "),
                   _c("td", [
-                    _vm._v(
-                      "\n                " +
-                        _vm._s(course.name) +
-                        "\n              "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("td", [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-danger",
-                        on: {
-                          click: function($event) {
-                            _vm.RemoveCourse(course.id)
+                    _vm.edit == course.id
+                      ? _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: course.name,
+                              expression: "course.name"
+                            }
+                          ],
+                          staticClass: "Editable",
+                          attrs: { type: "text" },
+                          domProps: { value: course.name },
+                          on: {
+                            blur: function($event) {
+                              _vm.edit = false
+                              _vm.UpdateCourse(course.name, course.id)
+                            },
+                            keyup: function($event) {
+                              if (
+                                !("button" in $event) &&
+                                _vm._k(
+                                  $event.keyCode,
+                                  "enter",
+                                  13,
+                                  $event.key,
+                                  "Enter"
+                                )
+                              ) {
+                                return null
+                              }
+                              _vm.edit = false
+                              _vm.UpdateCourse(course.name, course.id)
+                            },
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(course, "name", $event.target.value)
+                            }
                           }
-                        }
-                      },
-                      [_vm._v("Delete")]
-                    )
+                        })
+                      : _c(
+                          "span",
+                          {
+                            attrs: { title: "Double click to Edit" },
+                            on: {
+                              dblclick: function($event) {
+                                _vm.edit = course.id
+                              }
+                            }
+                          },
+                          [_vm._v(_vm._s(course.name))]
+                        )
                   ])
                 ])
               })
@@ -70104,37 +71193,71 @@ var render = function() {
                   [
                     _c("td", [_vm._v(_vm._s(++index))]),
                     _vm._v(" "),
-                    _vm._l(branch.courses, function(course) {
+                    _vm._l(branch.courses_branches, function(course) {
                       return _c("td", { key: course.id }, [
                         _vm._v(
                           "\n                " +
                             _vm._s(course.name) +
-                            "\n              "
+                            "                \n              "
                         )
                       ])
                     }),
                     _vm._v(" "),
                     _c("td", [
-                      _vm._v(
-                        "\n                " +
-                          _vm._s(branch.name) +
-                          "\n              "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-danger",
-                          on: {
-                            click: function($event) {
-                              _vm.RemoveBranch(_vm.course.id)
+                      _vm.edit == branch.id
+                        ? _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: branch.name,
+                                expression: "branch.name"
+                              }
+                            ],
+                            staticClass: "Editable",
+                            attrs: { type: "text" },
+                            domProps: { value: branch.name },
+                            on: {
+                              blur: function($event) {
+                                _vm.edit = false
+                                _vm.UpdateBranch(branch.name, branch.id)
+                              },
+                              keyup: function($event) {
+                                if (
+                                  !("button" in $event) &&
+                                  _vm._k(
+                                    $event.keyCode,
+                                    "enter",
+                                    13,
+                                    $event.key,
+                                    "Enter"
+                                  )
+                                ) {
+                                  return null
+                                }
+                                _vm.edit = false
+                                _vm.UpdateBranch(branch.name, branch.id)
+                              },
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(branch, "name", $event.target.value)
+                              }
                             }
-                          }
-                        },
-                        [_vm._v("Delete")]
-                      )
+                          })
+                        : _c(
+                            "span",
+                            {
+                              attrs: { title: "Double click to Edit" },
+                              on: {
+                                dblclick: function($event) {
+                                  _vm.edit = branch.id
+                                }
+                              }
+                            },
+                            [_vm._v(_vm._s(branch.name))]
+                          )
                     ])
                   ],
                   2
@@ -81071,6 +82194,154 @@ function computeFlexCategoryTraits(index, ruler, options) {
 		ratio: options.barPercentage,
 		start: start
 	};
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row mt-2 ml-3" }, [
+      _c("div", { staticClass: "col-sm-4" }, [
+        _c("h1", [_c("b", [_vm._v("Dashboard")])])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-8 mt-2" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("S.No.")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Name")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("E-Mail Id")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Role")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "col-sm-9 text-center pt-1 subject_list_text" },
+      [_c("b", [_vm._v("List of Subjects")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("S.No.")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Course")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Branch")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Subjects")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Manage")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("S.No.")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Course Name")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("S.No.")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Course Name")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Branch Name")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "col-sm-2 grid-icon text-center ml-2 pt-3 pb-3 question" },
+      [
+        _c("i", { staticClass: "fa fa-question-circle" }),
+        _vm._v(" "),
+        _c("h5", [_vm._v("Questions")])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row mt-3 ml-4 " }, [
+      _c(
+        "div",
+        {
+          staticClass: "col-sm-2 grid-icon text-center ml-2 pt-3 pb-3 settings"
+        },
+        [
+          _c("i", { staticClass: "fa fa-cogs" }),
+          _vm._v(" "),
+          _c("h5", [_vm._v("Settings")])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "col-sm-2 grid-icon text-center ml-2 pt-3 pb-3 results"
+        },
+        [
+          _c("i", { staticClass: "fa fa-trophy" }),
+          _vm._v(" "),
+          _c("h5", [_vm._v("Results")])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "col-sm-2 grid-icon text-center ml-2 pt-3 pb-3 notifications"
+        },
+        [
+          _c("i", { staticClass: "fa fa-bell" }),
+          _vm._v(" "),
+          _c("h5", [_vm._v("Notifications")])
+        ]
+      )
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-fbc12a80", module.exports)
+  }
 }
 
 module.exports = function(Chart) {

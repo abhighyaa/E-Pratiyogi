@@ -15,14 +15,16 @@ class CreateBranchSubjectsTable extends Migration
     {
         Schema::create('branch_subjects', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('course_id');
             $table->integer('branch_id');
             $table->integer('subject_id');
             $table->timestamps();
 
-            // $table->foreign('branch_id')->references('id')->on('branches')->onDelete('cascade');
-            // $table->foreign('subject_id')->references('id')->on('subjects')->onDelete('cascade');
+            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
+            $table->foreign('branch_id')->references('id')->on('branches')->onDelete('cascade');
+            $table->foreign('subject_id')->references('id')->on('subjects')->onDelete('cascade');
 
-            // $table->unique(['branch_id','subject_id']);
+            $table->unique(['subject_id']);
         });
     }
 

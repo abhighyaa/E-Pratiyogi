@@ -3,15 +3,17 @@
         <div class="card-header">Course</div>
         <div class="card-body">
               <ul class="list-group">
-                  <li  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" @click="fetchBranch(course.id)" 
+                  <li data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" @click="fetchBranch(course.id)" 
                       class="list-group-item dropdown-toggle"
-                      id="dropdownMenuLink" :key="course.id" v-for="course in courses">
-                     <a href="#" :id="course.id">{{ course.name}}</a><i class="pull-right fa fa-caret-right"></i>
+                      id="dropdownMenuLink" :key="course.id" v-for="course in courses" >
+                     <a href="#" :id="course.id">{{ course.name }}</a><i class="pull-right fa fa-caret-right"></i>
                   </li>
                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                     <a class="dropdown-item" href="#" @click="fetchSubjects(branch.id)" v-for="branch in branches" :id="branch.id" :key="branch.id">{{ branch.name }}</a>
+                       <a class="dropdown-item" href="#" v-for="branch in branches" :id="branch.id" @click="fetchSubjects(branch.id)" :key="branch.id">{{ branch.name }}</a>
                    </div>
+                   
               </ul>
+              
         </div>
     </div>  
 </template>
@@ -37,7 +39,6 @@ import { EventBus } from '../app.js';
                     .catch(function(error){console.log(error)});
             },
             async fetchBranch(courseID){
-                alert(courseID);
                 await axios.get('http://localhost:8000/courses/'+courseID+'/get/branches')
                     .then((response)=>(this.branches = response.data))
                     .catch(function(error){console.log(error)});

@@ -5,10 +5,10 @@
            <li class="list-group-item"  @click="FetchCourses()"><i class="fa fa-folder-open"></i>&ensp;&ensp;Courses</li>  
            <li class="list-group-item"  @click="FetchBranches()"><i class="fa fa-folder"></i>&ensp;&ensp;Branches</li>  
            <li class="list-group-item"  @click="FetchSubjects()"><i class="fa fa-tag"></i>&ensp;&ensp;Subjects</li>  
-           <li class="list-group-item" ><i class="fa fa-question-circle "></i>&ensp;&ensp;Questions</li>
-           <li class="list-group-item" ><i class="fa fa-cogs"></i>&ensp;&ensp;Settings</li>  
-           <li class="list-group-item" ><i class="fa fa-trophy"></i>&ensp;&ensp;Results</li>
-           <li class="list-group-item" ><i class="fa fa-bell"></i>&ensp;&ensp;Notifications</li>  
+           <li class="list-group-item questions" ><i class="fa fa-question-circle "></i>&ensp;&ensp;Questions</li>
+           <li class="list-group-item settings" ><i class="fa fa-cogs"></i>&ensp;&ensp;Settings</li>  
+           <li class="list-group-item results" ><i class="fa fa-trophy"></i>&ensp;&ensp;Results</li>
+           <li class="list-group-item notifications" ><i class="fa fa-bell"></i>&ensp;&ensp;Notifications</li>  
         </ul>
       </div>
 </template>
@@ -101,7 +101,7 @@ import { EventBus } from '../app.js';
         this.showSubjects = true;
         this.showCourses = false;
         this.showBranches = false;        
-         await axios.get('http://localhost:8000/subjects/get/all')
+         await axios.get('http://localhost:8000/admin/get/all/subjects')
                   .then((response)=>(this.subjects = response.data))
                   .catch(function(error){console.log(error)});
                    EventBus.$emit('subject_events',{
@@ -135,6 +135,10 @@ import { EventBus } from '../app.js';
     border:none;
     border-top: 1px solid rgba(255,255,255,0.5);
     border-bottom: 1px solid rgba(255,255,255,0.5);
+}
+.questions,.settings,.results,.notifications
+{
+  cursor: not-allowed;
 }
 
 </style>

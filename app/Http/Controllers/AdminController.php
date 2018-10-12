@@ -8,6 +8,7 @@ use App\User;
 use App\role;
 use App\Course;
 use App\Branch;
+use App\Subject;
 
 class AdminController extends Controller
 {
@@ -17,14 +18,11 @@ class AdminController extends Controller
       }
         public function index()
       {
-        // $tags=Tag::getTags();
         return view('layouts.AdminPanel');
       }
 
       public function FetchUsers()
     {
-      //  $user = new User;
-      //  return $user->with('role')->get();
       $users = User::whereHas('role', function($q) {
         $q->where('role_id','!=', 1);      
       })->with('role')->get();
@@ -71,11 +69,40 @@ class AdminController extends Controller
       $course = Course::all();
       return $course;
     }
+    public function update_course(Request $request)
+    {
+       Course::where('id',$request->id)->update(['name' => $request->name]);
+       $courses = Course::all();
+       return response()->json($courses);
+    }
     public function Fetch_branches_with_course()
     {
       $branch = new Branch;
-      return $branch->with('courses')->get();
+      return $branch->with('courses_branches')->get();
+    }
+    public function update_branch(Request $request)
+    {
+        Branch::where('id',$request->id)->update(['name' => $request->name]);
+        $branch = new Branch;
+        return $branch->with('courses')->get();
+    }
+    public function Fetch_subjects_with_course_branch()
+    {
+      
+      $subjects  =  Subject::with('branches')->with('courses')->get();
+      return $subjects;
     }
 
 
 }
+
+
+
+
+
+
+
+
+
+
+

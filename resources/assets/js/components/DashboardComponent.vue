@@ -6,10 +6,10 @@
              <h1><b>Dashboard</b></h1>
         </div> 
         <div class="col-sm-8 mt-2">
-            <div class="input-container">
+           <!--  <div class="input-container">
                
-                <input class="input-field" type="text" placeholder="Search" name="usrnm"><i class="fa fa-search icon"></i>
-            </div>     
+                <input class="input-field" type="text" placeholder="Search" name="usrname"><i class="fa fa-search icon"></i>
+            </div>      -->
         </div>    
     </div>
     <!-- first row end -->
@@ -65,7 +65,7 @@
               <th scope="col">Name</th>
               <th scope="col">E-Mail Id</th>
               <th scope="col">Role</th>
-              <th scope="col">Manage</th>
+              <!-- <th scope="col">Manage</th> -->
             </tr>
           </thead>
           <tbody>
@@ -79,9 +79,9 @@
                       <option v-if="r.name !== role.name" v-for="role in roles" :key="role.id">{{ role.name }}</option>
                     </select>
                </td>              
-               <td>
+               <!-- <td>
                   <button class="btn btn-danger" @click="RemoveUser(user.id)">Remove</button>
-              </td>
+              </td> -->
             </tr>
           </tbody>
         </table>
@@ -92,9 +92,9 @@
     <div class="row mt-2 ml-4 insertion_row" v-if="showSubjects">
       <div class="col-sm-9 text-center pt-1 subject_list_text"><b>List of Subjects</b>
       </div>
-      <div class="col-sm-2 text-center " >
+      <!-- <div class="col-sm-2 text-center " >
         <div class="subject_add_button" @click="Input_for_subject = true">Add Subject</div>
-      </div>
+      </div> -->
       <div class="col-sm-"></div>
     </div>
     <!-- insertion row end -->
@@ -116,6 +116,8 @@
           <thead>
             <tr>
               <th scope="col">S.No.</th>
+              <th scope="col">Course</th>
+              <th scope="col">Branch</th>
               <th scope="col">Subjects</th>
               <th scope="col">Manage</th>
             </tr>
@@ -123,6 +125,8 @@
           <tbody>
             <tr v-for="( subject, index) in subjects" :key="subject.id">
               <td>{{ ++index }}</td>
+              <td v-for="course in subject.courses" :key="course.id"> {{ course.name }} </td>
+              <td v-for="branch in subject.branches" :key="branch.id"> {{ branch.name }} </td>
               <td>
                 <input class="Editable" type="text" v-if="edit == subject.id" v-model="subject.subject"
                   v-on:blur="edit = false; UpdateSubject(subject.subject,subject.id)"
@@ -130,7 +134,7 @@
               <span title="Double click to Edit" v-else @dblclick="edit = subject.id">{{ subject.subject }}</span>
               </td>
               <td>
-                  <button class="btn btn-danger" @click="RemoveSubject(subject.id)">Delete</button>
+                  <button class="btn btn-danger" @click="RemoveSubject(subject.id)">Delete Subject</button>
               </td>
             </tr>
           </tbody>
@@ -145,18 +149,21 @@
             <tr>
               <th scope="col">S.No.</th>
               <th scope="col">Course Name</th>
-              <th scope="col">Manage</th>
+              <!-- <th scope="col">Manage</th> -->
             </tr>
           </thead>
           <tbody>
             <tr v-for="(course,index) in courses" :key="course.id">
               <td>{{ ++index }}</td>
               <td>
-                {{ course.name }}
+               <input class="Editable" type="text" v-if="edit == course.id" v-model="course.name"
+                  v-on:blur="edit = false; UpdateCourse(course.name,course.id)"
+                  @keyup.enter ="edit=false; UpdateCourse(course.name,course.id)">
+               <span title="Double click to Edit" v-else @dblclick="edit = course.id">{{ course.name }}</span>
               </td>
-              <td>
+             <!--  <td>
                 <button class="btn btn-danger" @click="RemoveCourse(course.id)">Delete</button>
-              </td>
+              </td> -->
             </tr>
           </tbody>
         </table>
@@ -172,21 +179,24 @@
               <th scope="col">S.No.</th>
               <th scope="col">Course Name</th>
               <th scope="col">Branch Name</th>
-              <th scope="col">Manage</th>
+              <!-- <th scope="col">Manage</th> -->
             </tr>
           </thead>
           <tbody>
             <tr v-for="(branch,index) in branches" :key="branch.id">
               <td>{{ ++index }}</td>
-              <td v-for="course in branch.courses" :key="course.id">
-                {{ course.name }}
+              <td v-for="course in branch.courses_branches" :key="course.id">
+                {{ course.name }}                
               </td>
               <td>
-                {{ branch.name }}
+               <input class="Editable" type="text" v-if="edit == branch.id" v-model="branch.name"
+                  v-on:blur="edit = false; UpdateBranch(branch.name,branch.id)"
+                  @keyup.enter ="edit=false; UpdateBranch(branch.name,branch.id)">
+               <span title="Double click to Edit" v-else @dblclick="edit = branch.id">{{ branch.name }}</span>
               </td>
-              <td>
-                <button class="btn btn-danger" @click="RemoveBranch(course.id)">Delete</button>
-              </td>
+              <!-- <td>
+                <button class="btn btn-danger" @click="RemoveBranch(branch.id)">Delete</button>
+              </td> -->
             </tr>
           </tbody>
         </table>
@@ -212,21 +222,21 @@
           <i class="fa fa-tag"></i>
           <h5>Subjects</h5>
         </div>
-         <div class="col-sm-2 grid-icon text-center ml-2 pt-3 pb-3">
+         <div class="col-sm-2 grid-icon text-center ml-2 pt-3 pb-3 question">
           <i class="fa fa-question-circle"></i>
           <h5>Questions</h5>
         </div>
       </div>
       <div class="row mt-3 ml-4 ">
-        <div class="col-sm-2 grid-icon text-center ml-2 pt-3 pb-3">
+        <div class="col-sm-2 grid-icon text-center ml-2 pt-3 pb-3 settings">
           <i class="fa fa-cogs"></i>
           <h5>Settings</h5>
         </div>
-        <div class="col-sm-2 grid-icon text-center ml-2 pt-3 pb-3">
+        <div class="col-sm-2 grid-icon text-center ml-2 pt-3 pb-3 results">
           <i class="fa fa-trophy"></i>
           <h5>Results</h5>
         </div>
-        <div class="col-sm-2 grid-icon text-center ml-2 pt-3 pb-3">
+        <div class="col-sm-2 grid-icon text-center ml-2 pt-3 pb-3 notifications">
           <i class="fa fa-bell"></i>
           <h5>Notifications</h5>
         </div>
@@ -261,19 +271,6 @@ import { EventBus } from '../app.js';
     },
     
     methods: {
-     async UpdateSubject(SubjectNewName,SubjectId){
-       if(SubjectNewName === ''){
-         alert("Subejct can not be NUll")
-         await axios.get('http://localhost:8000/subjects/get/all')
-                .then((response)=>(this.subjects = response.data))
-                .catch(function(error){console.log(error)}); 
-       }
-        else{
-              await axios.get('http://localhost:8000/subjects/update/'+SubjectId+'/'+SubjectNewName)
-                .then((response)=>(this.subjects = response.data))
-                .catch(function(error){console.log(error)}); 
-        }
-      },
        ShowDashboardScreen() {
          
           this.showDashboard = true;
@@ -355,6 +352,22 @@ import { EventBus } from '../app.js';
                 .then((response)=>(this.courses = response.data))
                 .catch(function(error){console.log(error)});    
        },
+       async UpdateCourse(CourseNewName,CourseId)
+       {
+          if(CourseNewName === '')
+          {
+            alert("Course name can not be NUll")
+            await axios.get('http://localhost:8000/admin/get/all/courses')
+                .then((response)=>(this.courses = response.data))
+                .catch(function(error){console.log(error)}); 
+          }
+          else
+          {
+              await axios.get('http://localhost:8000/admin/update/'+CourseId+'/course/'+CourseNewName)
+                .then((response)=>(this.courses = response.data))
+                .catch(function(error){console.log(error)}); 
+          }
+      },
        async FetchBranches()
        {
           this.showDashboard = false;
@@ -368,6 +381,22 @@ import { EventBus } from '../app.js';
                 .then((response)=>(this.branches = response.data))
                 .catch(function(error){console.log(error)});    
        },
+       async UpdateBranch(BranchNewName,BranchId)
+       {
+          if(BranchNewName === '')
+          {
+            alert("Branch name can not be NUll")
+            await axios.get('http://localhost:8000/admin/get/all/branches')
+                .then((response)=>(this.branches = response.data))
+                .catch(function(error){console.log(error)}); 
+          }
+          else
+          {
+              await axios.get('http://localhost:8000/admin/update/'+BranchId+'/branch/'+BranchNewName)
+                .then((response)=>(this.branches = response.data))
+                .catch(function(error){console.log(error)}); 
+          }
+      },
        async FetchSubjects() {
         
           this.showDashboard = false;
@@ -376,7 +405,7 @@ import { EventBus } from '../app.js';
           this.showCourses = false;
           this.showBranches = false;
           
-          await axios.get('http://localhost:8000/subjects/get/all')
+          await axios.get('http://localhost:8000/admin/get/all/subjects')
                 .then((response)=>(this.subjects = response.data))
                 .catch(function(error){console.log(error)}); 
                       
@@ -407,6 +436,22 @@ import { EventBus } from '../app.js';
 
 
        },
+       async UpdateSubject(SubjectNewName,SubjectId)
+       {
+          if(SubjectNewName === '')
+          {
+            alert("Subejct can not be NUll")
+            await axios.get('http://localhost:8000/admin/get/all/subjects')
+                .then((response)=>(this.subjects = response.data))
+                .catch(function(error){console.log(error)}); 
+          }
+          else
+          {
+              await axios.get('http://localhost:8000/subjects/update/'+SubjectId+'/'+SubjectNewName)
+                .then((response)=>(this.subjects = response.data))
+                .catch(function(error){console.log(error)}); 
+          }
+      }
     },
     mounted() {
       EventBus.$on('dashboard_Event1', data => {
@@ -475,7 +520,7 @@ text-transform: capitalize;
   .grid-icon:hover
   {
     background-color: rgba(44,133,155);
-    cursor: pointer;
+    /*cursor: pointer;*/
   }
   h5{
     color: white;
@@ -577,5 +622,9 @@ text-transform: capitalize;
     width: 110px;
     border-radius: 20px;
     padding:9px;
+   }
+   .question,.settings,.results,.notifications:hover
+   {
+    cursor: not-allowed;
    }
 </style>

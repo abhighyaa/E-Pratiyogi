@@ -7,6 +7,8 @@ use App\Question;
 use App\Topic;
 use App\Subject;
 use App\Instruction;
+use App\Branch;
+use App\Course;
 use Requests;
 
 class SubjectController extends Controller
@@ -71,7 +73,7 @@ class SubjectController extends Controller
 
     public function remove(Request $request){
         Subject::where('id',$request->id)->delete();
-        $subject = Subject::all();
+        $subject = Subject::with('branches')->with('courses')->get();
         return $subject;
     }
 
@@ -94,7 +96,7 @@ class SubjectController extends Controller
      }
      public function update(Request $request){
        Subject::where('id',$request->id)->update(['subject' => $request->subject]);
-       $subjects = Subject::all();
+       $subjects = Subject::with('branches')->with('courses')->get();
        return response()->json($subjects);
     }
     public function getDefaultSubjects(){
