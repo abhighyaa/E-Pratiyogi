@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Student;
 use Illuminate\Http\Request;
-
+use App\Subject;
+use App\Instruction;
+use Requests;
 class StudentController extends Controller
 {
     /**
@@ -20,7 +22,11 @@ class StudentController extends Controller
       {
           return view('home');
       }
-
+      public function TakeTest(Request $request){
+        $subjectId = $request->id;
+        $instructions = Instruction::where('subject_id',$request->id)->get();
+        return view('StartTest')->with(compact('instructions','subjectId'));
+      }
     /**
      * Show the form for creating a new resource.
      *
