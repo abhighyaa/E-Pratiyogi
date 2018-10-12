@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCourseBranchesTable extends Migration
+class CreateBranchCoursesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,16 @@ class CreateCourseBranchesTable extends Migration
      */
     public function up()
     {
-        Schema::create('course_branches', function (Blueprint $table) {
+        Schema::create('branch_courses', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('course_id');
-            $table->integer('branch_id');
+            $table->integer('branch_id')->unsigned();
+            $table->integer('course_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
             $table->foreign('branch_id')->references('id')->on('branches')->onDelete('cascade');
+            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
 
-            $table->unique(['course_id','branch_id']);
+            $table->unique(['branch_id','course_id']);
         });
     }
 
@@ -33,6 +33,6 @@ class CreateCourseBranchesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('course_branches');
+        Schema::dropIfExists('branch_courses');
     }
 }

@@ -6,12 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Branch extends Model
 {
-    public function course()
+    public function courses()
     {
-        return $this->belongsToMany(Course::class,'course_branches');
-    }
-    public function subjects()
-    {
-        return $this->belongsToMany(Subject::class,'branch_subjects');
+        return $this->belongsToMany('App\Course','branch_courses');
     }
 }

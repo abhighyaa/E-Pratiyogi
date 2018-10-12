@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Tag;
 use App\User;
 use App\role;
+use App\Course;
+use App\Branch;
 
 class AdminController extends Controller
 {
@@ -63,6 +65,16 @@ class AdminController extends Controller
       
       $user->role()->attach($role->id);
       return $user->role()->first();
+    }
+    public function FetchCourses()
+    {
+      $course = Course::all();
+      return $course;
+    }
+    public function Fetch_branches_with_course()
+    {
+      $branch = new Branch;
+      return $branch->with('courses')->get();
     }
 
 

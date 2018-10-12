@@ -102,5 +102,37 @@ class SubjectController extends Controller
         $subjects = Subject::all();
         return response()->json($subjects);
     }
+
+    public function testQuestion(Request $request){
+        $cnte=0;
+        $cntm=0;
+        $cnth=0;
+        $id=$request->id;
+        //validations
+        $subjects=Subject::find($id);
+        $topics=$subjects->topics->all();
+        for($cnt=0;$cnt<sizeof($topics);$cnt++){
+          $crrtopic=$topics[$cnt];
+          $easytp=$crrtopic->questions->where('complexity','easy')->all();
+          foreach($easytp as $value) {
+            $easy[$cnte++]=$value;
+          }
+          $medtp=$crrtopic->questions->where('complexity','medium')->all();
+          foreach($medtp as $value) {
+            $med[$cntm++]=$value;
+          }
+          $hardtp=$crrtopic->questions->where('complexity','hard')->all();
+          foreach($hardtp as $value) {
+            $hard[$cnth++]=$value;
+          }
+        }
+        shuffle($easy);
+        shuffle($med);
+        shuffle($hard);     
+        $curr_ques=$med[0];
+        array_splice($med,0, 1);
+        return view('questions',compact('easy','med','hard','curr_ques'));         
+      }
+
  }
  

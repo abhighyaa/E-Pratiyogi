@@ -49,12 +49,12 @@
 @endsection
 
 <style>
-  .col-md-2{
-    padding-right:0px !important;
-  }
+
   .graduation-icon-parent 
   {
     background-color:rgba(10,113,138);
+    padding-right:0px !important;
+
 
   }
   .Graduate-icon 

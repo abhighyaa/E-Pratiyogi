@@ -7,6 +7,6 @@ class Course extends Model
 {
     public function branches()
     {
-        return $this->belongsToMany(Branch::class,'course_branches');
+        return $this->belongsToMany('App\Branch','branch_courses');
     }
 }

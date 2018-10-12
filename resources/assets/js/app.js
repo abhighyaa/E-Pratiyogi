@@ -56,6 +56,7 @@ Vue.component('admin-component', require('./components/AdminComponent.vue'));
 Vue.component('dashboard-component', require('./components/DashboardComponent.vue'));
 Vue.component('instructions', require('./components/Instructions.vue'));
 Vue.component('student-home', require('./components/StudentHome.vue'));
+Vue.component('test-component', require('./components/testComponent.vue'));
 
 
 
