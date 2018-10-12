@@ -38,7 +38,7 @@
         
     </piechart-component>
    <h3 style="text-align:center;">TOPIC WISE RIGHT QUESTIONS</h3> 
- 
+ <hr>
     <h1 style="text-align:center;">DETAILED TEST REPORT:</h1>
      
     <div v-for="(value, key, index) in questionsdata" >
@@ -62,6 +62,7 @@
  </div>
  
 </div>
+<hr>
 <h1>TOPIC AND COMPLEXITY WISE WRONG QUESTION ANSWERS</h1>
 
 <div v-for="(value, key, index) in questionsdata">
