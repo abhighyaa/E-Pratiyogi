@@ -49286,7 +49286,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -49298,6 +49298,14 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app_js__ = __webpack_require__(2);
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -49349,7 +49357,9 @@ var staticRenderFns = [
         _c("ul", { staticClass: "list-group" }, [
           _c("li", { staticClass: "list-group-item" }, [
             _c("a", { attrs: { href: "#" } }, [_vm._v("English")]),
-            _c("span", { staticClass: "pull-right" }, [_vm._v("Oct 02, 2018")]),
+            _c("span", { staticClass: "pull-right" }, [
+              _vm._v("Sept 02, 2018")
+            ]),
             _c("br"),
             _vm._v(" "),
             _c("label", [_vm._v("Score: 41/50")])
@@ -49357,10 +49367,28 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("li", { staticClass: "list-group-item" }, [
             _c("a", { attrs: { href: "#" } }, [_vm._v("Data Structure")]),
-            _c("span", { staticClass: "pull-right" }, [_vm._v("Oct 08, 2018")]),
+            _c("span", { staticClass: "pull-right" }, [
+              _vm._v("Sept 08, 2018")
+            ]),
             _c("br"),
             _vm._v(" "),
             _c("label", [_vm._v("Score: 48/50")])
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "list-group-item" }, [
+            _c("a", { attrs: { href: "#" } }, [_vm._v("Operating System")]),
+            _c("span", { staticClass: "pull-right" }, [_vm._v("Oct 06, 2018")]),
+            _c("br"),
+            _vm._v(" "),
+            _c("label", [_vm._v("Score: 32/60")])
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "list-group-item" }, [
+            _c("a", { attrs: { href: "#" } }, [_vm._v("Aptitude")]),
+            _c("span", { staticClass: "pull-right" }, [_vm._v("Oct 10, 2018")]),
+            _c("br"),
+            _vm._v(" "),
+            _c("label", [_vm._v("Score: 22/40")])
           ])
         ])
       ])
