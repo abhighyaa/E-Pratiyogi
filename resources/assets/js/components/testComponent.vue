@@ -1,6 +1,5 @@
 <template>
 <div>
-    <piechart-component></piechart-component>
     
    <div v-if="quizrunning" class='quesblock' style="max-width:700px;margin-top:50px;margin-left:50px">
    <div >
@@ -14,11 +13,9 @@
 
         
         <div style="border:1px solid grey;font-size:25px;background:lavender;   " class="ques">Q{{noqs}} {{curques.question}}  <span style="float:right;border:1px solid grey;background:grey;color:white;margin-right:5px;">{{complexity}}</span> </div>
-        <ul style="list-style-type:none" class="choices">
-        <li v-for="value in curques.choices" :key="value" style="border:1px solid grey;font-size:25px;  ">
+        <div v-for="value in curques.choices" :key="value" style="border:1px solid grey;font-size:25px;  ">
         <input type="radio"  v-bind:value="value" v-model="answer">{{ value }}
-        </li>
-        </ul>
+        </div>
         <button @click='checkanswer'>submit</button>
 
         </div>
@@ -26,53 +23,70 @@
     <div v-if="quizrunning == false">
 
     <h1>YOUR PERCENT :-={{marks}}% </h1>
-    <h1>DETAILED TEST REPORT:</h1>
-    <div v-for="(value, key, index) in questionsdata" :key='index'>
-    <h2>TOPIC NAME:-"{{ key }}"</h2> <br>
+    <h1 style="text-align:center;"> TEST REPORT:</h1>
+    <piechart-component :value="questionsdata" :type="'marks'">
+        
+    </piechart-component>
+   <h3 style="text-align:center;">TOPIC WISE MARKS DISTRIBUTION</h3> 
+    
+    <piechart-component :value="questionsdata" :type="'rights'">
+        
+    </piechart-component>
+   <h3 style="text-align:center;">TOPIC WISE RIGHT QUESTIONS</h3> 
+    
+   <piechart-component :value="questionsdata" :type="'wrongs'">
+        
+    </piechart-component>
+   <h3 style="text-align:center;">TOPIC WISE RIGHT QUESTIONS</h3> 
+ 
+    <h1 style="text-align:center;">DETAILED TEST REPORT:</h1>
+     
+    <div v-for="(value, key, index) in questionsdata" >
+    <h2><strong>TOPIC NAME:-"{{ key }}"</strong></h2> <br>
     <div v-if="value.right.easy.length + value.wrong.easy.length > 0">
-    <h3>No of questions in easy:- {{value.right.easy.length + value.wrong.easy.length }}</h3><br>
-    <h3>out of the no of rights :-{{value.right.easy.length}} (marks {{value.right.easy.length}})</h3>
+    <h3>No of questions in <strong>easy</strong>:- {{value.right.easy.length + value.wrong.easy.length }}</h3>
+    <h3>out of them no of rights :-{{value.right.easy.length}} (marks {{value.right.easy.length}})</h3>
     <h3> and no of wrong :- {{value.wrong.easy.length}}</h3> 
  </div>
 
  <div v-if="value.right.med.length + value.wrong.med.length > 0">
- <h3>No of questions in medium:- {{value.right.med.length + value.wrong.med.length}}</h3><br>
- <h3>out of the no of rights :-{{value.right.med.length}}(marks {{value.right.med.length*2}})</h3>
+ <h3>No of questions in <strong>medium</strong>:- {{value.right.med.length + value.wrong.med.length}}</h3>
+ <h3>out of them no of rights :-{{value.right.med.length}}(marks {{value.right.med.length*2}})</h3>
  <h3>and no of wrong :- {{value.wrong.med.length}}</h3>
  </div>
 
  <div v-if="value.right.hard.length + value.wrong.hard.length > 0">
- <h3>No of questions in hard:- {{value.right.hard.length + value.wrong.hard.length }}</h3><br>
- <h3>out of the no of rights :-{{value.right.hard.length}}(marks {{value.right.hard.length*3}})</h3>
+ <h3>No of questions in <strong>hard</strong>:- {{value.right.hard.length + value.wrong.hard.length }}</h3>
+ <h3>out of them no of rights :-{{value.right.hard.length}}(marks {{value.right.hard.length*3}})</h3>
  <h3>and no of wrong :- {{value.wrong.hard.length}}</h3>
  </div>
  
 </div>
-<h3>TOPIC AND COMPLEXITY WISE WRONG QUESTION ANSWERS</h3>
+<h1>TOPIC AND COMPLEXITY WISE WRONG QUESTION ANSWERS</h1>
 
-<div v-for="(value, key, index) in questionsdata" :key="index">
- <h2 v-if="value.wrong.easy.length >0|| value.wrong.med.length >0|| value.wrong.hard.length >0">TOPIC NAME:-"{{ key }}"</h2> <br>
+<div v-for="(value, key, index) in questionsdata">
+ <h2 v-if="value.wrong.easy.length >0|| value.wrong.med.length >0|| value.wrong.hard.length >0"><strong>TOPIC NAME:-"{{ key }}"</strong></h2> <br>
  <div v-if="value.wrong.easy.length > 0">
- <h3>no of wrong in easy:- {{value.wrong.easy.length}}</h3>
- <div v-for="(question,index) in value.wrong.easy" :key="index">
-    <h4>{{question.question}}</h4>
-    <h4>{{question.answer}}</h4>
+ <h3>no of wrong in <strong>easy</strong>:- {{value.wrong.easy.length}}</h3><br/>
+ <div v-for="(question,index) in value.wrong.easy" >
+    <h4>Q:- {{question.question}}</h4>
+    <h4>Ans:- {{question.answer}}</h4>
   </div>
  </div>
 
  <div v-if="value.wrong.med.length > 0">
- <h3>no of wrong in med:- {{value.wrong.med.length}}</h3>
- <div v-for="(question,index) in value.wrong.med" :key="index">
-    <h4>{{question.question}}</h4>
-    <h4>{{question.answer}}</h4>
+ <h3>no of wrong in <strong>med</strong>:- {{value.wrong.med.length}}</h3><br>
+ <div v-for="(question,index) in value.wrong.med">
+    <h4>Q:- {{question.question}}</h4>
+    <h4>Ans:- {{question.answer}}</h4>
   </div>
  </div>
 
 <div v-if="value.wrong.hard.length > 0">
- <h3>no of wrong in hard:- {{value.wrong.hard.length}}</h3>
- <div v-for="(question,index) in value.wrong.hard" :key="index">
-    <h4>{{question.question}}</h4>
-    <h4>{{question.answer}}</h4>
+ <h3>no of wrong in <strong>hard</strong>:- {{value.wrong.hard.length}}</h3><br>
+ <div v-for="(question,index) in value.wrong.hard" >
+    <h4>Q:- {{question.question}}</h4>
+    <h4>Ans:- {{question.answer}}</h4>
   </div>
  </div>
 
@@ -88,7 +102,8 @@
 
 <script>
 
-
+//import piechartComponent from './piechartComponent'
+import piechartComponent from './piechartComponent.js'
 var tim,dec;
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -104,6 +119,9 @@ function shuffle(array) {
  
     export default {
     props:['easy','med', 'hard', 'curr_ques'],
+    components:{
+        'piechart-component':piechartComponent
+    },
     data(){
          return{
         answer:'',

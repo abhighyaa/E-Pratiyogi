@@ -5244,7 +5244,8 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('dashboard-component', __w
 __WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('instructions', __webpack_require__(211));
 __WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('student-home', __webpack_require__(216));
 __WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('test-component', __webpack_require__(221));
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('piechart-component', __webpack_require__(224));
+//Vue.component('piechart-component', require('./components/piechartComponent.vue'));
+
 
 __WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('mcontent', {
     template: '<div><slot></slot></div>'
@@ -5254,8 +5255,8 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('mfooter', {
     template: '<div><slot></slot></div>'
 });
 
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('modal', __webpack_require__(274));
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('subject', __webpack_require__(277));
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('modal', __webpack_require__(275));
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('subject', __webpack_require__(278));
 
 var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
     el: '#app',
@@ -33325,7 +33326,7 @@ module.exports = {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(6);
-module.exports = __webpack_require__(280);
+module.exports = __webpack_require__(281);
 
 
 /***/ }),
@@ -70744,7 +70745,7 @@ var normalizeComponent = __webpack_require__(4)
 /* script */
 var __vue_script__ = __webpack_require__(222)
 /* template */
-var __vue_template__ = __webpack_require__(223)
+var __vue_template__ = __webpack_require__(274)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -70788,6 +70789,21 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__piechartComponent_js__ = __webpack_require__(223);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -70877,6 +70893,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+
+//import piechartComponent from './piechartComponent'
 
 var tim, dec;
 function shuffle(array) {
@@ -70895,6 +70913,9 @@ function shuffle(array) {
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['easy', 'med', 'hard', 'curr_ques'],
+    components: {
+        'piechart-component': __WEBPACK_IMPORTED_MODULE_0__piechartComponent_js__["a" /* default */]
+    },
     data: function data() {
         return {
             answer: '',
@@ -71022,388 +71043,128 @@ function shuffle(array) {
 
 /***/ }),
 /* 223 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("piechart-component"),
-      _vm._v(" "),
-      _vm.quizrunning
-        ? _c(
-            "div",
-            {
-              staticClass: "quesblock",
-              staticStyle: {
-                "max-width": "700px",
-                "margin-top": "50px",
-                "margin-left": "50px"
-              }
-            },
-            [
-              _c("div", [
-                _c("div", [
-                  _c("div", { staticClass: "progress" }, [
-                    _c("div", {
-                      staticClass: "progress-bar",
-                      style: { width: _vm.progress + "%" }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticStyle: { "font-size": "30px" } }, [
-                  _vm._v(
-                    " TIME:-" + _vm._s(_vm.min) + ":" + _vm._s(_vm.sec) + " "
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "ques",
-                  staticStyle: {
-                    border: "1px solid grey",
-                    "font-size": "25px",
-                    background: "lavender"
-                  }
-                },
-                [
-                  _vm._v(
-                    "Q" +
-                      _vm._s(_vm.noqs) +
-                      " " +
-                      _vm._s(_vm.curques.question) +
-                      "  "
-                  ),
-                  _c(
-                    "span",
-                    {
-                      staticStyle: {
-                        float: "right",
-                        border: "1px solid grey",
-                        background: "grey",
-                        color: "white",
-                        "margin-right": "5px"
-                      }
-                    },
-                    [_vm._v(_vm._s(_vm.complexity))]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "ul",
-                {
-                  staticClass: "choices",
-                  staticStyle: { "list-style-type": "none" }
-                },
-                _vm._l(_vm.curques.choices, function(value) {
-                  return _c(
-                    "li",
-                    {
-                      key: value,
-                      staticStyle: {
-                        border: "1px solid grey",
-                        "font-size": "25px"
-                      }
-                    },
-                    [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.answer,
-                            expression: "answer"
-                          }
-                        ],
-                        attrs: { type: "radio" },
-                        domProps: {
-                          value: value,
-                          checked: _vm._q(_vm.answer, value)
-                        },
-                        on: {
-                          change: function($event) {
-                            _vm.answer = value
-                          }
-                        }
-                      }),
-                      _vm._v(_vm._s(value) + "\n        ")
-                    ]
-                  )
-                })
-              ),
-              _vm._v(" "),
-              _c("button", { on: { click: _vm.checkanswer } }, [
-                _vm._v("submit")
-              ])
-            ]
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.quizrunning == false
-        ? _c(
-            "div",
-            [
-              _c("h1", [_vm._v("YOUR PERCENT :-=" + _vm._s(_vm.marks) + "% ")]),
-              _vm._v(" "),
-              _c("h1", [_vm._v("DETAILED TEST REPORT:")]),
-              _vm._v(" "),
-              _vm._l(_vm.questionsdata, function(value, key, index) {
-                return _c("div", { key: index }, [
-                  _c("h2", [_vm._v('TOPIC NAME:-"' + _vm._s(key) + '"')]),
-                  _vm._v(" "),
-                  _c("br"),
-                  _vm._v(" "),
-                  value.right.easy.length + value.wrong.easy.length > 0
-                    ? _c("div", [
-                        _c("h3", [
-                          _vm._v(
-                            "No of questions in easy:- " +
-                              _vm._s(
-                                value.right.easy.length +
-                                  value.wrong.easy.length
-                              )
-                          )
-                        ]),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("h3", [
-                          _vm._v(
-                            "out of the no of rights :-" +
-                              _vm._s(value.right.easy.length) +
-                              " (marks " +
-                              _vm._s(value.right.easy.length) +
-                              ")"
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("h3", [
-                          _vm._v(
-                            " and no of wrong :- " +
-                              _vm._s(value.wrong.easy.length)
-                          )
-                        ])
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  value.right.med.length + value.wrong.med.length > 0
-                    ? _c("div", [
-                        _c("h3", [
-                          _vm._v(
-                            "No of questions in medium:- " +
-                              _vm._s(
-                                value.right.med.length + value.wrong.med.length
-                              )
-                          )
-                        ]),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("h3", [
-                          _vm._v(
-                            "out of the no of rights :-" +
-                              _vm._s(value.right.med.length) +
-                              "(marks " +
-                              _vm._s(value.right.med.length * 2) +
-                              ")"
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("h3", [
-                          _vm._v(
-                            "and no of wrong :- " +
-                              _vm._s(value.wrong.med.length)
-                          )
-                        ])
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  value.right.hard.length + value.wrong.hard.length > 0
-                    ? _c("div", [
-                        _c("h3", [
-                          _vm._v(
-                            "No of questions in hard:- " +
-                              _vm._s(
-                                value.right.hard.length +
-                                  value.wrong.hard.length
-                              )
-                          )
-                        ]),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("h3", [
-                          _vm._v(
-                            "out of the no of rights :-" +
-                              _vm._s(value.right.hard.length) +
-                              "(marks " +
-                              _vm._s(value.right.hard.length * 3) +
-                              ")"
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("h3", [
-                          _vm._v(
-                            "and no of wrong :- " +
-                              _vm._s(value.wrong.hard.length)
-                          )
-                        ])
-                      ])
-                    : _vm._e()
-                ])
-              }),
-              _vm._v(" "),
-              _c("h3", [
-                _vm._v("TOPIC AND COMPLEXITY WISE WRONG QUESTION ANSWERS")
-              ]),
-              _vm._v(" "),
-              _vm._l(_vm.questionsdata, function(value, key, index) {
-                return _c("div", { key: index }, [
-                  value.wrong.easy.length > 0 ||
-                  value.wrong.med.length > 0 ||
-                  value.wrong.hard.length > 0
-                    ? _c("h2", [_vm._v('TOPIC NAME:-"' + _vm._s(key) + '"')])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _c("br"),
-                  _vm._v(" "),
-                  value.wrong.easy.length > 0
-                    ? _c(
-                        "div",
-                        [
-                          _c("h3", [
-                            _vm._v(
-                              "no of wrong in easy:- " +
-                                _vm._s(value.wrong.easy.length)
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _vm._l(value.wrong.easy, function(question, index) {
-                            return _c("div", { key: index }, [
-                              _c("h4", [_vm._v(_vm._s(question.question))]),
-                              _vm._v(" "),
-                              _c("h4", [_vm._v(_vm._s(question.answer))])
-                            ])
-                          })
-                        ],
-                        2
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  value.wrong.med.length > 0
-                    ? _c(
-                        "div",
-                        [
-                          _c("h3", [
-                            _vm._v(
-                              "no of wrong in med:- " +
-                                _vm._s(value.wrong.med.length)
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _vm._l(value.wrong.med, function(question, index) {
-                            return _c("div", { key: index }, [
-                              _c("h4", [_vm._v(_vm._s(question.question))]),
-                              _vm._v(" "),
-                              _c("h4", [_vm._v(_vm._s(question.answer))])
-                            ])
-                          })
-                        ],
-                        2
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  value.wrong.hard.length > 0
-                    ? _c(
-                        "div",
-                        [
-                          _c("h3", [
-                            _vm._v(
-                              "no of wrong in hard:- " +
-                                _vm._s(value.wrong.hard.length)
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _vm._l(value.wrong.hard, function(question, index) {
-                            return _c("div", { key: index }, [
-                              _c("h4", [_vm._v(_vm._s(question.question))]),
-                              _vm._v(" "),
-                              _c("h4", [_vm._v(_vm._s(question.answer))])
-                            ])
-                          })
-                        ],
-                        2
-                      )
-                    : _vm._e()
-                ])
-              })
-            ],
-            2
-          )
-        : _vm._e()
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-b30492f8", module.exports)
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__ = __webpack_require__(224);
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
   }
+  return color;
 }
+
+// function add(a, b) {
+//   return a + b;
+// }
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+  extends: __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__["a" /* Pie */],
+  props: ['value', 'type'],
+  data: function data() {
+    return {
+      labels: [],
+      marks: [],
+      color: []
+    };
+  },
+  mounted: function mounted() {
+    this.drawpie();
+  },
+
+  methods: {
+    drawpie: function drawpie() {
+      var marks = 0;
+      if (this.type == "marks") {
+        for (var val in this.value) {
+          marks = this.value[val].right.easy.length + this.value[val].right.med.length * 2 + this.value[val].right.hard.length * 3;
+          this.labels.push(val);
+          this.marks.push(marks);
+          this.color.push(getRandomColor());
+          //var sum = this.marks.reduce(add, 0);
+
+          //if(sum>0){
+
+          //}
+        }
+      }
+      if (this.type == "rights") {
+        for (var val in this.value) {
+          marks = this.value[val].right.easy.length + this.value[val].right.med.length + this.value[val].right.hard.length;
+          this.labels.push(val);
+          this.marks.push(marks);
+          this.color.push(getRandomColor());
+        }
+      }
+
+      if (this.type == "wrongs") {
+        for (var val in this.value) {
+          marks = this.value[val].wrong.easy.length + this.value[val].wrong.med.length + this.value[val].wrong.hard.length;
+          this.labels.push(val);
+          this.marks.push(marks);
+          this.color.push(getRandomColor());
+        }
+      }
+      this.renderChart({
+        labels: this.labels,
+        datasets: [{
+          backgroundColor: this.color,
+          data: this.marks
+        }]
+      }, {
+        responsive: true,
+        maintainAspectRatio: false,
+        pieceLabel: {
+          mode: 'percentage',
+          precision: 1
+        }
+      });
+    }
+  }
+});
 
 /***/ }),
 /* 224 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-var disposed = false
-var normalizeComponent = __webpack_require__(4)
-/* script */
-var __vue_script__ = __webpack_require__(225)
-/* template */
-var __vue_template__ = null
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/piechartComponent.vue"
+"use strict";
+/* unused harmony export VueCharts */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_index_js__ = __webpack_require__(225);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__BaseCharts__ = __webpack_require__(226);
+/* unused harmony reexport Bar */
+/* unused harmony reexport HorizontalBar */
+/* unused harmony reexport Doughnut */
+/* unused harmony reexport Line */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_1__BaseCharts__["f"]; });
+/* unused harmony reexport PolarArea */
+/* unused harmony reexport Radar */
+/* unused harmony reexport Bubble */
+/* unused harmony reexport Scatter */
+/* unused harmony reexport mixins */
+/* unused harmony reexport generateChart */
 
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-03f46cc4", Component.options)
-  } else {
-    hotAPI.reload("data-v-03f46cc4", Component.options)
+
+var VueCharts = {
+  Bar: __WEBPACK_IMPORTED_MODULE_1__BaseCharts__["a" /* Bar */],
+  HorizontalBar: __WEBPACK_IMPORTED_MODULE_1__BaseCharts__["d" /* HorizontalBar */],
+  Doughnut: __WEBPACK_IMPORTED_MODULE_1__BaseCharts__["c" /* Doughnut */],
+  Line: __WEBPACK_IMPORTED_MODULE_1__BaseCharts__["e" /* Line */],
+  Pie: __WEBPACK_IMPORTED_MODULE_1__BaseCharts__["f" /* Pie */],
+  PolarArea: __WEBPACK_IMPORTED_MODULE_1__BaseCharts__["g" /* PolarArea */],
+  Radar: __WEBPACK_IMPORTED_MODULE_1__BaseCharts__["h" /* Radar */],
+  Bubble: __WEBPACK_IMPORTED_MODULE_1__BaseCharts__["b" /* Bubble */],
+  Scatter: __WEBPACK_IMPORTED_MODULE_1__BaseCharts__["i" /* Scatter */],
+  mixins: __WEBPACK_IMPORTED_MODULE_0__mixins_index_js__["a" /* default */],
+  generateChart: __WEBPACK_IMPORTED_MODULE_1__BaseCharts__["j" /* generateChart */],
+  render: function render() {
+    return console.error('[vue-chartjs]: This is not a vue component. It is the whole object containing all vue components. Please import the named export or access the components over the dot notation. For more info visit https://vue-chartjs.org/#/home?id=quick-start');
   }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
+};
+/* unused harmony default export */ var _unused_webpack_default_export = (VueCharts);
 
 
 /***/ }),
@@ -71411,37 +71172,213 @@ module.exports = Component.exports
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_chart_js__ = __webpack_require__(226);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_chart_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_chart_js__);
-//
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  extends: __WEBPACK_IMPORTED_MODULE_0_vue_chart_js___default.a.Pie,
-  mounted: function mounted() {
-    this.renderChart({
-      labels: ['VueJs', 'EmberJs', 'ReactJs', 'AngularJs'],
-      datasets: [{
-        backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16'],
-        data: [1, 2, 3, 1]
-      }]
-    }, {
-      responsive: true,
-      maintainAspectRatio: false,
-      pieceLabel: {
-        mode: 'percentage',
-        precision: 1
-      }
+/* unused harmony export reactiveData */
+/* unused harmony export reactiveProp */
+function dataHandler(newData, oldData) {
+  if (oldData) {
+    var chart = this.$data._chart;
+    var newDatasetLabels = newData.datasets.map(function (dataset) {
+      return dataset.label;
     });
+    var oldDatasetLabels = oldData.datasets.map(function (dataset) {
+      return dataset.label;
+    });
+    var oldLabels = JSON.stringify(oldDatasetLabels);
+    var newLabels = JSON.stringify(newDatasetLabels);
+
+    if (newLabels === oldLabels && oldData.datasets.length === newData.datasets.length) {
+      newData.datasets.forEach(function (dataset, i) {
+        var oldDatasetKeys = Object.keys(oldData.datasets[i]);
+        var newDatasetKeys = Object.keys(dataset);
+        var deletionKeys = oldDatasetKeys.filter(function (key) {
+          return key !== '_meta' && newDatasetKeys.indexOf(key) === -1;
+        });
+        deletionKeys.forEach(function (deletionKey) {
+          delete chart.data.datasets[i][deletionKey];
+        });
+
+        for (var attribute in dataset) {
+          if (dataset.hasOwnProperty(attribute)) {
+            chart.data.datasets[i][attribute] = dataset[attribute];
+          }
+        }
+      });
+
+      if (newData.hasOwnProperty('labels')) {
+        chart.data.labels = newData.labels;
+        this.$emit('labels:update');
+      }
+
+      if (newData.hasOwnProperty('xLabels')) {
+        chart.data.xLabels = newData.xLabels;
+        this.$emit('xlabels:update');
+      }
+
+      if (newData.hasOwnProperty('yLabels')) {
+        chart.data.yLabels = newData.yLabels;
+        this.$emit('ylabels:update');
+      }
+
+      chart.update();
+      this.$emit('chart:update');
+    } else {
+      if (chart) {
+        chart.destroy();
+        this.$emit('chart:destroy');
+      }
+
+      this.renderChart(this.chartData, this.options);
+      this.$emit('chart:render');
+    }
+  } else {
+    if (this.$data._chart) {
+      this.$data._chart.destroy();
+
+      this.$emit('chart:destroy');
+    }
+
+    this.renderChart(this.chartData, this.options);
+    this.$emit('chart:render');
   }
+}
+
+var reactiveData = {
+  data: function data() {
+    return {
+      chartData: null
+    };
+  },
+  watch: {
+    'chartData': dataHandler
+  }
+};
+var reactiveProp = {
+  props: {
+    chartData: {
+      required: true
+    }
+  },
+  watch: {
+    'chartData': dataHandler
+  }
+};
+/* harmony default export */ __webpack_exports__["a"] = ({
+  reactiveData: reactiveData,
+  reactiveProp: reactiveProp
 });
 
 /***/ }),
 /* 226 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-!function(t,e){ true?module.exports=e(__webpack_require__(227)):"function"==typeof define&&define.amd?define("VueChart",["chart.js"],e):"object"==typeof exports?exports.VueChart=e(require("chart.js")):t.VueChart=e(t.Chart)}(this,function(t){return function(t){function e(n){if(r[n])return r[n].exports;var o=r[n]={i:n,l:!1,exports:{}};return t[n].call(o.exports,o,o.exports,e),o.l=!0,o.exports}var r={};return e.m=t,e.c=r,e.d=function(t,r,n){e.o(t,r)||Object.defineProperty(t,r,{configurable:!1,enumerable:!0,get:n})},e.n=function(t){var r=t&&t.__esModule?function(){return t.default}:function(){return t};return e.d(r,"a",r),r},e.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},e.p="",e(e.s=0)}([function(t,e,r){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var n=r(1),o=function(t){return t&&t.__esModule?t:{default:t}}(n),a={install:function(t){t.component(o.default.name,o.default)}};o.default.install=a.install,e.default=o.default},function(t,e,r){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var n=r(3),o=r.n(n),a=r(5),u=r(2),i=u(o.a,a.a,null,null,null);e.default=i.exports},function(t,e){t.exports=function(t,e,r,n,o){var a,u=t=t||{},i=typeof t.default;"object"!==i&&"function"!==i||(a=t,u=t.default);var s="function"==typeof u?u.options:u;e&&(s.render=e.render,s.staticRenderFns=e.staticRenderFns),n&&(s._scopeId=n);var c;if(o?(c=function(t){t=t||this.$vnode&&this.$vnode.ssrContext||this.parent&&this.parent.$vnode&&this.parent.$vnode.ssrContext,t||"undefined"==typeof __VUE_SSR_CONTEXT__||(t=__VUE_SSR_CONTEXT__),r&&r.call(this,t),t&&t._registeredComponents&&t._registeredComponents.add(o)},s._ssrRegister=c):r&&(c=r),c){var f=s.functional,d=f?s.render:s.beforeCreate;f?s.render=function(t,e){return c.call(e),d(t,e)}:s.beforeCreate=d?[].concat(d,c):[c]}return{esModule:a,exports:u,options:s}}},function(t,e,r){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var n=r(4),o=function(t){return t&&t.__esModule?t:{default:t}}(n);e.default={name:"vue-chart",props:{type:{required:!0,type:String},data:{required:!0,type:[Object,Array]},options:Object,width:Number,height:Number},data:function(){return{chart:""}},watch:{"data.labels":function(){this.chart.update()},"data.datasets":function(){this.chart.update()}},methods:{createChart:function(){this.chart=new o.default(this.$refs.chart,{type:this.type,data:this.data,options:this.options})}},mounted:function(){this.createChart()},beforeDestroy:function(){this.chart.destroy()}}},function(e,r){e.exports=t},function(t,e,r){"use strict";var n=function(){var t=this,e=t.$createElement;return(t._self._c||e)("canvas",{ref:"chart",attrs:{width:t.width,height:t.height}})},o=[],a={render:n,staticRenderFns:o};e.a=a}])});
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["j"] = generateChart;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Bar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return HorizontalBar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return Doughnut; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return Line; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return Pie; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return PolarArea; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return Radar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return Bubble; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return Scatter; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_chart_js__ = __webpack_require__(227);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_chart_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_chart_js__);
+
+function generateChart(chartId, chartType) {
+  return {
+    render: function render(createElement) {
+      return createElement('div', {
+        style: this.styles,
+        class: this.cssClasses
+      }, [createElement('canvas', {
+        attrs: {
+          id: this.chartId,
+          width: this.width,
+          height: this.height
+        },
+        ref: 'canvas'
+      })]);
+    },
+    props: {
+      chartId: {
+        default: chartId,
+        type: String
+      },
+      width: {
+        default: 400,
+        type: Number
+      },
+      height: {
+        default: 400,
+        type: Number
+      },
+      cssClasses: {
+        type: String,
+        default: ''
+      },
+      styles: {
+        type: Object
+      },
+      plugins: {
+        type: Array,
+        default: function _default() {
+          return [];
+        }
+      }
+    },
+    data: function data() {
+      return {
+        _chart: null,
+        _plugins: this.plugins
+      };
+    },
+    methods: {
+      addPlugin: function addPlugin(plugin) {
+        this.$data._plugins.push(plugin);
+      },
+      generateLegend: function generateLegend() {
+        if (this.$data._chart) {
+          return this.$data._chart.generateLegend();
+        }
+      },
+      renderChart: function renderChart(data, options) {
+        if (this.$data._chart) this.$data._chart.destroy();
+        this.$data._chart = new __WEBPACK_IMPORTED_MODULE_0_chart_js___default.a(this.$refs.canvas.getContext('2d'), {
+          type: chartType,
+          data: data,
+          options: options,
+          plugins: this.$data._plugins
+        });
+      }
+    },
+    beforeDestroy: function beforeDestroy() {
+      if (this.$data._chart) {
+        this.$data._chart.destroy();
+      }
+    }
+  };
+}
+var Bar = generateChart('bar-chart', 'bar');
+var HorizontalBar = generateChart('horizontalbar-chart', 'horizontalBar');
+var Doughnut = generateChart('doughnut-chart', 'doughnut');
+var Line = generateChart('line-chart', 'line');
+var Pie = generateChart('pie-chart', 'pie');
+var PolarArea = generateChart('polar-chart', 'polarArea');
+var Radar = generateChart('radar-chart', 'radar');
+var Bubble = generateChart('bubble-chart', 'bubble');
+var Scatter = generateChart('scatter-chart', 'scatter');
+/* unused harmony default export */ var _unused_webpack_default_export = ({
+  Bar: Bar,
+  HorizontalBar: HorizontalBar,
+  Doughnut: Doughnut,
+  Line: Line,
+  Pie: Pie,
+  PolarArea: PolarArea,
+  Radar: Radar,
+  Bubble: Bubble,
+  Scatter: Scatter
+});
 
 /***/ }),
 /* 227 */
@@ -84050,12 +83987,376 @@ module.exports = {
 /* 274 */
 /***/ (function(module, exports, __webpack_require__) {
 
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _vm.quizrunning
+      ? _c(
+          "div",
+          {
+            staticClass: "quesblock",
+            staticStyle: {
+              "max-width": "700px",
+              "margin-top": "50px",
+              "margin-left": "50px"
+            }
+          },
+          [
+            _c("div", [
+              _c("div", [
+                _c("div", { staticClass: "progress" }, [
+                  _c("div", {
+                    staticClass: "progress-bar",
+                    style: { width: _vm.progress + "%" }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticStyle: { "font-size": "30px" } }, [
+                _vm._v(
+                  " TIME:-" + _vm._s(_vm.min) + ":" + _vm._s(_vm.sec) + " "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "ques",
+                staticStyle: {
+                  border: "1px solid grey",
+                  "font-size": "25px",
+                  background: "lavender"
+                }
+              },
+              [
+                _vm._v(
+                  "Q" +
+                    _vm._s(_vm.noqs) +
+                    " " +
+                    _vm._s(_vm.curques.question) +
+                    "  "
+                ),
+                _c(
+                  "span",
+                  {
+                    staticStyle: {
+                      float: "right",
+                      border: "1px solid grey",
+                      background: "grey",
+                      color: "white",
+                      "margin-right": "5px"
+                    }
+                  },
+                  [_vm._v(_vm._s(_vm.complexity))]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _vm._l(_vm.curques.choices, function(value) {
+              return _c(
+                "div",
+                {
+                  key: value,
+                  staticStyle: { border: "1px solid grey", "font-size": "25px" }
+                },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.answer,
+                        expression: "answer"
+                      }
+                    ],
+                    attrs: { type: "radio" },
+                    domProps: {
+                      value: value,
+                      checked: _vm._q(_vm.answer, value)
+                    },
+                    on: {
+                      change: function($event) {
+                        _vm.answer = value
+                      }
+                    }
+                  }),
+                  _vm._v(_vm._s(value) + "\n        ")
+                ]
+              )
+            }),
+            _vm._v(" "),
+            _c("button", { on: { click: _vm.checkanswer } }, [_vm._v("submit")])
+          ],
+          2
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.quizrunning == false
+      ? _c(
+          "div",
+          [
+            _c("h1", [_vm._v("YOUR PERCENT :-=" + _vm._s(_vm.marks) + "% ")]),
+            _vm._v(" "),
+            _c("h1", { staticStyle: { "text-align": "center" } }, [
+              _vm._v(" TEST REPORT:")
+            ]),
+            _vm._v(" "),
+            _c("piechart-component", {
+              attrs: { value: _vm.questionsdata, type: "marks" }
+            }),
+            _vm._v(" "),
+            _c("h3", { staticStyle: { "text-align": "center" } }, [
+              _vm._v("TOPIC WISE MARKS DISTRIBUTION")
+            ]),
+            _vm._v(" "),
+            _c("piechart-component", {
+              attrs: { value: _vm.questionsdata, type: "rights" }
+            }),
+            _vm._v(" "),
+            _c("h3", { staticStyle: { "text-align": "center" } }, [
+              _vm._v("TOPIC WISE RIGHT QUESTIONS")
+            ]),
+            _vm._v(" "),
+            _c("piechart-component", {
+              attrs: { value: _vm.questionsdata, type: "wrongs" }
+            }),
+            _vm._v(" "),
+            _c("h3", { staticStyle: { "text-align": "center" } }, [
+              _vm._v("TOPIC WISE RIGHT QUESTIONS")
+            ]),
+            _vm._v(" "),
+            _c("h1", { staticStyle: { "text-align": "center" } }, [
+              _vm._v("DETAILED TEST REPORT:")
+            ]),
+            _vm._v(" "),
+            _vm._l(_vm.questionsdata, function(value, key, index) {
+              return _c("div", [
+                _c("h2", [
+                  _c("strong", [_vm._v('TOPIC NAME:-"' + _vm._s(key) + '"')])
+                ]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                value.right.easy.length + value.wrong.easy.length > 0
+                  ? _c("div", [
+                      _c("h3", [
+                        _vm._v("No of questions in "),
+                        _c("strong", [_vm._v("easy")]),
+                        _vm._v(
+                          ":- " +
+                            _vm._s(
+                              value.right.easy.length + value.wrong.easy.length
+                            )
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("h3", [
+                        _vm._v(
+                          "out of them no of rights :-" +
+                            _vm._s(value.right.easy.length) +
+                            " (marks " +
+                            _vm._s(value.right.easy.length) +
+                            ")"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("h3", [
+                        _vm._v(
+                          " and no of wrong :- " +
+                            _vm._s(value.wrong.easy.length)
+                        )
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                value.right.med.length + value.wrong.med.length > 0
+                  ? _c("div", [
+                      _c("h3", [
+                        _vm._v("No of questions in "),
+                        _c("strong", [_vm._v("medium")]),
+                        _vm._v(
+                          ":- " +
+                            _vm._s(
+                              value.right.med.length + value.wrong.med.length
+                            )
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("h3", [
+                        _vm._v(
+                          "out of them no of rights :-" +
+                            _vm._s(value.right.med.length) +
+                            "(marks " +
+                            _vm._s(value.right.med.length * 2) +
+                            ")"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("h3", [
+                        _vm._v(
+                          "and no of wrong :- " + _vm._s(value.wrong.med.length)
+                        )
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                value.right.hard.length + value.wrong.hard.length > 0
+                  ? _c("div", [
+                      _c("h3", [
+                        _vm._v("No of questions in "),
+                        _c("strong", [_vm._v("hard")]),
+                        _vm._v(
+                          ":- " +
+                            _vm._s(
+                              value.right.hard.length + value.wrong.hard.length
+                            )
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("h3", [
+                        _vm._v(
+                          "out of them no of rights :-" +
+                            _vm._s(value.right.hard.length) +
+                            "(marks " +
+                            _vm._s(value.right.hard.length * 3) +
+                            ")"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("h3", [
+                        _vm._v(
+                          "and no of wrong :- " +
+                            _vm._s(value.wrong.hard.length)
+                        )
+                      ])
+                    ])
+                  : _vm._e()
+              ])
+            }),
+            _vm._v(" "),
+            _c("h1", [
+              _vm._v("TOPIC AND COMPLEXITY WISE WRONG QUESTION ANSWERS")
+            ]),
+            _vm._v(" "),
+            _vm._l(_vm.questionsdata, function(value, key, index) {
+              return _c("div", [
+                value.wrong.easy.length > 0 ||
+                value.wrong.med.length > 0 ||
+                value.wrong.hard.length > 0
+                  ? _c("h2", [
+                      _c("strong", [
+                        _vm._v('TOPIC NAME:-"' + _vm._s(key) + '"')
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                value.wrong.easy.length > 0
+                  ? _c(
+                      "div",
+                      [
+                        _c("h3", [
+                          _vm._v("no of wrong in "),
+                          _c("strong", [_vm._v("easy")]),
+                          _vm._v(":- " + _vm._s(value.wrong.easy.length))
+                        ]),
+                        _c("br"),
+                        _vm._v(" "),
+                        _vm._l(value.wrong.easy, function(question, index) {
+                          return _c("div", [
+                            _c("h4", [
+                              _vm._v("Q " + _vm._s(question.question))
+                            ]),
+                            _vm._v(" "),
+                            _c("h4", [_vm._v("Ans " + _vm._s(question.answer))])
+                          ])
+                        })
+                      ],
+                      2
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                value.wrong.med.length > 0
+                  ? _c(
+                      "div",
+                      [
+                        _c("h3", [
+                          _vm._v("no of wrong in "),
+                          _c("strong", [_vm._v("med")]),
+                          _vm._v(":- " + _vm._s(value.wrong.med.length))
+                        ]),
+                        _c("br"),
+                        _vm._v(" "),
+                        _vm._l(value.wrong.med, function(question, index) {
+                          return _c("div", [
+                            _c("h4", [
+                              _vm._v("Q " + _vm._s(question.question))
+                            ]),
+                            _vm._v(" "),
+                            _c("h4", [_vm._v("Ans " + _vm._s(question.answer))])
+                          ])
+                        })
+                      ],
+                      2
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                value.wrong.hard.length > 0
+                  ? _c(
+                      "div",
+                      [
+                        _c("h3", [
+                          _vm._v("no of wrong in "),
+                          _c("strong", [_vm._v("hard")]),
+                          _vm._v(":- " + _vm._s(value.wrong.hard.length))
+                        ]),
+                        _c("br"),
+                        _vm._v(" "),
+                        _vm._l(value.wrong.hard, function(question, index) {
+                          return _c("div", [
+                            _c("h4", [
+                              _vm._v("Q " + _vm._s(question.question))
+                            ]),
+                            _vm._v(" "),
+                            _c("h4", [_vm._v("Ans " + _vm._s(question.answer))])
+                          ])
+                        })
+                      ],
+                      2
+                    )
+                  : _vm._e()
+              ])
+            })
+          ],
+          2
+        )
+      : _vm._e()
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-b30492f8", module.exports)
+  }
+}
+
+/***/ }),
+/* 275 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var disposed = false
 var normalizeComponent = __webpack_require__(4)
 /* script */
-var __vue_script__ = __webpack_require__(275)
+var __vue_script__ = __webpack_require__(276)
 /* template */
-var __vue_template__ = __webpack_require__(276)
+var __vue_template__ = __webpack_require__(277)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -84094,7 +84395,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 275 */
+/* 276 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -84138,7 +84439,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 276 */
+/* 277 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -84182,15 +84483,15 @@ if (false) {
 }
 
 /***/ }),
-/* 277 */
+/* 278 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(4)
 /* script */
-var __vue_script__ = __webpack_require__(278)
+var __vue_script__ = __webpack_require__(279)
 /* template */
-var __vue_template__ = __webpack_require__(279)
+var __vue_template__ = __webpack_require__(280)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -84229,7 +84530,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 278 */
+/* 279 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -84258,7 +84559,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 279 */
+/* 280 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -84288,7 +84589,7 @@ if (false) {
 }
 
 /***/ }),
-/* 280 */
+/* 281 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
