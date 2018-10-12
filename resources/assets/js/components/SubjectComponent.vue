@@ -39,14 +39,18 @@ import { EventBus } from '../app.js'
          },
          methods:{
              async TakeTest(sujectId){
-                 await axios.get('http://localhost:8000/subjects/'+sujectId+'/get/instructions')
-                    .then((response)=>(this.instructions = response.data))
-                    .catch(function(error){console.log(error)});
-                    alert(this.instructions);
-                EventBus.$emit('fetchInstructions',{
-                    instructionsKey:this.instructions,
-                    visibleKey:this.visible
-                });
+                //  await axios.get('http://localhost:8000/subjects/'+sujectId+'/get/instructions')
+                //     .then((response)=>(this.instructions = response.data))
+                //     .catch(function(error){console.log(error)});
+                    window.location.assign('http://localhost:8000/student/home/'+sujectId);
+                    // alert(this.instructions);
+                // EventBus.$emit('fetchInstructions',{
+                //     instructionsKey:this.instructions,
+                //     visibleKey:this.visible
+                // });
+                // await axios.get('http://localhost:8000/student/home/'+sujectId)
+                //     .then((response)=>(this.instructions = response.data))
+                //     .catch(function(error){console.log(error)});
              },
             async defaultsubjects(){
                  await axios.get('http://localhost:8000/subjects/get/default')

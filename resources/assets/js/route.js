@@ -1,12 +1,16 @@
 // import SubjectComponent from './components/SubjectComponent.vue'
-import Instructions from './components/Instructions.vue'
 
-export default[
+// import Instructions from './components/Instructions.vue'
+// import Vue from 'vue';
+// Vue.use (VueRouter);
+
+// export default new VueRouter({
     
-    { path:'/studnt/home',
-      components: {
-                    default:Instructions,
-                    instruction: Instructions
-                 }
-    },
-]
+//     routes: [
+//         {
+//           path: '/student/home/inst',
+//           name: 'Add New Product',
+//           component: Instructions
+//         },
+//     ]
+// })

@@ -505,7 +505,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
 // import VueRouter from 'vue-router';
-// import Routes from './route';
+// import router from './route';
 __webpack_require__(22);
 
 // Vue.use(VueRouter);
@@ -591,7 +591,7 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('subject', __webpack_requi
 
 var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
     el: '#app',
-    // router:router,
+    //  router:router,
     data: function data() {
         var _ref;
 
@@ -49058,14 +49058,15 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                     while (1) {
                         switch (_context2.prev = _context2.next) {
                             case 0:
-                                _context2.next = 2;
+                                alert(courseID);
+                                _context2.next = 3;
                                 return axios.get('http://localhost:8000/courses/' + courseID + '/get/branches').then(function (response) {
                                     return _this2.branches = response.data;
                                 }).catch(function (error) {
                                     console.log(error);
                                 });
 
-                            case 2:
+                            case 3:
                             case 'end':
                                 return _context2.stop();
                         }
@@ -49151,18 +49152,9 @@ var render = function() {
                 }
               },
               [
-                _c(
-                  "a",
-                  {
-                    attrs: { href: "#", id: course.id },
-                    on: {
-                      click: function($event) {
-                        _vm.fetchBranch(course.id)
-                      }
-                    }
-                  },
-                  [_vm._v(_vm._s(course.name))]
-                ),
+                _c("a", { attrs: { href: "#", id: course.id } }, [
+                  _vm._v(_vm._s(course.name))
+                ]),
                 _c("i", { staticClass: "pull-right fa fa-caret-right" })
               ]
             )
@@ -49532,27 +49524,24 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     methods: {
         TakeTest: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(sujectId) {
-                var _this2 = this;
-
                 return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
                     while (1) {
                         switch (_context.prev = _context.next) {
                             case 0:
-                                _context.next = 2;
-                                return axios.get('http://localhost:8000/subjects/' + sujectId + '/get/instructions').then(function (response) {
-                                    return _this2.instructions = response.data;
-                                }).catch(function (error) {
-                                    console.log(error);
-                                });
+                                //  await axios.get('http://localhost:8000/subjects/'+sujectId+'/get/instructions')
+                                //     .then((response)=>(this.instructions = response.data))
+                                //     .catch(function(error){console.log(error)});
+                                window.location.assign('http://localhost:8000/student/home/' + sujectId);
+                                // alert(this.instructions);
+                                // EventBus.$emit('fetchInstructions',{
+                                //     instructionsKey:this.instructions,
+                                //     visibleKey:this.visible
+                                // });
+                                // await axios.get('http://localhost:8000/student/home/'+sujectId)
+                                //     .then((response)=>(this.instructions = response.data))
+                                //     .catch(function(error){console.log(error)});
 
-                            case 2:
-                                alert(this.instructions);
-                                __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$emit('fetchInstructions', {
-                                    instructionsKey: this.instructions,
-                                    visibleKey: this.visible
-                                });
-
-                            case 4:
+                            case 1:
                             case 'end':
                                 return _context.stop();
                         }
@@ -49568,7 +49557,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         }(),
         defaultsubjects: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
-                var _this3 = this;
+                var _this2 = this;
 
                 return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -49576,7 +49565,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                             case 0:
                                 _context2.next = 2;
                                 return axios.get('http://localhost:8000/subjects/get/default').then(function (response) {
-                                    return _this3.subjects = response.data;
+                                    return _this2.subjects = response.data;
                                 }).catch(function (error) {
                                     console.log(error);
                                 });
@@ -51799,7 +51788,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -51825,6 +51814,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -51839,7 +51831,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         __WEBPACK_IMPORTED_MODULE_0__app_js__["EventBus"].$on('fetchInstructions', function (data) {
             _this.instructions = data.instructionsKey;
         });
-    }
+    },
+
+    methods: {}
 });
 
 /***/ }),
@@ -51866,13 +51860,24 @@ var render = function() {
             )
           ])
         })
-      )
-    ]),
-    _vm._v(" "),
-    _c("button", { staticClass: "btn btn-primary" }, [_vm._v("Start")])
+      ),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c("button", { staticClass: "btn btn-primary" }, [_vm._v("Start")])
+    ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { attrs: { href: "/student/home" } }, [
+      _c("button", { staticClass: "btn btn-primary" }, [_vm._v("Back")])
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -52034,7 +52039,7 @@ var render = function() {
     _c(
       "div",
       { staticClass: "col-md-6" },
-      [!_vm.visible ? _c("instructions") : _c("subject-container")],
+      [_vm.visible ? _c("subject-container") : _vm._e()],
       1
     ),
     _vm._v(" "),

@@ -7,13 +7,16 @@
                         {{  inst.instruction }}
                     </li>
                 </ul>
+                <a href="/student/home"><button class="btn btn-primary">Back</button></a>
+                <button class="btn btn-primary">Start</button>
             </div>
-            <button class="btn btn-primary">Start</button>
+            
     </div>
 </template>
 
 <script>
 import { EventBus } from '../app.js';
+
 export default {
 
     data(){
@@ -24,9 +27,13 @@ export default {
     mounted(){
         EventBus.$on('fetchInstructions',data=>{
             this.instructions = data.instructionsKey;
+            
         });
-    }
+       
+    },
+    methods:{
 
+    }
 }
 </script>
 

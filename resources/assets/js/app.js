@@ -1,6 +1,6 @@
 import Vue from 'vue';
 // import VueRouter from 'vue-router';
-// import Routes from './route';
+// import router from './route';
 require('./bootstrap');
 
 // Vue.use(VueRouter);
@@ -73,7 +73,7 @@ Vue.component('subject', require('./components/subject.vue'));
 
 const app = new Vue({
     el: '#app',
-    // router:router,
+    //  router:router,
     data() {
         return {
             smodal:false,
