@@ -67,5 +67,5 @@ Route::prefix('teacher')->group(function () {
 Route::prefix('student')->group(function () {
     Route::get('/home', 'StudentController@index');
 });
-
+Route::get('/starttest/{id}','SubjectController@testQuestion');
 

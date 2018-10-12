@@ -32,9 +32,10 @@ import { EventBus } from '../app.js'
             });
          },
          methods:{
-             startTest(sujectId){
-                 alert(sujectId)
-;             }
+             startTest(subjectId){
+            window.location.assign("/starttest/"+subjectId);
+             }
+
          }
 }
 </script>

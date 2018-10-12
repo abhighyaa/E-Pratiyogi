@@ -573,6 +573,7 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('subject-component', __web
 __WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('instruction-component', __webpack_require__(10));
 __WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('admin-component', __webpack_require__(60));
 __WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('dashboard-component', __webpack_require__(65));
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('test-component', __webpack_require__(70));
 
 __WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('mcontent', {
     template: '<div><slot></slot></div>'
@@ -582,8 +583,8 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('mfooter', {
     template: '<div><slot></slot></div>'
 });
 
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('modal', __webpack_require__(70));
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('subject', __webpack_require__(73));
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('modal', __webpack_require__(73));
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('subject', __webpack_require__(76));
 
 var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
     el: '#app',
@@ -14717,7 +14718,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(2);
-module.exports = __webpack_require__(76);
+module.exports = __webpack_require__(79);
 
 
 /***/ }),
@@ -26995,8 +26996,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     methods: {
-        startTest: function startTest(sujectId) {
-            alert(sujectId);
+        startTest: function startTest(subjectId) {
+            window.location.assign("/starttest/" + subjectId);
         }
     }
 });
@@ -50932,6 +50933,617 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
+Component.options.__file = "resources/assets/js/components/testComponent.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-b30492f8", Component.options)
+  } else {
+    hotAPI.reload("data-v-b30492f8", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 71 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+var tim, dec;
+function shuffle(array) {
+    var currentIndex = array.length,
+        temporaryValue,
+        randomIndex;
+    while (0 !== currentIndex) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+    return array;
+}
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['easy', 'med', 'hard', 'curr_ques'],
+    data: function data() {
+        return {
+            answer: '',
+            crrans: '',
+            wrong: 0,
+            right: 0,
+            complexity: '',
+            marks: 0,
+            quizrunning: true,
+            min: '',
+            sec: '',
+            duration: 60,
+            questionsdata: {},
+            progress: 100,
+            curques: '',
+            noqs: 1
+        };
+    },
+    mounted: function mounted() {
+        this.startTimer(this.duration, this);
+        this.curques = this.curr_ques;
+        this.curques = JSON.parse(this.curques);
+        this.complexity = this.curques.complexity;
+    },
+
+    methods: {
+        startTimer: function startTimer(timer, obj) {
+            tim = setInterval(function () {
+                obj.min = parseInt(timer / 60, 10);
+                obj.sec = parseInt(timer % 60, 10);
+
+                obj.min = obj.min < 10 ? "0" + obj.min : obj.min;
+                obj.sec = obj.sec < 10 ? "0" + obj.sec : obj.sec;
+                dec = 100 / obj.duration;
+                obj.progress -= dec;
+                if (--timer < 0) {
+                    clearInterval(tim);
+                    obj.checkanswer();
+                }
+            }, 1000);
+        },
+
+        checkanswer: function checkanswer() {
+            clearInterval(tim);
+            var topic = this.curques.pivot.topic;
+            if (!this.questionsdata.hasOwnProperty(topic)) {
+                this.questionsdata[topic] = { 'right': {
+                        "easy": [],
+                        "med": [],
+                        "hard": []
+                    },
+                    "wrong": {
+                        "easy": [],
+                        "med": [],
+                        "hard": []
+                    }
+                };
+            }
+            if (this.curques.answer == this.answer) {
+                alert('correct');
+                if (this.complexity == 'easy') {
+                    this.questionsdata[topic]['right']["easy"].push(this.curques);
+                    this.marks = this.marks + 1;
+                }
+                if (this.complexity == 'medium') {
+                    this.questionsdata[topic]['right']["med"].push(this.curques);
+                    this.marks = this.marks + 2;
+                }
+                if (this.complexity == 'hard') {
+                    this.questionsdata[topic]['right']["hard"].push(this.curques);
+                    this.marks = this.marks + 3;
+                }
+
+                this.right++;
+                this.wrong = 0;
+                if (this.right >= 1) {
+                    this.right = 0;
+                    this.wrong = 0;
+                    if (this.complexity == 'easy') this.complexity = 'medium';else if (this.complexity == 'medium') this.complexity = 'hard';
+                }
+            } else {
+                alert('wrong');
+                if (this.complexity == 'easy') this.questionsdata[topic]['wrong']["easy"].push(this.curques);
+                if (this.complexity == 'medium') this.questionsdata[topic]['wrong']["med"].push(this.curques);
+                if (this.complexity == 'hard') this.questionsdata[topic]['wrong']["hard"].push(this.curques);
+
+                this.wrong++;
+                this.right = 0;
+                if (this.wrong >= 2) {
+                    this.right = 0;
+                    this.wrong = 0;
+                    if (this.complexity == 'medium') this.complexity = 'easy';else if (this.complexity == 'hard') this.complexity = 'medium';
+                }
+            }
+            if (this.noqs < 10) {
+                if (this.complexity == 'easy') {
+                    this.easy = shuffle(this.easy);
+                    this.curques = this.easy[0];
+                    this.easy.splice(0, 1);
+                    this.duration = 30;
+                } else if (this.complexity == 'medium') {
+                    this.med = shuffle(this.med);
+                    this.curques = this.med[0];
+                    this.med.splice(0, 1);
+                    this.duration = 60;
+                } else if (this.complexity == 'hard') {
+                    this.hard = shuffle(this.hard);
+                    this.curques = this.hard[0];
+                    this.hard.splice(0, 1);
+                    this.duration = 90;
+                }
+                this.progress = 100;
+                this.complexity = this.curques.complexity;
+                this.startTimer(this.duration, this);
+                this.noqs++;
+                this.answer = '';
+            } else {
+                alert('test-over');
+                this.quizrunning = false;
+                this.marks = this.marks / 29 * 100;
+            }
+        }
+    }
+});
+
+/***/ }),
+/* 72 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _vm.quizrunning
+      ? _c(
+          "div",
+          {
+            staticClass: "quesblock",
+            staticStyle: {
+              "max-width": "700px",
+              "margin-top": "50px",
+              "margin-left": "50px"
+            }
+          },
+          [
+            _c("div", [
+              _c("div", [
+                _c("div", { staticClass: "progress" }, [
+                  _c("div", {
+                    staticClass: "progress-bar",
+                    style: { width: _vm.progress + "%" }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticStyle: { "font-size": "30px" } }, [
+                _vm._v(
+                  " TIME:-" + _vm._s(_vm.min) + ":" + _vm._s(_vm.sec) + " "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "ques",
+                staticStyle: {
+                  border: "1px solid grey",
+                  "font-size": "25px",
+                  background: "lavender"
+                }
+              },
+              [
+                _vm._v(
+                  "Q" +
+                    _vm._s(_vm.noqs) +
+                    " " +
+                    _vm._s(_vm.curques.question) +
+                    "  "
+                ),
+                _c(
+                  "span",
+                  {
+                    staticStyle: {
+                      float: "right",
+                      border: "1px solid grey",
+                      background: "grey",
+                      color: "white",
+                      "margin-right": "5px"
+                    }
+                  },
+                  [_vm._v(_vm._s(_vm.complexity))]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "ul",
+              {
+                staticClass: "choices",
+                staticStyle: { "list-style-type": "none" }
+              },
+              _vm._l(_vm.curques.choices, function(value) {
+                return _c(
+                  "li",
+                  {
+                    key: value,
+                    staticStyle: {
+                      border: "1px solid grey",
+                      "font-size": "25px"
+                    }
+                  },
+                  [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.answer,
+                          expression: "answer"
+                        }
+                      ],
+                      attrs: { type: "radio" },
+                      domProps: {
+                        value: value,
+                        checked: _vm._q(_vm.answer, value)
+                      },
+                      on: {
+                        change: function($event) {
+                          _vm.answer = value
+                        }
+                      }
+                    }),
+                    _vm._v(_vm._s(value) + "\n        ")
+                  ]
+                )
+              })
+            ),
+            _vm._v(" "),
+            _c("button", { on: { click: _vm.checkanswer } }, [_vm._v("submit")])
+          ]
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.quizrunning == false
+      ? _c(
+          "div",
+          [
+            _c("h1", [_vm._v("YOUR PERCENT :-=" + _vm._s(_vm.marks) + "% ")]),
+            _vm._v(" "),
+            _c("h1", [_vm._v("DETAILED TEST REPORT:")]),
+            _vm._v(" "),
+            _vm._l(_vm.questionsdata, function(value, key) {
+              return _c("div", [
+                _c("h2", [_vm._v('TOPIC NAME:-"' + _vm._s(key) + '"')]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                value.right.easy.length + value.wrong.easy.length > 0
+                  ? _c("div", [
+                      _c("h3", [
+                        _vm._v(
+                          "No of questions in easy:- " +
+                            _vm._s(
+                              value.right.easy.length + value.wrong.easy.length
+                            )
+                        )
+                      ]),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("h3", [
+                        _vm._v(
+                          "out of the no of rights :-" +
+                            _vm._s(value.right.easy.length) +
+                            " (marks " +
+                            _vm._s(value.right.easy.length) +
+                            ")"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("h3", [
+                        _vm._v(
+                          " and no of wrong :- " +
+                            _vm._s(value.wrong.easy.length)
+                        )
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                value.right.med.length + value.wrong.med.length > 0
+                  ? _c("div", [
+                      _c("h3", [
+                        _vm._v(
+                          "No of questions in medium:- " +
+                            _vm._s(
+                              value.right.med.length + value.wrong.med.length
+                            )
+                        )
+                      ]),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("h3", [
+                        _vm._v(
+                          "out of the no of rights :-" +
+                            _vm._s(value.right.med.length) +
+                            "(marks " +
+                            _vm._s(value.right.med.length * 2) +
+                            ")"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("h3", [
+                        _vm._v(
+                          "and no of wrong :- " + _vm._s(value.wrong.med.length)
+                        )
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                value.right.hard.length + value.wrong.hard.length > 0
+                  ? _c("div", [
+                      _c("h3", [
+                        _vm._v(
+                          "No of questions in hard:- " +
+                            _vm._s(
+                              value.right.hard.length + value.wrong.hard.length
+                            )
+                        )
+                      ]),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("h3", [
+                        _vm._v(
+                          "out of the no of rights :-" +
+                            _vm._s(value.right.hard.length) +
+                            "(marks " +
+                            _vm._s(value.right.hard.length * 3) +
+                            ")"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("h3", [
+                        _vm._v(
+                          "and no of wrong :- " +
+                            _vm._s(value.wrong.hard.length)
+                        )
+                      ])
+                    ])
+                  : _vm._e()
+              ])
+            }),
+            _vm._v(" "),
+            _c("h3", [
+              _vm._v("TOPIC AND COMPLEXITY WISE WRONG QUESTION ANSWERS")
+            ]),
+            _vm._v(" "),
+            _vm._l(_vm.questionsdata, function(value, key) {
+              return _c("div", [
+                value.wrong.easy.length > 0 ||
+                value.wrong.med.length > 0 ||
+                value.wrong.hard.length > 0
+                  ? _c("h2", [_vm._v('TOPIC NAME:-"' + _vm._s(key) + '"')])
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                value.wrong.easy.length > 0
+                  ? _c(
+                      "div",
+                      [
+                        _c("h3", [
+                          _vm._v(
+                            "no of wrong in easy:- " +
+                              _vm._s(value.wrong.easy.length)
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _vm._l(value.wrong.easy, function(question) {
+                          return _c("div", [
+                            _c("h4", [_vm._v(_vm._s(question.question))]),
+                            _vm._v(" "),
+                            _c("h4", [_vm._v(_vm._s(question.answer))])
+                          ])
+                        })
+                      ],
+                      2
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                value.wrong.med.length > 0
+                  ? _c(
+                      "div",
+                      [
+                        _c("h3", [
+                          _vm._v(
+                            "no of wrong in med:- " +
+                              _vm._s(value.wrong.med.length)
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _vm._l(value.wrong.med, function(question) {
+                          return _c("div", [
+                            _c("h4", [_vm._v(_vm._s(question.question))]),
+                            _vm._v(" "),
+                            _c("h4", [_vm._v(_vm._s(question.answer))])
+                          ])
+                        })
+                      ],
+                      2
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                value.wrong.hard.length > 0
+                  ? _c(
+                      "div",
+                      [
+                        _c("h3", [
+                          _vm._v(
+                            "no of wrong in hard:- " +
+                              _vm._s(value.wrong.hard.length)
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _vm._l(value.wrong.hard, function(question) {
+                          return _c("div", [
+                            _c("h4", [_vm._v(_vm._s(question.question))]),
+                            _vm._v(" "),
+                            _c("h4", [_vm._v(_vm._s(question.answer))])
+                          ])
+                        })
+                      ],
+                      2
+                    )
+                  : _vm._e()
+              ])
+            })
+          ],
+          2
+        )
+      : _vm._e()
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-b30492f8", module.exports)
+  }
+}
+
+/***/ }),
+/* 73 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(74)
+/* template */
+var __vue_template__ = __webpack_require__(75)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
 Component.options.__file = "resources/assets/js/components/modal.vue"
 
 /* hot reload */
@@ -50954,7 +51566,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 71 */
+/* 74 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -50998,7 +51610,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 72 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -51042,15 +51654,15 @@ if (false) {
 }
 
 /***/ }),
-/* 73 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(74)
+var __vue_script__ = __webpack_require__(77)
 /* template */
-var __vue_template__ = __webpack_require__(75)
+var __vue_template__ = __webpack_require__(78)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -51089,7 +51701,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 74 */
+/* 77 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -51118,7 +51730,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 75 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -51148,7 +51760,7 @@ if (false) {
 }
 
 /***/ }),
-/* 76 */
+/* 79 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
