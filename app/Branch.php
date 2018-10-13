@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Branch extends Model
 {
+    protected $fillable = ['name'];
     public function courses()
     {
         return $this->belongsToMany('App\Course','course_branch_subjects');
@@ -16,7 +17,7 @@ class Branch extends Model
     }
      public function courses_branches()
     {
-    	 return $this->belongsToMany('App\Course','branch_courses');
+    	 return $this->belongsToMany('App\Course','branch_courses')->orderby('id');
     }
     // public function subjects()
     // {

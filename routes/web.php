@@ -67,10 +67,14 @@ Route::prefix('admin')->group(function () {
     Route::get('update/role/{id}/user/{name}','AdminController@update_role_of_user');
     Route::get('remove/user/{id}','AdminController@Remove_user');
     Route::get('get/all/courses','AdminController@FetchCourses');
+    Route::get('update/{id}/course/{name}','AdminController@update_course');
+    Route::get('add/course/{name}','AdminController@add_course');
     Route::get('get/all/branches','AdminController@Fetch_branches_with_course');
     Route::get('get/all/subjects','AdminController@Fetch_subjects_with_course_branch');
-    Route::get('update/{id}/course/{name}','AdminController@update_course');
     Route::get('update/{id}/branch/{name}','AdminController@update_branch');
+    Route::get('add/branch/{branch}/to/{course}','AdminController@add_branch_to_course');
+    Route::get('fetch/branches/for/course/{course}','AdminController@fetch_branches_for_this_course');
+    Route::get('add/{subject}/{branch}/{course}','AdminController@add_subject');
 });
 Route::prefix('teacher')->group(function () {
     Route::get('/home','QuestionController@index');

@@ -50203,7 +50203,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\nh1{\n  color:rgba(0,0,0,0.7);\n}\n.Editable{\n  height: 35px;\n  padding-left: 10px;\n  border:1px solid lightblue;\n  outline: none;\n  border-radius: 20px;\n}\n.Editable:focus{\n border: 2px solid lightblue;\n}\nspan{\n  cursor: pointer;\ntext-transform: capitalize;\n}\n.grid-icon {\n    border-radius: 10px;\n    background-color: #8599ad;\n    color: white;\n}\n.grid-icon:hover\n  {\n    background-color: rgba(44,133,155);\n    /*cursor: pointer;*/\n}\nh5{\n    color: white;\n}\n.location\n  {\n    border:none;\n    width: 88%;\n    background-color: rgba(218,218,218,0.5);\n    border-radius: 6px;\n    margin-bottom: 5px;\n}\n.table_of_contents\n  {\n    width: 86%;\n}\n.location-button\n  {\n    background:transparent;\n    border:none;\n    cursor: pointer;\n    color: black;\n}\n.location-button:hover\n  {\n     background-color: #8599ad;\n     color: white;\n}\n.search_content\n  {\n    width: 540px;\n}\n.input-container\n  {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    width: 100%;\n    margin-bottom: 15px;\n}\n.icon \n  {\n    position: relative;\n    margin-left: -30px;\n    margin-top: 8px;\n    font-size: 18px;\n    color: #8599ad;\n}\n.input-field {\n    width: 74%;\n    height: 35px;\n    padding-left: 10px;\n  border:none;\n  outline: none;\n    border-radius: 20px;\n\n/*  border-radius: 3px;\n*/\n}\n.input-field:focus{\n  border: 1px solid lightblue;\n}\n.subject_list_text,.subject_add_button\n  {\n    border:solid 1px lightgrey;\n}\n.subject_add_button\n  {\n    background-color: white;\n    cursor:pointer;\n    color: black;\n    width: 110px;\n    padding: 5px 3px;\n    border-radius: 6px;\n}\n.subject_add_button:hover\n  {\n    background-color: rgba(44,133,155);\n}\n.subject_list_text\n  {\n    background-color: rgba(218,218,218,0.5);\n    border-radius: 6px;\n}\n.subject_input\n  {\n    height: 35px;\n    width: 784px;\n    border-radius: 20px;\n    margin-left: -8px;\n    outline: none;\n    border:1px solid lightblue;\n    padding:15px;\n}\n.subject_input:focus{\n     border:2px solid lightblue;\n}\n.btn-primary{\n    position: relative;\n    width: 110px;\n    border-radius: 20px;\n    padding:9px;\n}\n.question,.settings,.results,.notifications:hover\n   {\n    cursor: not-allowed;\n}\n", ""]);
+exports.push([module.i, "\nh1{\n  color:rgba(0,0,0,0.7);\n}\n.Editable{\n  height: 35px;\n  padding-left: 10px;\n  border:1px solid lightblue;\n  outline: none;\n  border-radius: 20px;\n}\n.Editable:focus{\n border: 2px solid lightblue;\n}\nspan{\n  cursor: pointer;\ntext-transform: capitalize;\n}\n.grid-icon {\n    border-radius: 10px;\n    background-color: #8599ad;\n    color: white;\n}\n.grid-icon:hover\n  {\n    background-color: rgba(44,133,155);\n    /*cursor: pointer;*/\n}\nh5{\n    color: white;\n}\n.location\n  {\n    border:none;\n    width: 88%;\n    background-color: rgba(218,218,218,0.5);\n    border-radius: 6px;\n    margin-bottom: 5px;\n}\n.table_of_contents\n  {\n    width: 86%;\n}\n.location-button\n  {\n    background:transparent;\n    border:none;\n    cursor: pointer;\n    color: black;\n}\n.location-button:hover\n  {\n     background-color: #8599ad;\n     color: white;\n}\n.search_content\n  {\n    width: 540px;\n}\n.input-container\n  {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    width: 100%;\n    margin-bottom: 15px;\n}\n.icon \n  {\n    position: relative;\n    margin-left: -30px;\n    margin-top: 8px;\n    font-size: 18px;\n    color: #8599ad;\n}\n.input-field {\n    width: 74%;\n    height: 35px;\n    padding-left: 10px;\n  border:none;\n  outline: none;\n    border-radius: 20px;\n\n/*  border-radius: 3px;\n*/\n}\n.input-field:focus{\n  border: 1px solid lightblue;\n}\n.subject_list_text,.subject_add_button\n  {\n    border:solid 1px lightgrey;\n}\n.add_button\n  {\n    background-color: white;\n    cursor:pointer;\n    color: black;\n    width: 110px;\n    padding: 5px 3px;\n    border:solid 1px lightgrey;\n    border-radius: 6px;\n}\n.add_button:hover\n  {\n    background-color: rgba(44,133,155);\n}\n.subject_list_text\n  {\n    background-color: rgba(218,218,218,0.5);\n    border-radius: 6px;\n}\n.subject_input\n  {\n    height: 35px;\n    width: 250px;\n    border-radius: 20px;\n    margin-left: -8px;\n    outline: none;\n    border:1px solid lightblue;\n    padding:15px;\n}\n.branch_input\n  {\n    height: 35px;\n    width: 340px;\n    border-radius: 20px;\n    margin-left: -8px;\n    outline: none;\n    border:1px solid lightblue;\n    padding:15px;\n}\n.subject_input:focus{\n     border:2px solid lightblue;\n}\n.btn-primary{\n    position: relative;\n    width: 110px;\n    border-radius: 20px;\n    padding:9px;\n}\n.question,.settings,.results,.notifications:hover\n   {\n    cursor: not-allowed;\n}\n.branch-dropdown\n   {\n    width: 410;\n    margin-top: 4px;\n    padding: 3px;\n}\n.subject_dropdown\n   {\n    width: 210;\n    margin-top: 4px;\n    padding: 3px;\n}\n", ""]);
 
 // exports
 
@@ -50468,6 +50468,72 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -50485,11 +50551,17 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
       showCourses: false,
       showBranches: false,
       new_subject_name: null,
+      Input_for_course: false,
+      new_course_name: null,
+      Input_for_branch: false,
+      new_branch_name: null,
       users: [],
       roles: [],
       courses: [],
       branches: [],
-      subjects: []
+      subjects: [],
+      selected: 'Select a course name',
+      selected_branch: 'select a branch name'
     };
   },
 
@@ -50785,13 +50857,51 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
       return UpdateCourse;
     }(),
-    FetchBranches: function () {
-      var _ref9 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee9() {
+    AddCourse: function () {
+      var _ref9 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee9(name) {
         var _this9 = this;
 
         return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee9$(_context9) {
           while (1) {
             switch (_context9.prev = _context9.next) {
+              case 0:
+                _context9.next = 2;
+                return axios.get('http://localhost:8000/admin/add/course/' + name).then(function (response) {
+                  if (response.data == 'Empty course name can not be added') {
+                    _this9.message = response.data;
+                    alert(_this9.message);
+                    _this9.message = '';
+                  } else {
+                    _this9.courses = response.data;
+                  }
+                }).catch(function (error) {
+                  console.log(error);
+                });
+
+              case 2:
+                this.new_course_name = null;
+
+              case 3:
+              case 'end':
+                return _context9.stop();
+            }
+          }
+        }, _callee9, this);
+      }));
+
+      function AddCourse(_x6) {
+        return _ref9.apply(this, arguments);
+      }
+
+      return AddCourse;
+    }(),
+    FetchBranches: function () {
+      var _ref10 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee10() {
+        var _this10 = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee10$(_context10) {
+          while (1) {
+            switch (_context10.prev = _context10.next) {
               case 0:
                 this.showDashboard = false;
                 this.showUsers = false;
@@ -50800,61 +50910,14 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                 this.show_student_user = false;
                 this.showCourses = false;
                 this.showBranches = true;
-                _context9.next = 9;
+                _context10.next = 9;
                 return axios.get('http://localhost:8000/admin/get/all/branches').then(function (response) {
-                  return _this9.branches = response.data;
+                  return _this10.branches = response.data;
                 }).catch(function (error) {
                   console.log(error);
                 });
 
               case 9:
-              case 'end':
-                return _context9.stop();
-            }
-          }
-        }, _callee9, this);
-      }));
-
-      function FetchBranches() {
-        return _ref9.apply(this, arguments);
-      }
-
-      return FetchBranches;
-    }(),
-    UpdateBranch: function () {
-      var _ref10 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee10(BranchNewName, BranchId) {
-        var _this10 = this;
-
-        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee10$(_context10) {
-          while (1) {
-            switch (_context10.prev = _context10.next) {
-              case 0:
-                if (!(BranchNewName === '')) {
-                  _context10.next = 6;
-                  break;
-                }
-
-                alert("Branch name can not be NUll");
-                _context10.next = 4;
-                return axios.get('http://localhost:8000/admin/get/all/branches').then(function (response) {
-                  return _this10.branches = response.data;
-                }).catch(function (error) {
-                  console.log(error);
-                });
-
-              case 4:
-                _context10.next = 8;
-                break;
-
-              case 6:
-                _context10.next = 8;
-                return axios.get('http://localhost:8000/admin/update/' + BranchId + '/branch/' + BranchNewName).then(function (response) {
-                  return _this10.branches = response.data;
-                }).catch(function (error) {
-                  console.log(error);
-                });
-
-              case 8:
               case 'end':
                 return _context10.stop();
             }
@@ -50862,19 +50925,138 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         }, _callee10, this);
       }));
 
-      function UpdateBranch(_x6, _x7) {
+      function FetchBranches() {
         return _ref10.apply(this, arguments);
       }
 
-      return UpdateBranch;
+      return FetchBranches;
     }(),
-    FetchSubjects: function () {
-      var _ref11 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee11() {
+    UpdateBranch: function () {
+      var _ref11 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee11(BranchNewName, BranchId) {
         var _this11 = this;
 
         return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee11$(_context11) {
           while (1) {
             switch (_context11.prev = _context11.next) {
+              case 0:
+                if (!(BranchNewName === '')) {
+                  _context11.next = 6;
+                  break;
+                }
+
+                alert("Branch name can not be NUll");
+                _context11.next = 4;
+                return axios.get('http://localhost:8000/admin/get/all/branches').then(function (response) {
+                  return _this11.branches = response.data;
+                }).catch(function (error) {
+                  console.log(error);
+                });
+
+              case 4:
+                _context11.next = 8;
+                break;
+
+              case 6:
+                _context11.next = 8;
+                return axios.get('http://localhost:8000/admin/update/' + BranchId + '/branch/' + BranchNewName).then(function (response) {
+                  return _this11.branches = response.data;
+                }).catch(function (error) {
+                  console.log(error);
+                });
+
+              case 8:
+              case 'end':
+                return _context11.stop();
+            }
+          }
+        }, _callee11, this);
+      }));
+
+      function UpdateBranch(_x7, _x8) {
+        return _ref11.apply(this, arguments);
+      }
+
+      return UpdateBranch;
+    }(),
+    Fetch_courses_for_branch: function () {
+      var _ref12 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee12() {
+        var _this12 = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee12$(_context12) {
+          while (1) {
+            switch (_context12.prev = _context12.next) {
+              case 0:
+                _context12.next = 2;
+                return axios.get('http://localhost:8000/admin/get/all/courses').then(function (response) {
+                  return _this12.courses = response.data;
+                }).catch(function (error) {
+                  console.log(error);
+                });
+
+              case 2:
+                _context12.next = 4;
+                return _context12.sent;
+
+              case 4:
+              case 'end':
+                return _context12.stop();
+            }
+          }
+        }, _callee12, this);
+      }));
+
+      function Fetch_courses_for_branch() {
+        return _ref12.apply(this, arguments);
+      }
+
+      return Fetch_courses_for_branch;
+    }(),
+    AddBranch: function () {
+      var _ref13 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee13(selected, new_branch_name) {
+        var _this13 = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee13$(_context13) {
+          while (1) {
+            switch (_context13.prev = _context13.next) {
+              case 0:
+                _context13.next = 2;
+                return axios.get('http://localhost:8000/admin/add/branch/' + new_branch_name + '/to/' + selected).then(function (response) {
+                  if (response.data == 'this branch is already exist in selected course') {
+                    _this13.message = response.data;
+                    alert(_this13.message);
+                    _this13.message = '';
+                  } else {
+                    _this13.branches = response.data;
+                  }
+                }).catch(function (error) {
+                  console.log(error);
+                });
+
+              case 2:
+                this.selected = 'Select a course name';
+                this.new_branch_name = null;
+
+              case 4:
+              case 'end':
+                return _context13.stop();
+            }
+          }
+        }, _callee13, this);
+      }));
+
+      function AddBranch(_x9, _x10) {
+        return _ref13.apply(this, arguments);
+      }
+
+      return AddBranch;
+    }(),
+    FetchSubjects: function () {
+      var _ref14 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee14() {
+        var _this14 = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee14$(_context14) {
+          while (1) {
+            switch (_context14.prev = _context14.next) {
               case 0:
 
                 this.showDashboard = false;
@@ -50883,128 +51065,14 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                 this.showCourses = false;
                 this.showBranches = false;
 
-                _context11.next = 7;
+                _context14.next = 7;
                 return axios.get('http://localhost:8000/admin/get/all/subjects').then(function (response) {
-                  return _this11.subjects = response.data;
+                  return _this14.subjects = response.data;
                 }).catch(function (error) {
                   console.log(error);
                 });
 
               case 7:
-              case 'end':
-                return _context11.stop();
-            }
-          }
-        }, _callee11, this);
-      }));
-
-      function FetchSubjects() {
-        return _ref11.apply(this, arguments);
-      }
-
-      return FetchSubjects;
-    }(),
-    RemoveSubject: function () {
-      var _ref12 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee12(id) {
-        var _this12 = this;
-
-        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee12$(_context12) {
-          while (1) {
-            switch (_context12.prev = _context12.next) {
-              case 0:
-                _context12.next = 2;
-                return axios.get('http://localhost:8000/subjects/remove/' + id).then(function (response) {
-                  return _this12.subjects = response.data;
-                }).catch(function (error) {
-                  console.log(error);
-                });
-
-              case 2:
-              case 'end':
-                return _context12.stop();
-            }
-          }
-        }, _callee12, this);
-      }));
-
-      function RemoveSubject(_x8) {
-        return _ref12.apply(this, arguments);
-      }
-
-      return RemoveSubject;
-    }(),
-    AddSubject: function () {
-      var _ref13 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee13(name) {
-        var _this13 = this;
-
-        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee13$(_context13) {
-          while (1) {
-            switch (_context13.prev = _context13.next) {
-              case 0:
-                _context13.next = 2;
-                return axios.get('http://localhost:8000/subjects/add/' + name).then(function (response) {
-                  if (response.data == 'Empty subject name can not be added') {
-                    _this13.message = response.data;
-                    alert(_this13.message);
-                    _this13.message = '';
-                  } else {
-                    _this13.subjects = response.data;
-                  }
-                }).catch(function (error) {
-                  console.log(error);
-                });
-
-              case 2:
-                this.new_subject_name = null;
-
-              case 3:
-              case 'end':
-                return _context13.stop();
-            }
-          }
-        }, _callee13, this);
-      }));
-
-      function AddSubject(_x9) {
-        return _ref13.apply(this, arguments);
-      }
-
-      return AddSubject;
-    }(),
-    UpdateSubject: function () {
-      var _ref14 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee14(SubjectNewName, SubjectId) {
-        var _this14 = this;
-
-        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee14$(_context14) {
-          while (1) {
-            switch (_context14.prev = _context14.next) {
-              case 0:
-                if (!(SubjectNewName === '')) {
-                  _context14.next = 6;
-                  break;
-                }
-
-                alert("Subejct can not be NUll");
-                _context14.next = 4;
-                return axios.get('http://localhost:8000/admin/get/all/subjects').then(function (response) {
-                  return _this14.subjects = response.data;
-                }).catch(function (error) {
-                  console.log(error);
-                });
-
-              case 4:
-                _context14.next = 8;
-                break;
-
-              case 6:
-                _context14.next = 8;
-                return axios.get('http://localhost:8000/subjects/update/' + SubjectId + '/' + SubjectNewName).then(function (response) {
-                  return _this14.subjects = response.data;
-                }).catch(function (error) {
-                  console.log(error);
-                });
-
-              case 8:
               case 'end':
                 return _context14.stop();
             }
@@ -51012,50 +51080,198 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         }, _callee14, this);
       }));
 
-      function UpdateSubject(_x10, _x11) {
+      function FetchSubjects() {
         return _ref14.apply(this, arguments);
       }
 
+      return FetchSubjects;
+    }(),
+    RemoveSubject: function () {
+      var _ref15 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee15(id) {
+        var _this15 = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee15$(_context15) {
+          while (1) {
+            switch (_context15.prev = _context15.next) {
+              case 0:
+                _context15.next = 2;
+                return axios.get('http://localhost:8000/subjects/remove/' + id).then(function (response) {
+                  return _this15.subjects = response.data;
+                }).catch(function (error) {
+                  console.log(error);
+                });
+
+              case 2:
+              case 'end':
+                return _context15.stop();
+            }
+          }
+        }, _callee15, this);
+      }));
+
+      function RemoveSubject(_x11) {
+        return _ref15.apply(this, arguments);
+      }
+
+      return RemoveSubject;
+    }(),
+    UpdateSubject: function () {
+      var _ref16 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee16(SubjectNewName, SubjectId) {
+        var _this16 = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee16$(_context16) {
+          while (1) {
+            switch (_context16.prev = _context16.next) {
+              case 0:
+                if (!(SubjectNewName === '')) {
+                  _context16.next = 6;
+                  break;
+                }
+
+                alert("Subejct can not be NUll");
+                _context16.next = 4;
+                return axios.get('http://localhost:8000/admin/get/all/subjects').then(function (response) {
+                  return _this16.subjects = response.data;
+                }).catch(function (error) {
+                  console.log(error);
+                });
+
+              case 4:
+                _context16.next = 8;
+                break;
+
+              case 6:
+                _context16.next = 8;
+                return axios.get('http://localhost:8000/subjects/update/' + SubjectId + '/' + SubjectNewName).then(function (response) {
+                  return _this16.subjects = response.data;
+                }).catch(function (error) {
+                  console.log(error);
+                });
+
+              case 8:
+              case 'end':
+                return _context16.stop();
+            }
+          }
+        }, _callee16, this);
+      }));
+
+      function UpdateSubject(_x12, _x13) {
+        return _ref16.apply(this, arguments);
+      }
+
       return UpdateSubject;
+    }(),
+    AddSubject: function () {
+      var _ref17 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee17(selected, selected_branch, new_subject_name) {
+        var _this17 = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee17$(_context17) {
+          while (1) {
+            switch (_context17.prev = _context17.next) {
+              case 0:
+                _context17.next = 2;
+                return axios.get('http://localhost:8000/admin/add/' + new_subject_name + '/' + selected_branch + '/' + selected).then(function (response) {
+                  if (response.data == 'this subject is already present in selected branch') {
+                    _this17.message = response.data;
+                    alert(_this17.message);
+                    _this17.message = '';
+                  } else {
+                    _this17.subjects = response.data;
+                  }
+                }).catch(function (error) {
+                  console.log(error);
+                });
+
+              case 2:
+                this.selected = 'Select a course name';
+                this.selected_branch = 'select a branch name';
+                this.new_subject_name = null;
+
+              case 5:
+              case 'end':
+                return _context17.stop();
+            }
+          }
+        }, _callee17, this);
+      }));
+
+      function AddSubject(_x14, _x15, _x16) {
+        return _ref17.apply(this, arguments);
+      }
+
+      return AddSubject;
+    }(),
+    Fetch_branches_for_this_course: function () {
+      var _ref18 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee18(selected) {
+        var _this18 = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee18$(_context18) {
+          while (1) {
+            switch (_context18.prev = _context18.next) {
+              case 0:
+                _context18.next = 2;
+                return axios.get('http://localhost:8000/admin/fetch/branches/for/course/' + selected).then(function (response) {
+                  return _this18.branches = response.data;
+                }).catch(function (error) {
+                  console.log(error);
+                });
+
+              case 2:
+                this.selected_branch = 'select a branch name';
+
+              case 3:
+              case 'end':
+                return _context18.stop();
+            }
+          }
+        }, _callee18, this);
+      }));
+
+      function Fetch_branches_for_this_course(_x17) {
+        return _ref18.apply(this, arguments);
+      }
+
+      return Fetch_branches_for_this_course;
     }()
   },
   mounted: function mounted() {
-    var _this15 = this;
+    var _this19 = this;
 
     __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$on('dashboard_Event1', function (data) {
-      _this15.showDashboard = data;
+      _this19.showDashboard = data;
     });
     __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$on('user_events', function (data) {
-      _this15.users = data.usersKey;
-      _this15.showDashboard = data.showDashboardKey;
-      _this15.showSubjects = data.showSubjectsKey;
-      _this15.showUsers = data.showUsersKey;
-      _this15.showCourses = data.showCoursesKey;
-      _this15.showBranches = data.showBranchesKey;
+      _this19.users = data.usersKey;
+      _this19.showDashboard = data.showDashboardKey;
+      _this19.showSubjects = data.showSubjectsKey;
+      _this19.showUsers = data.showUsersKey;
+      _this19.showCourses = data.showCoursesKey;
+      _this19.showBranches = data.showBranchesKey;
     });
     __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$on('courses_events', function (data) {
-      _this15.courses = data.coursesKey;
-      _this15.showDashboard = data.showDashboardKey;
-      _this15.showSubjects = data.showSubjectsKey;
-      _this15.showUsers = data.showUsersKey;
-      _this15.showCourses = data.showCoursesKey;
-      _this15.showBranches = data.showBranchesKey;
+      _this19.courses = data.coursesKey;
+      _this19.showDashboard = data.showDashboardKey;
+      _this19.showSubjects = data.showSubjectsKey;
+      _this19.showUsers = data.showUsersKey;
+      _this19.showCourses = data.showCoursesKey;
+      _this19.showBranches = data.showBranchesKey;
     });
     __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$on('branch_events', function (data) {
-      _this15.branches = data.branchesKey;
-      _this15.showDashboard = data.showDashboardKey;
-      _this15.showSubjects = data.showSubjectsKey;
-      _this15.showUsers = data.showUsersKey;
-      _this15.showCourses = data.showCoursesKey;
-      _this15.showBranches = data.showBranchesKey;
+      _this19.branches = data.branchesKey;
+      _this19.showDashboard = data.showDashboardKey;
+      _this19.showSubjects = data.showSubjectsKey;
+      _this19.showUsers = data.showUsersKey;
+      _this19.showCourses = data.showCoursesKey;
+      _this19.showBranches = data.showBranchesKey;
     });
     __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$on('subject_events', function (data) {
-      _this15.subjects = data.subjectsKey;
-      _this15.showDashboard = data.showDashboardKey;
-      _this15.showSubjects = data.showSubjectsKey;
-      _this15.showUsers = data.showUsersKey;
-      _this15.showCourses = data.showCoursesKey;
-      _this15.showBranches = data.showBranchesKey;
+      _this19.subjects = data.subjectsKey;
+      _this19.showDashboard = data.showDashboardKey;
+      _this19.showSubjects = data.showSubjectsKey;
+      _this19.showUsers = data.showUsersKey;
+      _this19.showCourses = data.showCoursesKey;
+      _this19.showBranches = data.showBranchesKey;
     });
     console.log('dashboard component mounted');
   }
@@ -51333,15 +51549,30 @@ var render = function() {
         ])
       : _vm._e(),
     _vm._v(" "),
-    _vm.showSubjects
+    _vm.showCourses
       ? _c("div", { staticClass: "row mt-2 ml-4 insertion_row" }, [
           _vm._m(2),
           _vm._v(" "),
-          _c("div", { staticClass: "col-sm-" })
+          _c("div", { staticClass: "col-sm-2 text-center " }, [
+            _c(
+              "div",
+              {
+                staticClass: "add_button",
+                on: {
+                  click: function($event) {
+                    _vm.Input_for_course = true
+                  }
+                }
+              },
+              [_vm._v("Add Course")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-sm-2" })
         ])
       : _vm._e(),
     _vm._v(" "),
-    _vm.Input_for_subject
+    _vm.Input_for_course
       ? _c("div", { staticClass: "row mt-2 ml-3 insertion_row" }, [
           _c("div", { staticClass: "col-sm-9 " }, [
             _c("input", {
@@ -51349,23 +51580,23 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.new_subject_name,
-                  expression: "new_subject_name"
+                  value: _vm.new_course_name,
+                  expression: "new_course_name"
                 }
               ],
               staticClass: "subject_input",
               attrs: {
                 type: "text",
-                placeholder: "Subject Name",
-                name: "subject_name"
+                placeholder: "Course Name",
+                name: "course_name"
               },
-              domProps: { value: _vm.new_subject_name },
+              domProps: { value: _vm.new_course_name },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.new_subject_name = $event.target.value
+                  _vm.new_course_name = $event.target.value
                 }
               }
             })
@@ -51378,8 +51609,8 @@ var render = function() {
                 staticClass: "btn btn-primary",
                 on: {
                   click: function($event) {
-                    ;(_vm.Input_for_subject = false),
-                      _vm.AddSubject(_vm.new_subject_name)
+                    ;(_vm.Input_for_course = false),
+                      _vm.AddCourse(_vm.new_course_name)
                   }
                 }
               },
@@ -51389,120 +51620,10 @@ var render = function() {
         ])
       : _vm._e(),
     _vm._v(" "),
-    _vm.showSubjects === true
-      ? _c("div", [
-          _c("table", { staticClass: "table mt-3 ml-4 table_of_contents" }, [
-            _vm._m(3),
-            _vm._v(" "),
-            _c(
-              "tbody",
-              _vm._l(_vm.subjects, function(subject, index) {
-                return _c(
-                  "tr",
-                  { key: subject.id },
-                  [
-                    _c("td", [_vm._v(_vm._s(++index))]),
-                    _vm._v(" "),
-                    _vm._l(subject.courses, function(course) {
-                      return _c("td", { key: course.id }, [
-                        _vm._v(" " + _vm._s(course.name) + " ")
-                      ])
-                    }),
-                    _vm._v(" "),
-                    _vm._l(subject.branches, function(branch) {
-                      return _c("td", { key: branch.id }, [
-                        _vm._v(" " + _vm._s(branch.name) + " ")
-                      ])
-                    }),
-                    _vm._v(" "),
-                    _c("td", [
-                      _vm.edit == subject.id
-                        ? _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: subject.subject,
-                                expression: "subject.subject"
-                              }
-                            ],
-                            staticClass: "Editable",
-                            attrs: { type: "text" },
-                            domProps: { value: subject.subject },
-                            on: {
-                              blur: function($event) {
-                                _vm.edit = false
-                                _vm.UpdateSubject(subject.subject, subject.id)
-                              },
-                              keyup: function($event) {
-                                if (
-                                  !("button" in $event) &&
-                                  _vm._k(
-                                    $event.keyCode,
-                                    "enter",
-                                    13,
-                                    $event.key,
-                                    "Enter"
-                                  )
-                                ) {
-                                  return null
-                                }
-                                _vm.edit = false
-                                _vm.UpdateSubject(subject.subject, subject.id)
-                              },
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  subject,
-                                  "subject",
-                                  $event.target.value
-                                )
-                              }
-                            }
-                          })
-                        : _c(
-                            "span",
-                            {
-                              attrs: { title: "Double click to Edit" },
-                              on: {
-                                dblclick: function($event) {
-                                  _vm.edit = subject.id
-                                }
-                              }
-                            },
-                            [_vm._v(_vm._s(subject.subject))]
-                          )
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-danger",
-                          on: {
-                            click: function($event) {
-                              _vm.RemoveSubject(subject.id)
-                            }
-                          }
-                        },
-                        [_vm._v("Delete Subject")]
-                      )
-                    ])
-                  ],
-                  2
-                )
-              })
-            )
-          ])
-        ])
-      : _vm._e(),
-    _vm._v(" "),
     _vm.showCourses === true
       ? _c("div", [
           _c("table", { staticClass: "table mt-3 ml-4 table_of_contents" }, [
-            _vm._m(4),
+            _vm._m(3),
             _vm._v(" "),
             _c(
               "tbody",
@@ -51568,6 +51689,129 @@ var render = function() {
                   ])
                 ])
               })
+            )
+          ])
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.showBranches
+      ? _c("div", { staticClass: "row mt-2 ml-4 insertion_row" }, [
+          _vm._m(4),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-sm-2 text-center " }, [
+            _c(
+              "div",
+              {
+                staticClass: "add_button",
+                on: {
+                  click: function($event) {
+                    ;(_vm.Input_for_branch = true),
+                      _vm.Fetch_courses_for_branch()
+                  }
+                }
+              },
+              [_vm._v("Add Branch")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-sm-2" })
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.Input_for_branch
+      ? _c("div", { staticClass: "row mt-2 ml-3 insertion_row" }, [
+          _c("div", { staticClass: "col-md-5" }, [
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.selected,
+                    expression: "selected"
+                  }
+                ],
+                staticClass: "branch-dropdown",
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.selected = $event.target.multiple
+                      ? $$selectedVal
+                      : $$selectedVal[0]
+                  }
+                }
+              },
+              [
+                _c("option", [_vm._v(_vm._s(_vm.selected))]),
+                _vm._v(" "),
+                _vm._l(_vm.courses, function(course) {
+                  return _c(
+                    "option",
+                    {
+                      key: course.id,
+                      on: {
+                        click: function($event) {
+                          _vm.selected = course.name
+                        }
+                      }
+                    },
+                    [_vm._v(" " + _vm._s(course.name) + " ")]
+                  )
+                })
+              ],
+              2
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-4" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.new_branch_name,
+                  expression: "new_branch_name"
+                }
+              ],
+              staticClass: "branch_input",
+              attrs: {
+                type: "text",
+                placeholder: "Branch Name",
+                name: "branch_name"
+              },
+              domProps: { value: _vm.new_branch_name },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.new_branch_name = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-2" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary",
+                on: {
+                  click: function($event) {
+                    ;(_vm.Input_for_branch = false),
+                      _vm.AddBranch(_vm.selected, _vm.new_branch_name)
+                  }
+                }
+              },
+              [_c("li", { staticClass: "fa fa-plus" })]
             )
           ])
         ])
@@ -51662,6 +51906,270 @@ var render = function() {
         ])
       : _vm._e(),
     _vm._v(" "),
+    _vm.showSubjects
+      ? _c("div", { staticClass: "row mt-2 ml-4 insertion_row" }, [
+          _vm._m(6),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-sm-2 text-center " }, [
+            _c(
+              "div",
+              {
+                staticClass: "add_button",
+                on: {
+                  click: function($event) {
+                    ;(_vm.Input_for_subject = true),
+                      _vm.Fetch_courses_for_branch()
+                  }
+                }
+              },
+              [_vm._v("Add Subject")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-sm-" })
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.Input_for_subject
+      ? _c("div", { staticClass: "row mt-2 ml-3 insertion_row" }, [
+          _c("div", { staticClass: "col-md-3" }, [
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.selected,
+                    expression: "selected"
+                  }
+                ],
+                staticClass: "subject_dropdown",
+                on: {
+                  change: [
+                    function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.selected = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    },
+                    function($event) {
+                      _vm.Fetch_branches_for_this_course(_vm.selected)
+                    }
+                  ]
+                }
+              },
+              [
+                _c("option", [_vm._v(_vm._s(_vm.selected))]),
+                _vm._v(" "),
+                _vm._l(_vm.courses, function(course) {
+                  return course.name != _vm.selected
+                    ? _c("option", { key: course.id }, [
+                        _vm._v(_vm._s(course.name))
+                      ])
+                    : _vm._e()
+                })
+              ],
+              2
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-3" }, [
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.selected_branch,
+                    expression: "selected_branch"
+                  }
+                ],
+                staticClass: "subject_dropdown",
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.selected_branch = $event.target.multiple
+                      ? $$selectedVal
+                      : $$selectedVal[0]
+                  }
+                }
+              },
+              [
+                _c("option", [_vm._v(_vm._s(_vm.selected_branch))]),
+                _vm._v(" "),
+                _vm._l(_vm.branches, function(branch) {
+                  return branch.name != _vm.selected
+                    ? _c("option", { key: branch.id }, [
+                        _vm._v(_vm._s(branch.name))
+                      ])
+                    : _vm._e()
+                })
+              ],
+              2
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-sm-3 " }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.new_subject_name,
+                  expression: "new_subject_name"
+                }
+              ],
+              staticClass: "subject_input",
+              attrs: {
+                type: "text",
+                placeholder: "Subject Name",
+                name: "subject_name"
+              },
+              domProps: { value: _vm.new_subject_name },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.new_subject_name = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-sm-2 " }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary",
+                on: {
+                  click: function($event) {
+                    ;(_vm.Input_for_subject = false),
+                      _vm.AddSubject(
+                        _vm.selected,
+                        _vm.selected_branch,
+                        _vm.new_subject_name
+                      )
+                  }
+                }
+              },
+              [_c("li", { staticClass: "fa fa-plus" })]
+            )
+          ])
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.showSubjects === true
+      ? _c("div", [
+          _c("table", { staticClass: "table mt-3 ml-4 table_of_contents" }, [
+            _vm._m(7),
+            _vm._v(" "),
+            _c(
+              "tbody",
+              _vm._l(_vm.subjects, function(subject, index) {
+                return _c(
+                  "tr",
+                  { key: subject.id },
+                  [
+                    _c("td", [_vm._v(_vm._s(++index))]),
+                    _vm._v(" "),
+                    _vm._l(subject.courses, function(course) {
+                      return _c("td", { key: course.id }, [
+                        _vm._v(" " + _vm._s(course.name) + " ")
+                      ])
+                    }),
+                    _vm._v(" "),
+                    _vm._l(subject.branches, function(branch) {
+                      return _c("td", { key: branch.id }, [
+                        _vm._v(" " + _vm._s(branch.name) + " ")
+                      ])
+                    }),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm.edit == subject.id
+                        ? _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: subject.subject,
+                                expression: "subject.subject"
+                              }
+                            ],
+                            staticClass: "Editable",
+                            attrs: { type: "text" },
+                            domProps: { value: subject.subject },
+                            on: {
+                              blur: function($event) {
+                                _vm.edit = false
+                                _vm.UpdateSubject(subject.subject, subject.id)
+                              },
+                              keyup: function($event) {
+                                if (
+                                  !("button" in $event) &&
+                                  _vm._k(
+                                    $event.keyCode,
+                                    "enter",
+                                    13,
+                                    $event.key,
+                                    "Enter"
+                                  )
+                                ) {
+                                  return null
+                                }
+                                _vm.edit = false
+                                _vm.UpdateSubject(subject.subject, subject.id)
+                              },
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  subject,
+                                  "subject",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          })
+                        : _c(
+                            "span",
+                            {
+                              attrs: { title: "Double click to Edit" },
+                              on: {
+                                dblclick: function($event) {
+                                  _vm.edit = subject.id
+                                }
+                              }
+                            },
+                            [_vm._v(_vm._s(subject.subject))]
+                          )
+                    ])
+                  ],
+                  2
+                )
+              })
+            )
+          ])
+        ])
+      : _vm._e(),
+    _vm._v(" "),
     _vm.showDashboard === true
       ? _c("div", [
           _c("div", { staticClass: "row mt-3 ml-4" }, [
@@ -51733,10 +52241,10 @@ var render = function() {
               ]
             ),
             _vm._v(" "),
-            _vm._m(6)
+            _vm._m(8)
           ]),
           _vm._v(" "),
-          _vm._m(7)
+          _vm._m(9)
         ])
       : _vm._e()
   ])
@@ -51777,6 +52285,52 @@ var staticRenderFns = [
     return _c(
       "div",
       { staticClass: "col-sm-9 text-center pt-1 subject_list_text" },
+      [_c("b", [_vm._v("List of Courses")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("S.No.")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Course Name")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "col-sm-9 text-center pt-1 subject_list_text" },
+      [_c("b", [_vm._v("List of Branches")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("S.No.")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Course Name")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Branch Name")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "col-sm-9 text-center pt-1 subject_list_text" },
       [_c("b", [_vm._v("List of Subjects")])]
     )
   },
@@ -51795,32 +52349,6 @@ var staticRenderFns = [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Subjects")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Manage")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("S.No.")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Course Name")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("S.No.")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Course Name")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Branch Name")])
       ])
     ])
   },

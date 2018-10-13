@@ -9,7 +9,7 @@ use App\Question;
 
 class Subject extends Model
 {
-    protected $fillable=['id','subject'];
+    protected $fillable=['subject'];
     
     public function topics()
     {
@@ -26,7 +26,7 @@ class Subject extends Model
     } 
     public function branches()
     {
-        return $this->belongsToMany(Branch::class,'branch_subjects');
+        return $this->belongsToMany('App\Branch','course_branch_subjects');
     }
     public function courses()
     {

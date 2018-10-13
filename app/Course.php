@@ -12,6 +12,6 @@ class Course extends Model
     }
     public function subjects()
     {
-    	return $this->belongsToMany('App\Subject');
+    	return $this->belongsToMany('App\Subject','course_branch_subjects');
     }
 }

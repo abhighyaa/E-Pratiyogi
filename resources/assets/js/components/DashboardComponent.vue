@@ -88,61 +88,31 @@
     </div>
     <!-- table users end -->
     <!-- user department end -->
-    <!-- row for insertion of subjects -->
-    <div class="row mt-2 ml-4 insertion_row" v-if="showSubjects">
-      <div class="col-sm-9 text-center pt-1 subject_list_text"><b>List of Subjects</b>
+    
+    <!-- course department -->
+    <!-- row for insertion of courses -->
+    <div class="row mt-2 ml-4 insertion_row" v-if="showCourses">
+      <div class="col-sm-9 text-center pt-1 subject_list_text"><b>List of Courses</b>
       </div>
-      <!-- <div class="col-sm-2 text-center " >
-        <div class="subject_add_button" @click="Input_for_subject = true">Add Subject</div>
-      </div> -->
-      <div class="col-sm-"></div>
+      <div class="col-sm-2 text-center " >
+        <div class="add_button" @click="Input_for_course = true">Add Course</div>
+      </div>
+      <div class="col-sm-2"></div>
     </div>
     <!-- insertion row end -->
-    <!-- this row will be appear if user will click on add subject -->
-    <div class="row mt-2 ml-3 insertion_row" v-if="Input_for_subject">
+     <!-- this row will be appear if user will click on add course -->
+    <div class="row mt-2 ml-3 insertion_row" v-if="Input_for_course">
       <div class="col-sm-9 ">
-        <input type="text" placeholder="Subject Name" name="subject_name" v-model="new_subject_name" class="subject_input">
+        <input type="text" placeholder="Course Name" name="course_name" v-model="new_course_name" class="subject_input">
       </div>
       <div class="col-sm-2 ">
-         <button class="btn btn-primary" @click="Input_for_subject = false, AddSubject(new_subject_name)">
+         <button class="btn btn-primary" @click="Input_for_course = false, AddCourse(new_course_name)">
           <li class="fa fa-plus"></li>
          </button>
       </div>
     </div>
     <!-- this row end -->
-    <!-- table for subjects -->
-    <div v-if="showSubjects === true">
-        <table class="table mt-3 ml-4 table_of_contents">
-          <thead>
-            <tr>
-              <th scope="col">S.No.</th>
-              <th scope="col">Course</th>
-              <th scope="col">Branch</th>
-              <th scope="col">Subjects</th>
-              <th scope="col">Manage</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="( subject, index) in subjects" :key="subject.id">
-              <td>{{ ++index }}</td>
-              <td v-for="course in subject.courses" :key="course.id"> {{ course.name }} </td>
-              <td v-for="branch in subject.branches" :key="branch.id"> {{ branch.name }} </td>
-              <td>
-                <input class="Editable" type="text" v-if="edit == subject.id" v-model="subject.subject"
-                  v-on:blur="edit = false; UpdateSubject(subject.subject,subject.id)"
-                  @keyup.enter ="edit=false; UpdateSubject(subject.subject,subject.id)">
-              <span title="Double click to Edit" v-else @dblclick="edit = subject.id">{{ subject.subject }}</span>
-              </td>
-              <td>
-                  <button class="btn btn-danger" @click="RemoveSubject(subject.id)">Delete Subject</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-    </div>
-    <!-- subjects table end -->
     <!-- table for courses -->
-
     <div v-if="showCourses === true">
         <table class="table mt-3 ml-4 table_of_contents">
           <thead>
@@ -168,10 +138,39 @@
           </tbody>
         </table>
     </div>
+     <!--course table end -->
+    <!-- course department end -->
    
-    <!--course table end -->
+    <!-- branch department start-->
+     <!-- row for insertion of branches -->
+    <div class="row mt-2 ml-4 insertion_row" v-if="showBranches">
+      <div class="col-sm-9 text-center pt-1 subject_list_text"><b>List of Branches</b>
+      </div>
+      <div class="col-sm-2 text-center " >
+        <div class="add_button" @click="Input_for_branch = true,Fetch_courses_for_branch()">Add Branch</div>
+      </div>
+      <div class="col-sm-2"></div>
+    </div>
+    <!-- insertion row end -->
+    <!-- this will appear wnen user will click on 'add branch' button -->
+    <div class="row mt-2 ml-3 insertion_row" v-if="Input_for_branch">
+    <div class="col-md-5">
+      <select v-model="selected" class="branch-dropdown">
+        <option>{{ selected }}</option>
+        <option @click="selected = course.name" v-for="course in courses" :key="course.id"> {{ course.name }} </option>
+      </select>
+    </div>
+    <div class="col-md-4">
+          <input type="text" placeholder="Branch Name" name="branch_name" v-model="new_branch_name" class="branch_input">
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-primary" @click="Input_for_branch=false, AddBranch(selected,new_branch_name)">
+          <li class="fa fa-plus"></li>
+         </button>
+    </div>
+    </div>
+    <!-- this row end -->
     <!-- table for branches -->
-
     <div v-if="showBranches === true">
         <table class="table mt-3 ml-4 table_of_contents">
           <thead>
@@ -201,8 +200,75 @@
           </tbody>
         </table>
     </div>
-   
     <!--branch table end -->
+    <!-- branch department end -->
+    <!-- subject department start -->
+     <!-- row for insertion of subjects -->
+    <div class="row mt-2 ml-4 insertion_row" v-if="showSubjects">
+      <div class="col-sm-9 text-center pt-1 subject_list_text"><b>List of Subjects</b>
+      </div>
+      <div class="col-sm-2 text-center " >
+        <div class="add_button" @click="Input_for_subject = true,Fetch_courses_for_branch()">Add Subject</div>
+      </div>
+      <div class="col-sm-"></div>
+    </div>
+    <!-- insertion row end -->
+    <!-- this row will be appear if user will click on add subject -->
+    <div class="row mt-2 ml-3 insertion_row" v-if="Input_for_subject">
+      <div class="col-md-3">
+        <select class="subject_dropdown" v-model="selected" @change="Fetch_branches_for_this_course(selected)">
+          <option>{{ selected }}</option>
+          <option v-for="course in courses" :key="course.id" v-if="course.name!=selected">{{ course.name }}</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <select class="subject_dropdown" v-model="selected_branch">
+          <option>{{ selected_branch }}</option>
+          <option v-for="branch in branches" :key="branch.id" v-if="branch.name!=selected">{{ branch.name }}</option>
+        </select>
+      </div>
+      <div class="col-sm-3 ">
+        <input type="text" placeholder="Subject Name" name="subject_name" v-model="new_subject_name" class="subject_input">
+      </div>
+      <div class="col-sm-2 ">
+         <button class="btn btn-primary" @click="Input_for_subject = false,AddSubject(selected,selected_branch,new_subject_name)">
+          <li class="fa fa-plus"></li>
+         </button>
+      </div>
+    </div>
+    <!-- this row end -->
+    <!-- table for subjects -->
+    <div v-if="showSubjects === true">
+        <table class="table mt-3 ml-4 table_of_contents">
+          <thead>
+            <tr>
+              <th scope="col">S.No.</th>
+              <th scope="col">Course</th>
+              <th scope="col">Branch</th>
+              <th scope="col">Subjects</th>
+              <th scope="col">Manage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="( subject, index) in subjects" :key="subject.id">
+              <td>{{ ++index }}</td>
+              <td v-for="course in subject.courses" :key="course.id"> {{ course.name }} </td>
+              <td v-for="branch in subject.branches" :key="branch.id"> {{ branch.name }} </td>
+              <td>
+                <input class="Editable" type="text" v-if="edit == subject.id" v-model="subject.subject"
+                  v-on:blur="edit = false; UpdateSubject(subject.subject,subject.id)"
+                  @keyup.enter ="edit=false; UpdateSubject(subject.subject,subject.id)">
+              <span title="Double click to Edit" v-else @dblclick="edit = subject.id">{{ subject.subject }}</span>
+              </td>
+             <!--  <td>
+                  <button class="btn btn-danger" @click="RemoveSubject(subject.id)">Delete Subject</button>
+              </td> -->
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    <!-- subjects table end -->
+    <!-- subject department end -->
 
     <div v-if="showDashboard === true">
       <div class="row mt-3 ml-4">
@@ -262,11 +328,17 @@ import { EventBus } from '../app.js';
         showCourses:false,
         showBranches:false,
         new_subject_name : null,
+        Input_for_course : false,
+        new_course_name : null,
+        Input_for_branch : false,
+        new_branch_name : null,
         users:[],
         roles:[],
         courses:[],
         branches:[],
-        subjects:[]
+        subjects:[],
+        selected : 'Select a course name',
+        selected_branch : 'select a branch name'
       }
     },
     
@@ -368,6 +440,24 @@ import { EventBus } from '../app.js';
                 .catch(function(error){console.log(error)}); 
           }
       },
+      async AddCourse(name) 
+      {
+           await axios.get('http://localhost:8000/admin/add/course/'+name)
+               .then((response)=>
+                  { 
+                    if(response.data == 'Empty course name can not be added')
+                    { 
+                      this.message = response.data;
+                      alert(this.message);
+                      this.message = '';
+                    }
+                    else
+                    { 
+                      this.courses = response.data;
+                    }
+                    }).catch(function(error){console.log(error)});
+                    this.new_course_name = null;
+       },
        async FetchBranches()
        {
           this.showDashboard = false;
@@ -397,6 +487,30 @@ import { EventBus } from '../app.js';
                 .catch(function(error){console.log(error)}); 
           }
       },
+      async Fetch_courses_for_branch()
+      {
+        await await axios.get('http://localhost:8000/admin/get/all/courses')
+                .then((response)=>(this.courses = response.data))
+                .catch(function(error){console.log(error)});
+      },
+      async AddBranch(selected,new_branch_name)
+      {
+        await axios.get('http://localhost:8000/admin/add/branch/'+new_branch_name+'/to/'+selected)
+                .then((response)=>{
+                  if(response.data == 'this branch is already exist in selected course')
+                  {
+                    this.message = response.data;
+                    alert(this.message);
+                    this.message = '';
+                  }
+                  else
+                  {
+                    this.branches = response.data;
+                  }
+                }).catch(function(error){console.log(error)}); 
+                this.selected = 'Select a course name';
+                this.new_branch_name = null;
+      },
        async FetchSubjects() {
         
           this.showDashboard = false;
@@ -416,26 +530,6 @@ import { EventBus } from '../app.js';
                 .then((response)=>(this.subjects = response.data))
                 .catch(function(error){console.log(error)}); 
        },
-       async AddSubject(name) {
-           
-           await axios.get('http://localhost:8000/subjects/add/'+name)
-               .then((response)=>
-                  { 
-                    if(response.data == 'Empty subject name can not be added')
-                    { 
-                      this.message = response.data;
-                      alert(this.message);
-                      this.message = '';
-                    }
-                    else
-                    { 
-                      this.subjects = response.data;
-                    }
-                    }).catch(function(error){console.log(error)});
-                    this.new_subject_name = null;
-
-
-       },
        async UpdateSubject(SubjectNewName,SubjectId)
        {
           if(SubjectNewName === '')
@@ -451,6 +545,35 @@ import { EventBus } from '../app.js';
                 .then((response)=>(this.subjects = response.data))
                 .catch(function(error){console.log(error)}); 
           }
+      },
+      async AddSubject(selected,selected_branch,new_subject_name)
+      {
+         await axios.get('http://localhost:8000/admin/add/'+new_subject_name+'/'+selected_branch+'/'+selected)
+                .then((response)=>{
+                      if(response.data == 'this subject is already present in selected branch')
+                      {
+                        this.message = response.data;
+                        alert(this.message);
+                        this.message = '';
+                      }
+                      else
+                      {
+                        this.subjects = response.data;
+                      }
+                  }).catch(function(error){console.log(error)});
+                this.selected = 'Select a course name';
+                this.selected_branch = 'select a branch name';
+                this.new_subject_name = null; 
+
+
+      },
+      async Fetch_branches_for_this_course(selected)
+      {
+        //alert(selected);
+        await axios.get('http://localhost:8000/admin/fetch/branches/for/course/'+selected)
+                .then((response)=>(this.branches = response.data))
+                .catch(function(error){console.log(error)}); 
+                this.selected_branch =  'select a branch name';
       }
     },
     mounted() {
@@ -586,16 +709,17 @@ text-transform: capitalize;
     border:solid 1px lightgrey;
    
   }
-  .subject_add_button
+  .add_button
   {
     background-color: white;
     cursor:pointer;
     color: black;
     width: 110px;
     padding: 5px 3px;
+    border:solid 1px lightgrey;
     border-radius: 6px;
   }
-  .subject_add_button:hover
+  .add_button:hover
   {
     background-color: rgba(44,133,155);
   }
@@ -607,7 +731,17 @@ text-transform: capitalize;
   .subject_input
   {
     height: 35px;
-    width: 784px;
+    width: 250px;
+    border-radius: 20px;
+    margin-left: -8px;
+    outline: none;
+    border:1px solid lightblue;
+    padding:15px;
+  }
+  .branch_input
+  {
+    height: 35px;
+    width: 340px;
     border-radius: 20px;
     margin-left: -8px;
     outline: none;
@@ -626,5 +760,17 @@ text-transform: capitalize;
    .question,.settings,.results,.notifications:hover
    {
     cursor: not-allowed;
+   }
+   .branch-dropdown
+   {
+    width: 410;
+    margin-top: 4px;
+    padding: 3px; 
+   }
+   .subject_dropdown
+   {
+    width: 210;
+    margin-top: 4px;
+    padding: 3px; 
    }
 </style>

@@ -69,6 +69,18 @@ class AdminController extends Controller
       $course = Course::all();
       return $course;
     }
+    public function add_course(Request $request)
+    {
+      if($request->name == 'null')
+        {
+            return 'Empty course name can not be added';
+        }
+        else{
+            Course::create(['name' => $request->name]);
+            $course = Course::all();
+            return $course;
+        }
+    }
     public function update_course(Request $request)
     {
        Course::where('id',$request->id)->update(['name' => $request->name]);
@@ -79,18 +91,68 @@ class AdminController extends Controller
     {
       $branch = new Branch;
       return $branch->with('courses_branches')->get();
+      
     }
     public function update_branch(Request $request)
     {
         Branch::where('id',$request->id)->update(['name' => $request->name]);
         $branch = new Branch;
-        return $branch->with('courses')->get();
+        return $branch->with('courses_branches')->get();
+    }
+    public function add_branch_to_course(Request $request)
+    {
+      $course = Course::where('name',$request->course)->first();
+      $courseId = $course->id;
+      $branch_from_course = $course->branches()->where('name',$request->branch)->first();
+      if($branch_from_course)
+      {
+        $branch_course_id =  $branch_from_course->pivot->course_id;
+        if($branch_course_id == $courseId)
+        {
+          return 'this branch is already exist in selected course';
+        }
+      }
+      else
+      {  
+        $branch = Branch::create(['name' => $request->branch]);
+        $branchId =  $branch->id;
+        $course->branches()->attach($branchId);
+        $branch = new Branch;
+        return $branch->with('courses_branches')->get();
+      }  
     }
     public function Fetch_subjects_with_course_branch()
     {
       
       $subjects  =  Subject::with('branches')->with('courses')->get();
       return $subjects;
+    }
+    public function fetch_branches_for_this_course(Request $request)
+    {
+      $course = Course::where('name',$request->course)->first();
+      $branches_of_selected_course = $course->branches;
+      return $branches_of_selected_course;
+    }
+    public function add_subject(Request $request)
+    {
+      $course = Course::where('name',$request->course)->first();
+      $branch = Branch::where('name',$request->branch)->first();
+      $exist_subject = $branch->subjects()->where('subject',$request->subject)->first();
+      if($exist_subject)
+      {
+         if($exist_subject->pivot->branch_id == $branch->id)
+         {
+          return 'this subject is already present in selected branch';
+         }
+      }
+      else
+      {
+        $subject = Subject::create(['subject' => $request->subject]);
+        $subject = Subject::where('subject',$request->subject)->first();
+        $subject->branches()->attach($branch->id, ['course_id'=>$course->id]);
+        return Subject::with('branches')->with('courses')->get();
+      }
+
     }
 
 
