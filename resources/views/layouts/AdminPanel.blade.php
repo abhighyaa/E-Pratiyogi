@@ -41,6 +41,7 @@
         <admin-component></admin-component>
     </div>  
     <div class="col-md-10">
+  
           <dashboard-component></dashboard-component>
       </div>
   </div>    
@@ -54,8 +55,6 @@
   {
     background-color:rgba(10,113,138);
     padding-right:0px !important;
-
-
   }
   .Graduate-icon 
   {
@@ -75,11 +74,13 @@
   {
     color:#8599ad;
   }
-  
   .btn
   {
     background: #8599ad;
     color: white;
   }
+.col-md-10{
+  background:rgba(20, 109, 139,0.1);
+}
 </style>
 

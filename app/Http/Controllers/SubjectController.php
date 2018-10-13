@@ -109,11 +109,11 @@ class SubjectController extends Controller
         $cnte=0;
         $cntm=0;
         $cnth=0;
-        $id=$request->id;
         //validations
-        $subjects=Subject::find($id);
+        $subjects=Subject::findOrFail(1);
         $topics=$subjects->topics->all();
-        for($cnt=0;$cnt<sizeof($topics);$cnt++){
+        for($cnt=0;$cnt<sizeof($topics);$cnt++)
+        {
           $crrtopic=$topics[$cnt];
           $easytp=$crrtopic->questions->where('complexity','easy')->all();
           foreach($easytp as $value) {

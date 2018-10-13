@@ -90,9 +90,9 @@
                     <a href="/admin/dashboard">Admin</a>
                   
                     
-                    <a href="https://laravel.com/docs">About us</a>
-                    <a href="https://laravel.com/docs">Search</a>
-                    <a href="https://laravel.com/docs">Contact</a>
+                    <a href="https://readybytes.in/">About us</a>
+                    <a href="https://readybytes.in/">Search</a>
+                    <a href="https://readybytes.in/">Contact</a>
 
                 </div>
         </div>

@@ -1,8 +1,11 @@
 import Vue from 'vue';
 // import VueRouter from 'vue-router';
 // import router from './route';
-require('./bootstrap');
+import BootstrapVue from 'bootstrap-vue';
 
+Vue.use(BootstrapVue);
+require('./bootstrap');
+import 'bootstrap-vue/dist/bootstrap-vue.css';
 // Vue.use(VueRouter);
 
 // const router = new VueRouter({
@@ -57,6 +60,7 @@ Vue.component('dashboard-component', require('./components/DashboardComponent.vu
 Vue.component('instructions', require('./components/Instructions.vue'));
 Vue.component('student-home', require('./components/StudentHome.vue'));
 Vue.component('test-component', require('./components/testComponent.vue'));
+//Vue.component('piechart-component', require('./components/piechartComponent.vue'));
 
 
 

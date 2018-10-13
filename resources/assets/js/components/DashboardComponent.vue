@@ -1,5 +1,5 @@
 <template>
-<div class="container">
+<div class="container" style="background:white;height:auto;min-height:100vh">
     <!-- first row for dashboard heading and search bar -->
     <div class="row mt-2 ml-3">
         <div class="col-sm-4">
@@ -134,7 +134,7 @@
               <span title="Double click to Edit" v-else @dblclick="edit = subject.id">{{ subject.subject }}</span>
               </td>
               <td>
-                  <button class="btn btn-danger" @click="RemoveSubject(subject.id)">Delete Subject</button>
+                  <button class="btn btn-danger" @click="RemoveSubject(subject.id)">Delete</button>
               </td>
             </tr>
           </tbody>
