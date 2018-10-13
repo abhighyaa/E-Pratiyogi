@@ -49490,7 +49490,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\nh2[data-v-30493a30]\n{  \n   color: lightgray;\n}\n.card-footer[data-v-30493a30]{\n    background: midnightblue;\n    color: white;\n    cursor: pointer;\n    font-weight: bolder;\n}\n.custom-card[data-v-30493a30]{  \n    margin-bottom: 15px;\n    text-align: center;\n    font-weight: bolder;\n    color: dodgerblue;\n}\n", ""]);
+exports.push([module.i, "\nh2[data-v-30493a30]\n{  \n   color: lightgray;\n}\n.card-footer[data-v-30493a30]{\n    background: #146D8B;\n    color: white;\n    cursor: pointer;\n    font-weight: bolder;\n}\n.custom-card[data-v-30493a30]{  \n    margin-bottom: 15px;\n    text-align: center;\n    font-weight: bolder;\n    color: dodgerblue;\n}\n", ""]);
 
 // exports
 

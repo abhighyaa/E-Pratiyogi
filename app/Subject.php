@@ -13,7 +13,7 @@ class Subject extends Model
     
     public function topics()
     {
-        return $this->belongsToMany(Topic::class);
+        return $this->belongsToMany(Topic::class,'subject_topic');
     }
     public function questions()
     {
