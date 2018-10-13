@@ -2,6 +2,7 @@
     <div class="card card-default">
         <div class="card-header">Course</div>
         <div class="card-body">
+            
               <ul class="list-group">
                   <li data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" @click="fetchBranch(course.id)" 
                       class="list-group-item dropdown-toggle"
@@ -12,8 +13,9 @@
                        <a class="dropdown-item" href="#" v-for="branch in branches" :id="branch.id" @click="fetchSubjects(branch.id)" :key="branch.id">{{ branch.name }}</a>
                    </div>
                    
-              </ul>
-              
+              </ul><br>
+              <!-- <b-pagination size="md" align="center" :link-gen="linkGen" :total-rows="100" v-model="currentPage" :per-page="10">
+             </b-pagination> -->
         </div>
     </div>  
 </template>
@@ -25,7 +27,8 @@ import { EventBus } from '../app.js';
          return{
                 courses:[],
                 branches:[],
-                subjects:[]   
+                subjects:[] ,
+                currentPage: 1 
         };
         },
 
@@ -33,6 +36,10 @@ import { EventBus } from '../app.js';
            this.fetchCourses();
         },
         methods:{
+             linkGen (pageNum) {
+                 alert(pageNum)
+      return '#page/' + pageNum + '/foobar'
+    },
             async fetchCourses(){
                  await axios.get('http://localhost:8000/courses/get/all')
                     .then((response)=>(this.courses = response.data))

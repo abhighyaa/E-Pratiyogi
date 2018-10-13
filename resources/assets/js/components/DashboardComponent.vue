@@ -1,5 +1,5 @@
 <template>
-<div class="container">
+<div class="container" style="background:white;height:auto;min-height:100vh">
     <!-- first row for dashboard heading and search bar -->
     <div class="row mt-2 ml-3">
         <div class="col-sm-4">

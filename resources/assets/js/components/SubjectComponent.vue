@@ -67,7 +67,7 @@ h2
    color: lightgray;
 }
 .card-footer{
-    background: midnightblue;
+    background: #146D8B;
     color: white;
     cursor: pointer;
     font-weight: bolder;
