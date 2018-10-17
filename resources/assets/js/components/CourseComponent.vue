@@ -22,16 +22,21 @@
 
 <script>
 import { EventBus } from '../app.js';
+import { mapGetters } from "vuex";
+
     export default {
         data(){
          return{
-                courses:[],
                 branches:[],
                 subjects:[] ,
                 currentPage: 1 
         };
         },
-
+        computed:{
+            ...mapGetters({
+                courses:'Courses'
+            })
+        },
         mounted() {
            this.fetchCourses();
         },
@@ -41,9 +46,7 @@ import { EventBus } from '../app.js';
       return '#page/' + pageNum + '/foobar'
     },
             async fetchCourses(){
-                 await axios.get('http://localhost:8000/courses/get/all')
-                    .then((response)=>(this.courses = response.data))
-                    .catch(function(error){console.log(error)});
+                this.$store.dispatch('Set_Courses');
             },
             async fetchBranch(courseID){
                 await axios.get('http://localhost:8000/courses/'+courseID+'/get/branches')
