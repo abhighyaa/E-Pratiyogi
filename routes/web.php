@@ -14,10 +14,12 @@
 Auth::routes();
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    return view('layouts.WebHomePage');
 });
 Route::get('/home', function () {
-    return view('welcome');
+    // return view('welcome');
+    return view('layouts.WebHomePage');
 });
 Route::get('/library','SubjectController@index');
 
@@ -53,6 +55,7 @@ Route::prefix('subjects')->group(function () {
     Route::get('update/{id}/{subject}','SubjectController@update');
     Route::get('get/default','SubjectController@getDefaultSubjects');
 });
+Route::get('user/{id}/profile','StudentController@manageProfile')->name('profile');
 Route::prefix('courses')->group(function(){
     Route::get('get/all','Coursecontroller@index');
     Route::get('{id}/get/branches','Coursecontroller@Fetch_branches_by_Course');
@@ -83,4 +86,3 @@ Route::prefix('student')->group(function () {
     Route::get('/home', 'StudentController@index');
 });
 Route::get('/starttest/{id}','SubjectController@testQuestion');
-

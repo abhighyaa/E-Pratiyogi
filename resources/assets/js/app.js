@@ -54,6 +54,10 @@ Vue.component('dashboard-component', require('./components/DashboardComponent.vu
 Vue.component('instructions', require('./components/Instructions.vue'));
 Vue.component('student-home', require('./components/StudentHome.vue'));
 Vue.component('test-component', require('./components/testComponent.vue'));
+Vue.component('student-profile', require('./components/StudentProfile.vue'));
+Vue.component('profile-header', require('./components/ProfileHeader.vue'));
+Vue.component('profile-feature', require('./components/ProfileFeature.vue'));
+
 // Vue.component('piechart-component', require('./components/piechartComponent.vue'));
 
 
