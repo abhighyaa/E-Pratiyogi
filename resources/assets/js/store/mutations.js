@@ -10,5 +10,8 @@ export const mutations = {
     },
     Set_Subjects_by_Branch(state,response){
         state.subjects = response
+    },
+    Set_Teachers(state,response){
+        state.teachers = response
     }
 }

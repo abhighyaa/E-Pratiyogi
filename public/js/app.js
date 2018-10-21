@@ -55441,6 +55441,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return state; });
 var state = {
     courses: [],
+    teachers: [],
     subjects: [],
     instructions: []
 };
@@ -55460,6 +55461,9 @@ var getters = {
     },
     Courses: function Courses(state) {
         return state.courses;
+    },
+    Teachers: function Teachers(state) {
+        return state.teachers;
     }
 };
 
@@ -55481,6 +55485,9 @@ var mutations = {
     },
     Set_Subjects_by_Branch: function Set_Subjects_by_Branch(state, response) {
         state.subjects = response;
+    },
+    Set_Teachers: function Set_Teachers(state, response) {
+        state.teachers = response;
     }
 };
 
@@ -55497,130 +55504,161 @@ var mutations = {
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 var actions = {
-    Set_Instructions: function () {
-        var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(context, payload) {
-            var data;
-            return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
-                while (1) {
-                    switch (_context.prev = _context.next) {
-                        case 0:
-                            _context.next = 2;
-                            return axios.get('http://localhost:8000/subjects/' + payload + '/get/instructions').then(function (response) {
-                                return data = response.data;
-                            }).catch(function (error) {
-                                console.log(error);
-                            });
+   Set_Instructions: function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(context, payload) {
+         var data;
+         return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+            while (1) {
+               switch (_context.prev = _context.next) {
+                  case 0:
+                     _context.next = 2;
+                     return axios.get('http://localhost:8000/subjects/' + payload + '/get/instructions').then(function (response) {
+                        return data = response.data;
+                     }).catch(function (error) {
+                        console.log(error);
+                     });
 
-                        case 2:
-                            context.commit('Set_Instructions', data);
+                  case 2:
+                     context.commit('Set_Instructions', data);
 
-                        case 3:
-                        case 'end':
-                            return _context.stop();
-                    }
-                }
-            }, _callee, this);
-        }));
+                  case 3:
+                  case 'end':
+                     return _context.stop();
+               }
+            }
+         }, _callee, this);
+      }));
 
-        function Set_Instructions(_x, _x2) {
-            return _ref.apply(this, arguments);
-        }
+      function Set_Instructions(_x, _x2) {
+         return _ref.apply(this, arguments);
+      }
 
-        return Set_Instructions;
-    }(),
-    Set_Subjects: function () {
-        var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2(context) {
-            var data;
-            return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
-                while (1) {
-                    switch (_context2.prev = _context2.next) {
-                        case 0:
-                            _context2.next = 2;
-                            return axios.get('http://localhost:8000/subjects/get/default').then(function (response) {
-                                return data = response.data;
-                            }).catch(function (error) {
-                                console.log(error);
-                            });
+      return Set_Instructions;
+   }(),
+   Set_Subjects: function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2(context) {
+         var data;
+         return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+            while (1) {
+               switch (_context2.prev = _context2.next) {
+                  case 0:
+                     _context2.next = 2;
+                     return axios.get('http://localhost:8000/subjects/get/default').then(function (response) {
+                        return data = response.data;
+                     }).catch(function (error) {
+                        console.log(error);
+                     });
 
-                        case 2:
-                            context.commit('Set_Subjects', data);
+                  case 2:
+                     context.commit('Set_Subjects', data);
 
-                        case 3:
-                        case 'end':
-                            return _context2.stop();
-                    }
-                }
-            }, _callee2, this);
-        }));
+                  case 3:
+                  case 'end':
+                     return _context2.stop();
+               }
+            }
+         }, _callee2, this);
+      }));
 
-        function Set_Subjects(_x3) {
-            return _ref2.apply(this, arguments);
-        }
+      function Set_Subjects(_x3) {
+         return _ref2.apply(this, arguments);
+      }
 
-        return Set_Subjects;
-    }(),
-    Set_Courses: function () {
-        var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3(context) {
-            var data;
-            return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
-                while (1) {
-                    switch (_context3.prev = _context3.next) {
-                        case 0:
-                            _context3.next = 2;
-                            return axios.get('http://localhost:8000/courses/get/all').then(function (response) {
-                                return data = response.data;
-                            }).catch(function (error) {
-                                console.log(error);
-                            });
+      return Set_Subjects;
+   }(),
+   Set_Courses: function () {
+      var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3(context) {
+         var data;
+         return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+            while (1) {
+               switch (_context3.prev = _context3.next) {
+                  case 0:
+                     _context3.next = 2;
+                     return axios.get('http://localhost:8000/courses/get/all').then(function (response) {
+                        return data = response.data;
+                     }).catch(function (error) {
+                        console.log(error);
+                     });
 
-                        case 2:
-                            context.commit('Set_Courses', data);
+                  case 2:
+                     context.commit('Set_Courses', data);
 
-                        case 3:
-                        case 'end':
-                            return _context3.stop();
-                    }
-                }
-            }, _callee3, this);
-        }));
+                  case 3:
+                  case 'end':
+                     return _context3.stop();
+               }
+            }
+         }, _callee3, this);
+      }));
 
-        function Set_Courses(_x4) {
-            return _ref3.apply(this, arguments);
-        }
+      function Set_Courses(_x4) {
+         return _ref3.apply(this, arguments);
+      }
 
-        return Set_Courses;
-    }(),
-    Set_Subjects_by_Branch: function () {
-        var _ref4 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee4(context, payload) {
-            var data;
-            return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
-                while (1) {
-                    switch (_context4.prev = _context4.next) {
-                        case 0:
-                            _context4.next = 2;
-                            return axios.get('http://localhost:8000/courses/branch/' + payload + '/get/subjects').then(function (response) {
-                                return data = response.data;
-                            }).catch(function (error) {
-                                console.log(error);
-                            });
+      return Set_Courses;
+   }(),
+   Set_Subjects_by_Branch: function () {
+      var _ref4 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee4(context, payload) {
+         var data;
+         return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
+            while (1) {
+               switch (_context4.prev = _context4.next) {
+                  case 0:
+                     _context4.next = 2;
+                     return axios.get('http://localhost:8000/courses/branch/' + payload + '/get/subjects').then(function (response) {
+                        return data = response.data;
+                     }).catch(function (error) {
+                        console.log(error);
+                     });
 
-                        case 2:
-                            context.commit('Set_Subjects_by_Branch', data);
+                  case 2:
+                     context.commit('Set_Subjects_by_Branch', data);
 
-                        case 3:
-                        case 'end':
-                            return _context4.stop();
-                    }
-                }
-            }, _callee4, this);
-        }));
+                  case 3:
+                  case 'end':
+                     return _context4.stop();
+               }
+            }
+         }, _callee4, this);
+      }));
 
-        function Set_Subjects_by_Branch(_x5, _x6) {
-            return _ref4.apply(this, arguments);
-        }
+      function Set_Subjects_by_Branch(_x5, _x6) {
+         return _ref4.apply(this, arguments);
+      }
 
-        return Set_Subjects_by_Branch;
-    }()
+      return Set_Subjects_by_Branch;
+   }(),
+   Set_Teachers: function () {
+      var _ref5 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee5(context) {
+         var data;
+         return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
+            while (1) {
+               switch (_context5.prev = _context5.next) {
+                  case 0:
+                     _context5.next = 2;
+                     return axios.get('http://localhost:8000/student/get/myteachers').then(function (response) {
+                        return data = response.data;
+                     }).catch(function (error) {
+                        console.log(error);
+                     });
+
+                  case 2:
+                     context.commit('Set_Teachers', data);
+
+                  case 3:
+                  case 'end':
+                     return _context5.stop();
+               }
+            }
+         }, _callee5, this);
+      }));
+
+      function Set_Teachers(_x7) {
+         return _ref5.apply(this, arguments);
+      }
+
+      return Set_Teachers;
+   }()
 };
 
 /***/ }),
@@ -105906,19 +105944,19 @@ if (false) {
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(460)
+  __webpack_require__(487)
 }
 var normalizeComponent = __webpack_require__(10)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(462)
+var __vue_template__ = __webpack_require__(489)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-21c555e5"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -105951,145 +105989,28 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 460 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(461);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(12)("97d5572c", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-21c555e5\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./StudentProfile.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-21c555e5\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./StudentProfile.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 461 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(9)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.row{\n    border: solid\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 462 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "row" }, [
-      _c(
-        "div",
-        { staticClass: "col-sm-12" },
-        [
-          _c(
-            "b-card",
-            { attrs: { "no-body": "" } },
-            [
-              _c(
-                "b-tabs",
-                { attrs: { card: "" } },
-                [
-                  _c("b-tab", { attrs: { title: "My Profile", active: "" } }, [
-                    _vm._v("\n                Profile\n            ")
-                  ]),
-                  _vm._v(" "),
-                  _c("b-tab", { attrs: { title: "My Subject" } }, [
-                    _vm._v("\n                Subjects\n            ")
-                  ]),
-                  _vm._v(" "),
-                  _c("b-tab", { attrs: { title: "My Teacher" } }, [
-                    _vm._v("\n                Teacher\n            ")
-                  ]),
-                  _vm._v(" "),
-                  _c("b-tab", { attrs: { title: "Search Teacher" } }, [
-                    _vm._v("\n                Search\n            ")
-                  ]),
-                  _vm._v(" "),
-                  _c("b-tab", { attrs: { title: "My Test" } }, [
-                    _vm._v("\n                Test\n            ")
-                  ]),
-                  _vm._v(" "),
-                  _c("b-tab", { attrs: { title: "Activities" } }, [
-                    _vm._v("\n               Activities\n            ")
-                  ])
-                ],
-                1
-              )
-            ],
-            1
-          )
-        ],
-        1
-      )
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-sm-6" }, [_vm._v("First Section")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-6" }, [_vm._v("Second Section")])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-21c555e5", module.exports)
-  }
-}
-
-/***/ }),
+/* 460 */,
+/* 461 */,
+/* 462 */,
 /* 463 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(464)
+  __webpack_require__(484)
 }
 var normalizeComponent = __webpack_require__(10)
 /* script */
 var __vue_script__ = __webpack_require__(466)
 /* template */
-var __vue_template__ = __webpack_require__(467)
+var __vue_template__ = __webpack_require__(486)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-29b931ef"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -106122,46 +106043,8 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 464 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(465);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(12)("298dc4b4", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-29b931ef\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ProfileHeader.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-29b931ef\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ProfileHeader.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 465 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(9)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
-
-// exports
-
-
-/***/ }),
+/* 464 */,
+/* 465 */,
 /* 466 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -106174,60 +106057,46 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
-/* 467 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-sm-6" }, [_vm._v("First Section")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-6" }, [_vm._v("Second Section")])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-29b931ef", module.exports)
-  }
-}
-
-/***/ }),
+/* 467 */,
 /* 468 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(469)
+  __webpack_require__(481)
 }
 var normalizeComponent = __webpack_require__(10)
 /* script */
 var __vue_script__ = __webpack_require__(471)
 /* template */
-var __vue_template__ = __webpack_require__(472)
+var __vue_template__ = __webpack_require__(483)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-99fefef8"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -106260,51 +106129,59 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 469 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(470);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(12)("7a30e997", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-99fefef8\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ProfileFeature.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-99fefef8\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ProfileFeature.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 470 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(9)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
-
-// exports
-
-
-/***/ }),
+/* 469 */,
+/* 470 */,
 /* 471 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(31);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -106333,72 +106210,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-/* harmony default export */ __webpack_exports__["default"] = ({});
 
-/***/ }),
-/* 472 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "row" },
-    [
-      _c(
-        "b-card",
-        { attrs: { "no-body": "" } },
-        [
-          _c(
-            "b-tabs",
-            { attrs: { card: "" } },
-            [
-              _c("b-tab", { attrs: { title: "My Profile", active: "" } }, [
-                _vm._v("\n                Profile\n            ")
-              ]),
-              _vm._v(" "),
-              _c("b-tab", { attrs: { title: "My Subject" } }, [
-                _vm._v("\n                Subjects\n            ")
-              ]),
-              _vm._v(" "),
-              _c("b-tab", { attrs: { title: "My Teacher" } }, [
-                _vm._v("\n                Teacher\n            ")
-              ]),
-              _vm._v(" "),
-              _c("b-tab", { attrs: { title: "Search Teacher" } }, [
-                _vm._v("\n                Search\n            ")
-              ]),
-              _vm._v(" "),
-              _c("b-tab", { attrs: { title: "My Test" } }, [
-                _vm._v("\n                Test\n            ")
-              ]),
-              _vm._v(" "),
-              _c("b-tab", { attrs: { title: "Activities" } }, [
-                _vm._v("\n               Activities\n            ")
-              ])
-            ],
-            1
-          )
-        ],
-        1
-      )
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-99fefef8", module.exports)
-  }
-}
+/* harmony default export */ __webpack_exports__["default"] = ({
+    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapGetters */])({
+        teachers: 'Teachers',
+        subjects: 'Subjects'
+    })),
+    methods: {
+        MyTeachers: function MyTeachers() {
+            this.$store.dispatch('Set_Teachers');
+        },
+        MySubjects: function MySubjects() {
+            this.$store.dispatch('Set_Subjects');
+        }
+    }
+});
 
 /***/ }),
+/* 472 */,
 /* 473 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -106644,6 +106473,487 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 480 */,
+/* 481 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(482);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(12)("f6123214", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-99fefef8\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ProfileFeature.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-99fefef8\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ProfileFeature.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 482 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(9)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\nnav[data-v-99fefef8]{\n    background: rgba(211,211,211,.2);\n    width: 100%;\n}\n.custom-card[data-v-99fefef8]{  \n    margin-bottom: 15px;\n    text-align: center;\n    font-weight: bolder;\n    color: dodgerblue;\n}\n.imageBox[data-v-99fefef8]{\n    border: .5px solid rgba(211,211,211,0.5);\n    height: 350px;\n    text-align: center;\n    line-height: 450px;\n}\n.fa-user-o[data-v-99fefef8]{\n    color: rgba(0,0,0,0.5);\n    font-size: 200px;\n}\n.tab-pane[data-v-99fefef8], .nav-item.active[data-v-99fefef8]{\n    background: white;\n}\n.teacherCard[data-v-99fefef8]{\n    width: 150px;\n    height: 210px;\n    text-align: center;\n    margin: 5px;\n}\n.profileRow[data-v-99fefef8],.subjectRow[data-v-99fefef8]{\n    padding:15px 0;\n}\n.teacherRow[data-v-99fefef8]{\n    padding-top: 5px;\n}\n.userDeatailLabel[data-v-99fefef8]{\n    font-weight: bold;\n    font-size: 16px;\n    min-width: 100px\n}\np[data-v-99fefef8]{\n    font-size: 16px;\n    display: inline;\n    padding-left: 40px;\n}\nspan[data-v-99fefef8]{\n    font-size: 16px;\n    text-transform: capitalize;\n    font-weight: bold;\n    color: lightslategray;\n}\n.fa-user-circle[data-v-99fefef8]{\n    color: rgba(0,0,0,0.5);\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 483 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "col-sm-12" }, [
+    _c("nav", [
+      _c(
+        "div",
+        {
+          staticClass: "nav nav-tabs ",
+          attrs: { id: "nav-tab", role: "tablist" }
+        },
+        [
+          _c(
+            "a",
+            {
+              staticClass: "nav-item nav-link active",
+              attrs: {
+                id: "nav-profile-tab",
+                "data-toggle": "tab",
+                href: "#nav-profile",
+                role: "tab",
+                "aria-controls": "nav-profile",
+                "aria-selected": "true"
+              }
+            },
+            [_vm._v("My profile")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "nav-item nav-link",
+              attrs: {
+                id: "nav-teacher-tab",
+                "data-toggle": "tab",
+                href: "#nav-teacher",
+                role: "tab",
+                "aria-controls": "nav-teacher",
+                "aria-selected": "false"
+              },
+              on: { click: _vm.MyTeachers }
+            },
+            [_vm._v("My Teacher")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "nav-item nav-link",
+              attrs: {
+                id: "nav-subject-tab",
+                "data-toggle": "tab",
+                href: "#nav-subject",
+                role: "tab",
+                "aria-controls": "nav-subject",
+                "aria-selected": "false"
+              },
+              on: { click: _vm.MySubjects }
+            },
+            [_vm._v("My Subject")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "nav-item nav-link",
+              attrs: {
+                id: "nav-test-tab",
+                "data-toggle": "tab",
+                href: "#nav-test",
+                role: "tab",
+                "aria-controls": "nav-test",
+                "aria-selected": "false"
+              }
+            },
+            [_vm._v("My Test")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "nav-item nav-link",
+              attrs: {
+                id: "nav-activities-tab",
+                "data-toggle": "tab",
+                href: "#nav-activities",
+                role: "tab",
+                "aria-controls": "nav-activities",
+                "aria-selected": "false"
+              }
+            },
+            [_vm._v("Activities")]
+          )
+        ]
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "tab-content", attrs: { id: "nav-tabContent" } }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "tab-pane fade",
+          attrs: {
+            id: "nav-teacher",
+            role: "tabpanel",
+            "aria-labelledby": "nav-teacher-tab"
+          }
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "row teacherRow" },
+            _vm._l(_vm.teachers, function(teacher) {
+              return _c("div", { key: teacher.id, staticClass: "col-sm-2" }, [
+                _c("div", { staticClass: "card card-default teacherCard" }, [
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("i", {
+                      staticClass: "fa fa-user-circle fa-5x",
+                      attrs: { "aria-hidden": "true" }
+                    }),
+                    _vm._v(" "),
+                    _c("span", [_vm._v(_vm._s(teacher.name))]),
+                    _vm._v(" "),
+                    _c("label", [
+                      _vm._v(
+                        "\n                             John Doe is an architect and engineer\n                         "
+                      )
+                    ])
+                  ])
+                ])
+              ])
+            })
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "tab-pane fade",
+          attrs: {
+            id: "nav-subject",
+            role: "tabpanel",
+            "aria-labelledby": "nav-subject-tab"
+          }
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "row subjectRow" },
+            _vm._l(_vm.subjects, function(subject) {
+              return _c("div", { key: subject.id, staticClass: "col-sm-3" }, [
+                _c("div", { staticClass: "card card-default custom-card" }, [
+                  _c("div", { staticClass: "card-body" }, [
+                    _vm._v(
+                      "\n                         " +
+                        _vm._s(subject.subject) +
+                        "\n                     "
+                    )
+                  ])
+                ])
+              ])
+            })
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "tab-pane fade",
+          attrs: {
+            id: "nav-test",
+            role: "tabpanel",
+            "aria-labelledby": "nav-test-tab"
+          }
+        },
+        [_vm._v("\n        coming soon....\n    ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "tab-pane fade",
+          attrs: {
+            id: "nav-activities",
+            role: "tabpanel",
+            "aria-labelledby": "nav-activities-tab"
+          }
+        },
+        [
+          _vm._v(
+            "\n        Soon..we will display your all the activities.\n    "
+          )
+        ]
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "tab-pane fade show active",
+        attrs: {
+          id: "nav-profile",
+          role: "tabpanel",
+          "aria-labelledby": "nav-profile-tab"
+        }
+      },
+      [
+        _c("div", { staticClass: "row profileRow" }, [
+          _c("div", { staticClass: "col-sm-4" }, [
+            _c("div", { staticClass: "imageBox" }, [
+              _c("i", {
+                staticClass: "fa fa-user-o fa-5x",
+                attrs: { "aria-hidden": "true" }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-sm-8" }, [
+            _c("div", { staticClass: "userDetail" }, [
+              _c("label", { staticClass: "userDeatailLabel" }, [
+                _vm._v("Name")
+              ]),
+              _c("strong", [_vm._v(":")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Jhon Doe")]),
+              _c("br"),
+              _vm._v(" "),
+              _c("label", { staticClass: "userDeatailLabel" }, [
+                _vm._v("Email")
+              ]),
+              _c("strong", [_vm._v(":")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("jhondoe@gmail.com")]),
+              _c("br"),
+              _vm._v(" "),
+              _c("label", { staticClass: "userDeatailLabel" }, [
+                _vm._v("Passward")
+              ]),
+              _c("strong", [_vm._v(":")]),
+              _vm._v(" "),
+              _c("p", [_c("b", [_vm._v("******")])]),
+              _c("br"),
+              _vm._v(" "),
+              _c("label", { staticClass: "userDeatailLabel" }, [
+                _vm._v("Role")
+              ]),
+              _c("strong", [_vm._v(":")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Student")])
+            ])
+          ])
+        ])
+      ]
+    )
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-99fefef8", module.exports)
+  }
+}
+
+/***/ }),
+/* 484 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(485);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(12)("16c715d9", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-29b931ef\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ProfileHeader.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-29b931ef\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ProfileHeader.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 485 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(9)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.btn-default[data-v-29b931ef]{\n    margin: 10px;\n    float: right;\n    background: rgba(211,211,211,.4);\n}\n.profile div[data-v-29b931ef]{\n    display: inline-block;\n}\n.image[data-v-29b931ef]{\n    text-align: center;\n    margin: 5px;\n    margin-right: 10px;\n    text-align: center;\n}\nlabel[data-v-29b931ef],span[data-v-29b931ef]{\n    padding: 0;\n    margin: 0;\n    font-size: 16px;\n    text-align: justify;\n}\nlabel[data-v-29b931ef]{\n    color: darkmagenta;\n}\n.detail[data-v-29b931ef]{\n    text-align: left;\n     padding: 5px;\n}\nh1[data-v-29b931ef]{\n    text-transform: capitalize;\n}\n.fa-user-circle-o[data-v-29b931ef]{\n    width: 150px;\n    height: 120px;\n    font-size: 120px;\n    padding: 2px;\n    color: lightgrey;\n}\n.fa-cog[data-v-29b931ef]{\n    color: rgba(0,0,0,0.5);\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 486 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-12" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-sm-6" }, [
+          _c("div", { staticClass: "profile" }, [
+            _c("div", { staticClass: "image" }, [
+              _c("i", {
+                staticClass: "fa fa-user-circle-o fa-5x",
+                attrs: { "aria-hidden": "true" }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "detail" }, [
+              _c("h1", [_vm._v("Jhon Doe")]),
+              _vm._v(" "),
+              _c("span", [_vm._v("jhondoe@gmail.com")]),
+              _c("br"),
+              _vm._v(" "),
+              _c("label", [_vm._v("Student")])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-sm-6" }, [
+          _c("button", { staticClass: "btn btn-default" }, [
+            _c("i", { staticClass: "fa fa-cog" }),
+            _vm._v("\n                Change Role\n            ")
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-29b931ef", module.exports)
+  }
+}
+
+/***/ }),
+/* 487 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(488);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(12)("e2e204f2", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-21c555e5\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./StudentProfile.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-21c555e5\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./StudentProfile.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 488 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(9)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.container[data-v-21c555e5]{\n    background: white;\n    padding-top: 5px;\n}\n.row1[data-v-21c555e5]{\n    margin-bottom: 30px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 489 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row row1" }, [_c("profile-header")], 1),
+    _vm._v(" "),
+    _c("div", { staticClass: "row row2" }, [_c("profile-feature")], 1)
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-21c555e5", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

@@ -7,5 +7,8 @@ export const getters = {
     },
     Courses(state){
         return state.courses
+    },
+    Teachers(state){
+        return state.teachers
     }
 }

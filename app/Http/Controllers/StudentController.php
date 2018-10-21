@@ -31,6 +31,13 @@ class StudentController extends Controller
             return view('Student.ManageProfile');
           return "Teacher";
     }
+    public function getTeachers()
+    {
+        $teachers = User::whereHas('role', function($q) {
+            $q->where('role_id', 2);                 
+          })->with('role')->get();
+         return response()->json($teachers);
+    }
     /**
      * Show the form for creating a new resource.
      *
