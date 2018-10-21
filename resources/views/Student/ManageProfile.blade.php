@@ -5,6 +5,6 @@
 @include('partials.error')
 
 <div class="container-fluid">
-    <router-view></router-view>
+   <student-profile></student-profile>
 </div>
 @endsection

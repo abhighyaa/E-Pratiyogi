@@ -3,20 +3,22 @@
     
    <div v-if="quizrunning" class='quesblock' style="max-width:700px;margin-top:50px;margin-left:24%">
    <div >
-        <div>
-        <div class="progress">
-        <div class="progress-bar" v-bind:style="{width:progress+'%' }"></div>
+        <div class="duration">
+            <div class="progress">
+                <div class="progress-bar" v-bind:style="{width:progress+'%' }"></div>
+            </div>
+             <div class="timer">{{min}}:{{sec}}</div>
+             <span class="complexity" >{{complexity}}</span>
         </div>
-        </div>
-        <div style="font-size:30px;text-align:center"> TIME:-{{min}}:{{sec}} </div>
-        </div>
+    </div>
+       
 
         
-        <div style="border:1px solid grey;font-size:25px;background:lavender;   " class="ques">Q{{noqs}} {{curques.question}}  <span style="float:right;border:1px solid grey;background:grey;color:white;margin-right:5px;">{{complexity}}</span> </div>
-        <div v-for="value in curques.choices" :key="value" style="border:1px solid grey;font-size:25px;  ">
-        <input type="radio"  v-bind:value="value" v-model="answer">{{ value }}
+        <div class="ques"><span id="questionNum">Q{{noqs}}</span>. {{curques.question}}</div>
+        <div v-for="value in curques.choices" :key="value">
+        <input type="radio"  v-bind:value="value" v-model="answer">&nbsp;{{ value }}
         </div>
-        <button @click='checkanswer'>submit</button>
+        <button class="submitButton btn btn-primary" @click='checkanswer'>submit</button>
 
         </div>
 
@@ -260,6 +262,52 @@ function shuffle(array) {
         }
     }
 </script>
+<style scoped>
+.quesblock{
+    background: white;
+    padding: 20px;
+    min-height: 40vh;
+    font-size: 20px;
+    font-family: initial;
+}
+.duration{
+    padding: 5px;
+}
+.progress,.timer{
+    display: inline-flex;
+}
+.progress{
+    width: 88%;
+}
+.timer{
+    width:fit-content;
+    margin-left: 5px;
+    font-size: 26px;
+}
+.ques{
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+#questionNum{
+    font-weight: bold;
+}
+.submitButton{
+    text-transform: capitalize;
+    margin: 5px;
+    margin-left: 45%;
+}
+.complexity{
+    float:right;
+    margin-right:5px;
+    background:lavender;
+    color: rgba(0,0,0,0.7);
+    text-transform: capitalize;
+    font-family: sans-serif;
+    padding: 0px 5px 0px 5px;
+    border-radius: 14px;
+    margin-right: 14px;
+}
+</style>
 
 
 

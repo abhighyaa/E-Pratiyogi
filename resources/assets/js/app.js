@@ -1,18 +1,12 @@
 import Vue from 'vue';
-// import VueRouter from 'vue-router';
-// import router from './route';
+import router from './router';
+import store from './store/store';
+
 import BootstrapVue from 'bootstrap-vue';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
 
 Vue.use(BootstrapVue);
 require('./bootstrap');
-import 'bootstrap-vue/dist/bootstrap-vue.css';
-// Vue.use(VueRouter);
-
-// const router = new VueRouter({
-//     mode: 'history',
-//     routes:Routes
-
-// });
 
 export const EventBus = new Vue();
 
@@ -60,7 +54,11 @@ Vue.component('dashboard-component', require('./components/DashboardComponent.vu
 Vue.component('instructions', require('./components/Instructions.vue'));
 Vue.component('student-home', require('./components/StudentHome.vue'));
 Vue.component('test-component', require('./components/testComponent.vue'));
-//Vue.component('piechart-component', require('./components/piechartComponent.vue'));
+Vue.component('student-profile', require('./components/StudentProfile.vue'));
+Vue.component('profile-header', require('./components/ProfileHeader.vue'));
+Vue.component('profile-feature', require('./components/ProfileFeature.vue'));
+
+// Vue.component('piechart-component', require('./components/piechartComponent.vue'));
 
 
 
@@ -77,7 +75,8 @@ Vue.component('subject', require('./components/subject.vue'));
 
 const app = new Vue({
     el: '#app',
-    //  router:router,
+    router:router,
+    store:store,
     data() {
         return {
             smodal:false,

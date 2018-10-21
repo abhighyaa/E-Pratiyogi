@@ -19,45 +19,26 @@
 </template>
 
 <script>
-import { EventBus } from '../app.js'
-// import Axios from 'axios';
+import { mapGetters } from "vuex";
+
     export default {
-        data(){
-            return{
-                subjects:[],
-                instructions:[],
-                visible:false,
-                subjectID:null
-                
-            };
+        computed:{
+            ...mapGetters({
+                subjects:'Subjects',
+            }),
         },
         mounted(){
-            EventBus.$on('fetchSubjects', data => {
-                this.subjects = data.subjectKey;   
-            });
             this.defaultsubjects();
          },
          methods:{
              async TakeTest(sujectId){
-                //  await axios.get('http://localhost:8000/subjects/'+sujectId+'/get/instructions')
-                //     .then((response)=>(this.instructions = response.data))
-                //     .catch(function(error){console.log(error)});
-                    window.location.assign('http://localhost:8000/student/home/'+sujectId);
-                    // alert(this.instructions);
-                // EventBus.$emit('fetchInstructions',{
-                //     instructionsKey:this.instructions,
-                //     visibleKey:this.visible
-                // });
-                // await axios.get('http://localhost:8000/student/home/'+sujectId)
-                //     .then((response)=>(this.instructions = response.data))
-                //     .catch(function(error){console.log(error)});
+                this.$router.push('/instructions')
+                this.$store.dispatch('Set_Instructions',sujectId)
              },
             async defaultsubjects(){
-                 await axios.get('http://localhost:8000/subjects/get/default')
-                    .then((response)=>(this.subjects = response.data))
-                    .catch(function(error){console.log(error)});
+                this.$store.dispatch('Set_Subjects')
             }
-         }
+        }
 }
 </script>
 

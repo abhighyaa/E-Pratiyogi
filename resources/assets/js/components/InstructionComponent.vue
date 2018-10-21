@@ -34,11 +34,11 @@ import { EventBus } from '../app.js'
             };
         },
         mounted(){
-            EventBus.$on('InstEvent', data => {
-                this.Instructions = data.instructionKey;
-                this.subjectID =  data.subjectKey;
-                this.visible = data.visibleKey;      
-            });
+            // EventBus.$on('InstEvent', data => {
+            //     this.Instructions = data.instructionKey;
+            //     this.subjectID =  data.subjectKey;
+            //     this.visible = data.visibleKey;      
+            // });
          },
          methods:{
              startTest(subjectId){

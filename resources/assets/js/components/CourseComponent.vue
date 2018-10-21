@@ -1,6 +1,6 @@
 <template>
     <div class="card card-default">
-        <div class="card-header">Course</div>
+        <div class="card-header" @click="getDefaultSubjects">Course</div>
         <div class="card-body">
             
               <ul class="list-group">
@@ -9,8 +9,9 @@
                       id="dropdownMenuLink" :key="course.id" v-for="course in courses" >
                      <a href="#" :id="course.id">{{ course.name }}</a><i class="pull-right fa fa-caret-right"></i>
                   </li>
-                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                       <a class="dropdown-item" href="#" v-for="branch in branches" :id="branch.id" @click="fetchSubjects(branch.id)" :key="branch.id">{{ branch.name }}</a>
+                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" >
+                       <a class="dropdown-item" href="#" v-if="branches.length>0" v-for="branch in branches" :id="branch.id" @click="fetchSubjects(branch.id)" :key="branch.id">{{ branch.name }}</a>
+                       <a class="dropdown-item" href="#" v-if="branches.length === 0">No Branch Yet</a>
                    </div>
                    
               </ul><br>
@@ -21,17 +22,20 @@
 </template>
 
 <script>
-import { EventBus } from '../app.js';
+import { mapGetters } from "vuex";
+
     export default {
         data(){
          return{
-                courses:[],
                 branches:[],
-                subjects:[] ,
                 currentPage: 1 
         };
         },
-
+        computed:{
+            ...mapGetters({
+                courses:'Courses'
+            })
+        },
         mounted() {
            this.fetchCourses();
         },
@@ -41,9 +45,7 @@ import { EventBus } from '../app.js';
       return '#page/' + pageNum + '/foobar'
     },
             async fetchCourses(){
-                 await axios.get('http://localhost:8000/courses/get/all')
-                    .then((response)=>(this.courses = response.data))
-                    .catch(function(error){console.log(error)});
+                this.$store.dispatch('Set_Courses');
             },
             async fetchBranch(courseID){
                 await axios.get('http://localhost:8000/courses/'+courseID+'/get/branches')
@@ -51,19 +53,20 @@ import { EventBus } from '../app.js';
                     .catch(function(error){console.log(error)});
             },
             async fetchSubjects(branchID){
-                await axios.get('http://localhost:8000/courses/branch/'+branchID+'/get/subjects')
-                    .then((response)=>(this.subjects = response.data))
-                    .catch(function(error){console.log(error)});
-                EventBus.$emit('fetchSubjects',{
-                    subjectKey:this.subjects
-                });
+                this.$store.dispatch('Set_Subjects_by_Branch',branchID)
+            },
+            async getDefaultSubjects(){
+                this.$store.dispatch('Set_Subjects')
             }
         }
     }
 </script>
 <style lang="scss" scoped>
+.card-header{
+    cursor: pointer;
+}
 .dropdown-menu{
-    margin-left: 90%;
+    margin-left: 88%;
     margin-top: -48px;
     padding: 0;
 }

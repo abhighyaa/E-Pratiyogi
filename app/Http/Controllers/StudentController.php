@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Student;
 use Illuminate\Http\Request;
 use App\Subject;
+use App\User;
 use App\Instruction;
 use Requests;
+
 class StudentController extends Controller
 {
     /**
@@ -22,11 +24,13 @@ class StudentController extends Controller
       {
           return view('home');
       }
-      public function TakeTest(Request $request){
-        $subjectId = $request->id;
-        $instructions = Instruction::where('subject_id',$request->id)->get();
-        return view('StartTest')->with(compact('instructions','subjectId'));
-      }
+
+      public function manageProfile(Request $request){
+          $user = User::findOrFail($request->id);
+          if($user->role->first()->name == 'student');
+            return view('Student.ManageProfile');
+          return "Teacher";
+    }
     /**
      * Show the form for creating a new resource.
      *
