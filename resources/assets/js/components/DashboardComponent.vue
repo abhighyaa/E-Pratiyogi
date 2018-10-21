@@ -260,9 +260,9 @@
                   @keyup.enter ="edit=false; UpdateSubject(subject.subject,subject.id)">
               <span title="Double click to Edit" v-else @dblclick="edit = subject.id">{{ subject.subject }}</span>
               </td>
-             <!--  <td>
-                  <button class="btn btn-danger" @click="RemoveSubject(subject.id)">Delete Subject</button>
-              </td> -->
+              <td>
+                  <button class="btn btn-danger" @click="RemoveSubject(subject.id)">Remove</button>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -497,7 +497,19 @@ import { EventBus } from '../app.js';
       {
         await axios.get('http://localhost:8000/admin/add/branch/'+new_branch_name+'/to/'+selected)
                 .then((response)=>{
-                  if(response.data == 'this branch is already exist in selected course')
+                  if(response.data == 'please select a course name first')
+                  {
+                    this.message = response.data;
+                    alert(this.message);
+                    this.message = '';
+                  }
+                  else if(response.data == 'branch name is required')
+                  {
+                    this.message = response.data;
+                    alert(this.message);
+                    this.message = '';
+                  }
+                  else if(response.data == 'this branch is already exist in selected course')
                   {
                     this.message = response.data;
                     alert(this.message);
@@ -524,9 +536,10 @@ import { EventBus } from '../app.js';
                 .catch(function(error){console.log(error)}); 
                       
        },
-       async RemoveSubject(id) {
+       async RemoveSubject(subject_id) {
          
-           await axios.get('http://localhost:8000/subjects/remove/'+id)
+          alert(subject_id);
+          await axios.get('http://localhost:8000/admin/remove/subject/'+subject_id)
                 .then((response)=>(this.subjects = response.data))
                 .catch(function(error){console.log(error)}); 
        },
@@ -548,9 +561,28 @@ import { EventBus } from '../app.js';
       },
       async AddSubject(selected,selected_branch,new_subject_name)
       {
+        
          await axios.get('http://localhost:8000/admin/add/'+new_subject_name+'/'+selected_branch+'/'+selected)
                 .then((response)=>{
-                      if(response.data == 'this subject is already present in selected branch')
+                      if(response.data == 'please select a course name first')
+                      {
+                        this.message = response.data;
+                            alert(this.message);
+                            this.message = '';
+                      }
+                      else if(response.data == 'please select a branch name first')
+                      {
+                        this.message = response.data;
+                            alert(this.message);
+                            this.message = '';
+                      }
+                      else if(response.data == 'subject name is required')
+                      {
+                        this.message = response.data;
+                        alert(this.message);
+                        this.message = '';
+                      }
+                      else if(response.data == 'this subject is already exist in selected branch')
                       {
                         this.message = response.data;
                         alert(this.message);
@@ -564,8 +596,6 @@ import { EventBus } from '../app.js';
                 this.selected = 'Select a course name';
                 this.selected_branch = 'select a branch name';
                 this.new_subject_name = null; 
-
-
       },
       async Fetch_branches_for_this_course(selected)
       {

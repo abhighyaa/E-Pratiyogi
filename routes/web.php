@@ -14,10 +14,12 @@
 Auth::routes();
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    return view('layouts.WebHomePage');
 });
 Route::get('/home', function () {
-    return view('welcome');
+    // return view('welcome');
+    return view('layouts.WebHomePage');
 });
 Route::get('/library','SubjectController@index');
 
@@ -75,6 +77,7 @@ Route::prefix('admin')->group(function () {
     Route::get('add/branch/{branch}/to/{course}','AdminController@add_branch_to_course');
     Route::get('fetch/branches/for/course/{course}','AdminController@fetch_branches_for_this_course');
     Route::get('add/{subject}/{branch}/{course}','AdminController@add_subject');
+    Route::get('remove/subject/{id}','AdminController@remove_subject');
 });
 Route::prefix('teacher')->group(function () {
     Route::get('/home','QuestionController@index');

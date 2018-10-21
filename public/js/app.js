@@ -86746,7 +86746,15 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
               case 0:
                 _context13.next = 2;
                 return axios.get('http://localhost:8000/admin/add/branch/' + new_branch_name + '/to/' + selected).then(function (response) {
-                  if (response.data == 'this branch is already exist in selected course') {
+                  if (response.data == 'please select a course name first') {
+                    _this13.message = response.data;
+                    alert(_this13.message);
+                    _this13.message = '';
+                  } else if (response.data == 'branch name is required') {
+                    _this13.message = response.data;
+                    alert(_this13.message);
+                    _this13.message = '';
+                  } else if (response.data == 'this branch is already exist in selected course') {
                     _this13.message = response.data;
                     alert(_this13.message);
                     _this13.message = '';
@@ -86812,21 +86820,23 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
       return FetchSubjects;
     }(),
     RemoveSubject: function () {
-      var _ref15 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee15(id) {
+      var _ref15 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee15(subject_id) {
         var _this15 = this;
 
         return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee15$(_context15) {
           while (1) {
             switch (_context15.prev = _context15.next) {
               case 0:
-                _context15.next = 2;
-                return axios.get('http://localhost:8000/subjects/remove/' + id).then(function (response) {
+
+                alert(subject_id);
+                _context15.next = 3;
+                return axios.get('http://localhost:8000/admin/remove/subject/' + subject_id).then(function (response) {
                   return _this15.subjects = response.data;
                 }).catch(function (error) {
                   console.log(error);
                 });
 
-              case 2:
+              case 3:
               case 'end':
                 return _context15.stop();
             }
@@ -86897,7 +86907,19 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
               case 0:
                 _context17.next = 2;
                 return axios.get('http://localhost:8000/admin/add/' + new_subject_name + '/' + selected_branch + '/' + selected).then(function (response) {
-                  if (response.data == 'this subject is already present in selected branch') {
+                  if (response.data == 'please select a course name first') {
+                    _this17.message = response.data;
+                    alert(_this17.message);
+                    _this17.message = '';
+                  } else if (response.data == 'please select a branch name first') {
+                    _this17.message = response.data;
+                    alert(_this17.message);
+                    _this17.message = '';
+                  } else if (response.data == 'subject name is required') {
+                    _this17.message = response.data;
+                    alert(_this17.message);
+                    _this17.message = '';
+                  } else if (response.data == 'this subject is already exist in selected branch') {
                     _this17.message = response.data;
                     alert(_this17.message);
                     _this17.message = '';
@@ -87895,6 +87917,21 @@ var render = function() {
                               },
                               [_vm._v(_vm._s(subject.subject))]
                             )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-danger",
+                            on: {
+                              click: function($event) {
+                                _vm.RemoveSubject(subject.id)
+                              }
+                            }
+                          },
+                          [_vm._v("Remove")]
+                        )
                       ])
                     ],
                     2

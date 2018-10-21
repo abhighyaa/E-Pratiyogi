@@ -90,7 +90,7 @@ class AdminController extends Controller
     public function Fetch_branches_with_course()
     {
       $branch = new Branch;
-      return $branch->with('courses_branches')->get();
+      return $branch->with('courses_branches')->orderBy('name')->get();
       
     }
     public function update_branch(Request $request)
@@ -101,6 +101,14 @@ class AdminController extends Controller
     }
     public function add_branch_to_course(Request $request)
     {
+      if($request->course == 'Select a course name')
+      {
+        return 'please select a course name first';
+      }
+      else if($request->branch == 'null')
+      {
+        return 'branch name is required';
+      }
       $course = Course::where('name',$request->course)->first();
       $courseId = $course->id;
       $branch_from_course = $course->branches()->where('name',$request->branch)->first();
@@ -135,6 +143,18 @@ class AdminController extends Controller
     }
     public function add_subject(Request $request)
     {
+      if($request->course == 'Select a course name')
+        {
+           return 'please select a course name first';
+        } 
+        else if($request->branch == 'select a branch name')
+        {
+          return 'please select a branch name first';
+        } 
+        else if($request->subject == 'null')
+        {
+         return 'subject name is required';
+        }
       $course = Course::where('name',$request->course)->first();
       $branch = Branch::where('name',$request->branch)->first();
       $exist_subject = $branch->subjects()->where('subject',$request->subject)->first();
@@ -153,6 +173,15 @@ class AdminController extends Controller
         return Subject::with('branches')->with('courses')->get();
       }
 
+    }
+    public function remove_subject(Request $request)
+    {
+      $subject = Subject::where('id',$request->id)->first();
+      $branch_id =  $subject->branches()->first()->pivot->branch_id;
+      $course_id = $subject->courses()->first()->pivot->course_id;
+      $subject->delete();
+      $subject->branches()->detach($branch_id, ['course_id'=>$course_id]);
+      return Subject::with('branches')->with('courses')->get();
     }
 
 
