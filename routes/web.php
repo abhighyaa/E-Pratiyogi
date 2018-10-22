@@ -14,10 +14,12 @@
 Auth::routes();
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    return view('layouts.WebHomePage');
 });
 Route::get('/home', function () {
-    return view('welcome');
+    // return view('welcome');
+    return view('layouts.WebHomePage');
 });
 Route::get('/library','SubjectController@index');
 
@@ -51,6 +53,13 @@ Route::prefix('subjects')->group(function () {
     Route::get('remove/{id}', 'SubjectController@remove');
     Route::get('add/{name}', 'SubjectController@CreateSubject');
     Route::get('update/{id}/{subject}','SubjectController@update');
+    Route::get('get/default','SubjectController@getDefaultSubjects');
+});
+Route::get('user/{id}/profile','StudentController@manageProfile')->name('profile');
+Route::prefix('courses')->group(function(){
+    Route::get('get/all','Coursecontroller@index');
+    Route::get('{id}/get/branches','Coursecontroller@Fetch_branches_by_Course');
+    Route::get('branch/{id}/get/subjects','Coursecontroller@Fetch_subjects_by_Branch');
 });
 Route::prefix('admin')->group(function () {
     Route::get('/dashboard','AdminController@index');

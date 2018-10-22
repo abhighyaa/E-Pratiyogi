@@ -2261,6 +2261,14 @@ pre code {
   opacity: 1;
 }
 
+<<<<<<< HEAD
+=======
+.form-control:-ms-input-placeholder {
+  color: #6c757d;
+  opacity: 1;
+}
+
+>>>>>>> a33104e9578b1c5fbb66d21bf43b8abae165471a
 .form-control::-ms-input-placeholder {
   color: #6c757d;
   opacity: 1;

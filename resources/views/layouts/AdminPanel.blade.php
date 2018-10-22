@@ -23,7 +23,10 @@
                                  document.getElementById('logout-form').submit();">
                     {{ __('Logout') }}
                 </a>
+<<<<<<< HEAD
 
+=======
+>>>>>>> a33104e9578b1c5fbb66d21bf43b8abae165471a
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
                 </form>
@@ -41,6 +44,7 @@
         <admin-component></admin-component>
     </div>  
     <div class="col-md-10">
+  
           <dashboard-component></dashboard-component>
       </div>
   </div>    
@@ -49,13 +53,11 @@
 @endsection
 
 <style>
-  .col-md-2{
-    padding-right:0px !important;
-  }
+
   .graduation-icon-parent 
   {
     background-color:rgba(10,113,138);
-
+    padding-right:0px !important;
   }
   .Graduate-icon 
   {
@@ -75,11 +77,13 @@
   {
     color:#8599ad;
   }
-  
   .btn
   {
     background: #8599ad;
     color: white;
   }
+.col-md-10{
+  background:rgba(20, 109, 139,0.1);
+}
 </style>
 

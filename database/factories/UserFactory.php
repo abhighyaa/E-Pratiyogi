@@ -16,7 +16,11 @@ use Faker\Generator as Faker;
 $factory->define(App\Instruction::class, function (Faker $faker) {
     return [
         
+<<<<<<< HEAD
         'subject_id' => rand(1,11),
+=======
+        'subject_id' => rand(1,5),
+>>>>>>> a33104e9578b1c5fbb66d21bf43b8abae165471a
         'instruction' => str_random(20),
     ];
 });

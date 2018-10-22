@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 use App\User;
 use App\Topic;
 use App\Question;
-use App\Category;
 
 class Subject extends Model
 {
@@ -14,7 +13,7 @@ class Subject extends Model
     
     public function topics()
     {
-        return $this->belongsToMany(Topic::class);
+        return $this->belongsToMany(Topic::class,'subject_topic');
     }
     public function questions()
     {
@@ -33,4 +32,12 @@ class Subject extends Model
     {
         return $this->hasMany(Instruction::class);
     } 
+    public function branches()
+    {
+        return $this->belongsToMany('App\Branch','course_branch_subjects');
+    }
+    public function courses()
+    {
+        return $this->belongsToMany('App\Course','course_branch_subjects');
+    }
 }

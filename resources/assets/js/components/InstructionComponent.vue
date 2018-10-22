@@ -1,14 +1,23 @@
 <template>
     <div class="card card-default">
-        <div class="card-header">Remember</div>
         <div class="card-body">
-            <h2 v-if="visible === false">Select a Category</h2>
+            <!-- <h2 v-if="visible === false">Select a Category</h2>
               <ul class="list-group">
                 <li class="list-group-item" :key="instruction.id" v-for="instruction in Instructions">
                     {{ instruction.instruction }}
                 </li>
              </ul><br>
-            <button class="btn btn-success" v-if="visible" @click="startTest(subjectID)">Start Test</button>
+            <button class="btn btn-success" v-if="visible" @click="startTest(subjectID)">Start Test</button> -->
+            <div class="row">
+                <div class="col-sm-4" v-for="subject in subjects" :key="subject.id">
+                    <div class="card card-default" style="border:1px solid black">
+                         <div class="card-body">
+                             {{ subject.subject }}
+                         </div>
+                     </div>
+                </div>
+            </div>
+            
         </div>
     </div>
 </template>
@@ -18,23 +27,24 @@ import { EventBus } from '../app.js'
     export default {
         data(){
             return{
-                Instructions:[],
+                subjects:[],
                 visible:false,
                 subjectID:null
                 
             };
         },
         mounted(){
-            EventBus.$on('InstEvent', data => {
-                this.Instructions = data.instructionKey;
-                this.subjectID =  data.subjectKey;
-                this.visible = data.visibleKey;      
-            });
+            // EventBus.$on('InstEvent', data => {
+            //     this.Instructions = data.instructionKey;
+            //     this.subjectID =  data.subjectKey;
+            //     this.visible = data.visibleKey;      
+            // });
          },
          methods:{
-             startTest(sujectId){
-                 alert(sujectId)
-;             }
+             startTest(subjectId){
+            window.location.assign("/starttest/"+subjectId);
+             }
+
          }
 }
 </script>

@@ -6,6 +6,7 @@ use App\Question;
 use App\Topic;
 use App\Subject;
 use App\Category;
+use App\Tag;
 use Illuminate\Http\Request;
 
 class QuestionController extends Controller

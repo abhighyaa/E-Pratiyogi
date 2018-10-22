@@ -1,14 +1,12 @@
 import Vue from 'vue';
-// import VueRouter from 'vue-router';
-import Routes from './route';
+import router from './router';
+import store from './store/store';
+
+import BootstrapVue from 'bootstrap-vue';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
+
+Vue.use(BootstrapVue);
 require('./bootstrap');
-
-// Vue.use(VueRouter);
-
-// const router = new VueRouter({
-//     routes:Routes
-
-// });
 
 export const EventBus = new Vue();
 
@@ -57,6 +55,20 @@ Vue.component('modal-component', require('./components/ModalComponent.vue'));
 Vue.component('category-component', require('./components/CategoryComponent.vue'));
 Vue.component('details-component', require('./components/DetailsComponent.vue'));
 Vue.component('check', require('./components/check.vue'));
+Vue.component('course-component', require('./components/CourseComponent.vue'));
+Vue.component('previous-attempt', require('./components/PreviousAttempt.vue'));
+Vue.component('subject-container', require('./components/SubjectComponent.vue'));
+Vue.component('admin-component', require('./components/AdminComponent.vue'));
+Vue.component('dashboard-component', require('./components/DashboardComponent.vue'));
+Vue.component('instructions', require('./components/Instructions.vue'));
+Vue.component('student-home', require('./components/StudentHome.vue'));
+Vue.component('test-component', require('./components/testComponent.vue'));
+Vue.component('student-profile', require('./components/StudentProfile.vue'));
+Vue.component('profile-header', require('./components/ProfileHeader.vue'));
+Vue.component('profile-feature', require('./components/ProfileFeature.vue'));
+
+// Vue.component('piechart-component', require('./components/piechartComponent.vue'));
+
 
 
 Vue.component('mcontent',{
@@ -67,12 +79,13 @@ Vue.component('mfooter',{
     template:`<div><slot></slot></div>`
 })
 
-// Vue.component('modal', require('./components/modal.vue'));
+Vue.component('modal', require('./components/modal.vue'));
 Vue.component('subject', require('./components/subject.vue'));
+
 const app = new Vue({
     el: '#app',
-    
-    // router:router,
+    router:router,
+    store:store,
     data() {
         return {
             smodal:false,
@@ -99,7 +112,6 @@ const app = new Vue({
             errors:new Errors()
         }                
     },
-
     mounted(){
         this.getsubjects();
     },

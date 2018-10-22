@@ -7,7 +7,8 @@ use App\Question;
 use App\Topic;
 use App\Subject;
 use App\Instruction;
-use App\User;
+use App\Branch;
+use App\Course;
 use Requests;
 
 class SubjectController extends Controller
@@ -26,18 +27,6 @@ class SubjectController extends Controller
     public function getsubjects()
     {
         $subjects=Subject::with('Questions')->get();
-        return response()->json($subjects);
-        // return view('backend.library',compact('subjects'));
-    }
-
-    public function getSubjectsTeacher()
-    {
-        $subjects=array();
-        // $subjects=auth()->user()->subjects()->get();
-        $sub=Subject::with('categories')->get();
-        foreach($sub as $s)
-            if($s->users()->where('id', auth()->user()->id)->exists())
-                array_push($subjects,$s);
         return response()->json($subjects);
         // return view('backend.library',compact('subjects'));
     }
@@ -84,7 +73,7 @@ class SubjectController extends Controller
 
     public function remove(Request $request){
         Subject::where('id',$request->id)->delete();
-        $subject = Subject::all();
+        $subject = Subject::with('branches')->with('courses')->get();
         return $subject;
     }
 
@@ -107,8 +96,45 @@ class SubjectController extends Controller
      }
      public function update(Request $request){
        Subject::where('id',$request->id)->update(['subject' => $request->subject]);
-       $subjects = Subject::all();
+       $subjects = Subject::with('branches')->with('courses')->get();
        return response()->json($subjects);
     }
+    public function getDefaultSubjects(){
+
+        $subjects = Subject::all();
+        return response()->json($subjects);
+    }
+
+    public function testQuestion(Request $request){
+        $cnte=0;
+        $cntm=0;
+        $cnth=0;
+        //validations
+        $subjects=Subject::findOrFail(1);
+        $topics=$subjects->topics->all();
+        for($cnt=0;$cnt<sizeof($topics);$cnt++)
+        {
+          $crrtopic=$topics[$cnt];
+          $easytp=$crrtopic->questions->where('complexity','easy')->all();
+          foreach($easytp as $value) {
+            $easy[$cnte++]=$value;
+          }
+          $medtp=$crrtopic->questions->where('complexity','medium')->all();
+          foreach($medtp as $value) {
+            $med[$cntm++]=$value;
+          }
+          $hardtp=$crrtopic->questions->where('complexity','hard')->all();
+          foreach($hardtp as $value) {
+            $hard[$cnth++]=$value;
+          }
+        }
+        shuffle($easy);
+        shuffle($med);
+        shuffle($hard);     
+        $curr_ques=$med[0];
+        array_splice($med,0, 1);
+        return view('questions',compact('easy','med','hard','curr_ques'));         
+      }
+
  }
  

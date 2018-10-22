@@ -1,49 +1,62 @@
 <template>
     <div class="card card-default">
-        <div class="card-header">Category</div>
         <div class="card-body">
-              <ul class="list-group">
-                  <li class="list-group-item" :key="sub.id" v-for="sub in subjects">
-                     <a href="#" @click="fetchInstructions(sub.id)" :id="sub.id">{{ sub.subject}}</a> 
-                  </li>
-              </ul>
+            <div class="row">
+                <div class="col-sm-4" v-for="subject in subjects" :key="subject.id">
+                    <div class="card card-default custom-card">
+                         <div class="card-body">
+                             {{ subject.subject }}
+                         </div>
+                         <div class="card-footer" @click="TakeTest(subject.id)">
+                             Take Test
+                         </div>
+                     </div>
+                </div>
+            </div>
+            
         </div>
-    </div>  
+    </div>
 </template>
 
 <script>
-import { EventBus } from '../app.js';
-    export default {
-        data(){
-         return{
-                subjects:[],
-                instructions:[],
-                visible:false,
-                
-        };
-        },
+import { mapGetters } from "vuex";
 
-        mounted() {
-           this.fetchSubjects();
+    export default {
+        computed:{
+            ...mapGetters({
+                subjects:'Subjects',
+            }),
         },
-        methods:{
-            fetchSubjects(){
-                 axios.get('http://127.0.0.1:8000/subjects/get/all')
-                .then((response)=>(this.subjects = response.data))
-                .catch(function(error){console.log(error)});
-            },
-           async fetchInstructions(subjectId)
-            {
-                this.visible = true;
-                await axios.get('http://127.0.0.1:8000/subjects/'+subjectId+'/get/instructions')
-                .then((response)=>(this.instructions = response.data))
-                .catch(function(error){console.log(error)});
-                 EventBus.$emit('InstEvent',{
-                     instructionKey:this.instructions,
-                     subjectKey:subjectId,
-                     visibleKey:this.visible
-                     });
+        mounted(){
+            this.defaultsubjects();
+         },
+         methods:{
+             async TakeTest(sujectId){
+                this.$router.push('/instructions')
+                this.$store.dispatch('Set_Instructions',sujectId)
+             },
+            async defaultsubjects(){
+                this.$store.dispatch('Set_Subjects')
             }
         }
-    }
+}
 </script>
+
+<style scoped>
+h2
+{  
+   color: lightgray;
+}
+.card-footer{
+    background: #146D8B;
+    color: white;
+    cursor: pointer;
+    font-weight: bolder;
+}
+.custom-card{  
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: bolder;
+    color: dodgerblue;
+}
+</style>

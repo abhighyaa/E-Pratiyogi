@@ -39,12 +39,7 @@ class User extends Authenticatable
 
     public function topics()
     {
-        return $this->belongsToMany(Topic::class);
-    }
-
-    public function subjects()
-    {
-        return $this->belongsToMany(Subject::class);
+        return $this->hasMany(Topic::class);
     }
 
     public function is_admin()
@@ -56,6 +51,6 @@ class User extends Authenticatable
 
     public function role()
     {
-        return $this->belongsToMany(role::class,'role_users');
+        return $this->belongsToMany('App\role','role_users');
     }
 }
