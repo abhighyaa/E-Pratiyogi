@@ -51134,11 +51134,14 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             createtst: false,
             addquetotest: false,
             viewtst: false,
-            tests: []
+            tests: [],
+            addtest: false,
+            edittest: false
         };
     },
     mounted: function mounted() {
         this.getSubjects();
+        __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$on('View', this.viewtest);
     },
 
     methods: {
@@ -51197,7 +51200,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                     addquestionKey: false,
                                     createtstKey: false,
                                     addquetotestKey: false,
-                                    viewtstKey: false
+                                    viewtstKey: false,
+                                    addtestKey: false
                                 });
 
                             case 3:
@@ -51228,7 +51232,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                     addquestionKey: false,
                                     createtstKey: true,
                                     addquetotestKey: false,
-                                    viewtstKey: false
+                                    viewtstKey: false,
+                                    addtestKey: false,
+                                    edittestKey: false
                                 });
 
                             case 1:
@@ -51270,7 +51276,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                     addquestionKey: false,
                                     createtstKey: false,
                                     viewtstKey: true,
-                                    addquetotestKey: false
+                                    addquetotestKey: false,
+                                    addtestKey: false,
+                                    edittestKey: true
                                 });
 
                             case 3:
@@ -51603,6 +51611,94 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -51620,6 +51716,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             showcategories: true,
             showquestions: false,
             editquestion: false,
+            addtest: false,
             addquestion: false,
             createtst: false,
             addquetotest: false,
@@ -51628,7 +51725,12 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             inputs: [],
             answers: [],
             tests: [],
-            crtest: ''
+            test: [],
+            testname: null,
+            testid: '',
+            quetest: [],
+            crtest: '',
+            edittest: false
         };
     },
     mounted: function mounted() {
@@ -51644,6 +51746,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             _this.createtst = data.createtstKey;
             _this.viewtst = data.viewtstKey;
             _this.addquetotest = data.addquetotestKey;
+            _this.addtest = data.addtestKey;
         });
         __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$on('test', function (data) {
             _this.categories = data.categoriesKey;
@@ -51654,6 +51757,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             _this.createtst = data.createtstKey;
             _this.viewtst = data.viewtstKey;
             _this.addquetotest = data.addquetotestKey;
+            _this.addtest = data.addtestKey;
+            _this.edittest = data.edittestKey;
         });
         __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$on('viewtest', function (data) {
             _this.categories = data.categoriesKey;
@@ -51665,6 +51770,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             _this.createtst = data.createtstKey;
             _this.viewtst = data.viewtstKey;
             _this.addquetotest = data.addquetotestKey;
+            _this.addtest = data.addtestKey;
+            _this.edittest = data.edittestKey;
         });
     },
 
@@ -51693,8 +51800,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 this.createtst = false;
                                 this.viewtst = false;
                                 this.addquetotest = false;
+                                this.addtest = false;
 
-                            case 10:
+                            case 11:
                             case 'end':
                                 return _context.stop();
                         }
@@ -51731,8 +51839,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 this.createtst = false;
                                 this.viewtst = false;
                                 this.addquetotest = false;
+                                this.addtest = false;
 
-                            case 9:
+                            case 10:
                             case 'end':
                                 return _context2.stop();
                         }
@@ -51748,8 +51857,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         }(),
         editque: function () {
             var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
-                var _this4 = this;
-
                 var index;
                 return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
                     while (1) {
@@ -51765,7 +51872,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                     answer: this.equestion.answer,
                                     choices: this.equestion.choices
                                 }).then(function (response) {
-                                    return _this4.showque(_this4.category, _this4.subject), alert("Edit saved");
+                                    return alert("Edit saved");
                                 }).catch(function (error) {
                                     console.log(error);
                                 });
@@ -51773,8 +51880,15 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                             case 3:
                                 this.choices = [];
                                 this.inputs = [];
+                                alert(this.edittest);
+                                if (this.edittest == true) {
+                                    alert('true');
+                                    this.testdetails(this.testid);
+                                } else {
+                                    this.showque(this.category, this.subject);
+                                }
 
-                            case 5:
+                            case 7:
                             case 'end':
                                 return _context3.stop();
                         }
@@ -51804,6 +51918,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                             case 2:
 
                                 this.showcategories = false;
+                                this.addtest = false;
                                 this.editquestion = false;
                                 this.showquestions = true;
                                 this.addquestion = false;
@@ -51811,7 +51926,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 this.viewtst = false;
                                 this.addquetotest = false;
 
-                            case 9:
+                            case 10:
                             case 'end':
                                 return _context4.stop();
                         }
@@ -51825,17 +51940,95 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
             return deleteque;
         }(),
-        addque: function () {
-            var _ref5 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee5(sid, cid) {
-                var _this5 = this;
-
+        deletetest: function () {
+            var _ref5 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee5(tid) {
                 return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
                     while (1) {
                         switch (_context5.prev = _context5.next) {
                             case 0:
                                 _context5.next = 2;
+                                return axios.get('/teacher/testdelete/' + tid).then(function (response) {
+                                    return alert('Deleted');
+                                }).catch(function (error) {
+                                    console.log(error);
+                                });
+
+                            case 2:
+
+                                this.showcategories = false;
+                                this.addtest = false;
+                                this.editquestion = false;
+                                this.showquestions = false;
+                                this.addquestion = false;
+                                this.createtst = false;
+                                this.viewtst = true;
+                                this.addquetotest = false;
+                                __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$emit('View');
+
+                            case 11:
+                            case 'end':
+                                return _context5.stop();
+                        }
+                    }
+                }, _callee5, this);
+            }));
+
+            function deletetest(_x5) {
+                return _ref5.apply(this, arguments);
+            }
+
+            return deletetest;
+        }(),
+        deletequetest: function () {
+            var _ref6 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee6(qid) {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee6$(_context6) {
+                    while (1) {
+                        switch (_context6.prev = _context6.next) {
+                            case 0:
+                                _context6.next = 2;
+                                return axios.get('/teacher/delete/' + qid).then(function (response) {
+                                    return alert('Deleted');
+                                }).catch(function (error) {
+                                    console.log(error);
+                                });
+
+                            case 2:
+
+                                this.showcategories = false;
+                                this.addtest = false;
+                                this.editquestion = false;
+                                this.showquestions = true;
+                                this.addquestion = false;
+                                this.createtst = false;
+                                this.viewtst = false;
+                                this.addquetotest = false;
+                                this.testdetails(this.testid);
+
+                            case 11:
+                            case 'end':
+                                return _context6.stop();
+                        }
+                    }
+                }, _callee6, this);
+            }));
+
+            function deletequetest(_x6) {
+                return _ref6.apply(this, arguments);
+            }
+
+            return deletequetest;
+        }(),
+        addque: function () {
+            var _ref7 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee7(sid, cid) {
+                var _this4 = this;
+
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee7$(_context7) {
+                    while (1) {
+                        switch (_context7.prev = _context7.next) {
+                            case 0:
+                                _context7.next = 2;
                                 return axios.get('/teacher/getsubcat/' + sid + '/' + cid).then(function (response) {
-                                    return _this5.add.sub = response.data[0].subject, _this5.add.cat = response.data[1].category;
+                                    return _this4.add.sub = response.data[0].subject, _this4.add.cat = response.data[1].category;
                                 }).catch(function (error) {
                                     console.log(error);
                                 });
@@ -51849,30 +52042,31 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 this.createtst = false;
                                 this.viewtst = false;
                                 this.addquetotest = false;
+                                this.addtest = false;
 
-                            case 9:
+                            case 10:
                             case 'end':
-                                return _context5.stop();
+                                return _context7.stop();
                         }
                     }
-                }, _callee5, this);
+                }, _callee7, this);
             }));
 
-            function addque(_x5, _x6) {
-                return _ref5.apply(this, arguments);
+            function addque(_x7, _x8) {
+                return _ref7.apply(this, arguments);
             }
 
             return addque;
         }(),
         saveque: function () {
-            var _ref6 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee6() {
+            var _ref8 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee8() {
                 var index;
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee6$(_context6) {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee8$(_context8) {
                     while (1) {
-                        switch (_context6.prev = _context6.next) {
+                        switch (_context8.prev = _context8.next) {
                             case 0:
                                 if (!(this.add["type"] == "mcq")) {
-                                    _context6.next = 8;
+                                    _context8.next = 8;
                                     break;
                                 }
 
@@ -51882,7 +52076,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 for (index = 0; index < this.inputs.length; index++) {
                                     this.choices.push(this.add['choice' + index + 3]);
                                 }
-                                _context6.next = 6;
+                                _context8.next = 6;
                                 return axios.post('/teacher/savequestion', {
                                     question: this.add.question,
                                     answer: this.add.answer,
@@ -51898,12 +52092,12 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 });
 
                             case 6:
-                                _context6.next = 20;
+                                _context8.next = 20;
                                 break;
 
                             case 8:
                                 if (!(this.add["type"] == "check")) {
-                                    _context6.next = 16;
+                                    _context8.next = 16;
                                     break;
                                 }
 
@@ -51913,7 +52107,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 for (index = 0; index < this.inputs.length; index++) {
                                     this.choices.push(this.add['choice' + index + 3]);
                                 }
-                                _context6.next = 14;
+                                _context8.next = 14;
                                 return axios.post('/teacher/savequestion', {
                                     question: this.add.question,
                                     type: this.add.type,
@@ -51929,17 +52123,17 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 });
 
                             case 14:
-                                _context6.next = 20;
+                                _context8.next = 20;
                                 break;
 
                             case 16:
                                 if (!(this.add["type"] == "fub")) {
-                                    _context6.next = 20;
+                                    _context8.next = 20;
                                     break;
                                 }
 
                                 this.choices = null;
-                                _context6.next = 20;
+                                _context8.next = 20;
                                 return axios.post('/teacher/savequestion', {
                                     question: this.add.question,
                                     type: this.add.type,
@@ -51968,23 +52162,23 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                             case 30:
                             case 'end':
-                                return _context6.stop();
+                                return _context8.stop();
                         }
                     }
-                }, _callee6, this);
+                }, _callee8, this);
             }));
 
             function saveque() {
-                return _ref6.apply(this, arguments);
+                return _ref8.apply(this, arguments);
             }
 
             return saveque;
         }(),
         addchoices: function () {
-            var _ref7 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee7() {
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee7$(_context7) {
+            var _ref9 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee9() {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee9$(_context9) {
                     while (1) {
-                        switch (_context7.prev = _context7.next) {
+                        switch (_context9.prev = _context9.next) {
                             case 0:
                                 this.inputs.push({
                                     one: '',
@@ -51993,46 +52187,53 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                             case 1:
                             case 'end':
-                                return _context7.stop();
+                                return _context9.stop();
                         }
                     }
-                }, _callee7, this);
+                }, _callee9, this);
             }));
 
             function addchoices() {
-                return _ref7.apply(this, arguments);
+                return _ref9.apply(this, arguments);
             }
 
             return addchoices;
         }(),
         deletechoice: function () {
-            var _ref8 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee8(index) {
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee8$(_context8) {
+            var _ref10 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee10(index) {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee10$(_context10) {
                     while (1) {
-                        switch (_context8.prev = _context8.next) {
+                        switch (_context10.prev = _context10.next) {
                             case 0:
                                 this.inputs.splice(index, 1);
 
                             case 1:
                             case 'end':
-                                return _context8.stop();
+                                return _context10.stop();
                         }
                     }
-                }, _callee8, this);
+                }, _callee10, this);
             }));
 
-            function deletechoice(_x7) {
-                return _ref8.apply(this, arguments);
+            function deletechoice(_x9) {
+                return _ref10.apply(this, arguments);
             }
 
             return deletechoice;
         }(),
+
+        // async editdeletechoice(index,ch,qid) {
+        //     alert(this.ch)
+        //     // alert(this.ch[index])
+        //     this.ch.splice(index,1);
+        //     // this.geteditque(this.qid);
+        // },
         addanswer: function () {
-            var _ref9 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee9(value, event) {
+            var _ref11 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee11(value, event) {
                 var index;
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee9$(_context9) {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee11$(_context11) {
                     while (1) {
-                        switch (_context9.prev = _context9.next) {
+                        switch (_context11.prev = _context11.next) {
                             case 0:
                                 if (event.target.checked) {
                                     this.answers.push(value);
@@ -52044,25 +52245,25 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                             case 1:
                             case 'end':
-                                return _context9.stop();
+                                return _context11.stop();
                         }
                     }
-                }, _callee9, this);
+                }, _callee11, this);
             }));
 
-            function addanswer(_x8, _x9) {
-                return _ref9.apply(this, arguments);
+            function addanswer(_x10, _x11) {
+                return _ref11.apply(this, arguments);
             }
 
             return addanswer;
         }(),
         create: function () {
-            var _ref10 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee10() {
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee10$(_context10) {
+            var _ref12 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee12() {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee12$(_context12) {
                     while (1) {
-                        switch (_context10.prev = _context10.next) {
+                        switch (_context12.prev = _context12.next) {
                             case 0:
-                                _context10.next = 2;
+                                _context12.next = 2;
                                 return axios.post('/teacher/createtest', {
                                     test: this.crtest
                                 }).then(function (response) {
@@ -52080,21 +52281,180 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 this.createtst = false;
                                 this.viewtst = false;
                                 this.addquetotest = true;
+                                this.addtest = false;
+                                this.quetest['test'] = this.crtest;
                                 this.crtest = '';
 
-                            case 10:
+                            case 12:
                             case 'end':
-                                return _context10.stop();
+                                return _context12.stop();
                         }
                     }
-                }, _callee10, this);
+                }, _callee12, this);
             }));
 
             function create() {
-                return _ref10.apply(this, arguments);
+                return _ref12.apply(this, arguments);
             }
 
             return create;
+        }(),
+        testdetails: function () {
+            var _ref13 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee13(tid) {
+                var _this5 = this;
+
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee13$(_context13) {
+                    while (1) {
+                        switch (_context13.prev = _context13.next) {
+                            case 0:
+                                _context13.next = 2;
+                                return axios.get('/teacher/gettestdetails/' + tid).then(function (response) {
+                                    return _this5.questions = response.data[0], _this5.testname = response.data[1];
+                                }).catch(function (error) {
+                                    console.log(error);
+                                });
+
+                            case 2:
+                                this.showcategories = false;
+                                this.editquestion = false;
+                                this.showquestions = true;
+                                this.addquestion = false;
+                                this.createtst = false;
+                                this.viewtst = false;
+                                this.addquetotest = false;
+                                this.addtest = true;
+                                this.testid = tid;
+
+                            case 11:
+                            case 'end':
+                                return _context13.stop();
+                        }
+                    }
+                }, _callee13, this);
+            }));
+
+            function testdetails(_x12) {
+                return _ref13.apply(this, arguments);
+            }
+
+            return testdetails;
+        }(),
+        savequetest: function () {
+            var _ref14 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee14() {
+                var index;
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee14$(_context14) {
+                    while (1) {
+                        switch (_context14.prev = _context14.next) {
+                            case 0:
+                                if (!(this.quetest["type"] == "mcq")) {
+                                    _context14.next = 9;
+                                    break;
+                                }
+
+                                this.choices.push(this.quetest.choice1);
+                                this.choices.push(this.quetest['choice2']);
+
+                                for (index = 0; index < this.inputs.length; index++) {
+                                    this.choices.push(this.quetest['choice' + index + 3]);
+                                }
+                                _context14.next = 6;
+                                return axios.post('/teacher/savequestiontotest', {
+                                    question: this.quetest.question,
+                                    answer: this.quetest.answer,
+                                    test: this.quetest.test,
+                                    complexity: this.quetest.complexity,
+                                    choices: this.choices,
+                                    type: this.quetest.type
+                                }).then(function (response) {
+                                    return alert('Question added to test');
+                                }).catch(function (error) {
+                                    console.log(error);
+                                });
+
+                            case 6:
+                                this.testdetails(this.testid);
+                                _context14.next = 23;
+                                break;
+
+                            case 9:
+                                if (!(this.quetest["type"] == "check")) {
+                                    _context14.next = 18;
+                                    break;
+                                }
+
+                                this.choices.push(this.quetest.choice1);
+                                this.choices.push(this.quetest['choice2']);
+
+                                for (index = 0; index < this.inputs.length; index++) {
+                                    this.choices.push(this.quetest['choice' + index + 3]);
+                                }
+                                _context14.next = 15;
+                                return axios.post('/teacher/savequestiontotest', {
+                                    question: this.quetest.question,
+                                    type: this.quetest.type,
+                                    answer: this.quetest.answer,
+                                    test: this.quetest.test,
+                                    complexity: this.quetest.complexity,
+                                    choices: this.choices
+                                }).then(function (response) {
+                                    return alert('Question added to test');
+                                }).catch(function (error) {
+                                    console.log(error);
+                                });
+
+                            case 15:
+                                this.testdetails(this.testid);
+                                _context14.next = 23;
+                                break;
+
+                            case 18:
+                                if (!(this.quetest["type"] == "fub")) {
+                                    _context14.next = 23;
+                                    break;
+                                }
+
+                                this.choices = null;
+                                _context14.next = 22;
+                                return axios.post('/teacher/savequestiontotest', {
+                                    question: this.quetest.question,
+                                    type: this.quetest.type,
+                                    answer: this.quetest.answer,
+                                    test: this.quetest.test,
+                                    complexity: this.quetest.complexity,
+                                    choices: this.choices
+                                }).then(function (response) {
+                                    return alert('Question added to test');
+                                }).catch(function (error) {
+                                    console.log(error);
+                                });
+
+                            case 22:
+                                this.testdetails(this.testid);
+
+                            case 23:
+                                this.quetest.question = '';
+                                this.quetest.answer = '';
+                                this.quetest.test = '';
+                                this.quetest.choice1 = '';
+                                this.quetest.choice2 = '';
+                                this.choices = [];
+                                this.inputs = [];
+                                this.answers = [];
+                                this.type = '';
+
+                            case 32:
+                            case 'end':
+                                return _context14.stop();
+                        }
+                    }
+                }, _callee14, this);
+            }));
+
+            function savequetest() {
+                return _ref14.apply(this, arguments);
+            }
+
+            return savequetest;
         }()
     },
     computed: {
@@ -52137,6 +52497,7 @@ var render = function() {
                       {
                         on: {
                           click: function($event) {
+                            _vm.edittest = false
                             _vm.showque(cat.id, _vm.subject)
                           }
                         }
@@ -52152,143 +52513,194 @@ var render = function() {
             : _vm._e(),
           _vm._v(" "),
           _vm.showquestions
-            ? _c(
-                "div",
-                [
-                  _c(
-                    "button",
-                    {
-                      on: {
-                        click: function($event) {
-                          _vm.addque(_vm.subject, _vm.category)
+            ? _c("div", [
+                _vm.addtest
+                  ? _c(
+                      "button",
+                      {
+                        on: {
+                          click: function($event) {
+                            _vm.addquetotest = true
+                            _vm.edittest = true
+                            _vm.showquestions = false
+                            _vm.quetest["test"] = _vm.testname
+                          }
                         }
-                      }
-                    },
-                    [_vm._v("Add question")]
-                  ),
-                  _vm._v(" "),
-                  _c("br"),
-                  _c("br"),
-                  _vm._v(" "),
-                  _vm._l(_vm.questions, function(question) {
-                    return _c(
-                      "div",
-                      [
-                        _c("div", { staticClass: "question" }, [
-                          _vm._v(
-                            _vm._s(question.question) +
-                              " \n                        "
-                          ),
-                          _c("div", { staticClass: "float-right" }, [
-                            _c(
-                              "button",
-                              {
-                                on: {
-                                  click: function($event) {
-                                    _vm.geteditque(question.id)
-                                  }
-                                }
-                              },
-                              [_vm._v("Edit")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                on: {
-                                  click: function($event) {
-                                    _vm.deleteque(question.id)
-                                  }
-                                }
-                              },
-                              [_vm._v("Delete")]
-                            )
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _vm._l(question.choices, function(i) {
-                          return question.type == "mcq"
-                            ? _c("div", [
-                                _c("div", { staticClass: "choices" }, [
-                                  _c("input", {
-                                    attrs: { type: "radio", name: question.id },
-                                    domProps: { checked: i == question.answer }
-                                  }),
-                                  _vm._v("  " + _vm._s(i))
-                                ])
-                              ])
-                            : _vm._e()
-                        }),
-                        _vm._v(" "),
-                        _vm._l(question.choices, function(i) {
-                          return question.type == "check"
-                            ? _c("div", [
-                                _c("div", { staticClass: "choices" }, [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.checkanswer,
-                                        expression: "checkanswer"
-                                      }
-                                    ],
-                                    attrs: {
-                                      type: "checkbox",
-                                      name: question.id
-                                    },
-                                    domProps: {
-                                      checked: Array.isArray(_vm.checkanswer)
-                                        ? _vm._i(_vm.checkanswer, null) > -1
-                                        : _vm.checkanswer
-                                    },
-                                    on: {
-                                      change: function($event) {
-                                        var $$a = _vm.checkanswer,
-                                          $$el = $event.target,
-                                          $$c = $$el.checked ? true : false
-                                        if (Array.isArray($$a)) {
-                                          var $$v = null,
-                                            $$i = _vm._i($$a, $$v)
-                                          if ($$el.checked) {
-                                            $$i < 0 &&
-                                              (_vm.checkanswer = $$a.concat([
-                                                $$v
-                                              ]))
-                                          } else {
-                                            $$i > -1 &&
-                                              (_vm.checkanswer = $$a
-                                                .slice(0, $$i)
-                                                .concat($$a.slice($$i + 1)))
-                                          }
-                                        } else {
-                                          _vm.checkanswer = $$c
-                                        }
-                                      }
-                                    }
-                                  }),
-                                  _vm._v("  " + _vm._s(i))
-                                ])
-                              ])
-                            : _vm._e()
-                        }),
-                        _vm._v(" "),
-                        question.type == "fub"
-                          ? _c("div", [
-                              _c("div", { staticClass: "answer" }, [
-                                _vm._v("Answer : " + _vm._s(question.answer))
-                              ])
-                            ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _c("hr")
-                      ],
-                      2
+                      },
+                      [_vm._v("Add Questions to test")]
                     )
-                  })
-                ],
-                2
-              )
+                  : _c(
+                      "button",
+                      {
+                        on: {
+                          click: function($event) {
+                            _vm.addque(_vm.subject, _vm.category)
+                          }
+                        }
+                      },
+                      [_vm._v("Add questions")]
+                    ),
+                _vm._v(" "),
+                _c("br"),
+                _c("br"),
+                _vm._v(" "),
+                _vm.questions.length
+                  ? _c(
+                      "div",
+                      _vm._l(_vm.questions, function(question) {
+                        return _c(
+                          "div",
+                          [
+                            _c("div", { staticClass: "question" }, [
+                              _vm._v(
+                                _vm._s(question.question) +
+                                  " \n                            "
+                              ),
+                              _vm.addtest
+                                ? _c("div", { staticClass: "float-right" }, [
+                                    _c(
+                                      "button",
+                                      {
+                                        on: {
+                                          click: function($event) {
+                                            _vm.geteditque(question.id)
+                                          }
+                                        }
+                                      },
+                                      [_vm._v("Edit")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "button",
+                                      {
+                                        on: {
+                                          click: function($event) {
+                                            _vm.deletequetest(question.id)
+                                          }
+                                        }
+                                      },
+                                      [_vm._v("Delete")]
+                                    )
+                                  ])
+                                : _c("div", { staticClass: "float-right" }, [
+                                    _c(
+                                      "button",
+                                      {
+                                        on: {
+                                          click: function($event) {
+                                            _vm.geteditque(question.id)
+                                          }
+                                        }
+                                      },
+                                      [_vm._v("Edit")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "button",
+                                      {
+                                        on: {
+                                          click: function($event) {
+                                            _vm.deleteque(question.id)
+                                          }
+                                        }
+                                      },
+                                      [_vm._v("Delete")]
+                                    )
+                                  ])
+                            ]),
+                            _vm._v(" "),
+                            _vm._l(question.choices, function(i) {
+                              return question.type == "mcq"
+                                ? _c("div", [
+                                    _c("div", { staticClass: "choices" }, [
+                                      _c("input", {
+                                        attrs: {
+                                          type: "radio",
+                                          name: question.id
+                                        },
+                                        domProps: {
+                                          checked: i == question.answer
+                                        }
+                                      }),
+                                      _vm._v("  " + _vm._s(i))
+                                    ])
+                                  ])
+                                : _vm._e()
+                            }),
+                            _vm._v(" "),
+                            _vm._l(question.choices, function(i) {
+                              return question.type == "check"
+                                ? _c("div", [
+                                    _c("div", { staticClass: "choices" }, [
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: _vm.checkanswer,
+                                            expression: "checkanswer"
+                                          }
+                                        ],
+                                        attrs: {
+                                          type: "checkbox",
+                                          name: question.id
+                                        },
+                                        domProps: {
+                                          checked: Array.isArray(
+                                            _vm.checkanswer
+                                          )
+                                            ? _vm._i(_vm.checkanswer, null) > -1
+                                            : _vm.checkanswer
+                                        },
+                                        on: {
+                                          change: function($event) {
+                                            var $$a = _vm.checkanswer,
+                                              $$el = $event.target,
+                                              $$c = $$el.checked ? true : false
+                                            if (Array.isArray($$a)) {
+                                              var $$v = null,
+                                                $$i = _vm._i($$a, $$v)
+                                              if ($$el.checked) {
+                                                $$i < 0 &&
+                                                  (_vm.checkanswer = $$a.concat(
+                                                    [$$v]
+                                                  ))
+                                              } else {
+                                                $$i > -1 &&
+                                                  (_vm.checkanswer = $$a
+                                                    .slice(0, $$i)
+                                                    .concat($$a.slice($$i + 1)))
+                                              }
+                                            } else {
+                                              _vm.checkanswer = $$c
+                                            }
+                                          }
+                                        }
+                                      }),
+                                      _vm._v("  " + _vm._s(i))
+                                    ])
+                                  ])
+                                : _vm._e()
+                            }),
+                            _vm._v(" "),
+                            question.type == "fub"
+                              ? _c("div", [
+                                  _c("div", { staticClass: "answer" }, [
+                                    _vm._v(
+                                      "Answer : " + _vm._s(question.answer)
+                                    )
+                                  ])
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _c("hr")
+                          ],
+                          2
+                        )
+                      })
+                    )
+                  : _c("div", [_vm._v("No Questions yet")])
+              ])
             : _vm._e(),
           _vm._v(" "),
           _vm.editquestion
@@ -53357,7 +53769,678 @@ var render = function() {
           _vm._v(" "),
           _vm.addquetotest
             ? _c("div", [
-                _vm._v("\n                Add questions\n            ")
+                _c(
+                  "form",
+                  {
+                    attrs: { method: "POST" },
+                    on: {
+                      submit: function($event) {
+                        $event.preventDefault()
+                        return _vm.savequetest($event)
+                      }
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "form-group row ml-2" }, [
+                      _c("label", { attrs: { for: "test" } }, [_vm._v("Test")]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-6" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.quetest["test"],
+                              expression: 'quetest["test"]'
+                            }
+                          ],
+                          attrs: { type: "text", disabled: "" },
+                          domProps: { value: _vm.quetest["test"] },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.quetest, "test", $event.target.value)
+                            }
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row ml-2" }, [
+                      _c("label", { attrs: { for: "type" } }, [
+                        _vm._v("Type of Question")
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-6" }, [
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.quetest["type"],
+                                expression: 'quetest["type"]'
+                              }
+                            ],
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.quetest,
+                                  "type",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
+                              }
+                            }
+                          },
+                          [
+                            _c("option", { attrs: { value: "mcq" } }, [
+                              _vm._v("mcq")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "check" } }, [
+                              _vm._v("check box")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "fub" } }, [
+                              _vm._v("Fill in the blanks")
+                            ])
+                          ]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row ml-2" }, [
+                      _c("label", { attrs: { for: "question" } }, [
+                        _vm._v("Question")
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-6" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.quetest["question"],
+                              expression: 'quetest["question"]'
+                            }
+                          ],
+                          attrs: { type: "text", required: "", autofocus: "" },
+                          domProps: { value: _vm.quetest["question"] },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.quetest,
+                                "question",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row ml-2" }, [
+                      _c("label", { attrs: { for: "complexity" } }, [
+                        _vm._v("Complexity")
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-6" }, [
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.quetest["complexity"],
+                                expression: 'quetest["complexity"]'
+                              }
+                            ],
+                            attrs: { id: "comp" },
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.quetest,
+                                  "complexity",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
+                              }
+                            }
+                          },
+                          [
+                            _c("option", { attrs: { value: "low" } }, [
+                              _vm._v("Low")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "medium" } }, [
+                              _vm._v("Medium")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "high" } }, [
+                              _vm._v("High")
+                            ])
+                          ]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row ml-2" }, [
+                      _c("label", { attrs: { for: "choices" } }),
+                      _vm._v(" "),
+                      _vm.quetest["type"] == "mcq"
+                        ? _c(
+                            "div",
+                            { staticClass: "col-md-6" },
+                            [
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.quetest.answer,
+                                    expression: "quetest.answer"
+                                  }
+                                ],
+                                attrs: {
+                                  type: "radio",
+                                  name: "answer",
+                                  checked: ""
+                                },
+                                domProps: {
+                                  value: _vm.quetest["choice1"],
+                                  checked: _vm._q(
+                                    _vm.quetest.answer,
+                                    _vm.quetest["choice1"]
+                                  )
+                                },
+                                on: {
+                                  change: function($event) {
+                                    _vm.$set(
+                                      _vm.quetest,
+                                      "answer",
+                                      _vm.quetest["choice1"]
+                                    )
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.quetest["choice1"],
+                                    expression: 'quetest["choice1"]'
+                                  }
+                                ],
+                                attrs: { type: "text", required: "" },
+                                domProps: { value: _vm.quetest["choice1"] },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.quetest,
+                                      "choice1",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              }),
+                              _c("br"),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.quetest.answer,
+                                    expression: "quetest.answer"
+                                  }
+                                ],
+                                attrs: { type: "radio", name: "answer" },
+                                domProps: {
+                                  value: _vm.quetest["choice2"],
+                                  checked: _vm._q(
+                                    _vm.quetest.answer,
+                                    _vm.quetest["choice2"]
+                                  )
+                                },
+                                on: {
+                                  change: function($event) {
+                                    _vm.$set(
+                                      _vm.quetest,
+                                      "answer",
+                                      _vm.quetest["choice2"]
+                                    )
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.quetest["choice2"],
+                                    expression: 'quetest["choice2"]'
+                                  }
+                                ],
+                                attrs: { type: "text", required: "" },
+                                domProps: { value: _vm.quetest["choice2"] },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.quetest,
+                                      "choice2",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _vm._l(_vm.inputs, function(input, index) {
+                                return _c("div", [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.quetest.answer,
+                                        expression: "quetest.answer"
+                                      }
+                                    ],
+                                    attrs: { type: "radio", name: "answer" },
+                                    domProps: {
+                                      value: _vm.quetest["choice" + index + 3],
+                                      checked: _vm._q(
+                                        _vm.quetest.answer,
+                                        _vm.quetest["choice" + index + 3]
+                                      )
+                                    },
+                                    on: {
+                                      change: function($event) {
+                                        _vm.$set(
+                                          _vm.quetest,
+                                          "answer",
+                                          _vm.quetest["choice" + index + 3]
+                                        )
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value:
+                                          _vm.quetest["choice" + index + 3],
+                                        expression: 'quetest["choice"+index+3]'
+                                      }
+                                    ],
+                                    attrs: { type: "text", required: "" },
+                                    domProps: {
+                                      value: _vm.quetest["choice" + index + 3]
+                                    },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.quetest,
+                                          "choice" + index + 3,
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "a",
+                                    {
+                                      on: {
+                                        click: function($event) {
+                                          _vm.deletechoice(index)
+                                        }
+                                      }
+                                    },
+                                    [_vm._v("Delete")]
+                                  )
+                                ])
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                {
+                                  on: {
+                                    click: function($event) {
+                                      _vm.addchoices()
+                                    }
+                                  }
+                                },
+                                [_vm._v("Add more choices")]
+                              )
+                            ],
+                            2
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.quetest["type"] == "check"
+                        ? _c(
+                            "div",
+                            { staticClass: "col-md-6" },
+                            [
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.checkanswer,
+                                    expression: "checkanswer"
+                                  }
+                                ],
+                                attrs: { type: "checkbox" },
+                                domProps: {
+                                  value: _vm.quetest["choice1"],
+                                  checked: Array.isArray(_vm.checkanswer)
+                                    ? _vm._i(
+                                        _vm.checkanswer,
+                                        _vm.quetest["choice1"]
+                                      ) > -1
+                                    : _vm.checkanswer
+                                },
+                                on: {
+                                  change: function($event) {
+                                    var $$a = _vm.checkanswer,
+                                      $$el = $event.target,
+                                      $$c = $$el.checked ? true : false
+                                    if (Array.isArray($$a)) {
+                                      var $$v = _vm.quetest["choice1"],
+                                        $$i = _vm._i($$a, $$v)
+                                      if ($$el.checked) {
+                                        $$i < 0 &&
+                                          (_vm.checkanswer = $$a.concat([$$v]))
+                                      } else {
+                                        $$i > -1 &&
+                                          (_vm.checkanswer = $$a
+                                            .slice(0, $$i)
+                                            .concat($$a.slice($$i + 1)))
+                                      }
+                                    } else {
+                                      _vm.checkanswer = $$c
+                                    }
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.quetest["choice1"],
+                                    expression: 'quetest["choice1"]'
+                                  }
+                                ],
+                                attrs: { type: "text", required: "" },
+                                domProps: { value: _vm.quetest["choice1"] },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.quetest,
+                                      "choice1",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              }),
+                              _c("br"),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.checkanswer,
+                                    expression: "checkanswer"
+                                  }
+                                ],
+                                attrs: { type: "checkbox" },
+                                domProps: {
+                                  value: _vm.quetest["choice2"],
+                                  checked: Array.isArray(_vm.checkanswer)
+                                    ? _vm._i(
+                                        _vm.checkanswer,
+                                        _vm.quetest["choice2"]
+                                      ) > -1
+                                    : _vm.checkanswer
+                                },
+                                on: {
+                                  change: function($event) {
+                                    var $$a = _vm.checkanswer,
+                                      $$el = $event.target,
+                                      $$c = $$el.checked ? true : false
+                                    if (Array.isArray($$a)) {
+                                      var $$v = _vm.quetest["choice2"],
+                                        $$i = _vm._i($$a, $$v)
+                                      if ($$el.checked) {
+                                        $$i < 0 &&
+                                          (_vm.checkanswer = $$a.concat([$$v]))
+                                      } else {
+                                        $$i > -1 &&
+                                          (_vm.checkanswer = $$a
+                                            .slice(0, $$i)
+                                            .concat($$a.slice($$i + 1)))
+                                      }
+                                    } else {
+                                      _vm.checkanswer = $$c
+                                    }
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.quetest["choice2"],
+                                    expression: 'quetest["choice2"]'
+                                  }
+                                ],
+                                attrs: { type: "text", required: "" },
+                                domProps: { value: _vm.quetest["choice2"] },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.quetest,
+                                      "choice2",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _vm._l(_vm.inputs, function(input, index) {
+                                return _c("div", [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.checkanswer,
+                                        expression: "checkanswer"
+                                      }
+                                    ],
+                                    attrs: { type: "checkbox" },
+                                    domProps: {
+                                      value: _vm.quetest["choice" + index + 3],
+                                      checked: Array.isArray(_vm.checkanswer)
+                                        ? _vm._i(
+                                            _vm.checkanswer,
+                                            _vm.quetest["choice" + index + 3]
+                                          ) > -1
+                                        : _vm.checkanswer
+                                    },
+                                    on: {
+                                      change: function($event) {
+                                        var $$a = _vm.checkanswer,
+                                          $$el = $event.target,
+                                          $$c = $$el.checked ? true : false
+                                        if (Array.isArray($$a)) {
+                                          var $$v =
+                                              _vm.quetest["choice" + index + 3],
+                                            $$i = _vm._i($$a, $$v)
+                                          if ($$el.checked) {
+                                            $$i < 0 &&
+                                              (_vm.checkanswer = $$a.concat([
+                                                $$v
+                                              ]))
+                                          } else {
+                                            $$i > -1 &&
+                                              (_vm.checkanswer = $$a
+                                                .slice(0, $$i)
+                                                .concat($$a.slice($$i + 1)))
+                                          }
+                                        } else {
+                                          _vm.checkanswer = $$c
+                                        }
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value:
+                                          _vm.quetest["choice" + index + 3],
+                                        expression: 'quetest["choice"+index+3]'
+                                      }
+                                    ],
+                                    attrs: { type: "text", required: "" },
+                                    domProps: {
+                                      value: _vm.quetest["choice" + index + 3]
+                                    },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.quetest,
+                                          "choice" + index + 3,
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "a",
+                                    {
+                                      on: {
+                                        click: function($event) {
+                                          _vm.deletechoice(index)
+                                        }
+                                      }
+                                    },
+                                    [_vm._v("Delete")]
+                                  )
+                                ])
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                {
+                                  on: {
+                                    click: function($event) {
+                                      _vm.addchoices()
+                                    }
+                                  }
+                                },
+                                [_vm._v("Add more choices")]
+                              )
+                            ],
+                            2
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.quetest["type"] == "fub"
+                        ? _c("div", { staticClass: "col-md-6" }, [
+                            _c("label", [_vm._v("Answer")]),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.quetest.answer,
+                                  expression: "quetest.answer"
+                                }
+                              ],
+                              attrs: { type: "text" },
+                              domProps: { value: _vm.quetest.answer },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.quetest,
+                                    "answer",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _c("br")
+                          ])
+                        : _vm._e()
+                    ]),
+                    _vm._v(" "),
+                    _c("button", [_vm._v("Add question")])
+                  ]
+                )
               ])
             : _vm._e(),
           _vm._v(" "),
@@ -53377,7 +54460,36 @@ var render = function() {
                     [_vm._v(_vm._s(test.test))]
                   ),
                   _vm._v(" "),
-                  _c("br")
+                  _c("p", { staticClass: "float-right" }, [
+                    _c(
+                      "button",
+                      {
+                        on: {
+                          click: function($event) {
+                            _vm.distributetest(test.id)
+                          }
+                        }
+                      },
+                      [_vm._v("Distribute")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        on: {
+                          click: function($event) {
+                            _vm.deletetest(test.id)
+                          }
+                        }
+                      },
+                      [_vm._v("Delete")]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("br"),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("hr")
                 ])
               : _vm._e()
           })

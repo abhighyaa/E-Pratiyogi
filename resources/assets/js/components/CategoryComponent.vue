@@ -29,11 +29,14 @@ import { EventBus } from '../app.js';
                 addquetotest:false,
                 viewtst:false,
                 tests:[],
+                addtest:false,
+                edittest:false,
         };
         },
 
         mounted() {
            this.getSubjects();
+            EventBus.$on('View', this.viewtest);
         },
         methods:{
             async getSubjects(){
@@ -57,6 +60,7 @@ import { EventBus } from '../app.js';
                     createtstKey:false,
                     addquetotestKey:false,
                     viewtstKey:false,
+                    addtestKey:false,
                  });
             },
             async createtest(){
@@ -69,6 +73,8 @@ import { EventBus } from '../app.js';
                     createtstKey:true,
                     addquetotestKey:false,
                     viewtstKey:false,
+                    addtestKey:false,
+                    edittestKey:false
                  });
             },
             async viewtest(){
@@ -85,6 +91,8 @@ import { EventBus } from '../app.js';
                     createtstKey:false,
                     viewtstKey:true,
                     addquetotestKey:false,
+                    addtestKey:false,
+                    edittestKey:true,
                  });
             },
         }

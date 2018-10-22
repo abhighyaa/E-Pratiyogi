@@ -18,7 +18,7 @@ class CreateQuestionsForTests extends Migration
             $table->foreign('question_id')->references('id')->on('questions')->onDelete('cascade');
             $table->integer('test_id')->unsigned()->index();
             $table->foreign('test_id')->references('id')->on('tests')->onDelete('cascade');
-            $table->integer('marks');
+            $table->integer('marks')->default(1);
             $table->integer('negative')->default(0);
             $table->timestamps();
         });
