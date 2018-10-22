@@ -65,6 +65,7 @@
 								and every student, teacher, professor and even
 								educational institute can get benefited.
 					</p>
+					<a href=""><button class="btn btn-primary btn-lg">Get Started</button></a>
     			</div>
     		</div>
     	</div>
@@ -108,7 +109,7 @@
     <div class="row row-5 mt-5">
     	<div class="col-md-2"></div>
     	<div class="col-md-8 text-center pt-5"> 
-	    	<p class="heading-row-5">A Big Revolution In Online Education</p>
+	    	<p class="heading-row-5">A Big Revolution In Online Education System</p>
 	    	<p style="font-size: 14px;">
 			To bring a revolution in digital education system, provide a platform where one can learn, practise, find out where he stands
 on that subject and a open forum for valuable discussions and it is end to end
@@ -122,35 +123,35 @@ professor and recruiter could get benefited by it.
     	<div class="col-md-12">
     		<div class="row row-6-1 mt-3">
     			<div class="col-md-4 text-center">
-    				<i class="fa fa-book-reader fa-3x features-icon"></i><br>
-    				<b style="color: rgb(112,128,144);">Easy To Learn and Use</b>
+    				<i class="fa fa-book-reader fa-2x features-icon"></i><br>
+    				<b style="color: rgb(112,128,144);font-weight:700;font-size:18px;">Easy To Learn and Use</b>
     				<p class="pt-1">One-stop-destination for examination, preparation, recruitment, and more. Specially designed online quiz system to enhance your knowledge. The platform is smooth to use with a translational flow of information.</p> 
 				</div>
     			<div class="col-md-4 text-center">
-    				<i class="fa fa-address-card fa-3x features-icon"></i><br>
-    				<b style="color: rgb(105,105,105);">User Friendly Interface</b>
+    				<i class="fa fa-address-card fa-2x features-icon"></i><br>
+    				<b style="color: rgb(112,128,144);font-weight:700;font-size:18px;">User Friendly Interface</b>
 					<p class="pt-1">A click to the next trick, simple registration, signing- in, synchronized processing, smoothly test uploading.</p> 
 				</div>
     			<div class="col-md-4 text-center">
-    				<i class="fa fa-flag-checkered fa-3x features-icon"></i><br>
-    				<b style="color: rgb(105,105,105);">Advanced Reporting Interface</b>
+    				<i class="fa fa-flag-checkered fa-2x features-icon"></i><br>
+    				<b style="color: rgb(112,128,144);font-weight:700;font-size:18px;">Advanced Reporting Interface</b>
     				<p class="pt-1">Instant scorecard generation, computational analysis, efficient feedback sharing to boost up your performance and precision.</p> 
 				</div>
     		</div>
     		<div class="row row-6-2 mt-5">
     			<div class="col-md-4 text-center">
-    				<i class="fa fa-people-carry fa-3x features-icon"></i><br>
-    				<b style="color: rgb(105,105,105);">Splendid Support</b>
+    				<i class="fa fa-people-carry fa-2x features-icon"></i><br>
+    				<b style="color: rgb(112,128,144);font-weight:700;font-size:18px;">Splendid Support</b>
     				<p class="pt-1">Your request and our actions to strive triggered support. A dedicated team is working round the clock to provide 24 X 7 streamlined access to our technical experts .</p> 
 				</div>
     			<div class="col-md-4 text-center">
-    				<i class="fa fa-tv fa-3x features-icon"></i><br>
-    				<b style="color: rgb(105,105,105);">Smart Subscription</b>
+    				<i class="fa fa-tv fa-2x features-icon"></i><br>
+    				<b style="color: rgb(112,128,144);font-weight:700;font-size:18px;">Smart Subscription</b>
     				<p class="pt-1">Premium selection to the suited subscription that will match your preferences and priorities of using the online assessment platform.</p> 
 				</div>
     			<div class="col-md-4 text-center">
-    				<i class="fa fa-universal-access fa-3x features-icon"></i><br>
-    				<b style="color: rgb(105,105,105);">Active Accessbility</b>
+    				<i class="fa fa-universal-access fa-2x features-icon"></i><br>
+    				<b style="color: rgb(112,128,144);font-weight:700;font-size:18px;">Active Accessbility</b>
     				<p class="pt-1">Go wherever you want to and practice whenever you want, using the next level online exam platform. Experience a lag-free synchronized performance of think exam on your mobile devices.</p> 
 				</div>
     		</div>
@@ -206,7 +207,7 @@ professor and recruiter could get benefited by it.
 }
 .row-1
 {
-	background-color:rgba(10,113,138);
+	background:linear-gradient(to top left,rgba(10,113,138),rgb(69, 181, 198));
 }
 .row-2-col-2,.last-image
 {
@@ -251,6 +252,7 @@ i
 .footer
 {
 	background-color:rgba(10,113,138);
+	color:white;
 }
 .work-icon
 {
@@ -263,11 +265,23 @@ i
 }
 .work-icon:hover
 {
-	border : solid 1px rgba(10,113,138);
-	color:rgba(10,113,138);
+	border : solid 1px rgb(69, 181, 198);
+	color:rgb(69, 181, 198);
 }
 .features-icon
 {
 	color:rgb(112,128,144);
+}
+.fa-2x{
+	color:rgba(205,205,205);
+}
+.btn-lg{
+	text-align: center;
+    width: 10em;
+    height: 3em;
+    background: none !important;
+    margin-left: 30%;
+    border: 1px solid white !important;
+    font-size: 14px !important;
 }
 </style>
