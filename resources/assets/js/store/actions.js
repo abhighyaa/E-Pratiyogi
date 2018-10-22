@@ -26,5 +26,12 @@ export const actions = {
             .then((response)=>(data = response.data))
             .catch(function(error){console.log(error)})
             context.commit('Set_Subjects_by_Branch',data)
-     }
+     },
+     async Set_Teachers(context){
+        var data
+        await axios.get('http://localhost:8000/student/get/myteachers')
+           .then((response)=>(data = response.data))
+           .catch(function(error){console.log(error)})
+           context.commit('Set_Teachers',data)
+    },
  }
