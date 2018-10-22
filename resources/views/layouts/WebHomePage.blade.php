@@ -53,7 +53,7 @@
     			<div class="col-md-4">
     				<img src="girl.jpg" class="girl_image">
     			</div>
-    			<div class="col-md-4 text-left pt-5">
+    			<div class="col-md-5 text-left pt-5">
     				<h2>Welcome To <span class="EPYOGI">E-PRATIYOGI</span></h2>
 					<p style="font-size: 14px;color:white;">
 								Existing system only allows either conducting tests or giving tests or learning
@@ -71,35 +71,40 @@
     </div>
     <div class="row">
 		<div class="workflow col-md-12">
-		<div class="row row-3 mt-5">
-    	<div class="col-md-4"></div>
-    	<div class="col-md-4 text-center"><p class="heading">How It Works ?</p></div>
-    	<div class="col-md-4"></div>
-        </div>
-        <div class="row row-4 mt-5">
-    	<div class="col-md-2 text-center">
-			<i class="fa fa-book fa-3x"></i><br>
-			<span class="flowtag">Create questions</span>
-		</div><div class="col-md-1 text-left"><img src="arrow.png"></div>
-		<div class="col-md-2 text-center">
-			<i class="fa fa-file fa-3x"></i><br>
-			<span class="flowtag">Design Test</span>
-		</div>
-		<div class="col-md-1"><img src="arrow.png"></div>
-		<div class="col-md-2 text-center">
-			<i class="fa fa-users fa-3x"></i><br>
-			<span class="flowtag">Assign Test</span>
-		</div>
-		<div class="col-md-1"><img src="arrow.png"></div>
-		<div class="col-md-2 text-center">
-			<i class="fa fa-trophy fa-3x"></i><br>
-			<span class="flowtag">Generate Result</span>
-		</div>
-    	
-    </div>
+			<div class="row row-3 mt-5">
+	    		<div class="col-md-4"></div>
+	    		<div class="col-md-4 text-center"><p class="heading">How It Works ?</p></div>
+	    		<div class="col-md-4"></div>
+	        </div>
+	        <div class="row row-4 mt-5 ml-5">
+	    		<div class="col-md-2 text-center">
+					<div class=" work-icon"><i class="fa fa-book fa-3x"></i></div>
+					<span class="flowtag mt-2">Create questions</span>
+				</div>
+				<div class="col-md-1 pl-0" style="padding-top: 60px;">
+					<img src="arrow.png" style="width:100px;">
+				</div>
+				<div class="col-md-2 text-center">
+					<div class="work-icon"><i class="fa fa-file fa-3x"></i></div>
+					<span class="flowtag">Design Test</span>
+				</div>
+				<div class="col-md-1 pl-0" style="padding-top: 60px;">
+					<img src="arrow.png" style="width:100px;">
+				</div>
+				<div class="col-md-2 text-center">
+					<div class="work-icon"><i class="fa fa-users fa-3x"></i></div>
+					<span class="flowtag">Assign Test</span>
+				</div>
+				<div class="col-md-1 pl-0" style="padding-top: 60px;">
+					<img src="arrow.png" style="width:100px;">
+				</div>
+				<div class="col-md-2 text-center">
+					<div class="work-icon"><i class="fa fa-trophy fa-3x"></i></div>
+					<span class="flowtag">Generate Result</span>
+				</div>
+	   		</div>
 		</div>
 	</div>
-    
     <div class="row row-5 mt-5">
     	<div class="col-md-2"></div>
     	<div class="col-md-8 text-center pt-5"> 
@@ -117,43 +122,65 @@ professor and recruiter could get benefited by it.
     	<div class="col-md-12">
     		<div class="row row-6-1 mt-3">
     			<div class="col-md-4 text-center">
-    				<i class="fa fa-tv"></i><br>
-    				<b>Easy To Learn and Use</b>
-    				<p>One-stop-destination for examination, preparation, recruitment, and more. Specially designed online quiz system to enhance your knowledge. The platform is smooth to use with a translational flow of information.</p> 
+    				<i class="fa fa-book-reader fa-3x features-icon"></i><br>
+    				<b style="color: rgb(112,128,144);">Easy To Learn and Use</b>
+    				<p class="pt-1">One-stop-destination for examination, preparation, recruitment, and more. Specially designed online quiz system to enhance your knowledge. The platform is smooth to use with a translational flow of information.</p> 
 				</div>
     			<div class="col-md-4 text-center">
-    				<i class="fa fa-tv"></i><br>
-    				<b>User Friendly Interface</b>
-					<p>A click to the next trick, simple registration, signing- in, synchronized processing, smoothly test uploading.</p> 
+    				<i class="fa fa-address-card fa-3x features-icon"></i><br>
+    				<b style="color: rgb(105,105,105);">User Friendly Interface</b>
+					<p class="pt-1">A click to the next trick, simple registration, signing- in, synchronized processing, smoothly test uploading.</p> 
 				</div>
     			<div class="col-md-4 text-center">
-    				<i class="fa fa-tv"></i><br>
-    				<b>Advanced Reporting Interface</b>
-    				<p>Instant scorecard generation, computational analysis, efficient feedback sharing to boost up your performance and precision.</p> 
+    				<i class="fa fa-flag-checkered fa-3x features-icon"></i><br>
+    				<b style="color: rgb(105,105,105);">Advanced Reporting Interface</b>
+    				<p class="pt-1">Instant scorecard generation, computational analysis, efficient feedback sharing to boost up your performance and precision.</p> 
 				</div>
     		</div>
     		<div class="row row-6-2 mt-5">
     			<div class="col-md-4 text-center">
-    				<i class="fa fa-tv"></i><br>
-    				<b>Splendid Support</b>
-    				<p>Your request and our actions to strive triggered support. A dedicated team is working round the clock to provide 24 X 7 streamlined access to our technical experts .</p> 
+    				<i class="fa fa-people-carry fa-3x features-icon"></i><br>
+    				<b style="color: rgb(105,105,105);">Splendid Support</b>
+    				<p class="pt-1">Your request and our actions to strive triggered support. A dedicated team is working round the clock to provide 24 X 7 streamlined access to our technical experts .</p> 
 				</div>
     			<div class="col-md-4 text-center">
-    				<i class="fa fa-tv"></i><br>
-    				<b>Smart Subscription</b>
-    				<p>Premium selection to the suited subscription that will match your preferences and priorities of using the online assessment platform.</p> 
+    				<i class="fa fa-tv fa-3x features-icon"></i><br>
+    				<b style="color: rgb(105,105,105);">Smart Subscription</b>
+    				<p class="pt-1">Premium selection to the suited subscription that will match your preferences and priorities of using the online assessment platform.</p> 
 				</div>
     			<div class="col-md-4 text-center">
-    				<i class="fa fa-tv"></i><br>
-    				<b>Active Accessbility</b>
-    				<p>Go wherever you want to and practice whenever you want, using the next level online exam platform. Experience a lag-free synchronized performance of think exam on your mobile devices.</p> 
+    				<i class="fa fa-universal-access fa-3x features-icon"></i><br>
+    				<b style="color: rgb(105,105,105);">Active Accessbility</b>
+    				<p class="pt-1">Go wherever you want to and practice whenever you want, using the next level online exam platform. Experience a lag-free synchronized performance of think exam on your mobile devices.</p> 
 				</div>
     		</div>
     	</div>
     </div>
-    <footer class="page-footer font-small">
-    	
-    </footer>
+    <!-- Footer -->
+    <div class="row mt-5 footer pt-5">
+    	<div class="col-md-12">
+			<!-- <footer class="footer pt-5"> -->
+		     	<div class="row">
+		   			<div class="col-md-6 pl-5">
+		      			<h5 class="text-uppercase">Footer Content</h5>
+		     			<p>Here you can use rows and columns here to organize your footer content.</p>
+		   			</div>
+		    		<hr>
+		   			<div class="col-md-3">
+		            	<h5 class="text-uppercase text-center">Links</h5>
+		            	
+		           	</div>	
+		      		<div class="col-md-3">
+		       			<h5 class="text-uppercase">Links</h5>
+		       			
+		     		</div>
+		      	</div>
+		   		<div class="footer-copyright text-center pt-3 pb-3">© 2018 Copyright:
+		      		<a href="https://mdbootstrap.com/bootstrap-tutorial/"> MDBootstrap.com</a>
+		    	</div>
+		 	<!-- </footer> -->
+	 	</div>
+ 	</div>
 </div>
 
 @endsection
@@ -162,9 +189,6 @@ professor and recruiter could get benefited by it.
 	.flowtag{
 		font-size:18px;
 		color:rgba(100, 100, 100);
-	}
-	.fa{
-		color:rgba(215, 215, 215);
 	}
 	.workflow{
 	background:white;
@@ -223,5 +247,27 @@ i
 .heading-row-5
 {
 	font-size: 30px;
+}
+.footer
+{
+	background-color:rgba(10,113,138);
+}
+.work-icon
+{
+	border:solid 1px rgb(112,128,144);
+	width: auto;
+	padding-top:60px;
+	padding-bottom: 60px;
+	border-radius: 900px;
+	color: rgb(112,128,144);
+}
+.work-icon:hover
+{
+	border : solid 1px rgba(10,113,138);
+	color:rgba(10,113,138);
+}
+.features-icon
+{
+	color:rgb(112,128,144);
 }
 </style>
