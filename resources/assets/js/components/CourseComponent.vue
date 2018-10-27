@@ -40,10 +40,10 @@ import { mapGetters } from "vuex";
            this.fetchCourses();
         },
         methods:{
-             linkGen (pageNum) {
-                 alert(pageNum)
-      return '#page/' + pageNum + '/foobar'
-    },
+            linkGen (pageNum){
+                alert(pageNum)
+                return '#page/' + pageNum + '/foobar'
+            },
             async fetchCourses(){
                 this.$store.dispatch('Set_Courses');
             },
@@ -61,9 +61,12 @@ import { mapGetters } from "vuex";
         }
     }
 </script>
-<style lang="scss" scoped>
+<style scoped>
 .card-header{
-    cursor: pointer;
+    cursor:pointer;
+    background:rgb(51, 158, 181);
+    color:white;
+    font-size:16px; 
 }
 .dropdown-menu{
     margin-left: 88%;
@@ -75,6 +78,9 @@ import { mapGetters } from "vuex";
 }
 .list-group-item{
     cursor: pointer;
+}
+.list-group-item:hover{
+     background:rgba(69, 181, 198,0.1);
 }
 .dropdown-item{
    

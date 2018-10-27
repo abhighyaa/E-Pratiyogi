@@ -7,6 +7,8 @@ use Auth;
 use App\User;
 use App\Topic;
 use App\Subject;
+use App\Category;
+use App\Test;
 
 class Question extends Model
 {
@@ -22,9 +24,21 @@ class Question extends Model
     {
         return $this->belongsToMany(Topic::class);
     }
+    public function tests()
+    {
+        return $this->belongsToMany(Test::class);
+    }
     public function subjects()
     {
         return $this->belongsToMany(Subject::class);
+    }
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
+    }
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
     }
 
     static public function getQuestions(){

@@ -10,8 +10,9 @@
                             {{  inst.instruction }}
                         </li>
                     </ul><br>
-                    <router-link :to="'/'"><button class="btn btn-primary">Back</button></router-link>
-                    <button  @click="startTest" class="btn btn-primary">Start</button>
+                    <button  @click="startTest" class="btn btn-success ml-2 pull-right">Start</button>
+                    <router-link :to="'/'"><button class="btn btn-default pull-right">Back</button></router-link>
+                 
              </div>
         </div>
     </div>
@@ -36,6 +37,10 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.card-header{
+    background:rgb(51, 158, 181);
+    color:white;
+    font-size:16px; 
+}
 </style>

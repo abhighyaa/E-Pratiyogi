@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Question;
 use App\Topic;
 use App\Subject;
+use App\Category;
 use App\Tag;
 use Illuminate\Http\Request;
 
@@ -28,6 +29,19 @@ class QuestionController extends Controller
         {
             // $tags = Tag::all();
             return view('backend.library');
+        }
+        public function getquestions(Category $cat,Subject $sub)
+        {
+            $questions=array();
+            // dd($cat);
+            $que=$sub->questions()->get();
+            foreach($que as $q){
+                if($q->categories()->where('id',$cat->id)->exists()&&$q->users()->where('id',auth()->user()->id)->exists()){
+                    $q->choices=json_decode($q->choices);
+                    array_push($questions,$q);
+                }
+            }
+            return response()->json($questions);
         }
     public function addquestions(Request $request){
         $input = $this->validate($request,[
@@ -71,6 +85,54 @@ class QuestionController extends Controller
 
 
     } 
+
+    public function savequestion(Request $request)
+    {
+        if(request('type')!='fub'){
+            $ch=array();
+            for($i=0;$i<count($request->choices);$i++){
+                $ch[$i]=$request->choices[$i];
+            }
+            $ch =json_encode($request->choices);
+        }
+        if(request('answer')==null){
+            $q=Question::Create([
+                'question'=> request('question'),
+                'answer'=> $request->choices[0],   
+                'complexity'=>request('complexity'),
+                'choices'=>$ch
+            ]);
+        }
+        else{
+            if(request('type')=='check'){
+                $ans=array();
+                for($i=0;$i<count($request->answer);$i++){
+                    $ans[$i]=$request->answer[$i];
+                }
+                $ans =json_encode($ans); 
+            }
+            else{
+                $ans=request('answer');
+            }
+            if(request('type')=='fub'){
+                $ch=null;
+            }
+            $q=Question::Create([
+                'question'=> request('question'),
+                'type'=>request('type'),
+                'answer'=> $ans,   
+                'complexity'=>request('complexity'),
+                'choices'=>$ch
+            ]);
+        }
+        $q->save();
+        $s = Subject::where('subject','=',request('subject'))->first();
+        $c = Category::where('category','=',request('category'))->first();
+        $q->subjects()->attach($s->id);
+        $q->categories()->attach($c->id);
+        $q->users()->attach(auth()->user()->id);
+        return;
+    }
 
     public function savequestions(Request $request){
         $count=0;
@@ -124,17 +186,38 @@ class QuestionController extends Controller
 
     } 
 
-    public function editques(Request $request){
-        $id=request('ques');
-        // dd($id);
-        $question=Question::find($id);
-        $subjects=$question->subjects;
-        $topics=$question->topics;
+    public function getequestion(Question $q)
+    {  
+        $q->choices = json_decode($q->choices);
+        return response()->json($q);
+    }
+
+    public function deletequestion(Question $q)
+    {  
+        $q->delete();
+        return;
+    }
+
+    public function editquestion(Request $request)
+    {
+        $q=Question::find($request->id);
+        $q->question= $request->question;
+        $q->answer=$request->answer;
+        $q->choices=json_encode($request->choices);
+        $q->save();
+        return;
+    }
+    // public function editques(Request $request){
+    //     $id=request('ques');
+    //     // dd($id);
+    //     $question=Question::find($id);
+    //     $subjects=$question->subjects;
+    //     $topics=$question->topics;
        
-        $question->choices = json_decode($question->choices);     
+    //     $question->choices = json_decode($question->choices);     
         
-        return response()->json(array("msg",$question,$subjects,$topics),200);
+    //     return response()->json(array("msg",$question,$subjects,$topics),200);
         
 
-    } 
+    // } 
 }

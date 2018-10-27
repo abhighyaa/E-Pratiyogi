@@ -46,6 +46,14 @@ class Errors{
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('subject-component', require('./components/SubjectComponent.vue'));
+Vue.component('admin-component', require('./components/AdminComponent.vue'));
+Vue.component('dashboard-component', require('./components/DashboardComponent.vue'));
+
+Vue.component('modal-component', require('./components/ModalComponent.vue'));
+Vue.component('category-component', require('./components/CategoryComponent.vue'));
+Vue.component('details-component', require('./components/DetailsComponent.vue'));
+Vue.component('check', require('./components/check.vue'));
 Vue.component('course-component', require('./components/CourseComponent.vue'));
 Vue.component('previous-attempt', require('./components/PreviousAttempt.vue'));
 Vue.component('subject-container', require('./components/SubjectComponent.vue'));

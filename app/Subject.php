@@ -9,7 +9,7 @@ use App\Question;
 
 class Subject extends Model
 {
-    protected $fillable=['subject'];
+    protected $fillable=['id','subject'];
     
     public function topics()
     {
@@ -18,6 +18,14 @@ class Subject extends Model
     public function questions()
     {
         return $this->belongsToMany(Question::class);
+    }
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
     }
     //
     public function instructions()

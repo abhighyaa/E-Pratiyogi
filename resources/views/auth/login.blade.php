@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.studentApp')
 
 @section('content')
 <div class="container">
@@ -53,7 +53,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-success">
                                     {{ __('Login') }}
                                 </button>
 
@@ -69,3 +69,16 @@
     </div>
 </div>
 @endsection
+<style scoped>
+.justify-content-center{
+    margin-top:30px;
+}
+.card{
+    box-shadow: 0px 5px 10px rgba(5,5,5,0.1);
+}
+.card-header{
+    background:#339EB5 !important;
+    color:#FFF;
+    font-size:16px;
+}
+</style>

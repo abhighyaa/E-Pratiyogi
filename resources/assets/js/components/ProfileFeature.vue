@@ -90,7 +90,7 @@ export default {
 
 <style scoped>
 nav{
-    background: rgba(211,211,211,.2);
+    background: rgba(69, 181, 198,0.2);
     width: 100%;
 }
 .custom-card{  
@@ -110,7 +110,11 @@ nav{
     font-size: 200px;
 }
 .tab-pane, .nav-item.active{
-    background: white;
+    background: #fff;
+}
+.nav-item.active{
+ font-weight: bold;
+    color:rgba(10,113,138) !important;
 }
 .teacherCard{
     width: 150px;
@@ -142,5 +146,13 @@ span{
 }
 .fa-user-circle{
     color: rgba(0,0,0,0.5);
+}
+.nav-item{
+    font-size:16px;
+    margin-left:0px;
+
+}
+.nav-link{
+    color:lightslategray !important;
 }
 </style>

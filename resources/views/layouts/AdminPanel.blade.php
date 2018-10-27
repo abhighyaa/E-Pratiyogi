@@ -6,8 +6,8 @@
 		<div class="col-sm-8">
 			<h3>E-Pratiyogi</h3>
 		</div>
-    <div class="col-sm-2 text-right">
-      <button class="btn"><i class="fa fa-user-cog"></i>&ensp;Admin Panel</button>
+    <div class="col-sm-2 text-right AdminPanel">
+      <button class="btn"><i class="fa fa-user"></i>&ensp;Admin Panel</button>
     </div>
 		<div class="col-sm-2 text-left">
 			<!-- logout-->
@@ -49,7 +49,9 @@
 @endsection
 
 <style>
-
+.AdminPanel{
+  
+}
   .graduation-icon-parent 
   {
     background-color:rgba(10,113,138);

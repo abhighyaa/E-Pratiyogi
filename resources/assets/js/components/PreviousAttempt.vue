@@ -20,5 +20,13 @@
 
 </script>
 <style scoped>
-
+.card-header{
+    background:rgb(51, 158, 181);
+    color:white;
+    font-size:16px; 
+}
+.list-group-item:hover{
+    cursor: pointer;
+     background:rgba(69, 181, 198,0.1);
+}
 </style>

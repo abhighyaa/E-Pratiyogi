@@ -3,11 +3,18 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
+use App\Question;
 
 class Test extends Model
 {
-    public function user(){
+    protected $fillable=['id','test'];
+    public function users(){
         
-        return $this->belongsTo(User::class);
+        return $this->belongsToMany(User::class);
+    }
+    public function questions(){
+        
+        return $this->belongsToMany(Question::class);
     }
 }

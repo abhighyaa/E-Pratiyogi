@@ -49,9 +49,9 @@ class LoginController extends Controller
             $user = User::where('email',$request->email)->first();
 
             if($user->role->first()->name == 'student')
-                return redirect('/student/home');
+                return redirect('/');
             elseif($user->role->first()->name == 'teacher')
-                return redirect('/library');
+                return redirect('/teacher/home');
             elseif($user->role->first()->name == 'admin')
                 return redirect('/admin/dashboard');
     }

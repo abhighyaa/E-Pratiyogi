@@ -104,7 +104,17 @@ class SubjectController extends Controller
         $subjects = Subject::all();
         return response()->json($subjects);
     }
-
+    public function getSubjectsTeacher()
+    {
+        $subjects=array();
+        // $subjects=auth()->user()->subjects()->get();
+        $sub=Subject::with('categories')->get();
+        foreach($sub as $s)
+            if($s->users()->where('id', auth()->user()->id)->exists())
+                array_push($subjects,$s);
+        return response()->json($subjects);
+        // return view('backend.library',compact('subjects'));
+    }
     public function testQuestion(Request $request){
         $cnte=0;
         $cntm=0;

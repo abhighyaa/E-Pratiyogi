@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Subject;
+use App\Category;
 
 class HomeController extends Controller
 {
@@ -26,5 +28,9 @@ class HomeController extends Controller
     {
         return view('home');
     }
-
+    
+    public function getdetails(Subject $sid,Category $cid)
+    {
+        return response()->json(array($sid,$cid));
+    }
 }

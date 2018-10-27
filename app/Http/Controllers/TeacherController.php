@@ -19,15 +19,19 @@ class TeacherController extends Controller
       }
         public function index()
       {
-          return "hello teacher";
+          return view('teacher.home');
       }
+     
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-   
+    public function create()
+    {
+        //
+    }
 
     /**
      * Store a newly created resource in storage.

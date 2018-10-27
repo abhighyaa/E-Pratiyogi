@@ -81,10 +81,24 @@ Route::prefix('admin')->group(function () {
     Route::get('remove/subject/{id}','AdminController@remove_subject');
 });
 Route::prefix('teacher')->group(function () {
-    Route::get('/home','QuestionController@index');
+    Route::get('/home','TeacherController@index');
+    Route::get('/subjects','SubjectController@getSubjectsTeacher');
+    Route::get('/categories/{subject}','CategoryController@getcategories');
+    Route::get('/questions/{cat}/{sub}','QuestionController@getquestions');
+    Route::get('/editquestion/{q}','QuestionController@getequestion');
+    Route::post('/saveedits','QuestionController@editquestion');
+    Route::get('/delete/{q}','QuestionController@deletequestion');
+    Route::get('/testdelete/{test}','TestController@deletetest');
+    Route::get('/getsubcat/{sid}/{cid}','HomeController@getdetails');
+    Route::post('/savequestion','QuestionController@savequestion');
+    Route::post('/createtest','TestController@createtest');
+    Route::get('/gettests','TestController@gettests');
+    Route::get('/gettestdetails/{t}','TestController@gettestdetails');
+    Route::post('/savequestiontotest','TestController@savequetotest');
 });
-Route::prefix('student')->group(function () {
+Route::prefix('student')->group(function () {   
     Route::get('/home', 'StudentController@index');
     Route::get('/get/myteachers','StudentController@getTeachers');
 });
 Route::get('/starttest/{id}','SubjectController@testQuestion');
+

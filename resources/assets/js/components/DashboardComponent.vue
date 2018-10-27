@@ -669,6 +669,7 @@ text-transform: capitalize;
     border-radius: 10px;
     background-color: #8599ad;
     color: white;
+     cursor: pointer;
   }
   .grid-icon:hover
   {
