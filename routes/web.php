@@ -10,7 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+use App\Notifications\NewUserRegistration;
+use Illuminate\Notifications\Notification;
+use App\User;
 Auth::routes();
 
 Route::get('/', function () {
@@ -101,4 +103,7 @@ Route::prefix('student')->group(function () {
     Route::get('/get/myteachers','StudentController@getTeachers');
 });
 Route::get('/starttest/{id}','SubjectController@testQuestion');
-
+Route::get('markasread',function(){
+    \Auth::user()->notifications->markAsRead();
+    return redirect()->back();
+})->name('markAsRead');

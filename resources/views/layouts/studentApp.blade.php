@@ -60,6 +60,28 @@
 html,body{
     background:rgba(222, 222, 222,0.2);
 }
+div.notificationDetail{
+  /* border:solid; */
+  margin: 0 auto;
+  background: rgba(222,222,222,0.5);
+  padding: 2px 5px;
+}
+div.notificationTitle{
+  font-weight: bolder;
+  text-transform: capitalize;
+}
+div.notificationBody{
+ 
+  margin: 0 auto;
+  width:auto;
+  height:auto;
+}
+a.dropdown-item{
+  padding: 3px 5px;
+}
+.clearAllLink{
+    text-align:center;
+}
 .navbar{
     padding-top:2px;
     padding-bottom:0px;
@@ -67,10 +89,26 @@ html,body{
     box-shadow: 0px 4px 10px rgba(5,5,5,0.2);
 }
 .nav-item{
-    font-size:18px;
+    font-size:16px;
     margin-left:10px;
 }
 .nav-link{
     color:rgba(244,244,244) !important;
+}
+.notificationPanel{
+    width: 400px !important;
+    height: max-content;
+}
+.noNotificationMsg{
+    text-align: center;
+    font-size: 18px;
+    font-family: inherit;
+    color: rgba(150,150,150);
+}
+.noNotificationMsg p{
+    margin:0;
+}
+.noNotificationMsg span{
+    color:rgba(200,200,200);
 }
 </style>
