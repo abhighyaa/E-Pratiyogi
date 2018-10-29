@@ -273,6 +273,7 @@
 
     <div v-if="showDashboard === true">
       <div class="row mt-3 ml-4">
+        <div class="col-md-1"></div>
         <div class="col-sm-2 grid-icon text-center ml-2 pt-3 pb-3" @click="FetchUsers(),FetchRoles()">
           <i class="fa fa-users"></i>
           <h5>Users</h5>
@@ -289,10 +290,7 @@
           <i class="fa fa-tag"></i>
           <h5>Subjects</h5>
         </div>
-         <div class="col-sm-2 grid-icon text-center ml-2 pt-3 pb-3 question">
-          <i class="fa fa-question-circle"></i>
-          <h5>Questions</h5>
-        </div>
+        <div class="col-md-1"></div>
       </div>
     </div>
   </div>  

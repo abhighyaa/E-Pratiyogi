@@ -1902,7 +1902,7 @@
             try {
                 oldLocale = globalLocale._abbr;
                 var aliasedRequire = require;
-                __webpack_require__(455)("./" + name);
+                __webpack_require__(459)("./" + name);
                 getSetGlobalLocale(oldLocale);
             } catch (e) {}
         }
@@ -4668,9 +4668,9 @@ function vueUse(VuePlugin) {
 
 
 module.exports = __webpack_require__(36);
-module.exports.easing = __webpack_require__(429);
-module.exports.canvas = __webpack_require__(430);
-module.exports.options = __webpack_require__(431);
+module.exports.easing = __webpack_require__(433);
+module.exports.canvas = __webpack_require__(434);
+module.exports.options = __webpack_require__(435);
 
 
 /***/ }),
@@ -6420,10 +6420,10 @@ module.exports = __webpack_require__(221);
 
 
 module.exports = {};
-module.exports.Arc = __webpack_require__(437);
-module.exports.Line = __webpack_require__(438);
-module.exports.Point = __webpack_require__(439);
-module.exports.Rectangle = __webpack_require__(440);
+module.exports.Arc = __webpack_require__(441);
+module.exports.Line = __webpack_require__(442);
+module.exports.Point = __webpack_require__(443);
+module.exports.Rectangle = __webpack_require__(444);
 
 
 /***/ }),
@@ -6572,19 +6572,19 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('settings-component', __we
 
 __WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('modal-component', __webpack_require__(398));
 __WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('category-component', __webpack_require__(401));
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('details-component', __webpack_require__(404));
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('check', __webpack_require__(407));
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('course-component', __webpack_require__(409));
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('previous-attempt', __webpack_require__(414));
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('details-component', __webpack_require__(406));
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('check', __webpack_require__(411));
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('course-component', __webpack_require__(413));
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('previous-attempt', __webpack_require__(418));
 __WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('subject-container', __webpack_require__(90));
 __WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('admin-component', __webpack_require__(91));
 __WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('dashboard-component', __webpack_require__(92));
 __WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('instructions', __webpack_require__(52));
 __WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('student-home', __webpack_require__(51));
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('test-component', __webpack_require__(419));
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('student-profile', __webpack_require__(475));
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('profile-header', __webpack_require__(479));
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('profile-feature', __webpack_require__(484));
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('test-component', __webpack_require__(423));
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('student-profile', __webpack_require__(479));
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('profile-header', __webpack_require__(483));
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('profile-feature', __webpack_require__(488));
 
 // Vue.component('piechart-component', require('./components/piechartComponent.vue'));
 
@@ -6597,8 +6597,8 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('mfooter', {
     template: '<div><slot></slot></div>'
 });
 
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('modal', __webpack_require__(489));
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('subject', __webpack_require__(492));
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('modal', __webpack_require__(493));
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('subject', __webpack_require__(496));
 
 var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
     el: '#app',
@@ -38512,8 +38512,8 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 /* MIT license */
-var convert = __webpack_require__(433);
-var string = __webpack_require__(435);
+var convert = __webpack_require__(437);
+var string = __webpack_require__(439);
 
 var Color = function (obj) {
 	if (obj instanceof Color) {
@@ -39343,8 +39343,8 @@ module.exports = {
 
 
 var helpers = __webpack_require__(3);
-var basic = __webpack_require__(441);
-var dom = __webpack_require__(442);
+var basic = __webpack_require__(445);
+var dom = __webpack_require__(446);
 
 // @TODO Make possible to select another platform at build time.
 var implementation = dom._enabled ? dom : basic;
@@ -51655,7 +51655,7 @@ module.exports = {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(22);
-module.exports = __webpack_require__(495);
+module.exports = __webpack_require__(499);
 
 
 /***/ }),
@@ -89871,8 +89871,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -91566,6 +91564,8 @@ var render = function() {
       _vm.showDashboard === true
         ? _c("div", [
             _c("div", { staticClass: "row mt-3 ml-4" }, [
+              _c("div", { staticClass: "col-md-1" }),
+              _vm._v(" "),
               _c(
                 "div",
                 {
@@ -91634,7 +91634,7 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _vm._m(8)
+              _c("div", { staticClass: "col-md-1" })
             ])
           ])
         : _vm._e()
@@ -91744,20 +91744,6 @@ var staticRenderFns = [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Manage")])
       ])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col-sm-2 grid-icon text-center ml-2 pt-3 pb-3 question" },
-      [
-        _c("i", { staticClass: "fa fa-question-circle" }),
-        _vm._v(" "),
-        _c("h5", [_vm._v("Questions")])
-      ]
-    )
   }
 ]
 render._withStripped = true
@@ -92129,15 +92115,19 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(402)
+}
 var normalizeComponent = __webpack_require__(7)
 /* script */
-var __vue_script__ = __webpack_require__(402)
+var __vue_script__ = __webpack_require__(404)
 /* template */
-var __vue_template__ = __webpack_require__(403)
+var __vue_template__ = __webpack_require__(405)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
 var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
@@ -92173,6 +92163,46 @@ module.exports = Component.exports
 
 /***/ }),
 /* 402 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(403);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(11)("64e78f3e", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-d6717610\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./CategoryComponent.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-d6717610\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./CategoryComponent.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 403 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(8)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.card-header{\n    cursor:pointer;\n    background:rgb(51, 158, 181);\n    color:white;\n    font-size:16px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 404 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -92184,6 +92214,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
+//
+//
 //
 //
 //
@@ -92379,7 +92411,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 });
 
 /***/ }),
-/* 403 */
+/* 405 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -92413,31 +92445,38 @@ var render = function() {
         })
       ),
       _vm._v(" "),
-      _c(
-        "a",
-        {
-          attrs: { href: "#" },
-          on: {
-            click: function($event) {
-              _vm.createtest()
-            }
-          }
-        },
-        [_vm._v("Create new test!")]
-      ),
-      _vm._v(" "),
-      _c(
-        "a",
-        {
-          attrs: { href: "#" },
-          on: {
-            click: function($event) {
-              _vm.viewtest()
-            }
-          }
-        },
-        [_vm._v("View all tests!")]
-      )
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-6" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-primary",
+              on: {
+                click: function($event) {
+                  _vm.createtest()
+                }
+              }
+            },
+            [_vm._v("Create new test!")]
+          ),
+          _c("br")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-6" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-primary",
+              on: {
+                click: function($event) {
+                  _vm.viewtest()
+                }
+              }
+            },
+            [_vm._v("View all tests!")]
+          )
+        ])
+      ])
     ])
   ])
 }
@@ -92452,19 +92491,23 @@ if (false) {
 }
 
 /***/ }),
-/* 404 */
+/* 406 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(407)
+}
 var normalizeComponent = __webpack_require__(7)
 /* script */
-var __vue_script__ = __webpack_require__(405)
+var __vue_script__ = __webpack_require__(409)
 /* template */
-var __vue_template__ = __webpack_require__(406)
+var __vue_template__ = __webpack_require__(410)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
 var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
@@ -92499,7 +92542,47 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 405 */
+/* 407 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(408);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(11)("07b3a503", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-44233992\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./DetailsComponent.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-44233992\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./DetailsComponent.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 408 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(8)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.card-header{\n    cursor:pointer;\n    background:rgb(51, 158, 181);\n    color:white;\n    font-size:16px;\n}\n#test_name\n{\n    border-radius: 5px;\n    height: 35px;\n    width: 50%;\n    border: 1px solid lightblue;\n}\n.create_btn\n{\n    margin-left: 49px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 409 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -92511,6 +92594,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
+//
+//
+//
+//
 //
 //
 //
@@ -93552,7 +93639,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 });
 
 /***/ }),
-/* 406 */
+/* 410 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -93598,6 +93685,7 @@ var render = function() {
                   ? _c(
                       "button",
                       {
+                        staticClass: "btn btn-primary",
                         on: {
                           click: function($event) {
                             _vm.addquetotest = true
@@ -93612,6 +93700,7 @@ var render = function() {
                   : _c(
                       "button",
                       {
+                        staticClass: "btn btn-primary",
                         on: {
                           click: function($event) {
                             _vm.addque(_vm.subject, _vm.category)
@@ -93632,8 +93721,12 @@ var render = function() {
                           "div",
                           [
                             _c("div", { staticClass: "question" }, [
+                              _c("b", { staticStyle: { color: "black" } }, [
+                                _vm._v("Question : ")
+                              ]),
                               _vm._v(
-                                _vm._s(question.question) +
+                                " " +
+                                  _vm._s(question.question) +
                                   " \n                            "
                               ),
                               _vm.addtest
@@ -93641,6 +93734,7 @@ var render = function() {
                                     _c(
                                       "button",
                                       {
+                                        staticClass: "btn btn-primary",
                                         on: {
                                           click: function($event) {
                                             _vm.geteditque(question.id)
@@ -93653,6 +93747,7 @@ var render = function() {
                                     _c(
                                       "button",
                                       {
+                                        staticClass: "btn btn-danger",
                                         on: {
                                           click: function($event) {
                                             _vm.deletequetest(question.id)
@@ -93666,6 +93761,7 @@ var render = function() {
                                     _c(
                                       "button",
                                       {
+                                        staticClass: "btn btn-primary",
                                         on: {
                                           click: function($event) {
                                             _vm.geteditque(question.id)
@@ -93678,6 +93774,7 @@ var render = function() {
                                     _c(
                                       "button",
                                       {
+                                        staticClass: "btn btn-danger",
                                         on: {
                                           click: function($event) {
                                             _vm.deleteque(question.id)
@@ -93766,9 +93863,12 @@ var render = function() {
                             question.type == "fub"
                               ? _c("div", [
                                   _c("div", { staticClass: "answer" }, [
-                                    _vm._v(
-                                      "Answer : " + _vm._s(question.answer)
-                                    )
+                                    _c(
+                                      "b",
+                                      { staticStyle: { color: "blue" } },
+                                      [_vm._v("Answer")]
+                                    ),
+                                    _vm._v(" : " + _vm._s(question.answer))
                                   ])
                                 ])
                               : _vm._e(),
@@ -93779,7 +93879,7 @@ var render = function() {
                         )
                       })
                     )
-                  : _c("div", [_vm._v("No Questions yet")])
+                  : _c("div", [_c("b", [_vm._v("No Questions yet")])])
               ])
             : _vm._e(),
           _vm._v(" "),
@@ -93798,40 +93898,39 @@ var render = function() {
                   },
                   [
                     _c("div", { staticClass: "form-group row ml-2" }, [
-                      _c("label", { attrs: { for: "question" } }, [
-                        _vm._v("Question")
-                      ]),
+                      _vm._m(0),
                       _vm._v(" "),
-                      _c("div", { staticClass: "col-md-6" }, [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.equestion.question,
-                              expression: "equestion.question"
-                            }
-                          ],
-                          attrs: { type: "text", autofocus: "" },
-                          domProps: { value: _vm.equestion.question },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.equestion,
-                                "question",
-                                $event.target.value
-                              )
-                            }
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.equestion.question,
+                            expression: "equestion.question"
                           }
-                        })
-                      ])
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", autofocus: "" },
+                        domProps: { value: _vm.equestion.question },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.equestion,
+                              "question",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
                     ]),
                     _vm._v(" "),
                     _vm._l(_vm.equestion.choices, function(i, index) {
                       return _c("div", { staticClass: "form-group row ml-2" }, [
+                        _vm._m(1, true),
+                        _vm._v(" "),
                         _c("input", {
                           directives: [
                             {
@@ -93863,7 +93962,9 @@ var render = function() {
                               expression: "equestion.choices[index]"
                             }
                           ],
-                          attrs: { type: "text", required: "" },
+                          staticClass:
+                            "form-control><br>\n                        <!--<p v-if=",
+                          attrs: { type: "text", required: "", index: "" },
                           domProps: { value: _vm.equestion.choices[index] },
                           on: {
                             input: function($event) {
@@ -93878,13 +93979,32 @@ var render = function() {
                             }
                           }
                         }),
-                        _c("br")
+                        _vm._v('1">'),
+                        _c(
+                          "a",
+                          {
+                            on: {
+                              click: function($event) {
+                                _vm.editdeletechoice(
+                                  index,
+                                  _vm.equestion.choices,
+                                  _vm.equestion.id
+                                )
+                              }
+                            }
+                          },
+                          [_vm._v("Delete")]
+                        ),
+                        _c("p"),
+                        _vm._v("-->\n                    ")
                       ])
                     }),
                     _vm._v(" "),
                     _vm._l(_vm.inputs, function(input, index) {
                       return _vm.equestion.type == "mcq"
                         ? _c("div", [
+                            _vm._m(2, true),
+                            _vm._v(" "),
                             _c("input", {
                               directives: [
                                 {
@@ -93922,6 +94042,7 @@ var render = function() {
                                   expression: 'equestion["choice"+index+3]'
                                 }
                               ],
+                              staticClass: "form-control",
                               attrs: { type: "text", required: "" },
                               domProps: {
                                 value: _vm.equestion["choice" + index + 3]
@@ -93949,7 +94070,13 @@ var render = function() {
                                   }
                                 }
                               },
-                              [_vm._v("Delete")]
+                              [
+                                _c(
+                                  "button",
+                                  { staticClass: "btn btn-primary" },
+                                  [_vm._v("Delete")]
+                                )
+                              ]
                             )
                           ])
                         : _vm._e()
@@ -93958,6 +94085,8 @@ var render = function() {
                     _vm._l(_vm.inputs, function(input, index) {
                       return _vm.equestion.type == "check"
                         ? _c("div", [
+                            _vm._m(3, true),
+                            _vm._v(" "),
                             _c("input", {
                               directives: [
                                 {
@@ -94019,6 +94148,7 @@ var render = function() {
                                   expression: 'equestion["choice"+index+3]'
                                 }
                               ],
+                              staticClass: "form-control",
                               attrs: { type: "text", required: "" },
                               domProps: {
                                 value: _vm.equestion["choice" + index + 3]
@@ -94046,7 +94176,13 @@ var render = function() {
                                   }
                                 }
                               },
-                              [_vm._v("Delete")]
+                              [
+                                _c(
+                                  "button",
+                                  { staticClass: "btn btn-primary" },
+                                  [_vm._v("Delete")]
+                                )
+                              ]
                             )
                           ])
                         : _vm._e()
@@ -94054,6 +94190,8 @@ var render = function() {
                     _vm._v(" "),
                     _vm.equestion.type == "fub"
                       ? _c("div", [
+                          _vm._m(4),
+                          _vm._v(" "),
                           _c("input", {
                             directives: [
                               {
@@ -94063,6 +94201,7 @@ var render = function() {
                                 expression: 'equestion["answer"]'
                               }
                             ],
+                            staticClass: "form-control",
                             attrs: { type: "text", required: "" },
                             domProps: { value: _vm.equestion["answer"] },
                             on: {
@@ -94084,6 +94223,7 @@ var render = function() {
                     _c(
                       "a",
                       {
+                        attrs: { href: "#" },
                         on: {
                           click: function($event) {
                             _vm.addchoices()
@@ -94092,8 +94232,12 @@ var render = function() {
                       },
                       [_vm._v("Add more choices")]
                     ),
+                    _c("br"),
+                    _c("br"),
                     _vm._v(" "),
-                    _c("button", [_vm._v("Edit")])
+                    _c("button", { staticClass: "btn btn-primary" }, [
+                      _vm._v("Edit")
+                    ])
                   ],
                   2
                 )
@@ -94358,6 +94502,7 @@ var render = function() {
                                     expression: 'add["choice1"]'
                                   }
                                 ],
+                                staticClass: "form-control",
                                 attrs: { type: "text", required: "" },
                                 domProps: { value: _vm.add["choice1"] },
                                 on: {
@@ -94412,6 +94557,7 @@ var render = function() {
                                     expression: 'add["choice2"]'
                                   }
                                 ],
+                                staticClass: "form-control",
                                 attrs: { type: "text", required: "" },
                                 domProps: { value: _vm.add["choice2"] },
                                 on: {
@@ -94427,6 +94573,7 @@ var render = function() {
                                   }
                                 }
                               }),
+                              _c("br"),
                               _vm._v(" "),
                               _vm._l(_vm.inputs, function(input, index) {
                                 return _c("div", [
@@ -94467,6 +94614,7 @@ var render = function() {
                                         expression: 'add["choice"+index+3]'
                                       }
                                     ],
+                                    staticClass: "form-control",
                                     attrs: { type: "text", required: "" },
                                     domProps: {
                                       value: _vm.add["choice" + index + 3]
@@ -94484,17 +94632,25 @@ var render = function() {
                                       }
                                     }
                                   }),
+                                  _c("br"),
                                   _vm._v(" "),
                                   _c(
                                     "a",
                                     {
+                                      attrs: { href: "#" },
                                       on: {
                                         click: function($event) {
                                           _vm.deletechoice(index)
                                         }
                                       }
                                     },
-                                    [_vm._v("Delete")]
+                                    [
+                                      _c(
+                                        "b",
+                                        { staticStyle: { color: "red" } },
+                                        [_vm._v("Delete")]
+                                      )
+                                    ]
                                   )
                                 ])
                               }),
@@ -94734,13 +94890,20 @@ var render = function() {
                                   _c(
                                     "a",
                                     {
+                                      attrs: { href: "#" },
                                       on: {
                                         click: function($event) {
                                           _vm.deletechoice(index)
                                         }
                                       }
                                     },
-                                    [_vm._v("Delete")]
+                                    [
+                                      _c(
+                                        "b",
+                                        { staticStyle: { color: "red" } },
+                                        [_vm._v("Delete")]
+                                      )
+                                    ]
                                   )
                                 ])
                               }),
@@ -94827,7 +94990,7 @@ var render = function() {
                               expression: "crtest"
                             }
                           ],
-                          attrs: { type: "text" },
+                          attrs: { id: "test_name", type: "text" },
                           domProps: { value: _vm.crtest },
                           on: {
                             input: function($event) {
@@ -94841,7 +95004,11 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _c("button", [_vm._v("Create")])
+                    _c(
+                      "button",
+                      { staticClass: "btn btn-success create_btn" },
+                      [_vm._v(" Create")]
+                    )
                   ]
                 )
               ])
@@ -94862,7 +95029,9 @@ var render = function() {
                   },
                   [
                     _c("div", { staticClass: "form-group row ml-2" }, [
-                      _c("label", { attrs: { for: "test" } }, [_vm._v("Test")]),
+                      _c("label", { attrs: { for: "test" } }, [
+                        _vm._v("Test Name")
+                      ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-md-6" }, [
                         _c("input", {
@@ -94874,6 +95043,7 @@ var render = function() {
                               expression: 'quetest["test"]'
                             }
                           ],
+                          staticClass: "form-control",
                           attrs: { type: "text", disabled: "" },
                           domProps: { value: _vm.quetest["test"] },
                           on: {
@@ -94905,6 +95075,7 @@ var render = function() {
                                 expression: 'quetest["type"]'
                               }
                             ],
+                            staticClass: "form-control",
                             on: {
                               change: function($event) {
                                 var $$selectedVal = Array.prototype.filter
@@ -94957,6 +95128,7 @@ var render = function() {
                               expression: 'quetest["question"]'
                             }
                           ],
+                          staticClass: "form-control",
                           attrs: { type: "text", required: "", autofocus: "" },
                           domProps: { value: _vm.quetest["question"] },
                           on: {
@@ -94975,60 +95147,7 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "form-group row ml-2" }, [
-                      _c("label", { attrs: { for: "complexity" } }, [
-                        _vm._v("Complexity")
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-md-6" }, [
-                        _c(
-                          "select",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.quetest["complexity"],
-                                expression: 'quetest["complexity"]'
-                              }
-                            ],
-                            attrs: { id: "comp" },
-                            on: {
-                              change: function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.$set(
-                                  _vm.quetest,
-                                  "complexity",
-                                  $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
-                                )
-                              }
-                            }
-                          },
-                          [
-                            _c("option", { attrs: { value: "low" } }, [
-                              _vm._v("Low")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "medium" } }, [
-                              _vm._v("Medium")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "high" } }, [
-                              _vm._v("High")
-                            ])
-                          ]
-                        )
-                      ])
-                    ]),
+                    _vm._m(5),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group row ml-2" }, [
                       _c("label", { attrs: { for: "choices" } }),
@@ -95095,6 +95214,7 @@ var render = function() {
                                 }
                               }),
                               _c("br"),
+                              _c("br"),
                               _vm._v(" "),
                               _c("input", {
                                 directives: [
@@ -95148,6 +95268,8 @@ var render = function() {
                                   }
                                 }
                               }),
+                              _c("br"),
+                              _c("br"),
                               _vm._v(" "),
                               _vm._l(_vm.inputs, function(input, index) {
                                 return _c("div", [
@@ -95216,7 +95338,13 @@ var render = function() {
                                         }
                                       }
                                     },
-                                    [_vm._v("Delete")]
+                                    [
+                                      _c(
+                                        "b",
+                                        { staticStyle: { color: "red" } },
+                                        [_vm._v("Delete")]
+                                      )
+                                    ]
                                   )
                                 ])
                               }),
@@ -95224,6 +95352,7 @@ var render = function() {
                               _c(
                                 "a",
                                 {
+                                  attrs: { href: "#" },
                                   on: {
                                     click: function($event) {
                                       _vm.addchoices()
@@ -95310,6 +95439,7 @@ var render = function() {
                                 }
                               }),
                               _c("br"),
+                              _c("br"),
                               _vm._v(" "),
                               _c("input", {
                                 directives: [
@@ -95378,6 +95508,8 @@ var render = function() {
                                   }
                                 }
                               }),
+                              _c("br"),
+                              _c("br"),
                               _vm._v(" "),
                               _vm._l(_vm.inputs, function(input, index) {
                                 return _c("div", [
@@ -95458,13 +95590,20 @@ var render = function() {
                                   _c(
                                     "a",
                                     {
+                                      attrs: { href: "#" },
                                       on: {
                                         click: function($event) {
                                           _vm.deletechoice(index)
                                         }
                                       }
                                     },
-                                    [_vm._v("Delete")]
+                                    [
+                                      _c(
+                                        "b",
+                                        { staticStyle: { color: "red" } },
+                                        [_vm._v("Delete")]
+                                      )
+                                    ]
                                   )
                                 ])
                               }),
@@ -95472,6 +95611,7 @@ var render = function() {
                               _c(
                                 "a",
                                 {
+                                  attrs: { href: "#" },
                                   on: {
                                     click: function($event) {
                                       _vm.addchoices()
@@ -95487,8 +95627,6 @@ var render = function() {
                       _vm._v(" "),
                       _vm.quetest["type"] == "fub"
                         ? _c("div", { staticClass: "col-md-6" }, [
-                            _c("label", [_vm._v("Answer")]),
-                            _vm._v(" "),
                             _c("input", {
                               directives: [
                                 {
@@ -95498,6 +95636,7 @@ var render = function() {
                                   expression: "quetest.answer"
                                 }
                               ],
+                              staticClass: "form-control",
                               attrs: { type: "text" },
                               domProps: { value: _vm.quetest.answer },
                               on: {
@@ -95518,7 +95657,73 @@ var render = function() {
                         : _vm._e()
                     ]),
                     _vm._v(" "),
-                    _c("button", [_vm._v("Add question")])
+                    _c("div", { staticClass: "form-group row ml-2" }, [
+                      _c("label", { attrs: { for: "complexity" } }, [
+                        _vm._v("Complexity")
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-6" }, [
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.quetest["complexity"],
+                                expression: 'quetest["complexity"]'
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: { id: "comp" },
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.quetest,
+                                  "complexity",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
+                              }
+                            }
+                          },
+                          [
+                            _c("option", { attrs: { value: "low" } }, [
+                              _vm._v("Low")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "medium" } }, [
+                              _vm._v("Medium")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "high" } }, [
+                              _vm._v("High")
+                            ])
+                          ]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-success",
+                        staticStyle: {
+                          "margin-left": "12px",
+                          "margin-top": "15px"
+                        }
+                      },
+                      [_vm._v("Add question")]
+                    )
                   ]
                 )
               ])
@@ -95544,6 +95749,7 @@ var render = function() {
                     _c(
                       "button",
                       {
+                        staticClass: "btn btn-info distribute",
                         on: {
                           click: function($event) {
                             _vm.distributetest(test.id)
@@ -95556,6 +95762,7 @@ var render = function() {
                     _c(
                       "button",
                       {
+                        staticClass: "btn btn-danger delete",
                         on: {
                           click: function($event) {
                             _vm.deletetest(test.id)
@@ -95579,7 +95786,56 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "question" } }, [
+      _c("b", { staticStyle: { color: "black" } }, [_vm._v("Question")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "question" } }, [
+      _c("b", { staticStyle: { color: "black" } }, [_vm._v("Answer")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "question" } }, [
+      _c("b", { staticStyle: { color: "black" } }, [_vm._v("Answer")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "question" } }, [
+      _c("b", { staticStyle: { color: "black" } }, [_vm._v("Answer")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "question" } }, [
+      _c("b", { staticStyle: { color: "black" } }, [_vm._v("Answer")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group row ml-2" }, [
+      _c("label", { attrs: { for: "question" } }, [_vm._v("Answer")])
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -95590,7 +95846,7 @@ if (false) {
 }
 
 /***/ }),
-/* 407 */
+/* 411 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -95598,7 +95854,7 @@ var normalizeComponent = __webpack_require__(7)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(408)
+var __vue_template__ = __webpack_require__(412)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -95637,7 +95893,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 408 */
+/* 412 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -95819,19 +96075,19 @@ if (false) {
 }
 
 /***/ }),
-/* 409 */
+/* 413 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(410)
+  __webpack_require__(414)
 }
 var normalizeComponent = __webpack_require__(7)
 /* script */
-var __vue_script__ = __webpack_require__(412)
+var __vue_script__ = __webpack_require__(416)
 /* template */
-var __vue_template__ = __webpack_require__(413)
+var __vue_template__ = __webpack_require__(417)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -95870,13 +96126,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 410 */
+/* 414 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(411);
+var content = __webpack_require__(415);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -95896,7 +96152,7 @@ if(false) {
 }
 
 /***/ }),
-/* 411 */
+/* 415 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(8)(false);
@@ -95910,7 +96166,7 @@ exports.push([module.i, "\n.card-header[data-v-3328158a]{\n    cursor:pointer;\n
 
 
 /***/ }),
-/* 412 */
+/* 416 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -96069,7 +96325,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 });
 
 /***/ }),
-/* 413 */
+/* 417 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -96169,19 +96425,19 @@ if (false) {
 }
 
 /***/ }),
-/* 414 */
+/* 418 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(415)
+  __webpack_require__(419)
 }
 var normalizeComponent = __webpack_require__(7)
 /* script */
-var __vue_script__ = __webpack_require__(417)
+var __vue_script__ = __webpack_require__(421)
 /* template */
-var __vue_template__ = __webpack_require__(418)
+var __vue_template__ = __webpack_require__(422)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -96220,13 +96476,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 415 */
+/* 419 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(416);
+var content = __webpack_require__(420);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -96246,7 +96502,7 @@ if(false) {
 }
 
 /***/ }),
-/* 416 */
+/* 420 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(8)(false);
@@ -96260,7 +96516,7 @@ exports.push([module.i, "\n.card-header[data-v-48c5ebef]{\n    background:rgb(51
 
 
 /***/ }),
-/* 417 */
+/* 421 */
 /***/ (function(module, exports) {
 
 //
@@ -96283,7 +96539,7 @@ exports.push([module.i, "\n.card-header[data-v-48c5ebef]{\n    background:rgb(51
 //
 
 /***/ }),
-/* 418 */
+/* 422 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -96336,19 +96592,19 @@ if (false) {
 }
 
 /***/ }),
-/* 419 */
+/* 423 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(420)
+  __webpack_require__(424)
 }
 var normalizeComponent = __webpack_require__(7)
 /* script */
-var __vue_script__ = __webpack_require__(422)
+var __vue_script__ = __webpack_require__(426)
 /* template */
-var __vue_template__ = __webpack_require__(474)
+var __vue_template__ = __webpack_require__(478)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -96387,13 +96643,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 420 */
+/* 424 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(421);
+var content = __webpack_require__(425);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -96413,7 +96669,7 @@ if(false) {
 }
 
 /***/ }),
-/* 421 */
+/* 425 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(8)(false);
@@ -96427,12 +96683,12 @@ exports.push([module.i, "\n.quesblock[data-v-b30492f8]{\n    background: white;\
 
 
 /***/ }),
-/* 422 */
+/* 426 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__piechartComponent_js__ = __webpack_require__(423);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__piechartComponent_js__ = __webpack_require__(427);
 //
 //
 //
@@ -96689,11 +96945,11 @@ function shuffle(array) {
 });
 
 /***/ }),
-/* 423 */
+/* 427 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__ = __webpack_require__(424);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__ = __webpack_require__(428);
 function getRandomColor() {
   var letters = '0123456789ABCDEF';
   var color = '#';
@@ -96775,13 +97031,13 @@ function getRandomColor() {
 });
 
 /***/ }),
-/* 424 */
+/* 428 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export VueCharts */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_index_js__ = __webpack_require__(425);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__BaseCharts__ = __webpack_require__(426);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_index_js__ = __webpack_require__(429);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__BaseCharts__ = __webpack_require__(430);
 /* unused harmony reexport Bar */
 /* unused harmony reexport HorizontalBar */
 /* unused harmony reexport Doughnut */
@@ -96815,7 +97071,7 @@ var VueCharts = {
 
 
 /***/ }),
-/* 425 */
+/* 429 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -96915,7 +97171,7 @@ var reactiveProp = {
 });
 
 /***/ }),
-/* 426 */
+/* 430 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -96929,7 +97185,7 @@ var reactiveProp = {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return Radar; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return Bubble; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return Scatter; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_chart_js__ = __webpack_require__(427);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_chart_js__ = __webpack_require__(431);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_chart_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_chart_js__);
 
 function generateChart(chartId, chartType) {
@@ -97028,18 +97284,18 @@ var Scatter = generateChart('scatter-chart', 'scatter');
 });
 
 /***/ }),
-/* 427 */
+/* 431 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
  * @namespace Chart
  */
-var Chart = __webpack_require__(428)();
+var Chart = __webpack_require__(432)();
 
 Chart.helpers = __webpack_require__(3);
 
 // @todo dispatch these helpers into appropriated helpers/helpers.* file and write unit tests!
-__webpack_require__(432)(Chart);
+__webpack_require__(436)(Chart);
 
 Chart.defaults = __webpack_require__(5);
 Chart.Element = __webpack_require__(15);
@@ -97050,40 +97306,40 @@ Chart.platform = __webpack_require__(95);
 Chart.plugins = __webpack_require__(96);
 Chart.Ticks = __webpack_require__(32);
 
-__webpack_require__(443)(Chart);
-__webpack_require__(444)(Chart);
-__webpack_require__(445)(Chart);
-__webpack_require__(446)(Chart);
 __webpack_require__(447)(Chart);
 __webpack_require__(448)(Chart);
-
 __webpack_require__(449)(Chart);
 __webpack_require__(450)(Chart);
 __webpack_require__(451)(Chart);
 __webpack_require__(452)(Chart);
+
 __webpack_require__(453)(Chart);
 __webpack_require__(454)(Chart);
-
-// Controllers must be loaded after elements
-// See Chart.core.datasetController.dataElementType
+__webpack_require__(455)(Chart);
 __webpack_require__(456)(Chart);
 __webpack_require__(457)(Chart);
 __webpack_require__(458)(Chart);
-__webpack_require__(459)(Chart);
+
+// Controllers must be loaded after elements
+// See Chart.core.datasetController.dataElementType
 __webpack_require__(460)(Chart);
 __webpack_require__(461)(Chart);
 __webpack_require__(462)(Chart);
-
 __webpack_require__(463)(Chart);
 __webpack_require__(464)(Chart);
 __webpack_require__(465)(Chart);
 __webpack_require__(466)(Chart);
+
 __webpack_require__(467)(Chart);
 __webpack_require__(468)(Chart);
 __webpack_require__(469)(Chart);
+__webpack_require__(470)(Chart);
+__webpack_require__(471)(Chart);
+__webpack_require__(472)(Chart);
+__webpack_require__(473)(Chart);
 
 // Loading built-it plugins
-var plugins = __webpack_require__(470);
+var plugins = __webpack_require__(474);
 for (var k in plugins) {
 	if (plugins.hasOwnProperty(k)) {
 		Chart.plugins.register(plugins[k]);
@@ -97156,7 +97412,7 @@ Chart.layoutService = Chart.layouts;
 
 
 /***/ }),
-/* 428 */
+/* 432 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -97212,7 +97468,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 429 */
+/* 433 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -97469,7 +97725,7 @@ helpers.easingEffects = effects;
 
 
 /***/ }),
-/* 430 */
+/* 434 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -97690,7 +97946,7 @@ helpers.drawRoundedRectangle = function(ctx) {
 
 
 /***/ }),
-/* 431 */
+/* 435 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -97793,7 +98049,7 @@ module.exports = {
 
 
 /***/ }),
-/* 432 */
+/* 436 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -98411,10 +98667,10 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 433 */
+/* 437 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var conversions = __webpack_require__(434);
+var conversions = __webpack_require__(438);
 
 var convert = function() {
    return new Converter();
@@ -98508,7 +98764,7 @@ Converter.prototype.getValues = function(space) {
 module.exports = convert;
 
 /***/ }),
-/* 434 */
+/* 438 */
 /***/ (function(module, exports) {
 
 /* MIT license */
@@ -99212,11 +99468,11 @@ for (var key in cssKeywords) {
 
 
 /***/ }),
-/* 435 */
+/* 439 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* MIT license */
-var colorNames = __webpack_require__(436);
+var colorNames = __webpack_require__(440);
 
 module.exports = {
    getRgba: getRgba,
@@ -99439,7 +99695,7 @@ for (var name in colorNames) {
 
 
 /***/ }),
-/* 436 */
+/* 440 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99598,7 +99854,7 @@ module.exports = {
 
 
 /***/ }),
-/* 437 */
+/* 441 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99712,7 +99968,7 @@ module.exports = Element.extend({
 
 
 /***/ }),
-/* 438 */
+/* 442 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99810,7 +100066,7 @@ module.exports = Element.extend({
 
 
 /***/ }),
-/* 439 */
+/* 443 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99923,7 +100179,7 @@ module.exports = Element.extend({
 
 
 /***/ }),
-/* 440 */
+/* 444 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -100147,7 +100403,7 @@ module.exports = Element.extend({
 
 
 /***/ }),
-/* 441 */
+/* 445 */
 /***/ (function(module, exports) {
 
 /**
@@ -100168,7 +100424,7 @@ module.exports = {
 
 
 /***/ }),
-/* 442 */
+/* 446 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -100632,7 +100888,7 @@ helpers.removeEvent = removeEventListener;
 
 
 /***/ }),
-/* 443 */
+/* 447 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -100811,7 +101067,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 444 */
+/* 448 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -101765,7 +102021,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 445 */
+/* 449 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -102102,7 +102358,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 446 */
+/* 450 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -102155,7 +102411,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 447 */
+/* 451 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -103098,7 +103354,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 448 */
+/* 452 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -104053,7 +104309,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 449 */
+/* 453 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -104246,7 +104502,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 450 */
+/* 454 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -104386,7 +104642,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 451 */
+/* 455 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -104584,7 +104840,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 452 */
+/* 456 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -104938,7 +105194,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 453 */
+/* 457 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -105474,7 +105730,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 454 */
+/* 458 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -106264,7 +106520,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 455 */
+/* 459 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -106529,10 +106785,10 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 455;
+webpackContext.id = 459;
 
 /***/ }),
-/* 456 */
+/* 460 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -107043,7 +107299,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 457 */
+/* 461 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -107230,7 +107486,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 458 */
+/* 462 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -107536,7 +107792,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 459 */
+/* 463 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -107876,7 +108132,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 460 */
+/* 464 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -108105,7 +108361,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 461 */
+/* 465 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -108280,7 +108536,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 462 */
+/* 466 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -108329,7 +108585,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 463 */
+/* 467 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -108347,7 +108603,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 464 */
+/* 468 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -108364,7 +108620,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 465 */
+/* 469 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -108382,7 +108638,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 466 */
+/* 470 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -108400,7 +108656,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 467 */
+/* 471 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -108418,7 +108674,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 468 */
+/* 472 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -108436,7 +108692,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 469 */
+/* 473 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -108451,20 +108707,20 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 470 */
+/* 474 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = {};
-module.exports.filler = __webpack_require__(471);
-module.exports.legend = __webpack_require__(472);
-module.exports.title = __webpack_require__(473);
+module.exports.filler = __webpack_require__(475);
+module.exports.legend = __webpack_require__(476);
+module.exports.title = __webpack_require__(477);
 
 
 /***/ }),
-/* 471 */
+/* 475 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -108789,7 +109045,7 @@ module.exports = {
 
 
 /***/ }),
-/* 472 */
+/* 476 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -109372,7 +109628,7 @@ module.exports = {
 
 
 /***/ }),
-/* 473 */
+/* 477 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -109631,7 +109887,7 @@ module.exports = {
 
 
 /***/ }),
-/* 474 */
+/* 478 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -109980,19 +110236,19 @@ if (false) {
 }
 
 /***/ }),
-/* 475 */
+/* 479 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(476)
+  __webpack_require__(480)
 }
 var normalizeComponent = __webpack_require__(7)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(478)
+var __vue_template__ = __webpack_require__(482)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -110031,13 +110287,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 476 */
+/* 480 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(477);
+var content = __webpack_require__(481);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -110057,7 +110313,7 @@ if(false) {
 }
 
 /***/ }),
-/* 477 */
+/* 481 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(8)(false);
@@ -110071,7 +110327,7 @@ exports.push([module.i, "\n.container[data-v-21c555e5]{\n    background: white;\
 
 
 /***/ }),
-/* 478 */
+/* 482 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -110095,19 +110351,19 @@ if (false) {
 }
 
 /***/ }),
-/* 479 */
+/* 483 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(480)
+  __webpack_require__(484)
 }
 var normalizeComponent = __webpack_require__(7)
 /* script */
-var __vue_script__ = __webpack_require__(482)
+var __vue_script__ = __webpack_require__(486)
 /* template */
-var __vue_template__ = __webpack_require__(483)
+var __vue_template__ = __webpack_require__(487)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -110146,13 +110402,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 480 */
+/* 484 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(481);
+var content = __webpack_require__(485);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -110172,7 +110428,7 @@ if(false) {
 }
 
 /***/ }),
-/* 481 */
+/* 485 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(8)(false);
@@ -110186,7 +110442,7 @@ exports.push([module.i, "\n.btn-default[data-v-29b931ef]{\n    margin: 10px;\n  
 
 
 /***/ }),
-/* 482 */
+/* 486 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -110225,7 +110481,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 483 */
+/* 487 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -110292,19 +110548,19 @@ if (false) {
 }
 
 /***/ }),
-/* 484 */
+/* 488 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(485)
+  __webpack_require__(489)
 }
 var normalizeComponent = __webpack_require__(7)
 /* script */
-var __vue_script__ = __webpack_require__(487)
+var __vue_script__ = __webpack_require__(491)
 /* template */
-var __vue_template__ = __webpack_require__(488)
+var __vue_template__ = __webpack_require__(492)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -110343,13 +110599,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 485 */
+/* 489 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(486);
+var content = __webpack_require__(490);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -110369,7 +110625,7 @@ if(false) {
 }
 
 /***/ }),
-/* 486 */
+/* 490 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(8)(false);
@@ -110383,7 +110639,7 @@ exports.push([module.i, "\nnav[data-v-99fefef8]{\n    background: rgba(69, 181, 
 
 
 /***/ }),
-/* 487 */
+/* 491 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -110479,7 +110735,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 });
 
 /***/ }),
-/* 488 */
+/* 492 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -110759,15 +111015,15 @@ if (false) {
 }
 
 /***/ }),
-/* 489 */
+/* 493 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(7)
 /* script */
-var __vue_script__ = __webpack_require__(490)
+var __vue_script__ = __webpack_require__(494)
 /* template */
-var __vue_template__ = __webpack_require__(491)
+var __vue_template__ = __webpack_require__(495)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -110806,7 +111062,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 490 */
+/* 494 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -110850,7 +111106,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 491 */
+/* 495 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -110894,15 +111150,15 @@ if (false) {
 }
 
 /***/ }),
-/* 492 */
+/* 496 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(7)
 /* script */
-var __vue_script__ = __webpack_require__(493)
+var __vue_script__ = __webpack_require__(497)
 /* template */
-var __vue_template__ = __webpack_require__(494)
+var __vue_template__ = __webpack_require__(498)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -110941,7 +111197,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 493 */
+/* 497 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -110970,7 +111226,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 494 */
+/* 498 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -111000,7 +111256,7 @@ if (false) {
 }
 
 /***/ }),
-/* 495 */
+/* 499 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
