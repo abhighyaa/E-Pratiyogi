@@ -64,6 +64,7 @@ Route::prefix('courses')->group(function(){
     Route::get('branch/{id}/get/subjects','Coursecontroller@Fetch_subjects_by_Branch');
 });
 Route::prefix('admin')->group(function () {
+    
     Route::get('/dashboard','AdminController@index');
     Route::get('get/all/users','AdminController@FetchUsers');
     Route::get('get/all/teachers','AdminController@Fetch_all_teachers');
@@ -103,7 +104,13 @@ Route::prefix('student')->group(function () {
     Route::get('/get/myteachers','StudentController@getTeachers');
 });
 Route::get('/starttest/{id}','SubjectController@testQuestion');
+
+Route::get('open/ChangePassword/form','ChangePasswordController@open_change_password_form');
+Route::post('change/my/password','ChangePasswordController@change_password');
+
 Route::get('markasread',function(){
     \Auth::user()->notifications->markAsRead();
     return redirect()->back();
 })->name('markAsRead');
+
+Route::get('open/request/form','ChangeRoleController@open_request_form');

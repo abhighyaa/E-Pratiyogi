@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
+use Illuminate\Support\Facades\Hash;
 use App\Tag;
 use App\User;
 use App\role;
@@ -12,16 +14,16 @@ use App\Subject;
 
 class AdminController extends Controller
 {
-    public function __construct(){
+    public function __construct()
+    {
         $this->middleware('auth'); 
         $this->middleware('admin');
-      }
-        public function index()
-      {
-        return view('layouts.AdminPanel');
-      }
-
-      public function FetchUsers()
+    }
+    public function index()
+    {
+     return view('layouts.AdminPanel');
+    }
+    public function FetchUsers()
     {
       $users = User::whereHas('role', function($q) {
         $q->where('role_id','!=', 1);      

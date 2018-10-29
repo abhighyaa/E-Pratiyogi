@@ -63,6 +63,16 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+                                     @if( Auth::user()->role->first()->pivot->role_id == 1)
+                                         <a class="dropdown-item" href="/admin/dashboard">My Home</a>
+                                      @endif   
+                                    @if( Auth::user()->role->first()->pivot->role_id == 2)
+                                         <a class="dropdown-item" href="/teacher/home">My Home</a>
+                                      @endif   
+                                    @if( Auth::user()->role->first()->pivot->role_id == 3)
+                                         <a class="dropdown-item" href="/student/home">My Home</a>
+                                    @endif     
+                                   
                                 </div>
                             </li>
                         @endguest	

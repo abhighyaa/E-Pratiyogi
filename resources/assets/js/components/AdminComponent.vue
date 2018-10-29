@@ -1,14 +1,14 @@
 <template>
-      <div class=" adminSidePanel">
+      <div class=" adminSidePanel mt-4">
         <ul class="list-group" >
-           <li class="list-group-item"  @click="FetchUsers()"><i class="fa fa-users"></i>&ensp;&ensp;Users</li>  
-           <li class="list-group-item"  @click="FetchCourses()"><i class="fa fa-folder-open"></i>&ensp;&ensp;Courses</li>  
-           <li class="list-group-item"  @click="FetchBranches()"><i class="fa fa-folder"></i>&ensp;&ensp;Branches</li>  
-           <li class="list-group-item"  @click="FetchSubjects()"><i class="fa fa-tag"></i>&ensp;&ensp;Subjects</li>  
-           <li class="list-group-item questions" ><i class="fa fa-question-circle "></i>&ensp;&ensp;Questions</li>
-           <li class="list-group-item settings" ><i class="fa fa-cogs"></i>&ensp;&ensp;Settings</li>  
-           <li class="list-group-item results" ><i class="fa fa-trophy"></i>&ensp;&ensp;Results</li>
-           <li class="list-group-item notifications" ><i class="fa fa-bell"></i>&ensp;&ensp;Notifications</li>  
+           <li class="list-group-item"  @click="FetchUsers()"><i class="fa fa-users"></i>&ensp;&ensp;&ensp;Users</li>  
+           <li class="list-group-item"  @click="FetchCourses()"><i class="fa fa-folder-open"></i>&ensp;&ensp;&ensp;Courses</li>  
+           <li class="list-group-item"  @click="FetchBranches()"><i class="fa fa-folder"></i>&ensp;&ensp;&ensp;Branches</li>  
+           <li class="list-group-item"  @click="FetchSubjects()"><i class="fa fa-tag"></i>&ensp;&ensp;&ensp;Subjects</li>  
+           <li class="list-group-item" ><i class="fa fa-question-circle "></i>&ensp;&ensp;&ensp;Questions</li>
+           <li class="list-group-item"  @click="openSettings()" ><i class="fa fa-cogs"></i>&ensp;&ensp;&ensp;Settings</li>  
+           <li class="list-group-item results" ><i class="fa fa-trophy"></i>&ensp;&ensp;&ensp;Results</li>
+           <li class="list-group-item notifications" ><i class="fa fa-bell"></i>&ensp;&ensp;&ensp;Notifications</li>  
         </ul>
       </div>
 </template>
@@ -20,6 +20,7 @@ import { EventBus } from '../app.js';
          showDashboard : false,
          showSubjects : false,
          showCourses : false,
+         showModal : false,
          showUsers : false,
          showBranches : false,
          users:[],
@@ -112,6 +113,13 @@ import { EventBus } from '../app.js';
                       showBranchesKey:this.showBranches, 
                       showCoursesKey:this.showCourses
                    });
+    },
+    async openSettings()
+    {
+      this.showModal = true;
+      
+      EventBus.$emit('modal_events',{ showModalKey:this.showModal });
+
     }
   },
     mounted() {
@@ -122,23 +130,20 @@ import { EventBus } from '../app.js';
 
 <style>
 .adminSidePanel{
-  height: 100%;
-   width:100%;
+  height: auto;
+   width:auto;
 }
 .list-group{
   width:100%;
 }
 .list-group-item {
-    background:rgba(10,113,138);
+  background:linear-gradient(rgba(10,113,138),rgb(69, 181, 198));
     cursor: pointer;
     color: white;
     border:none;
     border-top: 1px solid rgba(255,255,255,0.5);
     border-bottom: 1px solid rgba(255,255,255,0.5);
 }
-.questions,.settings,.results,.notifications
-{
-  cursor: not-allowed;
-}
+
 
 </style>
