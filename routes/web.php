@@ -10,7 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+use App\Notifications\NewUserRegistration;
+use Illuminate\Notifications\Notification;
+use App\User;
 Auth::routes();
 
 Route::get('/', function () {
@@ -69,6 +71,16 @@ Route::prefix('admin')->group(function () {
     Route::get('get/all/roles','AdminController@Fetch_all_roles');
     Route::get('update/role/{id}/user/{name}','AdminController@update_role_of_user');
     Route::get('remove/user/{id}','AdminController@Remove_user');
+    Route::get('get/all/courses','AdminController@FetchCourses');
+    Route::get('update/{id}/course/{name}','AdminController@update_course');
+    Route::get('add/course/{name}','AdminController@add_course');
+    Route::get('get/all/branches','AdminController@Fetch_branches_with_course');
+    Route::get('get/all/subjects','AdminController@Fetch_subjects_with_course_branch');
+    Route::get('update/{id}/branch/{name}','AdminController@update_branch');
+    Route::get('add/branch/{branch}/to/{course}','AdminController@add_branch_to_course');
+    Route::get('fetch/branches/for/course/{course}','AdminController@fetch_branches_for_this_course');
+    Route::get('add/{subject}/{branch}/{course}','AdminController@add_subject');
+    Route::get('remove/subject/{id}','AdminController@remove_subject');
 });
 Route::prefix('teacher')->group(function () {
     Route::get('/home','TeacherController@index');
@@ -88,6 +100,10 @@ Route::prefix('teacher')->group(function () {
 });
 Route::prefix('student')->group(function () {   
     Route::get('/home', 'StudentController@index');
+    Route::get('/get/myteachers','StudentController@getTeachers');
 });
-
-
+Route::get('/starttest/{id}','SubjectController@testQuestion');
+Route::get('markasread',function(){
+    \Auth::user()->notifications->markAsRead();
+    return redirect()->back();
+})->name('markAsRead');

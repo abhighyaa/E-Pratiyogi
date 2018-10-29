@@ -18,7 +18,7 @@
         <div v-for="value in curques.choices" :key="value">
         <input type="radio"  v-bind:value="value" v-model="answer">&nbsp;{{ value }}
         </div>
-        <button class="submitButton btn btn-primary" @click='checkanswer'>submit</button>
+        <button class="submitButton btn btn-success" @click='checkanswer'>submit</button>
 
         </div>
 
@@ -132,6 +132,7 @@ function shuffle(array) {
         wrong:0,
         right:0,
         complexity:'',
+        question:'',
         marks:0,
         quizrunning:true,
         min:'',
@@ -146,13 +147,13 @@ function shuffle(array) {
         mounted() {
        this.startTimer(this.duration,this);
        this.curques= this.curr_ques;
-       this.curques= JSON.parse(this.curques);     
+       this.curques= this.curques;     
        this.complexity=this.curques.complexity;
       
        },
         methods:{
                startTimer:function(timer,obj) {
-                tim =    setInterval(function () {
+                tim = setInterval(function () {
                     obj.min = parseInt(timer / 60, 10)
                     obj.sec = parseInt(timer % 60, 10);
 

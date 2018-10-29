@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Notifications\NewUserRegistration;
+use Notification;
 
 class RegisterController extends Controller
 {
@@ -63,10 +65,35 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user =  User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+        $admin = User::whereHas('role', function($q) {
+            $q->where('role_id', 1);                 
+          })->with('role')->first();
+        
+          $title = "New Registration";
+          $body  = "A new account has been registered with the name <b>$user->name</b> and 
+                    following email address <b>$user->email</b>.";
+
+          $welcomeLetter = collect([
+            'title' => $title,
+            'body' =>  $body 
+         ]);
+
+          Notification::send($admin,new NewUserRegistration($welcomeLetter));
+
+          $title = 'Dear ';
+          $body = 'Thank you for your registration. You have sucsessfully registered. We have received your registration.
+                     For any query, feel free to contact.';
+            $welcomeLetter = collect([
+            'title' => $title,
+            'body' =>  $body 
+            ]);
+
+          Notification::send($user,new NewUserRegistration($welcomeLetter));
+        return $user;
     }
 }

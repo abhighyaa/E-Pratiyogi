@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-<meta charset="utf-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -32,8 +32,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" >
-
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css"> -->
     <style>
         html,body{
@@ -43,10 +41,74 @@
 </head>
 <body>
     <div id="app">
+      @include('partials.navbar')
+        <main class="py-4">
         
-        <div>
             @yield('content')
+            </div>
+            </div>
         </div>
+    </div>
+</div>
+            
+        </main>
     </div>
 </body>
 </html>
+
+<style scoped>
+html,body{
+    background:rgba(222, 222, 222,0.2);
+}
+div.notificationDetail{
+  /* border:solid; */
+  margin: 0 auto;
+  background: rgba(222,222,222,0.5);
+  padding: 2px 5px;
+}
+div.notificationTitle{
+  font-weight: bolder;
+  text-transform: capitalize;
+}
+div.notificationBody{
+ 
+  margin: 0 auto;
+  width:auto;
+  height:auto;
+}
+a.dropdown-item{
+  padding: 3px 5px;
+}
+.clearAllLink{
+    text-align:center;
+}
+.navbar{
+    padding-top:2px;
+    padding-bottom:0px;
+    background:linear-gradient(to left,rgba(10,113,138),rgb(69, 181, 198));
+    box-shadow: 0px 4px 10px rgba(5,5,5,0.2);
+}
+.nav-item{
+    font-size:16px;
+    margin-left:10px;
+}
+.nav-link{
+    color:rgba(244,244,244) !important;
+}
+.notificationPanel{
+    width: 400px !important;
+    height: max-content;
+}
+.noNotificationMsg{
+    text-align: center;
+    font-size: 18px;
+    font-family: inherit;
+    color: rgba(150,150,150);
+}
+.noNotificationMsg p{
+    margin:0;
+}
+.noNotificationMsg span{
+    color:rgba(200,200,200);
+}
+</style>
