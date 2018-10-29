@@ -82,6 +82,7 @@ Route::prefix('admin')->group(function () {
     Route::get('fetch/branches/for/course/{course}','AdminController@fetch_branches_for_this_course');
     Route::get('add/{subject}/{branch}/{course}','AdminController@add_subject');
     Route::get('remove/subject/{id}','AdminController@remove_subject');
+    Route::get('notification/{id}/{NID}','AdminController@getNotification')->name('notification');
 });
 Route::prefix('teacher')->group(function () {
     Route::get('/home','TeacherController@index');
@@ -102,6 +103,7 @@ Route::prefix('teacher')->group(function () {
 Route::prefix('student')->group(function () {   
     Route::get('/home', 'StudentController@index');
     Route::get('/get/myteachers','StudentController@getTeachers');
+    Route::post('/changerole','StudentController@RequestToChangeRole');
 });
 Route::get('/starttest/{id}','SubjectController@testQuestion');
 

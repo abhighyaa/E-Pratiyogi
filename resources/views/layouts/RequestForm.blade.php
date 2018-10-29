@@ -10,7 +10,7 @@
             <div class="card">
                 <div class="card-header">Request Form</div>
                 <div class="card-body">
-                    <form method="POST" action="">
+                    <form method="POST" action="/student/changerole">
                         @csrf
 
                         <div class="form-group row">
@@ -28,36 +28,67 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="Education" class="col-md-4 col-form-label text-md-right">Education</label>
+                            <label for="contact" class="col-md-4 col-form-label text-md-right">Contact</label>
                             <div class="col-md-6">
-                            <select name="role" id="department" class="form-control">
-							    <option value="">Select One</option>
-								<option>Science</option>
-							    <option>Commerce</option>
-							    <option>Arts</option>
-							    <option>Marketing</option>
-							    <option>Management</option>
+                                <input id="contact" type="text" class="form-control" name="contact" placeholder="Contact No" required value="">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="address" class="col-md-4 col-form-label text-md-right">Address</label>
+                            <div class="col-md-6">
+                                <input id="address" type="text" class="form-control" name="address" placeholder="Address" required value="">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="skill" class="col-md-4 col-form-label text-md-right">Skill</label>
+                            <div class="col-md-6">
+                            <select name="skill" id="skill" class="form-control">
+							    <option value="" disabled selected>Your Skill</option>
+								<option value="Science">Science</option>
+							    <option value="Commerce">Commerce</option>
+							    <option value="Arts">Arts</option>
+							    <option value="Marketing">Marketing</option>
+							    <option value="Management">Management</option>
 							</select>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="Designation" class="col-md-4 col-form-label text-md-right">Designation</label>
+                            <label for="qualification" class="col-md-4 col-form-label text-md-right">Qualification</label>
                             <div class="col-md-6">
-                            <select name="role" id="department" class="form-control">
-							    <option value="">Select One</option>
-								<option>Graduated</option>
-							    <option>Post Graduated</option>
-							    <option>Student</option>
+                            <select name="qualification" id="qualification" class="form-control">
+							    <option value="" disabled selected>Your Qualification</option>
+                                <option value="Secondary">Secondary</option>
+                                <option value="Sr.Secondary">Sr.Secondary</option>
+                                <option value="Diploma">Diploma</option>
+								<option value="Graduatin">Graduation</option>
+							    <option value="Post Graduation">Post Graduation</option>
+                                <option value="Phd">Phd</option>
 							</select>
                             </div>
                         </div>
 
-						<div class="form-group row">
-                            <label for="role" class="col-md-4 col-form-label text-md-right">Select Role</label>
+                        <div class="form-group row">
+                            <label for="year" class="col-md-4 col-form-label text-md-right">Passing Year</label>
                             <div class="col-md-6">
-                            <select name="role" id="department" class="form-control">
-							    <option value="">Select One</option>
+                                <input id="year" type="text" class="form-control" name="year" placeholder="Passing Year" required value="">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="percentage" class="col-md-4 col-form-label text-md-right">Percentage %</label>
+                            <div class="col-md-6">
+                                <input id="percentage" type="number" class="form-control" name="percentage" placeholder="Percentage" required value="">
+                            </div>
+                        </div>
+
+						<div class="form-group row">
+                            <label for="role" class="col-md-4 col-form-label text-md-right">Role</label>
+                            <div class="col-md-6">
+                            <select name="role" id="role" class="form-control">
+							    <option value="" disabled selected>Your Role</option>
 								    @foreach ($roles as $role)
 								    	@if($role->name == $role_of_user)
 								        <option disabled value="{{ $role->name }}">{{ $role->name }}</option>
@@ -68,14 +99,6 @@
 							</select>
                             </div>
                         </div>
-
-                        <div class="form-group row">
-                            <label for="year" class="col-md-4 col-form-label text-md-right">Passing Year</label>
-                            <div class="col-md-6">
-                                <input id="year" type="number" class="form-control" name="email">
-                            </div>
-                        </div>
-
 
                          <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">

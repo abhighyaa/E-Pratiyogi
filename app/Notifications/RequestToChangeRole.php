@@ -10,15 +10,16 @@ use Illuminate\Notifications\Messages\MailMessage;
 class RequestToChangeRole extends Notification
 {
     use Queueable;
+    private $RequestLetter;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($letter)
     {
-        //
+        $this->RequestLetter = $letter;
     }
 
     /**
@@ -41,7 +42,7 @@ class RequestToChangeRole extends Notification
   public function toDatabase($notifiable)
     {
         return [
-            //
+           'request' => $this->RequestLetter
         ];
     }
 

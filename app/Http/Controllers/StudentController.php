@@ -8,6 +8,8 @@ use App\Subject;
 use App\User;
 use App\Instruction;
 use Requests;
+use App\Notifications\RequestToChangeRole;
+use Notification;
 
 class StudentController extends Controller
 {
@@ -37,6 +39,42 @@ class StudentController extends Controller
             $q->where('role_id', 2);                 
           })->with('role')->get();
          return response()->json($teachers);
+    }
+    public function RequestToChangeRole(Request $request){
+
+        $username = $request->username;
+        $email = $request->email;
+        $contact = $request->contact;
+        $address = $request->address;
+        $skill = $request->skill;
+        $qualification = $request->qualification;
+        $year = $request->year;
+        $percentage = $request->percentage;
+        $role = $request->role;
+
+        $title = "Request To Change Role";
+        $body  = "Username <b>$request->username</b> with email <b>$request->email</b> has requested to change role.";
+        
+        $admin = User::whereHas('role', function($q){
+            $q->where('role_id', 1);                 
+          })->with('role')->first();
+
+        $RequestLetter = collect([
+          'title' => $title,
+          'body' =>  $body,
+          'username' =>  $username,
+          'email' =>  $email,
+          'contact' =>  $contact,
+          'address' =>  $address,
+          'skill' =>  $skill,
+          'qualification' =>  $qualification,
+          'year' =>  $year,
+          'percentage' =>  $percentage,
+          'role' =>  $role
+       ]);
+
+       Notification::send($admin,new RequestToChangeRole($RequestLetter));
+       return redirect('/student/home')->with('success','Request sent successfully !!');
     }
     /**
      * Show the form for creating a new resource.

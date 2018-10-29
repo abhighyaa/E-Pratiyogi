@@ -24,10 +24,22 @@
         <div class="dropdown-menu mt-3 dropdown-menu-right notificationPanel">
              @foreach(Auth::user()->unreadNotifications as $notification) 
                   <li class="dropdown-item">
+                  @if($notification->type  == 'App\Notifications\NewUserRegistration')
                     <div class="notificationDetail">
-                      <div class="notificationTitle">{{ $notification->data['resgistration']['title']}},</div>
-                      <div class="notificationBody">{!! $notification->data['resgistration']['body'] !!}</div>
+                        <div class="notificationTitle">{{ $notification->data['resgistration']['title']}},</div>
+                        <div class="notificationBody">{!! $notification->data['resgistration']['body'] !!}</div>
                     </div>
+                    @endif
+                  </li>
+              @endforeach
+              @foreach(Auth::user()->unreadNotifications as $notification) 
+                  <li class="dropdown-item">
+                    @if($notification->type  == 'App\Notifications\RequestToChangeRole')
+                      <div class="notificationDetail">
+                            <div class="notificationTitle"><a href="{{ route('notification', ['id' =>  $notification->notifiable_id,'NId'=>$notification->id ])}}">{{ $notification->data['request']['title']}}</a>,</div>
+                            <div class="notificationBody">{!! $notification->data['request']['body'] !!}</div>
+                        </div>
+                    @endif
                   </li>
               @endforeach
             @if(Auth::user()->unreadNotifications->count())
@@ -77,6 +89,12 @@
     
 
 @endsection
+<script>
+  function test(noti)
+  {
+    alert(noti);
+  }
+</script>
 <style scoped>
 div.notificationDetail{
   /* border:solid; */

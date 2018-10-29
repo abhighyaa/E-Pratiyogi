@@ -11,6 +11,7 @@ use App\role;
 use App\Course;
 use App\Branch;
 use App\Subject;
+use DB;
 
 class AdminController extends Controller
 {
@@ -18,6 +19,12 @@ class AdminController extends Controller
     {
         $this->middleware('auth'); 
         $this->middleware('admin');
+    }
+    public function getNotification($id, $NID){
+
+      $notification = DB::table('notifications')->where('id',$NID)->first();
+      $data = json_decode($notification->data);
+      return view('admin.ShowRoleRequest')->with(compact('data'));
     }
     public function index()
     {

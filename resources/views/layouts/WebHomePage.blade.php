@@ -52,11 +52,6 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
                                     @if( Auth::user()->role->first()->pivot->role_id !== 1)
                                          <a class="dropdown-item" href="{{ route('profile', ['id' =>  Auth::user()->id ])}}">Manage Profile</a>
                                     @endif
@@ -72,7 +67,11 @@
                                     @if( Auth::user()->role->first()->pivot->role_id == 3)
                                          <a class="dropdown-item" href="/student/home">My Home</a>
                                     @endif     
-                                   
+									<a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
                                 </div>
                             </li>
                         @endguest	
