@@ -5,8 +5,8 @@
                 <div class="profile">            
                     <div class="image"><i class="fa fa-user-circle-o fa-5x" aria-hidden="true"></i></div>
                     <div class="detail">
-                        <h1>Jhon Doe</h1>
-                        <span>jhondoe@gmail.com</span><br>
+                        <h1>Student</h1>
+                        <span>student@gmail.com</span><br>
                         <label>Student</label>
                     </div>
                 </div>

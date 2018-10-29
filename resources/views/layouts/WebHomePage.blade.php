@@ -184,20 +184,12 @@ professor and recruiter could get benefited by it.
 		<div class="footContentBox col-md-4">
 		<h3>Contact</h3>
 		   		<div class="row">
-				   <div class="col-md-6">
+				   <div class="col-md-12" style="text-align:center">
 						<address>
-						<span><b>Registered Office</b></span>
-							59, Ashok Nagar, Bhilwara,
-							Rajasthan, India
-							PIN - 311001
-						</address>
-				   </div>
-				   <div class="col-md-6">
-		   				<address>
-						   <span><b>Development Office</b></span>
-							67, East Extension, Subhash Nagar,
-							Bhilwara, Rajasthan, India
-							PIN - 311001
+							MLV Textile and Engineering College,<br/>
+							Pur Road, Bhilwara-Rajasthan (India).<br/>
+							PIN : 311001<br/>
+							EMail_id  : mlvti_jp1@sancharnet.in
 						</address>
 				   </div>
 				</div>		 
@@ -249,7 +241,7 @@ professor and recruiter could get benefited by it.
 		</div>
 		<div class="atLast justify-content-center">	   
 			<p class="text-center text-uppercase">
-			© 2009–2018 | READY BYTES SOFTWARE LABS PVT. LTD.</p>
+			© 1984–2018 | MLV TEXTILE AND ENGINEERING COLLEGE</p>
 	</div>
 	</div><!-- </footer> -->
 	

@@ -21,9 +21,9 @@
                 <div class="col-sm-8">
                     <div class="userDetail">
                         <label class="userDeatailLabel">Name</label><strong>:</strong>
-                        <p>Jhon Doe</p><br>
+                        <p>Student</p><br>
                         <label class="userDeatailLabel">Email</label><strong>:</strong>
-                        <p>jhondoe@gmail.com</p><br>
+                        <p>student@gmail.com</p><br>
                         <label class="userDeatailLabel">Passward</label><strong>:</strong>
                          <p><b>******</b></p><br>
                          <label class="userDeatailLabel">Role</label><strong>:</strong>

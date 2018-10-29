@@ -110044,9 +110044,9 @@ var staticRenderFns = [
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "detail" }, [
-              _c("h1", [_vm._v("Jhon Doe")]),
+              _c("h1", [_vm._v("Student")]),
               _vm._v(" "),
-              _c("span", [_vm._v("jhondoe@gmail.com")]),
+              _c("span", [_vm._v("student@gmail.com")]),
               _c("br"),
               _vm._v(" "),
               _c("label", [_vm._v("Student")])
@@ -110499,7 +110499,7 @@ var staticRenderFns = [
               ]),
               _c("strong", [_vm._v(":")]),
               _vm._v(" "),
-              _c("p", [_vm._v("Jhon Doe")]),
+              _c("p", [_vm._v("Student")]),
               _c("br"),
               _vm._v(" "),
               _c("label", { staticClass: "userDeatailLabel" }, [
@@ -110507,7 +110507,7 @@ var staticRenderFns = [
               ]),
               _c("strong", [_vm._v(":")]),
               _vm._v(" "),
-              _c("p", [_vm._v("jhondoe@gmail.com")]),
+              _c("p", [_vm._v("student@gmail.com")]),
               _c("br"),
               _vm._v(" "),
               _c("label", { staticClass: "userDeatailLabel" }, [
