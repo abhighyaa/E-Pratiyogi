@@ -96,3 +96,12 @@
                 </div>
             </div>
         </nav>
+        <style>
+            .notificationDetail
+            {
+                white-space: pre-line;
+  margin: 0 auto;
+  background: rgba(222,222,222,0.5);
+  padding: 2px 5px;
+            }
+        </style>

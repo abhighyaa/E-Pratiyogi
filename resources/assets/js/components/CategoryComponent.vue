@@ -8,8 +8,10 @@
                     <br><hr>
                   </li>
               </ul>
-              <a href="#" @click="createtest()">Create new test!</a>
-              <a href="#" @click="viewtest()">View all tests!</a>
+              <div class="row">
+                <div class="col-md-6"><button class="btn btn-primary" @click="createtest()">Create new test!</button><br></div>
+                <div class="col-md-6"><button class="btn btn-primary"  @click="viewtest()">View all tests!</button></div>
+             </div>
         </div>
     </div>  
 </template>
@@ -98,3 +100,11 @@ import { EventBus } from '../app.js';
         }
     }
 </script>
+<style>
+    .card-header{
+    cursor:pointer;
+    background:rgb(51, 158, 181);
+    color:white;
+    font-size:16px; 
+}
+</style>

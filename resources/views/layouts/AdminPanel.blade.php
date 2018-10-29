@@ -79,7 +79,7 @@
 @endsection
 <style scoped>
 div.notificationDetail{
-  /* border:solid; */
+  white-space: pre-line;
   margin: 0 auto;
   background: rgba(222,222,222,0.5);
   padding: 2px 5px;
@@ -166,6 +166,11 @@ button{
 }
 .noNotificationMsg span{
     color:rgba(200,200,200);
+}
+#navbarDropdown:hover
+{
+  color: white;
+  font-weight: bold;
 }
 </style>
 
