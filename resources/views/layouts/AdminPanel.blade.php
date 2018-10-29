@@ -2,9 +2,10 @@
 
 @section('content')
 
-	<div class="row pt-3 pl-5 pb-2" style="background-color:rgba(10,113,138);color: white; ">
-		<div class="col-sm-8">
-			<h3>E-Pratiyogi</h3>
+	<div class="row pt-3 pb-2" style="background:linear-gradient(to top right,rgba(10,113,138),rgb(69, 181, 198));
+;color: white; ">
+		<div class="col-sm-8 pl-4">
+			   <a href="/"><img src="/logo.png" class="img-responsive navbarLogo"></a>
 		</div>
     <div class="col-sm-2 text-right AdminPanel">
       <button class="btn"><i class="fa fa-user"></i>&ensp;Admin Panel</button>
@@ -16,7 +17,6 @@
             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                 {{ Auth::user()->name }} <span class="caret"></span>
             </a>
-
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="{{ route('logout') }}"
                    onclick="event.preventDefault();
@@ -29,20 +29,19 @@
             </div>
         </li>
       </ul>  
-        <!--logout end  -->
+      <!--logout end  -->
 		</div>
 	</div>
   <div class="row mt-0">
     <div class="col-md-2 graduation-icon-parent">
-        <p class="text-center mt-2 Graduate-icon">
+        <p class="text-center mt-4 Graduate-icon">
             <i class="fa fa-user-graduate fa-5x"></i>
         </p>
         <admin-component></admin-component>
     </div>  
     <div class="col-md-10">
-  
           <dashboard-component></dashboard-component>
-      </div>
+    </div>
   </div>    
     
 
@@ -54,7 +53,7 @@
 }
   .graduation-icon-parent 
   {
-    background-color:rgba(10,113,138);
+    background:linear-gradient(rgba(10,113,138),rgb(69, 181, 198));
     padding-right:0px !important;
   }
   .Graduate-icon 

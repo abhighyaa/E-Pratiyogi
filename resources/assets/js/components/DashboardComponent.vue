@@ -1,5 +1,6 @@
 <template>
-<div class="container" style="background:white;height:auto;min-height:100vh">
+<div style="background:white;">
+    <settings-component v-if="showModal" @close="showModal = false"></settings-component>
     <!-- first row for dashboard heading and search bar -->
     <div class="row mt-2 ml-3">
         <div class="col-sm-4">
@@ -293,20 +294,6 @@
           <h5>Questions</h5>
         </div>
       </div>
-      <div class="row mt-3 ml-4 ">
-        <div class="col-sm-2 grid-icon text-center ml-2 pt-3 pb-3 settings">
-          <i class="fa fa-cogs"></i>
-          <h5>Settings</h5>
-        </div>
-        <div class="col-sm-2 grid-icon text-center ml-2 pt-3 pb-3 results">
-          <i class="fa fa-trophy"></i>
-          <h5>Results</h5>
-        </div>
-        <div class="col-sm-2 grid-icon text-center ml-2 pt-3 pb-3 notifications">
-          <i class="fa fa-bell"></i>
-          <h5>Notifications</h5>
-        </div>
-       </div>
     </div>
   </div>  
 </template>
@@ -321,6 +308,7 @@ import { EventBus } from '../app.js';
         showDashboard:true,
         message:'',
         showUsers:false,
+        showModal:false,
         showSubjects:false,
         show_teacher_user:false,
         show_student_user:false,
@@ -641,6 +629,9 @@ import { EventBus } from '../app.js';
                 this.showUsers = data.showUsersKey; 
                 this.showCourses = data.showCoursesKey;  
                 this.showBranches = data.showBranchesKey;       
+            });
+        EventBus.$on('modal_events', data => {
+                this.showModal = data.showModalKey;       
             });
       console.log('dashboard component mounted');
     }

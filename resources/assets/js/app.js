@@ -49,6 +49,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 Vue.component('subject-component', require('./components/SubjectComponent.vue'));
 Vue.component('admin-component', require('./components/AdminComponent.vue'));
 Vue.component('dashboard-component', require('./components/DashboardComponent.vue'));
+Vue.component('settings-component',require('./components/SettingsComponent.vue'));
 
 Vue.component('modal-component', require('./components/ModalComponent.vue'));
 Vue.component('category-component', require('./components/CategoryComponent.vue'));
