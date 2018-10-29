@@ -30,7 +30,7 @@
 							        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							          Help
 							        </a>
-							        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 							          <a class="dropdown-item" href="#">FAQ</a>
 							          <a class="dropdown-item" href="#">Support</a>
 							        </div>
@@ -63,6 +63,16 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+                                     @if( Auth::user()->role->first()->pivot->role_id == 1)
+                                         <a class="dropdown-item" href="/admin/dashboard">My Home</a>
+                                      @endif   
+                                    @if( Auth::user()->role->first()->pivot->role_id == 2)
+                                         <a class="dropdown-item" href="/teacher/home">My Home</a>
+                                      @endif   
+                                    @if( Auth::user()->role->first()->pivot->role_id == 3)
+                                         <a class="dropdown-item" href="/student/home">My Home</a>
+                                    @endif     
+                                   
                                 </div>
                             </li>
                         @endguest	

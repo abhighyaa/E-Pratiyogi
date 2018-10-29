@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="col-sm-6">
-                <button class="btn btn-default">
+                <button class="btn btn-default" @click="OpenRequestForm()">
                     <i class="fa fa-cog"></i>
                     Change Role
                 </button>
@@ -23,6 +23,12 @@
 
 <script>
 export default {
+    methods: {
+    OpenRequestForm()
+    {
+        window.location.assign("/open/request/form");
+    }
+}
 
 }
 </script>

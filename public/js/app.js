@@ -91897,7 +91897,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: {
     redirect: function redirect() {
-      window.location.href = "http://localhost:8000/open/ChangePassword/form";
+      window.location.assign("http://localhost:8000/open/ChangePassword/form");
     },
     logout: function logout() {
       window.location.href = "/logout";
@@ -110215,7 +110215,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+    methods: {
+        OpenRequestForm: function OpenRequestForm() {
+            window.location.assign("/open/request/form");
+        }
+    }
+
+});
 
 /***/ }),
 /* 483 */
@@ -110225,40 +110232,51 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "col-sm-12" }, [
+    _c("div", { staticClass: "row" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-6" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-default",
+            on: {
+              click: function($event) {
+                _vm.OpenRequestForm()
+              }
+            }
+          },
+          [
+            _c("i", { staticClass: "fa fa-cog" }),
+            _vm._v("\n                Change Role\n            ")
+          ]
+        )
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-sm-12" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-sm-6" }, [
-          _c("div", { staticClass: "profile" }, [
-            _c("div", { staticClass: "image" }, [
-              _c("i", {
-                staticClass: "fa fa-user-circle-o fa-5x",
-                attrs: { "aria-hidden": "true" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "detail" }, [
-              _c("h1", [_vm._v("Jhon Doe")]),
-              _vm._v(" "),
-              _c("span", [_vm._v("jhondoe@gmail.com")]),
-              _c("br"),
-              _vm._v(" "),
-              _c("label", [_vm._v("Student")])
-            ])
-          ])
+    return _c("div", { staticClass: "col-sm-6" }, [
+      _c("div", { staticClass: "profile" }, [
+        _c("div", { staticClass: "image" }, [
+          _c("i", {
+            staticClass: "fa fa-user-circle-o fa-5x",
+            attrs: { "aria-hidden": "true" }
+          })
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-sm-6" }, [
-          _c("button", { staticClass: "btn btn-default" }, [
-            _c("i", { staticClass: "fa fa-cog" }),
-            _vm._v("\n                Change Role\n            ")
-          ])
+        _c("div", { staticClass: "detail" }, [
+          _c("h1", [_vm._v("Jhon Doe")]),
+          _vm._v(" "),
+          _c("span", [_vm._v("jhondoe@gmail.com")]),
+          _c("br"),
+          _vm._v(" "),
+          _c("label", [_vm._v("Student")])
         ])
       ])
     ])
