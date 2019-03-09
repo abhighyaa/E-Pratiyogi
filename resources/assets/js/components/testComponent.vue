@@ -24,22 +24,22 @@
 
     <div v-if="quizrunning == false">
 
-    <h1>YOUR PERCENT :-={{marks}}% </h1>
-    <h1 style="text-align:center;"> TEST REPORT:</h1>
+    <h1>YOUR PERCENT = <b style="color:green;">{{marks}}% </b></h1>
+    <h1 class="mt-3"> TEST REPORT:</h1>
     <piechart-component :value="questionsdata" :type="'marks'">
         
     </piechart-component>
    <h3 style="text-align:center;">TOPIC WISE MARKS DISTRIBUTION</h3> 
     
-    <piechart-component :value="questionsdata" :type="'rights'">
+    <piechart-component :value="questionsdata" :type="'rights'"></piechart-component>
         
-    </piechart-component>
    <h3 style="text-align:center;">TOPIC WISE RIGHT QUESTIONS</h3> 
+    
     
    <piechart-component :value="questionsdata" :type="'wrongs'">
         
     </piechart-component>
-   <h3 style="text-align:center;">TOPIC WISE RIGHT QUESTIONS</h3> 
+   <h3 style="text-align:center;">TOPIC WISE WRONG QUESTIONS</h3> 
  <hr>
     <h1 style="text-align:center;">DETAILED TEST REPORT:</h1>
      
@@ -72,24 +72,24 @@
  <div v-if="value.wrong.easy.length > 0">
  <h3>no of wrong in <strong>easy</strong>:- {{value.wrong.easy.length}}</h3><br/>
  <div v-for="(question,index) in value.wrong.easy" :key="index">
-    <h4>Q:- {{question.question}}</h4>
-    <h4>Ans:- {{question.answer}}</h4>
+    <h4><b style="color:black;">Q:-</b> {{question.question}}</h4>
+    <h4><b style="color:skyblue;">Ans:-</b> {{question.answer}}</h4>
   </div>
  </div>
 
  <div v-if="value.wrong.med.length > 0">
  <h3>no of wrong in <strong>med</strong>:- {{value.wrong.med.length}}</h3><br>
  <div v-for="(question,index) in value.wrong.med" :key="index">
-    <h4>Q:- {{question.question}}</h4>
-    <h4>Ans:- {{question.answer}}</h4>
+    <h4><b style="color:black;">Q:-</b>{{question.question}}</h4>
+    <h4><b style="color:skyblue;">Ans:-</b> {{question.answer}}</h4>
   </div>
  </div>
 
 <div v-if="value.wrong.hard.length > 0">
  <h3>no of wrong in <strong>hard</strong>:- {{value.wrong.hard.length}}</h3><br>
  <div v-for="(question,index) in value.wrong.hard" :key="index">
-    <h4>Q:- {{question.question}}</h4>
-    <h4>Ans:- {{question.answer}}</h4>
+    <h4><b style="color:black;">Q:-</b> {{question.question}}</h4>
+    <h4><b style="color:skyblue;">Ans:-</b> {{question.answer}}</h4>
   </div>
  </div>
 
@@ -185,7 +185,7 @@ function shuffle(array) {
                                                 };
                 }       
                 if(this.curques.answer == this.answer){
-                    alert('correct');
+                    // alert('correct');
                     if(this.complexity=='easy'){
                         this.questionsdata[topic]['right']["easy"].push(this.curques);
                         this.marks=this.marks+1;}
@@ -208,7 +208,7 @@ function shuffle(array) {
                     }
             }
                 else{
-                    alert('wrong');
+                    // alert('wrong');
                     if(this.complexity=='easy')
                         this.questionsdata[topic]['wrong']["easy"].push(this.curques); 
                     if(this.complexity=='medium')
@@ -264,6 +264,11 @@ function shuffle(array) {
     }
 </script>
 <style scoped>
+strong {
+        font-weight: bolder;
+    margin-left: 15px;
+    color: blue;
+}
 .quesblock{
     background: white;
     padding: 20px;
@@ -307,6 +312,19 @@ function shuffle(array) {
     padding: 0px 5px 0px 5px;
     border-radius: 14px;
     margin-right: 14px;
+}
+h3
+{
+    margin-left: 15px;
+}
+h1 {
+    margin-left: 15px;
+    color: grey;
+    font-size: 2.25rem;
+}
+h4 {
+    margin-left: 15px;
+    font-size: 1.35rem;
 }
 </style>
 

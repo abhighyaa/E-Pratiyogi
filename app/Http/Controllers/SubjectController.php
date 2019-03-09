@@ -119,6 +119,9 @@ class SubjectController extends Controller
         $cnte=0;
         $cntm=0;
         $cnth=0;
+        $easy=array();
+        $med=array();
+        $hard=array();
         //validations
         $subjects=Subject::findOrFail(1);
         $topics=$subjects->topics->all();

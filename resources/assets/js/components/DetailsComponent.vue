@@ -15,7 +15,7 @@
                     <button class="btn btn-primary" v-else @click="addque(subject,category)">Add questions</button>
                     <br><br>
                     <div v-if="questions.length">
-                        <div v-for="question in questions">
+                        <div v-for="question in questions" :key="question.index">
                             <div class="question"><b style="color:black;">Question : </b> {{question.question}} 
                                 <div class="float-right" v-if="addtest">
                                     <button class="btn btn-primary" @click="geteditque(question.id)">Edit</button>
@@ -27,10 +27,10 @@
                                 </div>
                             </div>
                             
-                            <div v-if="question.type=='mcq'" v-for="i in question.choices">
+                            <div v-if="question.type=='mcq'" v-for="i in question.choices" :key="i.index">
                                 <div class="choices"><input type="radio" :name="question.id" :checked="i==question.answer">&nbsp;&nbsp;{{i}}</div>
                             </div>
-                            <div v-if="question.type=='check'" v-for="i in question.choices">
+                            <div v-if="question.type=='check'" v-for="i in question.choices" :key="i.index">
                                 <div class="choices"><input type="checkbox" :name="question.id" v-model="checkanswer">&nbsp;&nbsp;{{i}}</div>
                             </div>
                             <div v-if="question.type=='fub'">
@@ -48,21 +48,20 @@
                                 <label for="question"><b style="color:black;">Question</b></label>
                                 <input type="text" v-model="equestion.question" autofocus class="form-control">
                         </div>
-                        <div class="form-group row ml-2" v-for="(i,index) in equestion.choices">
+                        <div class="form-group row ml-2" v-for="(i,index) in equestion.choices" :key="index">
                                 <label for="question"><b style="color:black;">Answer</b></label>  
-                            <input type="radio" name="answer" v
                             <input type="radio" name="answer" v-model="equestion.answer" :value="i" :checked="i==equestion.answer">&nbsp;&nbsp;
-                            <input type="text"  v-model="equestion.choices[index]" required class="form-control><br>
-                            <!--<p v-if="index>1"><a @click="editdeletechoice(index,equestion.choices,equestion.id)">Delete</a></p>-->
+                            <input type="text"  v-model="equestion.choices[index]" required class="form-control"><br>
+                  <!-- <p v-if="index>1"><a @click="editdeletechoice(index,equestion.choices,equestion.id)">Delete</a></p> -->
                         </div>
-                        <div v-if="equestion.type=='mcq'" v-for="(input, index) in inputs">
+                        <div v-if="equestion.type=='mcq'" v-for="(input, index) in inputs" :key="index">
                         <label for="question"><b style="color:black;">Answer</b></label>  
                             <input type="radio" name="answer" v-model="equestion.answer" v-bind:value='equestion["choice"+index+3]'>  
                             <input type="text" v-model='equestion["choice"+index+3]' required class="form-control">
                             <a @click="deletechoice(index)"><button class="btn btn-primary">Delete</button></a>
                         </div>
                         
-                        <div v-if="equestion.type=='check'" v-for="(input, index) in inputs">
+                        <div v-if="equestion.type=='check'" v-for="(input, index) in inputs" :key="index">
                          <label for="question"><b style="color:black;">Answer</b></label>  
                             <input type="checkbox" name="answer" v-model="equestion.answer" v-bind:value='equestion["choice"+index+3]'>  
                             <input type="text" v-model='equestion["choice"+index+3]' required class="form-control">
@@ -132,7 +131,7 @@
                                 <input type="radio" name="answer" v-model="add.answer" v-bind:value='add["choice1"]' checked><input type="text"  v-model='add["choice1"]' required class="form-control"><br>
                                 <input type="radio" name="answer" v-model="add.answer" v-bind:value='add["choice2"]'>
                                 <input type="text" v-model='add["choice2"]' required class="form-control"><br>
-                                <div v-for="(input, index) in inputs">
+                                <div v-for="(input, index) in inputs" :key="index">
                                     <input type="radio" name="answer" v-model="add.answer" v-bind:value='add["choice"+index+3]'>  
                                     <input type="text" v-model='add["choice"+index+3]' required class="form-control"><br>
                                     <a href="#" @click="deletechoice(index)"><b style="color:red;">Delete</b></a>
@@ -144,7 +143,7 @@
                                 <input type="checkbox"   v-model='checkanswer' v-bind:value='add["choice1"]'><input type="text"  v-model='add["choice1"]' required><br>
                                 <input type="checkbox"  v-model='checkanswer' v-bind:value='add["choice2"]'>
                                 <input type="text" v-model='add["choice2"]' required>
-                                <div v-for="(input, index) in inputs">
+                                <div v-for="(input, index) in inputs" :key="index">
                                     <input type="checkbox" v-model='checkanswer' v-bind:value='add["choice"+index+3]'>  
                                     <input type="text" v-model='add["choice"+index+3]' required>
                                     <a href="#" @click="deletechoice(index)"><b style="color:red;">Delete</b></a>
@@ -215,7 +214,7 @@
                                 <input type="text"  v-model='quetest["choice1"]' required><br><br>
                                 <input type="radio" name="answer" v-model="quetest.answer" v-bind:value='quetest["choice2"]'    >
                                 <input type="text" v-model='quetest["choice2"]' required><br><br>
-                                <div v-for="(input, index) in inputs">
+                                <div v-for="(input, index) in inputs" :key="index">
                                     <input type="radio" name="answer" v-model="quetest.answer" v-bind:value='quetest["choice"+index+3]'>  
                                     <input type="text" v-model='quetest["choice"+index+3]' required >
                                     <a @click="deletechoice(index)"><b style="color:red;">Delete</b></a>
@@ -227,7 +226,7 @@
                                 <input type="text"  v-model='quetest["choice1"]' required ><br><br>
                                 <input type="checkbox"  v-model='checkanswer' v-bind:value='quetest["choice2"]'>
                                 <input type="text" v-model='quetest["choice2"]' required><br><br>
-                                <div v-for="(input, index) in inputs">
+                                <div v-for="(input, index) in inputs" :key="index">
                                     <input type="checkbox" v-model='checkanswer' v-bind:value='quetest["choice"+index+3]'>  
                                     <input type="text" v-model='quetest["choice"+index+3]' required>
                                     <a href="#" @click="deletechoice(index)"><b style="color:red;">Delete</b></a>
@@ -255,7 +254,7 @@
                     </form>
                 </div>
 
-                <div v-if="viewtst" v-for="test in tests">
+                <div v-if="viewtst" v-for="test in tests" :key="test.index">
                     <a href="#" @click="testdetails(test.id)">{{test.test}}</a>
                     <p class="float-right">
                         <button class="btn btn-info distribute" @click="distributetest(test.id)">Distribute</button>
@@ -387,7 +386,7 @@
                 this.inputs=[];
                 alert(this.edittest)
                  if(this.edittest==true){
-                     alert('true')
+                    //  alert('true')
                      this.testdetails(this.testid)
                 }
                 else{
