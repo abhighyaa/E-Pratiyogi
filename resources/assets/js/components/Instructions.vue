@@ -21,17 +21,21 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import { mapState } from 'vuex';
+import { EventBus } from '../app.js';
 
 export default {
     computed:{
         ...mapGetters({
             instructions:'Instructions'
+        }),
+        ...mapState({
+            subjectId:state => state.subjectId
         })
     },
-    methods:{
+        methods:{
         startTest(){
-            var subjectId = this.$store.getters.Instructions[0].subject_id
-            window.location.assign('http://localhost:8000/starttest/'+subjectId);
+                       window.location.assign('http://localhost:8000/starttest/'+this.subjectId);
         }
     }
 }

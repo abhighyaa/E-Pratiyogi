@@ -13,5 +13,9 @@ export const mutations = {
     },
     Set_Teachers(state,response){
         state.teachers = response
+    },
+
+    Set_SubjectID(state, response){
+        state.subjectId = response.sujectId
     }
 }

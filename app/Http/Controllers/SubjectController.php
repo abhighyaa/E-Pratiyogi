@@ -115,7 +115,7 @@ class SubjectController extends Controller
         return response()->json($subjects);
         // return view('backend.library',compact('subjects'));
     }
-    public function testQuestion(Request $request){
+    public function testQuestion($id){
         $cnte=0;
         $cntm=0;
         $cnth=0;
@@ -123,20 +123,20 @@ class SubjectController extends Controller
         $med=array();
         $hard=array();
         //validations
-        $subjects=Subject::findOrFail(1);
-        $topics=$subjects->topics->all();
+        $subjects=Subject::findOrFail($id);
+        $topics=$subjects->categories->all();
         for($cnt=0;$cnt<sizeof($topics);$cnt++)
         {
           $crrtopic=$topics[$cnt];
-          $easytp=$crrtopic->questions->where('complexity','easy')->all();
+          $easytp=$crrtopic->questions->where('complexity','low')->where('type','mcq')->all();
           foreach($easytp as $value) {
             $easy[$cnte++]=$value;
           }
-          $medtp=$crrtopic->questions->where('complexity','medium')->all();
+          $medtp=$crrtopic->questions->where('complexity','medium')->where('type','mcq')->all();
           foreach($medtp as $value) {
             $med[$cntm++]=$value;
           }
-          $hardtp=$crrtopic->questions->where('complexity','hard')->all();
+          $hardtp=$crrtopic->questions->where('complexity','high')->where('type','mcq')->all();
           foreach($hardtp as $value) {
             $hard[$cnth++]=$value;
           }

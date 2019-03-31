@@ -45,10 +45,10 @@
      
     <div v-for="(value, key, index) in questionsdata" :key="index">
     <h2><strong>TOPIC NAME:-"{{ key }}"</strong></h2> <br>
-    <div v-if="value.right.easy.length + value.wrong.easy.length > 0">
-    <h3>No of questions in <strong>easy</strong>:- {{value.right.easy.length + value.wrong.easy.length }}</h3>
-    <h3>out of them no of rights :-{{value.right.easy.length}} (marks {{value.right.easy.length}})</h3>
-    <h3> and no of wrong :- {{value.wrong.easy.length}}</h3> 
+    <div v-if="value.right.low.length + value.wrong.low.length > 0">
+    <h3>No of questions in <strong>low</strong>:- {{value.right.low.length + value.wrong.low.length }}</h3>
+    <h3>out of them no of rights :-{{value.right.low.length}} (marks {{value.right.low.length}})</h3>
+    <h3> and no of wrong :- {{value.wrong.low.length}}</h3> 
  </div>
 
  <div v-if="value.right.med.length + value.wrong.med.length > 0">
@@ -57,10 +57,10 @@
  <h3>and no of wrong :- {{value.wrong.med.length}}</h3>
  </div>
 
- <div v-if="value.right.hard.length + value.wrong.hard.length > 0">
- <h3>No of questions in <strong>hard</strong>:- {{value.right.hard.length + value.wrong.hard.length }}</h3>
- <h3>out of them no of rights :-{{value.right.hard.length}}(marks {{value.right.hard.length*3}})</h3>
- <h3>and no of wrong :- {{value.wrong.hard.length}}</h3>
+ <div v-if="value.right.high.length + value.wrong.high.length > 0">
+ <h3>No of questions in <strong>high</strong>:- {{value.right.high.length + value.wrong.high.length }}</h3>
+ <h3>out of them no of rights :-{{value.right.high.length}}(marks {{value.right.high.length*3}})</h3>
+ <h3>and no of wrong :- {{value.wrong.high.length}}</h3>
  </div>
  
 </div>
@@ -68,10 +68,10 @@
 <h1>TOPIC AND COMPLEXITY WISE WRONG QUESTION ANSWERS</h1>
 
 <div v-for="(value, key, index) in questionsdata" :key="index">
- <h2 v-if="value.wrong.easy.length >0|| value.wrong.med.length >0|| value.wrong.hard.length >0"><strong>TOPIC NAME:-"{{ key }}"</strong></h2> <br>
- <div v-if="value.wrong.easy.length > 0">
- <h3>no of wrong in <strong>easy</strong>:- {{value.wrong.easy.length}}</h3><br/>
- <div v-for="(question,index) in value.wrong.easy" :key="index">
+ <h2 v-if="value.wrong.low.length >0|| value.wrong.med.length >0|| value.wrong.high.length >0"><strong>TOPIC NAME:-"{{ key }}"</strong></h2> <br>
+ <div v-if="value.wrong.low.length > 0">
+ <h3>no of wrong in <strong>low</strong>:- {{value.wrong.low.length}}</h3><br/>
+ <div v-for="(question,index) in value.wrong.low" :key="index">
     <h4><b style="color:black;">Q:-</b> {{question.question}}</h4>
     <h4><b style="color:skyblue;">Ans:-</b> {{question.answer}}</h4>
   </div>
@@ -85,9 +85,9 @@
   </div>
  </div>
 
-<div v-if="value.wrong.hard.length > 0">
- <h3>no of wrong in <strong>hard</strong>:- {{value.wrong.hard.length}}</h3><br>
- <div v-for="(question,index) in value.wrong.hard" :key="index">
+<div v-if="value.wrong.high.length > 0">
+ <h3>no of wrong in <strong>high</strong>:- {{value.wrong.high.length}}</h3><br>
+ <div v-for="(question,index) in value.wrong.high" :key="index">
     <h4><b style="color:black;">Q:-</b> {{question.question}}</h4>
     <h4><b style="color:skyblue;">Ans:-</b> {{question.answer}}</h4>
   </div>
@@ -121,7 +121,7 @@ function shuffle(array) {
   }
  
     export default {
-    props:['easy','med', 'hard', 'curr_ques'],
+    props:['low','med', 'high', 'curr_ques'],
     components:{
         'piechart-component':piechartComponent
     },
@@ -170,30 +170,32 @@ function shuffle(array) {
 
         checkanswer:function(){ 
                 clearInterval(tim);
-                var topic=this.curques.pivot.topic; 
+                console.log(this.curques);
+                console.log(this.curques.pivot);
+                var topic=this.curques.pivot.category; 
                 if(!this.questionsdata.hasOwnProperty(topic)){
                     this.questionsdata[topic]={'right':{
-                                                        "easy":[],
+                                                        "low":[],
                                                         "med":[],
-                                                        "hard":[]
+                                                        "high":[]
                                                         },
                                                 "wrong":{
-                                                    "easy":[],
+                                                    "low":[],
                                                     "med":[],
-                                                    "hard":[]
+                                                    "high":[]
                                                     }
                                                 };
                 }       
                 if(this.curques.answer == this.answer){
                     // alert('correct');
-                    if(this.complexity=='easy'){
-                        this.questionsdata[topic]['right']["easy"].push(this.curques);
+                    if(this.complexity=='low'){
+                        this.questionsdata[topic]['right']["low"].push(this.curques);
                         this.marks=this.marks+1;}
                     if(this.complexity=='medium'){
                         this.questionsdata[topic]['right']["med"].push(this.curques);
                         this.marks=this.marks+2;}
-                    if(this.complexity=='hard'){
-                        this.questionsdata[topic]['right']["hard"].push(this.curques);
+                    if(this.complexity=='high'){
+                        this.questionsdata[topic]['right']["high"].push(this.curques);
                         this.marks=this.marks+3;}
 
                     this.right++;
@@ -201,20 +203,20 @@ function shuffle(array) {
                     if(this.right>=1){
                         this.right=0;
                         this.wrong=0;
-                        if(this.complexity=='easy')
+                        if(this.complexity=='low')
                             this.complexity='medium';
                         else if(this.complexity=='medium')
-                            this.complexity='hard';
+                            this.complexity='high';
                     }
             }
                 else{
                     // alert('wrong');
-                    if(this.complexity=='easy')
-                        this.questionsdata[topic]['wrong']["easy"].push(this.curques); 
+                    if(this.complexity=='low')
+                        this.questionsdata[topic]['wrong']["low"].push(this.curques); 
                     if(this.complexity=='medium')
                         this.questionsdata[topic]['wrong']["med"].push(this.curques); 
-                    if(this.complexity=='hard')     
-                        this.questionsdata[topic]['wrong']["hard"].push(this.curques); 
+                    if(this.complexity=='high')     
+                        this.questionsdata[topic]['wrong']["high"].push(this.curques); 
                 
                     this.wrong++;
                     this.right=0;
@@ -222,16 +224,16 @@ function shuffle(array) {
                     this.right=0;
                     this.wrong=0;
                     if(this.complexity=='medium')
-                        this.complexity='easy';
-                    else if(this.complexity=='hard')
+                        this.complexity='low';
+                    else if(this.complexity=='high')
                         this.complexity='medium';
                 }
                 }
             if(this.noqs<10){
-            if(this.complexity=='easy'){
-            this.easy = shuffle(this.easy);
-            this.curques=this.easy[0];
-            this.easy.splice(0, 1);
+            if(this.complexity=='low'){
+            this.low = shuffle(this.low);
+            this.curques=this.low[0];
+            this.low.splice(0, 1);
             this.duration=30;
             }
             else if(this.complexity=='medium'){
@@ -240,10 +242,10 @@ function shuffle(array) {
             this.med.splice(0, 1);
             this.duration=60;
             }
-            else if(this.complexity=='hard'){
-            this.hard = shuffle(this.hard);
-            this.curques=this.hard[0];
-            this.hard.splice(0, 1);
+            else if(this.complexity=='high'){
+            this.high = shuffle(this.high);
+            this.curques=this.high[0];
+            this.high.splice(0, 1);
             this.duration=90;
             }
             this.progress=100;

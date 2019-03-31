@@ -20,9 +20,9 @@ class CreateBranchSubjectsTable extends Migration
             $table->integer('subject_id');
             $table->timestamps();
 
-            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
-            $table->foreign('branch_id')->references('id')->on('branches')->onDelete('cascade');
-            $table->foreign('subject_id')->references('id')->on('subjects')->onDelete('cascade');
+            // $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
+            // $table->foreign('branch_id')->references('id')->on('branches')->onDelete('cascade');
+            // $table->foreign('subject_id')->references('id')->on('subjects')->onDelete('cascade');
 
             $table->unique(['subject_id']);
         });

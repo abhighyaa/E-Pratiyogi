@@ -6,8 +6,8 @@
         <div class="col-md-6">
             <subject-container></subject-container>
         </div>
-        <div class="col-md-3">
+        <!-- <div class="col-md-3">
             <previous-attempt></previous-attempt>
-        </div>
+        </div> -->
     </div>
 </template>

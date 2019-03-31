@@ -18,7 +18,7 @@ class Topic extends Model
 
     public function questions()
     {
-        return $this->belongsToMany(Question::class)->withPivot('topic');
+        return $this->belongsToMany(Question::class)->withPivot('category');
     }
     public function subjects()
     {
