@@ -93,12 +93,22 @@ Route::prefix('teacher')->group(function () {
     Route::post('/saveedits','QuestionController@editquestion');
     Route::get('/delete/{q}','QuestionController@deletequestion');
     Route::get('/testdelete/{test}','TestController@deletetest');
+    Route::get('/testdistribute/{test}','TestController@distributetest');
     Route::get('/getsubcat/{sid}/{cid}','HomeController@getdetails');
     Route::post('/savequestion','QuestionController@savequestion');
     Route::post('/createtest','TestController@createtest');
     Route::get('/gettests','TestController@gettests');
     Route::get('/gettestdetails/{t}','TestController@gettestdetails');
     Route::post('/savequestiontotest','TestController@savequetotest');
+    // Route::get('/test/{test}',function()
+    // {
+    //    return view('teacher.userTestRegister');
+    // });
+    Route::post('/test/{test}','TestController@registerusers');
+    Route::get('/coding',function(){
+        return view('teacher.coding');
+    });
+    Route::get('/getoutput','TestController@getoutput');
 });
 Route::prefix('student')->group(function () {   
     Route::get('/home', 'StudentController@index');
