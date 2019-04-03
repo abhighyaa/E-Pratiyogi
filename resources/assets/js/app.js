@@ -66,7 +66,8 @@ Vue.component('test-component', require('./components/testComponent.vue'));
 Vue.component('student-profile', require('./components/StudentProfile.vue'));
 Vue.component('profile-header', require('./components/ProfileHeader.vue'));
 Vue.component('profile-feature', require('./components/ProfileFeature.vue'));
-
+Vue.component('teachertest-component', require('./components/teacherTestComponent.vue'));
+Vue.component('continuetest-component', require('./components/continueTestComponent.vue'));
 // Vue.component('piechart-component', require('./components/piechartComponent.vue'));
 
 

@@ -105,9 +105,7 @@ Route::prefix('teacher')->group(function () {
     //    return view('teacher.userTestRegister');
     // });
     Route::post('/test/{test}','TestController@registerusers');
-    Route::get('/coding',function(){
-        return view('teacher.coding');
-    });
+    Route::get('/coding/{id}/{idd}','TestController@code');
     Route::get('/getoutput','TestController@getoutput');
 });
 Route::prefix('student')->group(function () {   
@@ -126,3 +124,37 @@ Route::get('markasread',function(){
 })->name('markAsRead');
 
 Route::get('open/request/form','ChangeRoleController@open_request_form');
+
+Route::get('/teacher/test/{id}','TeacherTestController@infoform');
+
+Route::post('/infodetails','TeacherTestController@info');
+
+Route::view('/infodetails','infoform');
+
+Route::get('/teacher/continuetest/{id}','TeacherTestController@continuetest');
+
+// Route::view('/continuetestdetails','continuetest');
+
+
+//Route::get('/playtest','TeacherTestController@play');
+
+Route::post('/saveattempt','TeacherTestController@saveattempt');
+
+Route::post('/savetime','TeacherTestController@savetime');
+
+Route::post('/savest_at','TeacherTestController@savest_at');
+
+Route::post('/saveresults','TeacherTestController@saveresults');
+
+Route::post('/savesection','TeacherTestController@savesection');
+
+
+Route::post('/continuetestdetails','TeacherTestController@continuetestdetails');
+
+Route::post('/addquestionsmounted','TeacherTestController@savequestionss');
+
+Route::get('/results/{id}/{email}','TeacherTestController@results');
+
+Route::post('/savecoderesults','TeacherTestController@savecoderesults');
+
+Route::get('/result/{id}','TeacherTestController@display');

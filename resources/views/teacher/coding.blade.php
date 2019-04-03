@@ -61,6 +61,61 @@
 <!-- load ace language_tools extension -->
 <script src="../src/ext-language_tools.js"></script>
 <script>
+       var id =  {!! json_encode($id) !!};
+       var a_id={!! json_encode($idd) !!};
+       var minn = {!! json_encode($min) !!};
+       var secc = {!! json_encode($sec) !!};
+       var test = {!! json_encode($test_id) !!}; 
+       var timm,m,s;
+       var timer =Number(minn)*60+Number(secc);
+       startTimer();
+       function startTimer() {
+            timm = setInterval(function () {
+                m = parseInt(timer/ 60, 10);
+                s = parseInt(timer % 60, 10);
+                m= m < 10 ? "0" + m : m;
+                s = s < 10 ? "0" + s : s;
+                
+                $("#minp").html(m);
+                $("#secp").html(s);
+                if (--timer < 0) {
+                    answer();
+                clearInterval(timm);
+                // $(window).off("beforeunload");
+                // obj.checkanswer();
+                }
+                }, 1000);
+       }
+
+       function answer(){
+        compile();
+        var per=0;
+        if( $("#output").html() == 'Verdict : AC')
+            per = 100; 
+
+        if( $("#output").html() == 'Verdict : PA')
+            per =50;
+
+        $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+                });
+            $.ajax({
+                type : "post",
+                url : "/savecoderesults",         
+                data: {
+                per:per,
+                id:a_id,
+                test:test
+                },
+                success : function(response) {
+                    location.replace("/result/"+response);    
+                }
+            });
+
+       }       
+ 
     var buildDom = require("ace/lib/dom").buildDom;
     var editor = ace.edit();
     editor.setOptions({
@@ -91,7 +146,7 @@
         $.ajax({
             type: "GET",
             url: "/teacher/getoutput", 
-            data: {lang:lang,code:code,id:1},
+            data: {lang:lang,code:code,id:id},
             success: function(data) {
                $("#output").html(data);  
             }
@@ -133,6 +188,9 @@
     window.editor = editor;
 </script>
 
+<span id='minp'>{{$min}} </span> <span id='secp'>{{$sec}}</span>
+<button onclick="answer()">Submit test</button>
+<h1>Q:-{{$codee->question}}</h1>
 <label for="lang">Choose Language</label>
 
 <select class="form-control float-right" name="language"  id="language" >
@@ -147,3 +205,4 @@
 
 </body>
 </html>
+

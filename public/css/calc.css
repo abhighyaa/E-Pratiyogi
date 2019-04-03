@@ -1,0 +1,63 @@
+    @import url(https://fonts.googleapis.com/css?family=VT323);
+
+
+#calc-container {
+  width:600px;
+  background: linear-gradient(to bottom,#333,#222);
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+.row {
+  margin-left: 1px;
+  margin-right: 1px;
+  margin-bottom: 6px;
+}
+
+.col-xs-2 {
+  text-align: center;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+
+.btn-default {
+  width: 100%;
+  font-family:  "Menlo";
+  border-radius: 8px;
+  box-shadow: 1px 1px 1px black;
+}
+
+.btnn {
+  background: linear-gradient(to bottom,#333,#111);
+  color: gold;
+  border-width:1px;
+  border-color: #777;
+  
+  
+}
+.btnn:hover {
+    color: red;
+  }
+
+.format {
+  background: linear-gradient(to bottom,#b94646,#6f2a2a);
+}
+
+.num {
+  background: linear-gradient(to bottom,#999,#777);
+  color:  #111;
+}
+
+#display-row {
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+#display {
+  font-family: "VT323";
+  text-align: right;
+  padding-right: 6px;
+  background: linear-gradient(to bottom,#EEE,#888);
+  border-radius: 4px;
+}

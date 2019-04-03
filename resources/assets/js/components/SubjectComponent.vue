@@ -20,7 +20,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-
+import { EventBus } from '../app.js';
     export default {
         computed:{
             ...mapGetters({
@@ -32,8 +32,15 @@ import { mapGetters } from "vuex";
          },
          methods:{
              async TakeTest(sujectId){
-                this.$router.push('/instructions')
-                this.$store.dispatch('Set_Instructions',sujectId)
+                //  alert(sujectId);
+            //   EventBus.$emit('listenSubID',sujectId);
+          this.$store.dispatch('Set_SubjectID',{
+              sujectId:sujectId
+          })
+
+           this.$router.push('/instructions')
+              //  this.$store.dispatch('Set_Instructions',sujectId)
+           
              },
             async defaultsubjects(){
                 this.$store.dispatch('Set_Subjects')

@@ -6,6 +6,13 @@ export const actions = {
             .catch(function(error){console.log(error)})
             context.commit('Set_Instructions',data)
      },
+     async Set_SubjectID(context,payload){
+        var data
+        // await axios.get('http://localhost:8000/subjects/get/default')
+        //   .then((response)=>(data = response.data))
+        //   .catch(function(error){console.log(error)})
+          context.commit('Set_SubjectID',payload)
+    },
      async Set_Subjects(context){
          var data
          await axios.get('http://localhost:8000/subjects/get/default')

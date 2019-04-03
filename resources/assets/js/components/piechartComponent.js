@@ -31,7 +31,7 @@ export default {
      var marks=0;
      if(this.type=="marks" ){
       for (var val in this.value) {
-        marks = this.value[val].right.easy.length + this.value[val].right.med.length*2 +this.value[val].right.hard.length*3;
+        marks = this.value[val].right.low.length + this.value[val].right.med.length*2 +this.value[val].right.high.length*3;
         this.labels.push(val);
         this.marks.push(marks);
         this.color.push(getRandomColor());
@@ -44,7 +44,7 @@ export default {
       }
       if(this.type=="rights" ){
         for (var val in this.value) {
-          marks = this.value[val].right.easy.length + this.value[val].right.med.length +this.value[val].right.hard.length;
+          marks = this.value[val].right.low.length + this.value[val].right.med.length +this.value[val].right.high.length;
           this.labels.push(val);
           this.marks.push(marks);
           this.color.push(getRandomColor());
@@ -53,7 +53,7 @@ export default {
 
         if(this.type=="wrongs" ){
           for (var val in this.value) {
-            marks = this.value[val].wrong.easy.length + this.value[val].wrong.med.length +this.value[val].wrong.hard.length;
+            marks = this.value[val].wrong.low.length + this.value[val].wrong.med.length +this.value[val].wrong.high.length;
             this.labels.push(val);
             this.marks.push(marks);
             this.color.push(getRandomColor());

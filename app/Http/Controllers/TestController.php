@@ -7,6 +7,8 @@ use App\Test;
 use App\Student;
 use App\Question;
 use App\Coding;
+use App\Attempt;
+
 
 class TestController extends Controller
 {
@@ -111,7 +113,16 @@ class TestController extends Controller
         return response($url,200);
     }
 
-   
+    public function code($id,$idd)
+    {
+        $codee=Coding::findOrFail($id);
+        $test_id =$codee->tests->all()[0]->id;
+        $att = Attempt::findOrFail($idd);
+        $min = $att->min;
+        $sec = $att->sec;
+        $name = $att->email;
+        return view('teacher.coding',compact('id','codee','min','sec','idd','name','test_id'));
+    }
 
     public function getoutput(Request $request)
     {
