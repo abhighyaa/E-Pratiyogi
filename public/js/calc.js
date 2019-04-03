@@ -8,13 +8,16 @@ $('#calc').on('click',function(){
    $('#calc-container').slideToggle() 
 })
 
+
 $(window).on("unload", function(e) {
-    $('#testfinish').click();
+    $('#testfinishh').click();
    });
 
 $(window).bind('beforeunload', function(){
     return ' want to leave??';
 });
+
+
 function generatenoti(){
     notify = new Notification('STAY ON THE TEST PAGE ATTEMPT NO('+ ++attempt +' of 3)', {
         body: 'THIS IS THE WARNING MESSAGE!!!"',

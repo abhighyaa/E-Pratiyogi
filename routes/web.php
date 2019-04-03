@@ -155,6 +155,6 @@ Route::post('/addquestionsmounted','TeacherTestController@savequestionss');
 
 Route::get('/results/{id}/{email}','TeacherTestController@results');
 
-Route::post('/savecoderesults','TeacherTestController@savecoderesults');
+Route::post('/savecode','TeacherTestController@savecoderesults');
 
 Route::get('/result/{id}','TeacherTestController@display');

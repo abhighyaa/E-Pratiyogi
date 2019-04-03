@@ -117086,7 +117086,6 @@ var tim, arq;
                     clearInterval(tim);
                     clearInterval(arq);
                     $(window).off("beforeunload");
-                    obj.code = 0;
                     obj.checkanswer();
                 }
             }, 1000);
@@ -117200,6 +117199,8 @@ var tim, arq;
             }
 
             if (this.code == 1) {
+                $(window).off("unload");
+
                 this.per = this.marks / this.total * 100;
                 var idd;
                 $.ajaxSetup({
@@ -117241,6 +117242,59 @@ var tim, arq;
                 });
                 location.replace("/results/" + this.id + "/" + this.email);
             }
+        },
+        checkanswerr: function checkanswerr() {
+            this.marks = 0;
+            this.total = 0;
+            clearInterval(tim);
+            clearInterval(arq);
+
+            this.total = this.totalmarks();
+            for (var cnt = 0; cnt < this.questions.length; cnt++) {
+                if (this.questions[cnt].type == 'mcq') {
+                    if (this.questions[cnt].answer == this.attempt[cnt]) {
+                        if (this.questions[cnt].complexity == 'low') {
+                            this.marks += 1;
+                        } else if (this.questions[cnt].complexity == 'medium') {
+                            this.marks += 2;
+                        } else if (this.questions[cnt].complexity == 'high') {
+                            this.marks += 3;
+                        }
+                    }
+                } else if (this.questions[cnt].type == 'fub') {
+                    if (typeof this.attempt[cnt] === 'undefined') {
+                        continue;
+                    }
+                    if (this.questions[cnt].answer.toLowerCase() == this.attempt[cnt].toLowerCase()) {
+                        if (this.questions[cnt].complexity == 'low') {
+                            this.marks += 1;
+                        } else if (this.questions[cnt].complexity == 'medium') {
+                            this.marks += 2;
+                        } else if (this.questions[cnt].complexity == 'high') {
+                            this.marks += 3;
+                        }
+                    }
+                }
+            }
+
+            this.per = this.marks / this.total * 100;
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                type: "post",
+                url: "/saveresults",
+                data: {
+                    email: this.email,
+                    per: this.per,
+                    id: this.id
+                },
+                success: function success(response) {
+                    console.log(response);
+                }
+            });
         },
         changedanswer: function changedanswer(val) {
             this.attempt[this.qno] = this.answer;
@@ -117383,6 +117437,17 @@ var render = function() {
           )
         ])
       : _vm._e(),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "submitButton btn btn-success",
+        staticStyle: { display: "none" },
+        attrs: { id: "testfinishh" },
+        on: { click: _vm.checkanswerr }
+      },
+      [_vm._v("Submit Test")]
+    ),
     _vm._v(" "),
     _c("div", { staticClass: "timer" }, [
       _vm._v(_vm._s(_vm.min) + " min:" + _vm._s(_vm.sec) + " sec")

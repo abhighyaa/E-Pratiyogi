@@ -7,7 +7,7 @@
       <button class="submitButton btn btn-success" @click='checkanswer' id='testfinish'>Next Section</button>
 
 </div>
-
+      <button class="submitButton btn btn-success" @click='checkanswerr' id='testfinishh' style='display:none'>Submit Test</button>
        <div class="timer">{{min}} min:{{sec}} sec</div>
         
 <div class='quesblock'>
@@ -154,7 +154,6 @@
                     clearInterval(tim);
                     clearInterval(arq);
                   $(window).off("beforeunload");
-                  obj.code = 0;
                   obj.checkanswer();
                     }
                 }, 1000);
@@ -288,6 +287,8 @@
         }
        
             if(this.code == 1){
+            $(window).off("unload");
+            
                 this.per = (this.marks/this.total)*100;
                 var idd;
              $.ajaxSetup({
@@ -332,6 +333,69 @@
             });
             location.replace("/results/"+this.id+"/"+this.email);
             }
+     },
+     checkanswerr:function(){ 
+        this.marks=0;
+        this.total=0;
+        clearInterval(tim);
+        clearInterval(arq);
+ 
+        this.total=this.totalmarks();
+        for(var cnt=0;cnt<this.questions.length;cnt++){
+            if(this.questions[cnt].type == 'mcq'){
+                if(this.questions[cnt].answer == this.attempt[cnt]){
+                    if(this.questions[cnt].complexity == 'low'){
+                        this.marks+=1;
+                    }
+                    else if(this.questions[cnt].complexity == 'medium'){
+                        this.marks+=2;
+                    }
+                    else if(this.questions[cnt].complexity == 'high'){
+                        this.marks+=3;
+                    }
+                }
+              
+            }
+
+        else if(this.questions[cnt].type == 'fub'){
+             if(typeof this.attempt[cnt] === 'undefined') {
+                continue;
+            }
+             if(this.questions[cnt].answer.toLowerCase() == this.attempt[cnt].toLowerCase()){
+                    if(this.questions[cnt].complexity == 'low'){
+                        this.marks+=1;
+                    }
+                    else if(this.questions[cnt].complexity == 'medium'){
+                        this.marks+=2;
+                    }
+                    else if(this.questions[cnt].complexity == 'high'){
+                        this.marks+=3;
+                    }
+                }
+              
+            }
+            
+        }
+       
+            this.per = (this.marks/this.total)*100;
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+                });
+            $.ajax({
+                type : "post",
+                url : "/saveresults",         
+                data: {
+                email:this.email,
+                per:this.per,
+                id:this.id
+                },
+                success : function(response) {
+                    console.log(response);
+                }
+            });
+            
      },
        changedanswer:function(val){
             this.attempt[this.qno]=this.answer;

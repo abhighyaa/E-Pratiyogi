@@ -67,8 +67,65 @@
        var secc = {!! json_encode($sec) !!};
        var test = {!! json_encode($test_id) !!}; 
        var timm,m,s;
+       var attempt = 0;
+       var n1,n2,tim2;
+       var notify;
        var timer =Number(minn)*60+Number(secc);
        startTimer();
+
+
+
+$(window).on("unload", function(e) {
+    answer();
+   });
+
+// $(window).bind('beforeunload', function(){
+//     return ' want to leave??';
+// });
+
+
+
+function generatenoti(){
+    notify = new Notification('STAY ON THE TEST PAGE ATTEMPT NO('+ ++attempt +' of 3)', {
+        body: 'THIS IS THE WARNING MESSAGE!!!"',
+    });
+    console.log('notificaton generated');
+}
+
+
+$(window).blur(function(){
+    if(attempt < 3 ){
+        var d = new Date();
+        var n = d.getTime();
+        n1=n/1000;
+        n2=n1;
+        tim2 = setInterval(function () {
+            n2++;
+            if((n2-n1) == 2){
+                generatenoti();
+            }
+        }, 1000);
+
+    }
+    else{
+        // $(window).off("beforeunload");
+        answer();        
+    }
+  });
+  
+  $(window).focus(function(){
+    clearInterval(tim2);
+    if (n1+20 <= n2++) {
+    alert('20 seconds up test over');
+    answer();
+    }
+    });
+
+
+
+
+
+
        function startTimer() {
             timm = setInterval(function () {
                 m = parseInt(timer/ 60, 10);
@@ -89,12 +146,17 @@
 
        function answer(){
         compile();
+        $(window).off("unload");
+        // $(window).off("beforeunload");
+        
         var per=0;
         if( $("#output").html() == 'Verdict : AC')
             per = 100; 
 
         if( $("#output").html() == 'Verdict : PA')
             per =50;
+
+
 
         $.ajaxSetup({
                 headers: {
@@ -103,7 +165,7 @@
                 });
             $.ajax({
                 type : "post",
-                url : "/savecoderesults",         
+                url : "/savecode",         
                 data: {
                 per:per,
                 id:a_id,
