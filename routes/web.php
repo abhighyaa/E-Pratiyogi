@@ -93,12 +93,20 @@ Route::prefix('teacher')->group(function () {
     Route::post('/saveedits','QuestionController@editquestion');
     Route::get('/delete/{q}','QuestionController@deletequestion');
     Route::get('/testdelete/{test}','TestController@deletetest');
+    Route::get('/testdistribute/{test}','TestController@distributetest');
     Route::get('/getsubcat/{sid}/{cid}','HomeController@getdetails');
     Route::post('/savequestion','QuestionController@savequestion');
     Route::post('/createtest','TestController@createtest');
     Route::get('/gettests','TestController@gettests');
     Route::get('/gettestdetails/{t}','TestController@gettestdetails');
     Route::post('/savequestiontotest','TestController@savequetotest');
+    // Route::get('/test/{test}',function()
+    // {
+    //    return view('teacher.userTestRegister');
+    // });
+    Route::post('/test/{test}','TestController@registerusers');
+    Route::get('/coding/{id}/{idd}','TestController@code');
+    Route::get('/getoutput','TestController@getoutput');
 });
 Route::prefix('student')->group(function () {   
     Route::get('/home', 'StudentController@index');
@@ -117,15 +125,15 @@ Route::get('markasread',function(){
 
 Route::get('open/request/form','ChangeRoleController@open_request_form');
 
-Route::view('/playtest','infoform');
+Route::get('/teacher/test/{id}','TeacherTestController@infoform');
 
 Route::post('/infodetails','TeacherTestController@info');
 
 Route::view('/infodetails','infoform');
 
-Route::view('/continuetest','continuetest');
+Route::get('/teacher/continuetest/{id}','TeacherTestController@continuetest');
 
-Route::view('/continuetestdetails','continuetest');
+// Route::view('/continuetestdetails','continuetest');
 
 
 //Route::get('/playtest','TeacherTestController@play');
@@ -138,6 +146,7 @@ Route::post('/savest_at','TeacherTestController@savest_at');
 
 Route::post('/saveresults','TeacherTestController@saveresults');
 
+Route::post('/savesection','TeacherTestController@savesection');
 
 
 Route::post('/continuetestdetails','TeacherTestController@continuetestdetails');
@@ -145,3 +154,7 @@ Route::post('/continuetestdetails','TeacherTestController@continuetestdetails');
 Route::post('/addquestionsmounted','TeacherTestController@savequestionss');
 
 Route::get('/results/{id}/{email}','TeacherTestController@results');
+
+Route::post('/savecoderesults','TeacherTestController@savecoderesults');
+
+Route::get('/result/{id}','TeacherTestController@display');

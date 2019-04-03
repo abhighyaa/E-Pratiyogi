@@ -14,9 +14,11 @@
     @if(Session::has('message'))
     <p id='msg' class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
     @endif
-  <h2>Submit your information</h2>
+<h2>Submit your information</h2>
+
   <form method="POST" action="/continuetestdetails" target="print_popup"  onsubmit="location.reload();window.open('about:blank','print_popup','resizable=0,toolbar=no,scrollbars=no,menubar=0,status=no,directories=no,width='+screen.availWidth+',height='+screen.availHeight);">
     @csrf
+    <input type='hidden' value="{{$id}}" name='id'> 
     <div class="form-group">
       <label for="email">Email:</label>
       <input type="email" class="form-control"  id="email" placeholder="Enter email" name="email" required>

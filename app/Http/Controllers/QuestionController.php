@@ -33,8 +33,8 @@ class QuestionController extends Controller
         public function getquestions(Category $cat,Subject $sub)
         {
             $questions=array();
-            // dd($cat);
             $que=$sub->questions()->get();
+            
             foreach($que as $q){
                 if($q->categories()->where('id',$cat->id)->exists()&&$q->users()->where('id',auth()->user()->id)->exists()){
                     $q->choices=json_decode($q->choices);

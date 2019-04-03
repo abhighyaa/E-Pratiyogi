@@ -39,7 +39,45 @@
                             <hr>
                         </div>
                     </div>
-                    <div v-else><b>No Questions yet</b></div>
+                    
+                    <div v-if="codings.length">
+                        <br>Coding Questions<br><br>
+                        <div v-for="coding in codings" :key="coding.index">
+                            <div class="question"><b style="color:black;">Question : </b> {{coding.question}}
+                                <!--<div class="float-right" v-if="addtest">
+                                    <button class="btn btn-primary" @click="geteditcoding(coding.id)">Edit</button>
+                                    <button class="btn btn-danger" @click="deletecodingtest(coding.id)">Delete</button>
+                                </div>
+                                <div class="float-right" v-else>
+                                    <button class="btn btn-primary" @click="geteditcoding(coding.id)">Edit</button>
+                                    <button class="btn btn-danger" @click="deletecoding(coding.id)">Delete</button>
+                                </div>-->
+                            </div>
+                            <div>
+                                <table>
+                                    <tr>
+                                        <th>Test cases</th>
+                                        <th>Output</th>
+                                    </tr>
+                                    <tr>
+                                        <td>{{coding.tc1}}</td>
+                                        <td>{{coding.op1}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{coding.tc2}}</td>
+                                        <td>{{coding.op2}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{coding.tc3}}</td>
+                                        <td>{{coding.op3}}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                    
+                    <div v-if="!questions.length && !codings.length"><b>No Questions yet</b></div>
                 </div>
 
                 <div v-if="editquestion">
@@ -189,8 +227,8 @@
                             <div class="col-md-6">
                                 <select v-model='quetest["type"]' class="form-control">
                                     <option value="mcq" >mcq</option>
-                                    <option value="check">check box</option>
                                     <option value="fub">Fill in the blanks</option>
+                                    <option value="coding">coding</option>
                                 </select>
                                 <!--<input type="text" v-model='add["type"]' required autofocus>-->
                             </div>
@@ -209,6 +247,20 @@
                         
                         <div class="form-group row ml-2">
                             <label for="choices"></label>
+                            <div class="col-md-6" v-if='quetest["type"]=="coding"'>
+                                Test Case 1:
+                                <textarea v-model='quetest["tc1"]' required></textarea><br>
+                                Output 1:&nbsp;&nbsp;&nbsp;&nbsp;
+                                <textarea v-model='quetest["op1"]' required></textarea><hr>
+                                Test Case 2:
+                                <textarea v-model='quetest["tc2"]' required></textarea><br>      
+                                Output 2:&nbsp;&nbsp;&nbsp;&nbsp;
+                                <textarea v-model='quetest["op2"]' required></textarea><hr>                
+                                Test Case 3:
+                                <textarea v-model='quetest["tc3"]' required></textarea><br>
+                                Output 3:&nbsp;&nbsp;&nbsp;&nbsp;
+                                <textarea v-model='quetest["op3"]' required></textarea><hr>
+                            </div>
                             <div class="col-md-6" v-if='quetest["type"]=="mcq"'>
                                 <input type="radio" name="answer" v-model="quetest.answer" v-bind:value='quetest["choice1"]' checked >
                                 <input type="text"  v-model='quetest["choice1"]' required><br><br>
@@ -280,6 +332,7 @@
                 sub:'',
                 cat:'',
                 questions:[],
+                codings:[],
                 equestion:[],
                 add:[],
                 question:'',
@@ -370,6 +423,19 @@
                 this.addquetotest=false;
                 this.addtest=false;
             },
+            async geteditcoding(qid){
+                await axios.get('/teacher/editcoding/'+qid)
+                .then((response)=>(this.equestion = response.data))
+                .catch(function(error){console.log(error)});
+                this.showcategories=false;
+                this.editquestion=true;
+                this.showquestions=false;
+                this.addquestion=false;
+                this.createtst=false;
+                this.viewtst=false;
+                this.addquetotest=false;
+                this.addtest=false;
+            },
             async editque(){
                 for(var index=0;index<this.inputs.length;index++){
                     this.equestion.choices.push(this.equestion['choice'+index+3]);
@@ -411,6 +477,21 @@
             async deletetest(tid){
                 await axios.get('/teacher/testdelete/'+tid)
                 .then((response)=>(alert('Deleted')))
+                .catch(function(error){console.log(error)});
+                
+                this.showcategories=false;
+                this.addtest=false;
+                this.editquestion=false;
+                this.showquestions=false;
+                this.addquestion=false;
+                this.createtst=false;
+                this.viewtst=true;
+                this.addquetotest=false;
+                EventBus.$emit('View');
+            },
+            async distributetest(tid){
+                await axios.get('/teacher/testdistribute/'+tid)
+                .then((response)=>(alert('Your test URL is : '+ JSON.stringify(response.data))))
                 .catch(function(error){console.log(error)});
                 
                 this.showcategories=false;
@@ -474,6 +555,7 @@
                     .then((response)=>(alert('Question added')),
                     this.showque(this.category,this.subject))
                     .catch(function(error){console.log(error)});
+            
                 }
                 else if(this.add["type"]=="check"){
                     this.choices.push(this.add.choice1);
@@ -491,7 +573,7 @@
                         category:this.add.cat,
                         choices:this.choices
                     })
-                    .then((response)=>(alert('Question added')),
+                   .then((response)=>(alert('Question added')),
                     this.showque(this.category,this.subject))
                     .catch(function(error){console.log(error)});
                 }
@@ -506,7 +588,7 @@
                         category:this.add.cat,
                         choices:this.choices
                     })
-                    .then((response)=>(alert('Question added')),
+                   .then((response)=>(alert('Question added')),
                     this.showque(this.category,this.subject))
                     .catch(function(error){console.log(error)});
                 }
@@ -520,7 +602,7 @@
                 this.inputs=[];
                 this.answers=[];
                 this.type='';
-            },
+            },                
             async addchoices() {
                 this.inputs.push({
                     one: '',
@@ -566,6 +648,7 @@
             async testdetails(tid){
                 await axios.get('/teacher/gettestdetails/'+tid)
                 .then((response)=>(this.questions=response.data[0],
+                this.codings=response.data[2],
                 this.testname=response.data[1]))
                 .catch(function(error){console.log(error)});
                 this.showcategories=false;
@@ -586,6 +669,7 @@
                     for(var index=0;index<this.inputs.length;index++){
                         this.choices.push(this.quetest['choice'+index+3]);
                     }
+                    // console.log(this.quetest.type);
                     await axios.post('/teacher/savequestiontotest', {
                         question:this.quetest.question,
                         answer:this.quetest.answer,
@@ -598,20 +682,18 @@
                     .catch(function(error){console.log(error)});
                     this.testdetails(this.testid)
                 }
-                else if(this.quetest["type"]=="check"){
-                    this.choices.push(this.quetest.choice1);
-                    this.choices.push(this.quetest['choice2'])  ;
-                
-                    for(var index=0;index<this.inputs.length;index++){
-                        this.choices.push(this.quetest['choice'+index+3]);
-                    }
+                else if(this.quetest["type"]=="coding"){
                     await axios.post('/teacher/savequestiontotest', {
                         question:this.quetest.question,
                         type:this.quetest.type,   
-                        answer:this.quetest.answer,
+                        tc1:this.quetest.tc1,
+                        op1:this.quetest.op1,
+                        tc2:this.quetest.tc2,
+                        op2:this.quetest.op2,
+                        tc3:this.quetest.tc3,
+                        op3:this.quetest.op3,
                         test:this.quetest.test,
-                        complexity:this.quetest.complexity,
-                        choices:this.choices
+                        complexity:this.quetest.complexity
                     })
                     .then((response)=>(alert('Question added to test')))
                     .catch(function(error){console.log(error)});
@@ -636,6 +718,12 @@
                 this.quetest.test='';
                 this.quetest.choice1='';
                 this.quetest.choice2='';
+                this.quetest.tc1='';
+                this.quetest.tc2='';
+                this.quetest.tc3='';
+                this.quetest.op1='';
+                this.quetest.op2='';
+                this.quetest.op3='';
                 this.choices=[];
                 this.inputs=[];
                 this.answers=[];
@@ -674,4 +762,13 @@
 {
     margin-left: 49px;
 }
+table {
+    
+    border-collapse: collapse;
+}
+
+td {
+    border: none;
+}
+
 </style>

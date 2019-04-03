@@ -1,7 +1,10 @@
 <template>
 <div>
-<div>
+<div v-if='code == 0'>
       <button class="submitButton btn btn-success" @click='checkanswer' id='testfinish'>Submit Test</button>
+</div>
+<div v-if='code == 1'>
+      <button class="submitButton btn btn-success" @click='checkanswer' id='testfinish'>Next Section</button>
 
 </div>
 
@@ -65,7 +68,7 @@
  var tim,arq;
     export default {
     name:"teachertest-component",
-    props:['test','questions','email'],
+    props:['test','questions','email','code','code_id'],
     data(){
          return{
     curques:'',
@@ -151,6 +154,7 @@
                     clearInterval(tim);
                     clearInterval(arq);
                   $(window).off("beforeunload");
+                  obj.code = 0;
                   obj.checkanswer();
                     }
                 }, 1000);
@@ -282,6 +286,32 @@
             }
             
         }
+       
+            if(this.code == 1){
+                this.per = (this.marks/this.total)*100;
+                var idd;
+             $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+                });
+            $.ajax({
+                type : "post",
+                url : "/savesection",         
+                data: {
+                email:this.email,
+                per:this.per,
+                id:this.id,
+                code:this.code_id
+                },
+                success : function(response) {
+                        location.replace("/teacher/coding/"+response[0]+'/'+response[1]);    
+     
+                }
+            });
+          
+            }
+            else{
             this.per = (this.marks/this.total)*100;
             $.ajaxSetup({
                 headers: {
@@ -301,7 +331,8 @@
                 }
             });
             location.replace("/results/"+this.id+"/"+this.email);
-       },
+            }
+     },
        changedanswer:function(val){
             this.attempt[this.qno]=this.answer;
             if(this.status[this.qno]==2 || this.status[this.qno]==3)

@@ -64,7 +64,7 @@
   </div>
 
 
-<teachertest-component  :test="{{ json_encode($test) }}"  :questions="{{ json_encode($ques) }}" :email="{{ json_encode($email) }}">
+<teachertest-component  :test="{{ json_encode($test) }}"  :questions="{{ json_encode($ques) }}" :email="{{ json_encode($email) }}" :code="{{ json_encode($code) }} " :code_id="{{ json_encode($code_id) }}">
 
   </teachertest-component>
 

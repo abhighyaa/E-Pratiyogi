@@ -10,18 +10,18 @@ use Session;
 
 class TeacherTestController extends Controller
 {
-    // public function play(){
-    //     $test=Test::findOrFail(1);
-    //     $questions = $test->questions;
-    //     $ques=[]; 
-    //     $cntr = 0;
-    //     foreach($questions as $question) {
-    //         $ques[$cntr++]=$question;
-    //       }
-    //       shuffle($ques);
-    //     return view('teachertest',compact('test','ques')); 
+    public function infoform($id){
+        
+        return view('infoform',compact('id')); 
  
-    // }
+    }
+
+    
+    public function continuetest($id){
+        
+        return view('continuetest',compact('id')); 
+ 
+    }
 
     public function info(Request $request){
         
@@ -41,18 +41,24 @@ class TeacherTestController extends Controller
             'securityques' => $request->securityques,
             'securityanswer' => $request->securityanswer]
                     );
-        $test=Test::findOrFail(1);  // replace
+        $test=Test::findOrFail($request->id);
         $test->attempts()->attach($a);
         $email = $request->email;
         $questions = $test->questions;
         $ques=[]; 
         $cntr = 0;
+        $code=0;
+        $code_id=0;
+        if(sizeof($test->codings)>0){
+            $code = 1;
+            $code_id = $test->codings->all()[0]->id;
+        }
         foreach($questions as $question) {
             $ques[$cntr++]=$question;
           }
           shuffle($ques);
 
-        return view('teachertest',compact('test','ques','email')); 
+        return view('teachertest',compact('test','ques','email','code','code_id')); 
     }
 
 
@@ -119,13 +125,14 @@ class TeacherTestController extends Controller
 
  
     public function continuetestdetails(Request $request){
-        $test=Test::findOrFail(1);  
+        $id =$request->id;
+        $test=Test::findOrFail($id);  
         $x=$test->attempts->where('email',$request->email)->first();  
         //$x =DB::table('attempt')->where('email',$request->email)->first();
         if($x == null){
             Session::flash('message', 'NO USER WITH THIS EMAIL!'); 
             Session::flash('alert-class', 'alert-danger'); 
-            return view('continuetest');
+            return view('continuetest',compact('id'));
 
         }
         else{
@@ -143,7 +150,7 @@ class TeacherTestController extends Controller
            else{
             Session::flash('message', 'WRONG SECURITY INFORMATION'); 
             Session::flash('alert-class', 'alert-danger');  
-            return view('continuetest');  
+            return view('continuetest',compact('id'));  
            }
         }
         
@@ -181,6 +188,16 @@ class TeacherTestController extends Controller
         return $request->all();
     }
 
+    public function savesection(Request $request){
+        $id=$request->id;
+        $test=Test::findOrFail($id);    
+        $x=$test->attempts->where('email',$request->email)->first();
+        $x->section = 'sec2';
+        $x->percent = $request->per;
+        $x->save();
+        return [$request->code,$x->id];
+    }
+
     public function results($id,$email){
         $test=Test::findOrFail($id);    
         $x=$test->results->where('email',$email)->first();
@@ -188,4 +205,32 @@ class TeacherTestController extends Controller
         return view('results',compact('result'));   
     }
     
+    public function savecoderesults(Request $request){
+        $att = Attempt::findOrFail($request->id);
+        $per = $request->per;
+        $test=Test::findOrFail($request->test);    
+        $r = Result::Create(
+            ['email' => $att->email,
+            'firstname' => $att->firstname,
+            'lastname' => $att->lastname,
+            'attempt'=> $att->attempt,
+            'questions'=>$att->questions,
+            'result' => $att->percent,
+            'code_result' => $per]);
+       $test->results()->attach($r);
+       $att->delete();
+       return $r->id;
+    }
+
+    public function display($id){
+        $r=Result::findOrFail($id);    
+        $result = $r->result;
+        $code_r = $r->code_result;
+        
+        return view('result',compact('result','code_r'));
+
+
+    }
 }
+
+

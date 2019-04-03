@@ -100068,7 +100068,7 @@ exports = module.exports = __webpack_require__(8)(false);
 
 
 // module
-exports.push([module.i, "\n.card-header{\n    cursor:pointer;\n    background:rgb(51, 158, 181);\n    color:white;\n    font-size:16px;\n}\n#test_name\n{\n    border-radius: 5px;\n    height: 35px;\n    width: 50%;\n    border: 1px solid lightblue;\n}\n.create_btn\n{\n    margin-left: 49px;\n}\n", ""]);
+exports.push([module.i, "\n.card-header{\n    cursor:pointer;\n    background:rgb(51, 158, 181);\n    color:white;\n    font-size:16px;\n}\n#test_name\n{\n    border-radius: 5px;\n    height: 35px;\n    width: 50%;\n    border: 1px solid lightblue;\n}\n.create_btn\n{\n    margin-left: 49px;\n}\ntable {\n    \n    border-collapse: collapse;\n}\ntd {\n    border: none;\n}\n\n", ""]);
 
 // exports
 
@@ -100357,6 +100357,58 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -100368,6 +100420,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             sub: '',
             cat: '',
             questions: [],
+            codings: [],
             equestion: [],
             add: [],
             question: '',
@@ -100513,17 +100566,56 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
             return geteditque;
         }(),
-        editque: function () {
-            var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
-                var index;
+        geteditcoding: function () {
+            var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3(qid) {
+                var _this4 = this;
+
                 return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
                     while (1) {
                         switch (_context3.prev = _context3.next) {
                             case 0:
+                                _context3.next = 2;
+                                return axios.get('/teacher/editcoding/' + qid).then(function (response) {
+                                    return _this4.equestion = response.data;
+                                }).catch(function (error) {
+                                    console.log(error);
+                                });
+
+                            case 2:
+                                this.showcategories = false;
+                                this.editquestion = true;
+                                this.showquestions = false;
+                                this.addquestion = false;
+                                this.createtst = false;
+                                this.viewtst = false;
+                                this.addquetotest = false;
+                                this.addtest = false;
+
+                            case 10:
+                            case 'end':
+                                return _context3.stop();
+                        }
+                    }
+                }, _callee3, this);
+            }));
+
+            function geteditcoding(_x4) {
+                return _ref3.apply(this, arguments);
+            }
+
+            return geteditcoding;
+        }(),
+        editque: function () {
+            var _ref4 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee4() {
+                var index;
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
+                    while (1) {
+                        switch (_context4.prev = _context4.next) {
+                            case 0:
                                 for (index = 0; index < this.inputs.length; index++) {
                                     this.equestion.choices.push(this.equestion['choice' + index + 3]);
                                 }
-                                _context3.next = 3;
+                                _context4.next = 3;
                                 return axios.post('/teacher/saveedits', {
                                     id: this.equestion.id,
                                     question: this.equestion.question,
@@ -100548,25 +100640,25 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                             case 7:
                             case 'end':
-                                return _context3.stop();
+                                return _context4.stop();
                         }
                     }
-                }, _callee3, this);
+                }, _callee4, this);
             }));
 
             function editque() {
-                return _ref3.apply(this, arguments);
+                return _ref4.apply(this, arguments);
             }
 
             return editque;
         }(),
         deleteque: function () {
-            var _ref4 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee4(qid) {
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
+            var _ref5 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee5(qid) {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
                     while (1) {
-                        switch (_context4.prev = _context4.next) {
+                        switch (_context5.prev = _context5.next) {
                             case 0:
-                                _context4.next = 2;
+                                _context5.next = 2;
                                 return axios.get('/teacher/delete/' + qid).then(function (response) {
                                     return alert('Deleted');
                                 }, this.showque(this.category, this.subject)).catch(function (error) {
@@ -100586,25 +100678,25 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                             case 10:
                             case 'end':
-                                return _context4.stop();
+                                return _context5.stop();
                         }
                     }
-                }, _callee4, this);
+                }, _callee5, this);
             }));
 
-            function deleteque(_x4) {
-                return _ref4.apply(this, arguments);
+            function deleteque(_x5) {
+                return _ref5.apply(this, arguments);
             }
 
             return deleteque;
         }(),
         deletetest: function () {
-            var _ref5 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee5(tid) {
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
+            var _ref6 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee6(tid) {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee6$(_context6) {
                     while (1) {
-                        switch (_context5.prev = _context5.next) {
+                        switch (_context6.prev = _context6.next) {
                             case 0:
-                                _context5.next = 2;
+                                _context6.next = 2;
                                 return axios.get('/teacher/testdelete/' + tid).then(function (response) {
                                     return alert('Deleted');
                                 }).catch(function (error) {
@@ -100625,25 +100717,64 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                             case 11:
                             case 'end':
-                                return _context5.stop();
+                                return _context6.stop();
                         }
                     }
-                }, _callee5, this);
+                }, _callee6, this);
             }));
 
-            function deletetest(_x5) {
-                return _ref5.apply(this, arguments);
+            function deletetest(_x6) {
+                return _ref6.apply(this, arguments);
             }
 
             return deletetest;
         }(),
-        deletequetest: function () {
-            var _ref6 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee6(qid) {
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee6$(_context6) {
+        distributetest: function () {
+            var _ref7 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee7(tid) {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee7$(_context7) {
                     while (1) {
-                        switch (_context6.prev = _context6.next) {
+                        switch (_context7.prev = _context7.next) {
                             case 0:
-                                _context6.next = 2;
+                                _context7.next = 2;
+                                return axios.get('/teacher/testdistribute/' + tid).then(function (response) {
+                                    return alert('Your test URL is : ' + JSON.stringify(response.data));
+                                }).catch(function (error) {
+                                    console.log(error);
+                                });
+
+                            case 2:
+
+                                this.showcategories = false;
+                                this.addtest = false;
+                                this.editquestion = false;
+                                this.showquestions = false;
+                                this.addquestion = false;
+                                this.createtst = false;
+                                this.viewtst = true;
+                                this.addquetotest = false;
+                                __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$emit('View');
+
+                            case 11:
+                            case 'end':
+                                return _context7.stop();
+                        }
+                    }
+                }, _callee7, this);
+            }));
+
+            function distributetest(_x7) {
+                return _ref7.apply(this, arguments);
+            }
+
+            return distributetest;
+        }(),
+        deletequetest: function () {
+            var _ref8 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee8(qid) {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee8$(_context8) {
+                    while (1) {
+                        switch (_context8.prev = _context8.next) {
+                            case 0:
+                                _context8.next = 2;
                                 return axios.get('/teacher/delete/' + qid).then(function (response) {
                                     return alert('Deleted');
                                 }).catch(function (error) {
@@ -100664,29 +100795,29 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                             case 11:
                             case 'end':
-                                return _context6.stop();
+                                return _context8.stop();
                         }
                     }
-                }, _callee6, this);
+                }, _callee8, this);
             }));
 
-            function deletequetest(_x6) {
-                return _ref6.apply(this, arguments);
+            function deletequetest(_x8) {
+                return _ref8.apply(this, arguments);
             }
 
             return deletequetest;
         }(),
         addque: function () {
-            var _ref7 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee7(sid, cid) {
-                var _this4 = this;
+            var _ref9 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee9(sid, cid) {
+                var _this5 = this;
 
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee7$(_context7) {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee9$(_context9) {
                     while (1) {
-                        switch (_context7.prev = _context7.next) {
+                        switch (_context9.prev = _context9.next) {
                             case 0:
-                                _context7.next = 2;
+                                _context9.next = 2;
                                 return axios.get('/teacher/getsubcat/' + sid + '/' + cid).then(function (response) {
-                                    return _this4.add.sub = response.data[0].subject, _this4.add.cat = response.data[1].category;
+                                    return _this5.add.sub = response.data[0].subject, _this5.add.cat = response.data[1].category;
                                 }).catch(function (error) {
                                     console.log(error);
                                 });
@@ -100704,27 +100835,27 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                             case 10:
                             case 'end':
-                                return _context7.stop();
+                                return _context9.stop();
                         }
                     }
-                }, _callee7, this);
+                }, _callee9, this);
             }));
 
-            function addque(_x7, _x8) {
-                return _ref7.apply(this, arguments);
+            function addque(_x9, _x10) {
+                return _ref9.apply(this, arguments);
             }
 
             return addque;
         }(),
         saveque: function () {
-            var _ref8 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee8() {
+            var _ref10 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee10() {
                 var index;
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee8$(_context8) {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee10$(_context10) {
                     while (1) {
-                        switch (_context8.prev = _context8.next) {
+                        switch (_context10.prev = _context10.next) {
                             case 0:
                                 if (!(this.add["type"] == "mcq")) {
-                                    _context8.next = 8;
+                                    _context10.next = 8;
                                     break;
                                 }
 
@@ -100734,7 +100865,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 for (index = 0; index < this.inputs.length; index++) {
                                     this.choices.push(this.add['choice' + index + 3]);
                                 }
-                                _context8.next = 6;
+                                _context10.next = 6;
                                 return axios.post('/teacher/savequestion', {
                                     question: this.add.question,
                                     answer: this.add.answer,
@@ -100750,12 +100881,12 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 });
 
                             case 6:
-                                _context8.next = 20;
+                                _context10.next = 20;
                                 break;
 
                             case 8:
                                 if (!(this.add["type"] == "check")) {
-                                    _context8.next = 16;
+                                    _context10.next = 16;
                                     break;
                                 }
 
@@ -100765,7 +100896,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 for (index = 0; index < this.inputs.length; index++) {
                                     this.choices.push(this.add['choice' + index + 3]);
                                 }
-                                _context8.next = 14;
+                                _context10.next = 14;
                                 return axios.post('/teacher/savequestion', {
                                     question: this.add.question,
                                     type: this.add.type,
@@ -100781,17 +100912,17 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 });
 
                             case 14:
-                                _context8.next = 20;
+                                _context10.next = 20;
                                 break;
 
                             case 16:
                                 if (!(this.add["type"] == "fub")) {
-                                    _context8.next = 20;
+                                    _context10.next = 20;
                                     break;
                                 }
 
                                 this.choices = null;
-                                _context8.next = 20;
+                                _context10.next = 20;
                                 return axios.post('/teacher/savequestion', {
                                     question: this.add.question,
                                     type: this.add.type,
@@ -100820,23 +100951,23 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                             case 30:
                             case 'end':
-                                return _context8.stop();
+                                return _context10.stop();
                         }
                     }
-                }, _callee8, this);
+                }, _callee10, this);
             }));
 
             function saveque() {
-                return _ref8.apply(this, arguments);
+                return _ref10.apply(this, arguments);
             }
 
             return saveque;
         }(),
         addchoices: function () {
-            var _ref9 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee9() {
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee9$(_context9) {
+            var _ref11 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee11() {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee11$(_context11) {
                     while (1) {
-                        switch (_context9.prev = _context9.next) {
+                        switch (_context11.prev = _context11.next) {
                             case 0:
                                 this.inputs.push({
                                     one: '',
@@ -100845,36 +100976,36 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                             case 1:
                             case 'end':
-                                return _context9.stop();
+                                return _context11.stop();
                         }
                     }
-                }, _callee9, this);
+                }, _callee11, this);
             }));
 
             function addchoices() {
-                return _ref9.apply(this, arguments);
+                return _ref11.apply(this, arguments);
             }
 
             return addchoices;
         }(),
         deletechoice: function () {
-            var _ref10 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee10(index) {
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee10$(_context10) {
+            var _ref12 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee12(index) {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee12$(_context12) {
                     while (1) {
-                        switch (_context10.prev = _context10.next) {
+                        switch (_context12.prev = _context12.next) {
                             case 0:
                                 this.inputs.splice(index, 1);
 
                             case 1:
                             case 'end':
-                                return _context10.stop();
+                                return _context12.stop();
                         }
                     }
-                }, _callee10, this);
+                }, _callee12, this);
             }));
 
-            function deletechoice(_x9) {
-                return _ref10.apply(this, arguments);
+            function deletechoice(_x11) {
+                return _ref12.apply(this, arguments);
             }
 
             return deletechoice;
@@ -100887,11 +101018,11 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         //     // this.geteditque(this.qid);
         // },
         addanswer: function () {
-            var _ref11 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee11(value, event) {
+            var _ref13 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee13(value, event) {
                 var index;
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee11$(_context11) {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee13$(_context13) {
                     while (1) {
-                        switch (_context11.prev = _context11.next) {
+                        switch (_context13.prev = _context13.next) {
                             case 0:
                                 if (event.target.checked) {
                                     this.answers.push(value);
@@ -100903,25 +101034,25 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                             case 1:
                             case 'end':
-                                return _context11.stop();
+                                return _context13.stop();
                         }
                     }
-                }, _callee11, this);
+                }, _callee13, this);
             }));
 
-            function addanswer(_x10, _x11) {
-                return _ref11.apply(this, arguments);
+            function addanswer(_x12, _x13) {
+                return _ref13.apply(this, arguments);
             }
 
             return addanswer;
         }(),
         create: function () {
-            var _ref12 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee12() {
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee12$(_context12) {
+            var _ref14 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee14() {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee14$(_context14) {
                     while (1) {
-                        switch (_context12.prev = _context12.next) {
+                        switch (_context14.prev = _context14.next) {
                             case 0:
-                                _context12.next = 2;
+                                _context14.next = 2;
                                 return axios.post('/teacher/createtest', {
                                     test: this.crtest
                                 }).then(function (response) {
@@ -100945,29 +101076,29 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                             case 12:
                             case 'end':
-                                return _context12.stop();
+                                return _context14.stop();
                         }
                     }
-                }, _callee12, this);
+                }, _callee14, this);
             }));
 
             function create() {
-                return _ref12.apply(this, arguments);
+                return _ref14.apply(this, arguments);
             }
 
             return create;
         }(),
         testdetails: function () {
-            var _ref13 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee13(tid) {
-                var _this5 = this;
+            var _ref15 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee15(tid) {
+                var _this6 = this;
 
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee13$(_context13) {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee15$(_context15) {
                     while (1) {
-                        switch (_context13.prev = _context13.next) {
+                        switch (_context15.prev = _context15.next) {
                             case 0:
-                                _context13.next = 2;
+                                _context15.next = 2;
                                 return axios.get('/teacher/gettestdetails/' + tid).then(function (response) {
-                                    return _this5.questions = response.data[0], _this5.testname = response.data[1];
+                                    return _this6.questions = response.data[0], _this6.codings = response.data[2], _this6.testname = response.data[1];
                                 }).catch(function (error) {
                                     console.log(error);
                                 });
@@ -100985,27 +101116,27 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                             case 11:
                             case 'end':
-                                return _context13.stop();
+                                return _context15.stop();
                         }
                     }
-                }, _callee13, this);
+                }, _callee15, this);
             }));
 
-            function testdetails(_x12) {
-                return _ref13.apply(this, arguments);
+            function testdetails(_x14) {
+                return _ref15.apply(this, arguments);
             }
 
             return testdetails;
         }(),
         savequetest: function () {
-            var _ref14 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee14() {
+            var _ref16 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee16() {
                 var index;
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee14$(_context14) {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee16$(_context16) {
                     while (1) {
-                        switch (_context14.prev = _context14.next) {
+                        switch (_context16.prev = _context16.next) {
                             case 0:
                                 if (!(this.quetest["type"] == "mcq")) {
-                                    _context14.next = 9;
+                                    _context16.next = 9;
                                     break;
                                 }
 
@@ -101015,7 +101146,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 for (index = 0; index < this.inputs.length; index++) {
                                     this.choices.push(this.quetest['choice' + index + 3]);
                                 }
-                                _context14.next = 6;
+                                // console.log(this.quetest.type);
+                                _context16.next = 6;
                                 return axios.post('/teacher/savequestiontotest', {
                                     question: this.quetest.question,
                                     answer: this.quetest.answer,
@@ -101031,48 +101163,46 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                             case 6:
                                 this.testdetails(this.testid);
-                                _context14.next = 23;
+                                _context16.next = 20;
                                 break;
 
                             case 9:
-                                if (!(this.quetest["type"] == "check")) {
-                                    _context14.next = 18;
+                                if (!(this.quetest["type"] == "coding")) {
+                                    _context16.next = 15;
                                     break;
                                 }
 
-                                this.choices.push(this.quetest.choice1);
-                                this.choices.push(this.quetest['choice2']);
-
-                                for (index = 0; index < this.inputs.length; index++) {
-                                    this.choices.push(this.quetest['choice' + index + 3]);
-                                }
-                                _context14.next = 15;
+                                _context16.next = 12;
                                 return axios.post('/teacher/savequestiontotest', {
                                     question: this.quetest.question,
                                     type: this.quetest.type,
-                                    answer: this.quetest.answer,
+                                    tc1: this.quetest.tc1,
+                                    op1: this.quetest.op1,
+                                    tc2: this.quetest.tc2,
+                                    op2: this.quetest.op2,
+                                    tc3: this.quetest.tc3,
+                                    op3: this.quetest.op3,
                                     test: this.quetest.test,
-                                    complexity: this.quetest.complexity,
-                                    choices: this.choices
+                                    complexity: this.quetest.complexity
                                 }).then(function (response) {
                                     return alert('Question added to test');
                                 }).catch(function (error) {
                                     console.log(error);
                                 });
 
-                            case 15:
+                            case 12:
                                 this.testdetails(this.testid);
-                                _context14.next = 23;
+                                _context16.next = 20;
                                 break;
 
-                            case 18:
+                            case 15:
                                 if (!(this.quetest["type"] == "fub")) {
-                                    _context14.next = 23;
+                                    _context16.next = 20;
                                     break;
                                 }
 
                                 this.choices = null;
-                                _context14.next = 22;
+                                _context16.next = 19;
                                 return axios.post('/teacher/savequestiontotest', {
                                     question: this.quetest.question,
                                     type: this.quetest.type,
@@ -101086,30 +101216,36 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                     console.log(error);
                                 });
 
-                            case 22:
+                            case 19:
                                 this.testdetails(this.testid);
 
-                            case 23:
+                            case 20:
                                 this.quetest.question = '';
                                 this.quetest.answer = '';
                                 this.quetest.test = '';
                                 this.quetest.choice1 = '';
                                 this.quetest.choice2 = '';
+                                this.quetest.tc1 = '';
+                                this.quetest.tc2 = '';
+                                this.quetest.tc3 = '';
+                                this.quetest.op1 = '';
+                                this.quetest.op2 = '';
+                                this.quetest.op3 = '';
                                 this.choices = [];
                                 this.inputs = [];
                                 this.answers = [];
                                 this.type = '';
 
-                            case 32:
+                            case 35:
                             case 'end':
-                                return _context14.stop();
+                                return _context16.stop();
                         }
                     }
-                }, _callee14, this);
+                }, _callee16, this);
             }));
 
             function savequetest() {
-                return _ref14.apply(this, arguments);
+                return _ref16.apply(this, arguments);
             }
 
             return savequetest;
@@ -101375,7 +101511,65 @@ var render = function() {
                       }),
                       0
                     )
-                  : _c("div", [_c("b", [_vm._v("No Questions yet")])])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.codings.length
+                  ? _c(
+                      "div",
+                      [
+                        _c("br"),
+                        _vm._v("Coding Questions"),
+                        _c("br"),
+                        _c("br"),
+                        _vm._v(" "),
+                        _vm._l(_vm.codings, function(coding) {
+                          return _c("div", { key: coding.index }, [
+                            _c("div", { staticClass: "question" }, [
+                              _c("b", { staticStyle: { color: "black" } }, [
+                                _vm._v("Question : ")
+                              ]),
+                              _vm._v(
+                                " " +
+                                  _vm._s(coding.question) +
+                                  "\n                            "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", [
+                              _c("table", [
+                                _vm._m(0, true),
+                                _vm._v(" "),
+                                _c("tr", [
+                                  _c("td", [_vm._v(_vm._s(coding.tc1))]),
+                                  _vm._v(" "),
+                                  _c("td", [_vm._v(_vm._s(coding.op1))])
+                                ]),
+                                _vm._v(" "),
+                                _c("tr", [
+                                  _c("td", [_vm._v(_vm._s(coding.tc2))]),
+                                  _vm._v(" "),
+                                  _c("td", [_vm._v(_vm._s(coding.op2))])
+                                ]),
+                                _vm._v(" "),
+                                _c("tr", [
+                                  _c("td", [_vm._v(_vm._s(coding.tc3))]),
+                                  _vm._v(" "),
+                                  _c("td", [_vm._v(_vm._s(coding.op3))])
+                                ])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("hr")
+                          ])
+                        })
+                      ],
+                      2
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                !_vm.questions.length && !_vm.codings.length
+                  ? _c("div", [_c("b", [_vm._v("No Questions yet")])])
+                  : _vm._e()
               ])
             : _vm._e(),
           _vm._v(" "),
@@ -101394,7 +101588,7 @@ var render = function() {
                   },
                   [
                     _c("div", { staticClass: "form-group row ml-2" }, [
-                      _vm._m(0),
+                      _vm._m(1),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -101428,7 +101622,7 @@ var render = function() {
                         "div",
                         { key: index, staticClass: "form-group row ml-2" },
                         [
-                          _vm._m(1, true),
+                          _vm._m(2, true),
                           _vm._v(" "),
                           _c("input", {
                             directives: [
@@ -101485,7 +101679,7 @@ var render = function() {
                     _vm._l(_vm.inputs, function(input, index) {
                       return _vm.equestion.type == "mcq"
                         ? _c("div", { key: index }, [
-                            _vm._m(2, true),
+                            _vm._m(3, true),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -101567,7 +101761,7 @@ var render = function() {
                     _vm._l(_vm.inputs, function(input, index) {
                       return _vm.equestion.type == "check"
                         ? _c("div", { key: index }, [
-                            _vm._m(3, true),
+                            _vm._m(4, true),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -101672,7 +101866,7 @@ var render = function() {
                     _vm._v(" "),
                     _vm.equestion.type == "fub"
                       ? _c("div", [
-                          _vm._m(4),
+                          _vm._m(5),
                           _vm._v(" "),
                           _c("input", {
                             directives: [
@@ -102583,12 +102777,12 @@ var render = function() {
                               _vm._v("mcq")
                             ]),
                             _vm._v(" "),
-                            _c("option", { attrs: { value: "check" } }, [
-                              _vm._v("check box")
-                            ]),
-                            _vm._v(" "),
                             _c("option", { attrs: { value: "fub" } }, [
                               _vm._v("Fill in the blanks")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "coding" } }, [
+                              _vm._v("coding")
                             ])
                           ]
                         )
@@ -102629,10 +102823,183 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _vm._m(5),
+                    _vm._m(6),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group row ml-2" }, [
                       _c("label", { attrs: { for: "choices" } }),
+                      _vm._v(" "),
+                      _vm.quetest["type"] == "coding"
+                        ? _c("div", { staticClass: "col-md-6" }, [
+                            _vm._v(
+                              "\n                            Test Case 1:\n                            "
+                            ),
+                            _c("textarea", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.quetest["tc1"],
+                                  expression: 'quetest["tc1"]'
+                                }
+                              ],
+                              attrs: { required: "" },
+                              domProps: { value: _vm.quetest["tc1"] },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.quetest,
+                                    "tc1",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _c("br"),
+                            _vm._v(
+                              "\n                            Output 1:    \n                            "
+                            ),
+                            _c("textarea", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.quetest["op1"],
+                                  expression: 'quetest["op1"]'
+                                }
+                              ],
+                              attrs: { required: "" },
+                              domProps: { value: _vm.quetest["op1"] },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.quetest,
+                                    "op1",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _c("hr"),
+                            _vm._v(
+                              "\n                            Test Case 2:\n                            "
+                            ),
+                            _c("textarea", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.quetest["tc2"],
+                                  expression: 'quetest["tc2"]'
+                                }
+                              ],
+                              attrs: { required: "" },
+                              domProps: { value: _vm.quetest["tc2"] },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.quetest,
+                                    "tc2",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _c("br"),
+                            _vm._v(
+                              "      \n                            Output 2:    \n                            "
+                            ),
+                            _c("textarea", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.quetest["op2"],
+                                  expression: 'quetest["op2"]'
+                                }
+                              ],
+                              attrs: { required: "" },
+                              domProps: { value: _vm.quetest["op2"] },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.quetest,
+                                    "op2",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _c("hr"),
+                            _vm._v(
+                              "                \n                            Test Case 3:\n                            "
+                            ),
+                            _c("textarea", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.quetest["tc3"],
+                                  expression: 'quetest["tc3"]'
+                                }
+                              ],
+                              attrs: { required: "" },
+                              domProps: { value: _vm.quetest["tc3"] },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.quetest,
+                                    "tc3",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _c("br"),
+                            _vm._v(
+                              "\n                            Output 3:    \n                            "
+                            ),
+                            _c("textarea", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.quetest["op3"],
+                                  expression: 'quetest["op3"]'
+                                }
+                              ],
+                              attrs: { required: "" },
+                              domProps: { value: _vm.quetest["op3"] },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.quetest,
+                                    "op3",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _c("hr")
+                          ])
+                        : _vm._e(),
                       _vm._v(" "),
                       _vm.quetest["type"] == "mcq"
                         ? _c(
@@ -103269,6 +103636,16 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("th", [_vm._v("Test cases")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Output")])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -116620,11 +116997,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 var tim, arq;
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "teachertest-component",
-    props: ['test', 'questions', 'email'],
+    props: ['test', 'questions', 'email', 'code', 'code_id'],
     data: function data() {
         return {
             curques: '',
@@ -116706,6 +117086,7 @@ var tim, arq;
                     clearInterval(tim);
                     clearInterval(arq);
                     $(window).off("beforeunload");
+                    obj.code = 0;
                     obj.checkanswer();
                 }
             }, 1000);
@@ -116817,25 +117198,49 @@ var tim, arq;
                     }
                 }
             }
-            this.per = this.marks / this.total * 100;
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            $.ajax({
-                type: "post",
-                url: "/saveresults",
-                data: {
-                    email: this.email,
-                    per: this.per,
-                    id: this.id
-                },
-                success: function success(response) {
-                    console.log(response);
-                }
-            });
-            location.replace("/results/" + this.id + "/" + this.email);
+
+            if (this.code == 1) {
+                this.per = this.marks / this.total * 100;
+                var idd;
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    type: "post",
+                    url: "/savesection",
+                    data: {
+                        email: this.email,
+                        per: this.per,
+                        id: this.id,
+                        code: this.code_id
+                    },
+                    success: function success(response) {
+                        location.replace("/teacher/coding/" + response[0] + '/' + response[1]);
+                    }
+                });
+            } else {
+                this.per = this.marks / this.total * 100;
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    type: "post",
+                    url: "/saveresults",
+                    data: {
+                        email: this.email,
+                        per: this.per,
+                        id: this.id
+                    },
+                    success: function success(response) {
+                        console.log(response);
+                    }
+                });
+                location.replace("/results/" + this.id + "/" + this.email);
+            }
         },
         changedanswer: function changedanswer(val) {
             this.attempt[this.qno] = this.answer;
@@ -116951,17 +117356,33 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", [
-      _c(
-        "button",
-        {
-          staticClass: "submitButton btn btn-success",
-          attrs: { id: "testfinish" },
-          on: { click: _vm.checkanswer }
-        },
-        [_vm._v("Submit Test")]
-      )
-    ]),
+    _vm.code == 0
+      ? _c("div", [
+          _c(
+            "button",
+            {
+              staticClass: "submitButton btn btn-success",
+              attrs: { id: "testfinish" },
+              on: { click: _vm.checkanswer }
+            },
+            [_vm._v("Submit Test")]
+          )
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.code == 1
+      ? _c("div", [
+          _c(
+            "button",
+            {
+              staticClass: "submitButton btn btn-success",
+              attrs: { id: "testfinish" },
+              on: { click: _vm.checkanswer }
+            },
+            [_vm._v("Next Section")]
+          )
+        ])
+      : _vm._e(),
     _vm._v(" "),
     _c("div", { staticClass: "timer" }, [
       _vm._v(_vm._s(_vm.min) + " min:" + _vm._s(_vm.sec) + " sec")
