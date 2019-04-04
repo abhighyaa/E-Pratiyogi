@@ -117295,6 +117295,7 @@ var tim, arq;
                     console.log(response);
                 }
             });
+            location.replace("/resultss/" + this.id + "/" + this.email);
         },
         changedanswer: function changedanswer(val) {
             this.attempt[this.qno] = this.answer;
@@ -117823,11 +117824,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 var tim, arq;
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "continuetest-component",
-    props: ['status', 'review', 'questions', 'attempt', 'min', 'sec', 'email', 'test'],
+    props: ['status', 'review', 'questions', 'attempt', 'min', 'sec', 'email', 'test', 'code', 'code_id'],
     data: function data() {
         return {
             curques: '',
@@ -118028,6 +118034,84 @@ var tim, arq;
                     }
                 }
             }
+            if (this.code == 1) {
+                $(window).off("unload");
+
+                this.per = this.marks / this.total * 100;
+                var idd;
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    type: "post",
+                    url: "/savesection",
+                    data: {
+                        email: this.email,
+                        per: this.per,
+                        id: this.id,
+                        code: this.code_id
+                    },
+                    success: function success(response) {
+                        location.replace("/teacher/coding/" + response[0] + '/' + response[1]);
+                    }
+                });
+            } else {
+                this.per = this.marks / this.total * 100;
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    type: "post",
+                    url: "/saveresults",
+                    data: {
+                        email: this.email,
+                        per: this.per,
+                        id: this.id
+                    },
+                    success: function success(response) {
+                        console.log(response);
+                    }
+                });
+                location.replace("/results/" + this.id + "/" + this.email);
+            }
+        }, checkanswerr: function checkanswerr() {
+            this.marks = 0;
+            this.total = 0;
+            clearInterval(tim);
+            clearInterval(arq);
+
+            this.total = this.totalmarks();
+            for (var cnt = 0; cnt < this.questions.length; cnt++) {
+                if (this.questions[cnt].type == 'mcq') {
+                    if (this.questions[cnt].answer == this.attempt[cnt]) {
+                        if (this.questions[cnt].complexity == 'low') {
+                            this.marks += 1;
+                        } else if (this.questions[cnt].complexity == 'medium') {
+                            this.marks += 2;
+                        } else if (this.questions[cnt].complexity == 'high') {
+                            this.marks += 3;
+                        }
+                    }
+                } else if (this.questions[cnt].type == 'fub') {
+                    if (typeof this.attempt[cnt] === 'undefined') {
+                        continue;
+                    }
+                    if (this.questions[cnt].answer.toLowerCase() == this.attempt[cnt].toLowerCase()) {
+                        if (this.questions[cnt].complexity == 'low') {
+                            this.marks += 1;
+                        } else if (this.questions[cnt].complexity == 'medium') {
+                            this.marks += 2;
+                        } else if (this.questions[cnt].complexity == 'high') {
+                            this.marks += 3;
+                        }
+                    }
+                }
+            }
+
             this.per = this.marks / this.total * 100;
             $.ajaxSetup({
                 headers: {
@@ -118046,7 +118130,7 @@ var tim, arq;
                     console.log(response);
                 }
             });
-            location.replace("/results/" + this.id + "/" + this.email);
+            location.replace("/resultss/" + this.id + "/" + this.email);
         },
         changedanswer: function changedanswer(val) {
             this.attempt[this.qno] = this.answer;
@@ -118161,17 +118245,44 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", [
-      _c(
-        "button",
-        {
-          staticClass: "submitButton btn btn-success",
-          attrs: { id: "testfinish" },
-          on: { click: _vm.checkanswer }
-        },
-        [_vm._v("Submit Test")]
-      )
-    ]),
+    _vm.code == 0
+      ? _c("div", [
+          _c(
+            "button",
+            {
+              staticClass: "submitButton btn btn-success",
+              attrs: { id: "testfinish" },
+              on: { click: _vm.checkanswer }
+            },
+            [_vm._v("Submit Test")]
+          )
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.code == 1
+      ? _c("div", [
+          _c(
+            "button",
+            {
+              staticClass: "submitButton btn btn-success",
+              attrs: { id: "testfinish" },
+              on: { click: _vm.checkanswer }
+            },
+            [_vm._v("Next Section")]
+          )
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "submitButton btn btn-success",
+        staticStyle: { display: "none" },
+        attrs: { id: "testfinishh" },
+        on: { click: _vm.checkanswerr }
+      },
+      [_vm._v("Submit Test")]
+    ),
     _vm._v(" "),
     _c("div", { staticClass: "timer" }, [
       _vm._v(_vm._s(_vm.min) + " min:" + _vm._s(_vm.sec) + " sec")

@@ -1,0 +1,7 @@
+main.c: In function ‘main’:
+main.c:4:12: warning: zero-length gnu_printf format string [-Wformat-zero-length]
+     printf("")
+            ^~
+main.c:5:1: error: expected ‘;’ before ‘}’ token
+ }
+ ^

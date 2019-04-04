@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Test;
 use App\Attempt;
+use App\Coding;
 use App\Result;
 use Illuminate\Http\Request;
 use DB;
@@ -137,6 +138,18 @@ class TeacherTestController extends Controller
         }
         else{
            if($request->securityques == $x->securityques && $request->securityanswer == $x->securityanswer){
+             if($x->section == 'sec2'){
+                $idd = $x->id;
+                $id = $test->codings->all()[0]->id;
+                $codee=Coding::findOrFail($id);
+                $test_id =$codee->tests->all()[0]->id;
+                $min = $x->min;
+                $sec = $x->sec;
+                $name = $x->email;
+                $code = $x->code_attempt;
+                return view('teacher.coding',compact('id','codee','min','sec','idd','name','test_id','code'));
+             }
+             else{
             $status = unserialize($x->status);
             $review = unserialize($x->review);
             $questions =unserialize($x->questions);
@@ -144,9 +157,17 @@ class TeacherTestController extends Controller
             $min = $x->min;
             $sec = $x->sec;
             $email = $x->email; 
+            $code=0;
+            $code_id=0;
+            if(sizeof($test->codings)>0){
+                $code = 1;
+                $code_id = $test->codings->all()[0]->id;
+            }
         
-            return view('attemptedtest',compact('status','review','questions','attempt','min','sec','email','test'));   
+        
+            return view('attemptedtest',compact('status','review','questions','attempt','min','sec','email','test','code','code_id'));   
            } 
+        }
            else{
             Session::flash('message', 'WRONG SECURITY INFORMATION'); 
             Session::flash('alert-class', 'alert-danger');  
@@ -204,6 +225,8 @@ class TeacherTestController extends Controller
         $result = $x->result;
         return view('results',compact('result'));   
     }
+
+    
     
     public function savecoderesults(Request $request){
         $att = Attempt::findOrFail($request->id);
@@ -229,6 +252,17 @@ class TeacherTestController extends Controller
         
         return view('result',compact('result','code_r'));
 
+    }
+
+    public function resultss($id,$email){
+        $test=Test::findOrFail($id);    
+        $x=$test->results->where('email',$email)->first();
+        $result = $x->result;
+        $code_r = 0;
+        if(sizeof($test->codings->all()) >0)
+            return view('result',compact('result','code_r'));
+         return view('results',compact('result'));   
+   
     }
 
     public function savetimecode(Request $request){
