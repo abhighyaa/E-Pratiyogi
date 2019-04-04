@@ -100409,6 +100409,54 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -100422,11 +100470,13 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             questions: [],
             codings: [],
             equestion: [],
+            ecquestion: [],
             add: [],
             question: '',
             showcategories: true,
             showquestions: false,
             editquestion: false,
+            editcoding: false,
             addtest: false,
             addquestion: false,
             createtst: false,
@@ -100441,6 +100491,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             testid: '',
             quetest: [],
             crtest: '',
+            calc: '',
+            timer: '',
             edittest: false
         };
     },
@@ -100453,6 +100505,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             _this.showcategories = data.showcategoriesKey;
             _this.showquestions = data.showquestionsKey;
             _this.editquestion = data.showquestionKey;
+            _this.editcoding = data.showcodingKey;
             _this.addquestion = data.addquestionKey;
             _this.createtst = data.createtstKey;
             _this.viewtst = data.viewtstKey;
@@ -100464,6 +100517,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             _this.showcategories = data.showcategoriesKey;
             _this.showquestions = data.showquestionsKey;
             _this.editquestion = data.showquestionKey;
+            _this.editcoding = data.showcodingKey;
             _this.addquestion = data.addquestionKey;
             _this.createtst = data.createtstKey;
             _this.viewtst = data.viewtstKey;
@@ -100477,6 +100531,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             _this.showcategories = data.showcategoriesKey;
             _this.showquestions = data.showquestionsKey;
             _this.editquestion = data.showquestionKey;
+            _this.editcoding = data.showcodingKey;
             _this.addquestion = data.addquestionKey;
             _this.createtst = data.createtstKey;
             _this.viewtst = data.viewtstKey;
@@ -100506,6 +100561,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 this.category = cid;
                                 this.showcategories = false;
                                 this.editquestion = false;
+                                this.editcoding = false;
                                 this.showquestions = true;
                                 this.addquestion = false;
                                 this.createtst = false;
@@ -100513,7 +100569,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 this.addquetotest = false;
                                 this.addtest = false;
 
-                            case 11:
+                            case 12:
                             case 'end':
                                 return _context.stop();
                         }
@@ -100551,8 +100607,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 this.viewtst = false;
                                 this.addquetotest = false;
                                 this.addtest = false;
+                                this.editcoding = false;
 
-                            case 10:
+                            case 11:
                             case 'end':
                                 return _context2.stop();
                         }
@@ -100576,14 +100633,15 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                             case 0:
                                 _context3.next = 2;
                                 return axios.get('/teacher/editcoding/' + qid).then(function (response) {
-                                    return _this4.equestion = response.data;
+                                    return _this4.ecquestion = response.data;
                                 }).catch(function (error) {
                                     console.log(error);
                                 });
 
                             case 2:
                                 this.showcategories = false;
-                                this.editquestion = true;
+                                this.editquestion = false;
+                                this.editcoding = true;
                                 this.showquestions = false;
                                 this.addquestion = false;
                                 this.createtst = false;
@@ -100591,7 +100649,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 this.addquetotest = false;
                                 this.addtest = false;
 
-                            case 10:
+                            case 11:
                             case 'end':
                                 return _context3.stop();
                         }
@@ -100652,13 +100710,59 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
             return editque;
         }(),
-        deleteque: function () {
-            var _ref5 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee5(qid) {
+        editcod: function () {
+            var _ref5 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee5() {
                 return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
                     while (1) {
                         switch (_context5.prev = _context5.next) {
                             case 0:
                                 _context5.next = 2;
+                                return axios.post('/teacher/saveeditscoding', {
+                                    id: this.ecquestion.id,
+                                    question: this.ecquestion.question,
+                                    tc1: this.ecquestion.tc1,
+                                    op1: this.ecquestion.op1,
+                                    tc2: this.ecquestion.tc2,
+                                    op2: this.ecquestion.op2,
+                                    tc3: this.ecquestion.tc3,
+                                    op3: this.ecquestion.op3
+                                }).then(function (response) {
+                                    return alert("Edit saved");
+                                }).catch(function (error) {
+                                    console.log(error);
+                                });
+
+                            case 2:
+
+                                alert(this.edittest);
+                                if (this.edittest == true) {
+                                    //  alert('true')
+                                    this.testdetails(this.testid);
+                                } else {
+                                    this.showque(this.category, this.subject);
+                                }
+
+                            case 4:
+                            case 'end':
+                                return _context5.stop();
+                        }
+                    }
+                }, _callee5, this);
+            }));
+
+            function editcod() {
+                return _ref5.apply(this, arguments);
+            }
+
+            return editcod;
+        }(),
+        deleteque: function () {
+            var _ref6 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee6(qid) {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee6$(_context6) {
+                    while (1) {
+                        switch (_context6.prev = _context6.next) {
+                            case 0:
+                                _context6.next = 2;
                                 return axios.get('/teacher/delete/' + qid).then(function (response) {
                                     return alert('Deleted');
                                 }, this.showque(this.category, this.subject)).catch(function (error) {
@@ -100670,33 +100774,34 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 this.showcategories = false;
                                 this.addtest = false;
                                 this.editquestion = false;
+                                this.editcoding = false;
                                 this.showquestions = true;
                                 this.addquestion = false;
                                 this.createtst = false;
                                 this.viewtst = false;
                                 this.addquetotest = false;
 
-                            case 10:
+                            case 11:
                             case 'end':
-                                return _context5.stop();
+                                return _context6.stop();
                         }
                     }
-                }, _callee5, this);
+                }, _callee6, this);
             }));
 
             function deleteque(_x5) {
-                return _ref5.apply(this, arguments);
+                return _ref6.apply(this, arguments);
             }
 
             return deleteque;
         }(),
         deletetest: function () {
-            var _ref6 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee6(tid) {
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee6$(_context6) {
+            var _ref7 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee7(tid) {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee7$(_context7) {
                     while (1) {
-                        switch (_context6.prev = _context6.next) {
+                        switch (_context7.prev = _context7.next) {
                             case 0:
-                                _context6.next = 2;
+                                _context7.next = 2;
                                 return axios.get('/teacher/testdelete/' + tid).then(function (response) {
                                     return alert('Deleted');
                                 }).catch(function (error) {
@@ -100708,6 +100813,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 this.showcategories = false;
                                 this.addtest = false;
                                 this.editquestion = false;
+                                this.editcoding = false;
                                 this.showquestions = false;
                                 this.addquestion = false;
                                 this.createtst = false;
@@ -100715,27 +100821,27 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 this.addquetotest = false;
                                 __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$emit('View');
 
-                            case 11:
+                            case 12:
                             case 'end':
-                                return _context6.stop();
+                                return _context7.stop();
                         }
                     }
-                }, _callee6, this);
+                }, _callee7, this);
             }));
 
             function deletetest(_x6) {
-                return _ref6.apply(this, arguments);
+                return _ref7.apply(this, arguments);
             }
 
             return deletetest;
         }(),
         distributetest: function () {
-            var _ref7 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee7(tid) {
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee7$(_context7) {
+            var _ref8 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee8(tid) {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee8$(_context8) {
                     while (1) {
-                        switch (_context7.prev = _context7.next) {
+                        switch (_context8.prev = _context8.next) {
                             case 0:
-                                _context7.next = 2;
+                                _context8.next = 2;
                                 return axios.get('/teacher/testdistribute/' + tid).then(function (response) {
                                     return alert('Your test URL is : ' + JSON.stringify(response.data));
                                 }).catch(function (error) {
@@ -100747,6 +100853,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 this.showcategories = false;
                                 this.addtest = false;
                                 this.editquestion = false;
+                                this.editcoding = false;
                                 this.showquestions = false;
                                 this.addquestion = false;
                                 this.createtst = false;
@@ -100754,27 +100861,27 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 this.addquetotest = false;
                                 __WEBPACK_IMPORTED_MODULE_1__app_js__["EventBus"].$emit('View');
 
-                            case 11:
+                            case 12:
                             case 'end':
-                                return _context7.stop();
+                                return _context8.stop();
                         }
                     }
-                }, _callee7, this);
+                }, _callee8, this);
             }));
 
             function distributetest(_x7) {
-                return _ref7.apply(this, arguments);
+                return _ref8.apply(this, arguments);
             }
 
             return distributetest;
         }(),
         deletequetest: function () {
-            var _ref8 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee8(qid) {
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee8$(_context8) {
+            var _ref9 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee9(qid) {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee9$(_context9) {
                     while (1) {
-                        switch (_context8.prev = _context8.next) {
+                        switch (_context9.prev = _context9.next) {
                             case 0:
-                                _context8.next = 2;
+                                _context9.next = 2;
                                 return axios.get('/teacher/delete/' + qid).then(function (response) {
                                     return alert('Deleted');
                                 }).catch(function (error) {
@@ -100786,6 +100893,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 this.showcategories = false;
                                 this.addtest = false;
                                 this.editquestion = false;
+                                this.editcoding = false;
                                 this.showquestions = true;
                                 this.addquestion = false;
                                 this.createtst = false;
@@ -100793,29 +100901,69 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 this.addquetotest = false;
                                 this.testdetails(this.testid);
 
-                            case 11:
+                            case 12:
                             case 'end':
-                                return _context8.stop();
+                                return _context9.stop();
                         }
                     }
-                }, _callee8, this);
+                }, _callee9, this);
             }));
 
             function deletequetest(_x8) {
-                return _ref8.apply(this, arguments);
+                return _ref9.apply(this, arguments);
             }
 
             return deletequetest;
         }(),
+        deletecodingtest: function () {
+            var _ref10 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee10(qid) {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee10$(_context10) {
+                    while (1) {
+                        switch (_context10.prev = _context10.next) {
+                            case 0:
+                                _context10.next = 2;
+                                return axios.get('/teacher/deletecoding/' + qid).then(function (response) {
+                                    return alert('Deleted');
+                                }).catch(function (error) {
+                                    console.log(error);
+                                });
+
+                            case 2:
+
+                                this.showcategories = false;
+                                this.addtest = false;
+                                this.editquestion = false;
+                                this.editcoding = false;
+                                this.showquestions = true;
+                                this.addquestion = false;
+                                this.createtst = false;
+                                this.viewtst = false;
+                                this.addquetotest = false;
+                                this.testdetails(this.testid);
+
+                            case 12:
+                            case 'end':
+                                return _context10.stop();
+                        }
+                    }
+                }, _callee10, this);
+            }));
+
+            function deletecodingtest(_x9) {
+                return _ref10.apply(this, arguments);
+            }
+
+            return deletecodingtest;
+        }(),
         addque: function () {
-            var _ref9 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee9(sid, cid) {
+            var _ref11 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee11(sid, cid) {
                 var _this5 = this;
 
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee9$(_context9) {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee11$(_context11) {
                     while (1) {
-                        switch (_context9.prev = _context9.next) {
+                        switch (_context11.prev = _context11.next) {
                             case 0:
-                                _context9.next = 2;
+                                _context11.next = 2;
                                 return axios.get('/teacher/getsubcat/' + sid + '/' + cid).then(function (response) {
                                     return _this5.add.sub = response.data[0].subject, _this5.add.cat = response.data[1].category;
                                 }).catch(function (error) {
@@ -100826,6 +100974,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                                 this.showcategories = false;
                                 this.editquestion = false;
+                                this.editcoding = false;
                                 this.showquestions = false;
                                 this.addquestion = true;
                                 this.createtst = false;
@@ -100833,29 +100982,29 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 this.addquetotest = false;
                                 this.addtest = false;
 
-                            case 10:
+                            case 11:
                             case 'end':
-                                return _context9.stop();
+                                return _context11.stop();
                         }
                     }
-                }, _callee9, this);
+                }, _callee11, this);
             }));
 
-            function addque(_x9, _x10) {
-                return _ref9.apply(this, arguments);
+            function addque(_x10, _x11) {
+                return _ref11.apply(this, arguments);
             }
 
             return addque;
         }(),
         saveque: function () {
-            var _ref10 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee10() {
+            var _ref12 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee12() {
                 var index;
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee10$(_context10) {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee12$(_context12) {
                     while (1) {
-                        switch (_context10.prev = _context10.next) {
+                        switch (_context12.prev = _context12.next) {
                             case 0:
                                 if (!(this.add["type"] == "mcq")) {
-                                    _context10.next = 8;
+                                    _context12.next = 8;
                                     break;
                                 }
 
@@ -100865,7 +101014,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 for (index = 0; index < this.inputs.length; index++) {
                                     this.choices.push(this.add['choice' + index + 3]);
                                 }
-                                _context10.next = 6;
+                                _context12.next = 6;
                                 return axios.post('/teacher/savequestion', {
                                     question: this.add.question,
                                     answer: this.add.answer,
@@ -100881,12 +101030,12 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 });
 
                             case 6:
-                                _context10.next = 20;
+                                _context12.next = 20;
                                 break;
 
                             case 8:
                                 if (!(this.add["type"] == "check")) {
-                                    _context10.next = 16;
+                                    _context12.next = 16;
                                     break;
                                 }
 
@@ -100896,7 +101045,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 for (index = 0; index < this.inputs.length; index++) {
                                     this.choices.push(this.add['choice' + index + 3]);
                                 }
-                                _context10.next = 14;
+                                _context12.next = 14;
                                 return axios.post('/teacher/savequestion', {
                                     question: this.add.question,
                                     type: this.add.type,
@@ -100912,17 +101061,17 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 });
 
                             case 14:
-                                _context10.next = 20;
+                                _context12.next = 20;
                                 break;
 
                             case 16:
                                 if (!(this.add["type"] == "fub")) {
-                                    _context10.next = 20;
+                                    _context12.next = 20;
                                     break;
                                 }
 
                                 this.choices = null;
-                                _context10.next = 20;
+                                _context12.next = 20;
                                 return axios.post('/teacher/savequestion', {
                                     question: this.add.question,
                                     type: this.add.type,
@@ -100951,23 +101100,23 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                             case 30:
                             case 'end':
-                                return _context10.stop();
+                                return _context12.stop();
                         }
                     }
-                }, _callee10, this);
+                }, _callee12, this);
             }));
 
             function saveque() {
-                return _ref10.apply(this, arguments);
+                return _ref12.apply(this, arguments);
             }
 
             return saveque;
         }(),
         addchoices: function () {
-            var _ref11 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee11() {
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee11$(_context11) {
+            var _ref13 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee13() {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee13$(_context13) {
                     while (1) {
-                        switch (_context11.prev = _context11.next) {
+                        switch (_context13.prev = _context13.next) {
                             case 0:
                                 this.inputs.push({
                                     one: '',
@@ -100976,36 +101125,36 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                             case 1:
                             case 'end':
-                                return _context11.stop();
+                                return _context13.stop();
                         }
                     }
-                }, _callee11, this);
+                }, _callee13, this);
             }));
 
             function addchoices() {
-                return _ref11.apply(this, arguments);
+                return _ref13.apply(this, arguments);
             }
 
             return addchoices;
         }(),
         deletechoice: function () {
-            var _ref12 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee12(index) {
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee12$(_context12) {
+            var _ref14 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee14(index) {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee14$(_context14) {
                     while (1) {
-                        switch (_context12.prev = _context12.next) {
+                        switch (_context14.prev = _context14.next) {
                             case 0:
                                 this.inputs.splice(index, 1);
 
                             case 1:
                             case 'end':
-                                return _context12.stop();
+                                return _context14.stop();
                         }
                     }
-                }, _callee12, this);
+                }, _callee14, this);
             }));
 
-            function deletechoice(_x11) {
-                return _ref12.apply(this, arguments);
+            function deletechoice(_x12) {
+                return _ref14.apply(this, arguments);
             }
 
             return deletechoice;
@@ -101018,11 +101167,11 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         //     // this.geteditque(this.qid);
         // },
         addanswer: function () {
-            var _ref13 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee13(value, event) {
+            var _ref15 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee15(value, event) {
                 var index;
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee13$(_context13) {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee15$(_context15) {
                     while (1) {
-                        switch (_context13.prev = _context13.next) {
+                        switch (_context15.prev = _context15.next) {
                             case 0:
                                 if (event.target.checked) {
                                     this.answers.push(value);
@@ -101034,27 +101183,29 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                             case 1:
                             case 'end':
-                                return _context13.stop();
+                                return _context15.stop();
                         }
                     }
-                }, _callee13, this);
+                }, _callee15, this);
             }));
 
-            function addanswer(_x12, _x13) {
-                return _ref13.apply(this, arguments);
+            function addanswer(_x13, _x14) {
+                return _ref15.apply(this, arguments);
             }
 
             return addanswer;
         }(),
         create: function () {
-            var _ref14 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee14() {
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee14$(_context14) {
+            var _ref16 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee16() {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee16$(_context16) {
                     while (1) {
-                        switch (_context14.prev = _context14.next) {
+                        switch (_context16.prev = _context16.next) {
                             case 0:
-                                _context14.next = 2;
+                                _context16.next = 2;
                                 return axios.post('/teacher/createtest', {
-                                    test: this.crtest
+                                    test: this.crtest,
+                                    calc: this.calc,
+                                    timer: this.timer
                                 }).then(function (response) {
                                     return alert("Test created!! Add some Questions");
                                 }).catch(function (error) {
@@ -101065,6 +101216,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                                 this.showcategories = false;
                                 this.editquestion = false;
+                                this.editcoding = false;
                                 this.showquestions = false;
                                 this.addquestion = false;
                                 this.createtst = false;
@@ -101073,30 +101225,32 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 this.addtest = false;
                                 this.quetest['test'] = this.crtest;
                                 this.crtest = '';
+                                this.calc = '';
+                                this.timer = '';
 
-                            case 12:
+                            case 15:
                             case 'end':
-                                return _context14.stop();
+                                return _context16.stop();
                         }
                     }
-                }, _callee14, this);
+                }, _callee16, this);
             }));
 
             function create() {
-                return _ref14.apply(this, arguments);
+                return _ref16.apply(this, arguments);
             }
 
             return create;
         }(),
         testdetails: function () {
-            var _ref15 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee15(tid) {
+            var _ref17 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee17(tid) {
                 var _this6 = this;
 
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee15$(_context15) {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee17$(_context17) {
                     while (1) {
-                        switch (_context15.prev = _context15.next) {
+                        switch (_context17.prev = _context17.next) {
                             case 0:
-                                _context15.next = 2;
+                                _context17.next = 2;
                                 return axios.get('/teacher/gettestdetails/' + tid).then(function (response) {
                                     return _this6.questions = response.data[0], _this6.codings = response.data[2], _this6.testname = response.data[1];
                                 }).catch(function (error) {
@@ -101106,6 +101260,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                             case 2:
                                 this.showcategories = false;
                                 this.editquestion = false;
+                                this.editcoding = false;
                                 this.showquestions = true;
                                 this.addquestion = false;
                                 this.createtst = false;
@@ -101114,29 +101269,29 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 this.addtest = true;
                                 this.testid = tid;
 
-                            case 11:
+                            case 12:
                             case 'end':
-                                return _context15.stop();
+                                return _context17.stop();
                         }
                     }
-                }, _callee15, this);
+                }, _callee17, this);
             }));
 
-            function testdetails(_x14) {
-                return _ref15.apply(this, arguments);
+            function testdetails(_x15) {
+                return _ref17.apply(this, arguments);
             }
 
             return testdetails;
         }(),
         savequetest: function () {
-            var _ref16 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee16() {
+            var _ref18 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee18() {
                 var index;
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee16$(_context16) {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee18$(_context18) {
                     while (1) {
-                        switch (_context16.prev = _context16.next) {
+                        switch (_context18.prev = _context18.next) {
                             case 0:
                                 if (!(this.quetest["type"] == "mcq")) {
-                                    _context16.next = 9;
+                                    _context18.next = 9;
                                     break;
                                 }
 
@@ -101147,7 +101302,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                     this.choices.push(this.quetest['choice' + index + 3]);
                                 }
                                 // console.log(this.quetest.type);
-                                _context16.next = 6;
+                                _context18.next = 6;
                                 return axios.post('/teacher/savequestiontotest', {
                                     question: this.quetest.question,
                                     answer: this.quetest.answer,
@@ -101163,16 +101318,16 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                             case 6:
                                 this.testdetails(this.testid);
-                                _context16.next = 20;
+                                _context18.next = 20;
                                 break;
 
                             case 9:
                                 if (!(this.quetest["type"] == "coding")) {
-                                    _context16.next = 15;
+                                    _context18.next = 15;
                                     break;
                                 }
 
-                                _context16.next = 12;
+                                _context18.next = 12;
                                 return axios.post('/teacher/savequestiontotest', {
                                     question: this.quetest.question,
                                     type: this.quetest.type,
@@ -101192,17 +101347,17 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                             case 12:
                                 this.testdetails(this.testid);
-                                _context16.next = 20;
+                                _context18.next = 20;
                                 break;
 
                             case 15:
                                 if (!(this.quetest["type"] == "fub")) {
-                                    _context16.next = 20;
+                                    _context18.next = 20;
                                     break;
                                 }
 
                                 this.choices = null;
-                                _context16.next = 19;
+                                _context18.next = 19;
                                 return axios.post('/teacher/savequestiontotest', {
                                     question: this.quetest.question,
                                     type: this.quetest.type,
@@ -101238,14 +101393,14 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                             case 35:
                             case 'end':
-                                return _context16.stop();
+                                return _context18.stop();
                         }
                     }
-                }, _callee16, this);
+                }, _callee18, this);
             }));
 
             function savequetest() {
-                return _ref16.apply(this, arguments);
+                return _ref18.apply(this, arguments);
             }
 
             return savequetest;
@@ -101532,7 +101687,64 @@ var render = function() {
                                 " " +
                                   _vm._s(coding.question) +
                                   "\n                            "
-                              )
+                              ),
+                              _vm.addtest
+                                ? _c("div", { staticClass: "float-right" }, [
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass: "btn btn-primary",
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.geteditcoding(coding.id)
+                                          }
+                                        }
+                                      },
+                                      [_vm._v("Edit")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass: "btn btn-danger",
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.deletecodingtest(
+                                              coding.id
+                                            )
+                                          }
+                                        }
+                                      },
+                                      [_vm._v("Delete")]
+                                    )
+                                  ])
+                                : _c("div", { staticClass: "float-right" }, [
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass: "btn btn-primary",
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.geteditcoding(coding.id)
+                                          }
+                                        }
+                                      },
+                                      [_vm._v("Edit")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass: "btn btn-danger",
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.deletecoding(coding.id)
+                                          }
+                                        }
+                                      },
+                                      [_vm._v("Delete")]
+                                    )
+                                  ])
                             ]),
                             _vm._v(" "),
                             _c("div", [
@@ -101916,6 +102128,232 @@ var render = function() {
                     ])
                   ],
                   2
+                )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.editcoding
+            ? _c("div", [
+                _c(
+                  "form",
+                  {
+                    attrs: { method: "POST" },
+                    on: {
+                      submit: function($event) {
+                        $event.preventDefault()
+                        return _vm.editcod($event)
+                      }
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "form-group row ml-2" }, [
+                      _vm._m(6),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.ecquestion.question,
+                            expression: "ecquestion.question"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", autofocus: "" },
+                        domProps: { value: _vm.ecquestion.question },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.ecquestion,
+                              "question",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c("table", [
+                        _vm._m(7),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("td", [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.ecquestion["tc1"],
+                                  expression: 'ecquestion["tc1"]'
+                                }
+                              ],
+                              attrs: { type: "text" },
+                              domProps: { value: _vm.ecquestion["tc1"] },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.ecquestion,
+                                    "tc1",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.ecquestion["op1"],
+                                  expression: 'ecquestion["op1"]'
+                                }
+                              ],
+                              attrs: { type: "text" },
+                              domProps: { value: _vm.ecquestion["op1"] },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.ecquestion,
+                                    "op1",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            })
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("td", [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.ecquestion["tc2"],
+                                  expression: 'ecquestion["tc2"]'
+                                }
+                              ],
+                              attrs: { type: "text" },
+                              domProps: { value: _vm.ecquestion["tc2"] },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.ecquestion,
+                                    "tc2",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.ecquestion["op2"],
+                                  expression: 'ecquestion["op2"]'
+                                }
+                              ],
+                              attrs: { type: "text" },
+                              domProps: { value: _vm.ecquestion["op2"] },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.ecquestion,
+                                    "op2",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            })
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("td", [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.ecquestion["tc3"],
+                                  expression: 'ecquestion["tc3"]'
+                                }
+                              ],
+                              attrs: { type: "text" },
+                              domProps: { value: _vm.ecquestion["tc3"] },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.ecquestion,
+                                    "tc3",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.ecquestion["op3"],
+                                  expression: 'ecquestion["op3"]'
+                                }
+                              ],
+                              attrs: { type: "text" },
+                              domProps: { value: _vm.ecquestion["op3"] },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.ecquestion,
+                                    "op3",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            })
+                          ])
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("button", { staticClass: "btn btn-primary" }, [
+                      _vm._v("Edit")
+                    ])
+                  ]
                 )
               ])
             : _vm._e(),
@@ -102654,7 +103092,9 @@ var render = function() {
                   },
                   [
                     _c("div", { staticClass: "form-group row ml-2" }, [
-                      _c("label", { attrs: { for: "test" } }, [_vm._v("Test")]),
+                      _c("label", { attrs: { for: "test" } }, [
+                        _vm._v("Test Name")
+                      ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-md-6" }, [
                         _c("input", {
@@ -102674,6 +103114,83 @@ var render = function() {
                                 return
                               }
                               _vm.crtest = $event.target.value
+                            }
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row ml-2" }, [
+                      _c("label", { attrs: { for: "calc" } }, [
+                        _vm._v("Show Calculator")
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-6" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.calc,
+                              expression: "calc"
+                            }
+                          ],
+                          attrs: { type: "radio", name: "calc", value: "yes" },
+                          domProps: { checked: _vm._q(_vm.calc, "yes") },
+                          on: {
+                            change: function($event) {
+                              _vm.calc = "yes"
+                            }
+                          }
+                        }),
+                        _vm._v(" Yes"),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.calc,
+                              expression: "calc"
+                            }
+                          ],
+                          attrs: { type: "radio", name: "calc", value: "no" },
+                          domProps: { checked: _vm._q(_vm.calc, "no") },
+                          on: {
+                            change: function($event) {
+                              _vm.calc = "no"
+                            }
+                          }
+                        }),
+                        _vm._v(" No"),
+                        _c("br")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row ml-2" }, [
+                      _c("label", { attrs: { for: "timer" } }, [
+                        _vm._v("Timer(in minutes)")
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-6" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.timer,
+                              expression: "timer"
+                            }
+                          ],
+                          attrs: { id: "timer", type: "text" },
+                          domProps: { value: _vm.timer },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.timer = $event.target.value
                             }
                           }
                         })
@@ -102823,7 +103340,7 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _vm._m(6),
+                    _vm._m(8),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group row ml-2" }, [
                       _c("label", { attrs: { for: "choices" } }),
@@ -103684,6 +104201,24 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "question" } }, [
       _c("b", { staticStyle: { color: "black" } }, [_vm._v("Answer")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "question" } }, [
+      _c("b", { staticStyle: { color: "black" } }, [_vm._v("Question")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("th", [_vm._v("Test cases")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Output")])
     ])
   },
   function() {

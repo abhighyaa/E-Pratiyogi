@@ -90,8 +90,11 @@ Route::prefix('teacher')->group(function () {
     Route::get('/categories/{subject}','CategoryController@getcategories');
     Route::get('/questions/{cat}/{sub}','QuestionController@getquestions');
     Route::get('/editquestion/{q}','QuestionController@getequestion');
+    Route::get('/editcoding/{q}','QuestionController@getecquestion');
     Route::post('/saveedits','QuestionController@editquestion');
+    Route::post('/saveeditscoding','QuestionController@editcquestion');
     Route::get('/delete/{q}','QuestionController@deletequestion');
+    Route::get('/deletecoding/{q}','QuestionController@deletecoding');
     Route::get('/testdelete/{test}','TestController@deletetest');
     Route::get('/testdistribute/{test}','TestController@distributetest');
     Route::get('/getsubcat/{sid}/{cid}','HomeController@getdetails');

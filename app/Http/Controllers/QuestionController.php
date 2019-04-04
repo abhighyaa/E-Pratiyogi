@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Coding;
 use App\Question;
 use App\Topic;
 use App\Subject;
@@ -192,7 +193,18 @@ class QuestionController extends Controller
         return response()->json($q);
     }
 
+    public function getecquestion(Coding $q)
+    {  
+        return response()->json($q);
+    }
+
     public function deletequestion(Question $q)
+    {  
+        $q->delete();
+        return;
+    }
+
+    public function deletecoding(Coding $q)
     {  
         $q->delete();
         return;
@@ -204,6 +216,20 @@ class QuestionController extends Controller
         $q->question= $request->question;
         $q->answer=$request->answer;
         $q->choices=json_encode($request->choices);
+        $q->save();
+        return;
+    }
+    public function editcquestion(Request $request)
+    {
+        $q=Coding::find($request->id);
+        $q->question= $request->question;
+        $q->tc1=$request->tc1;
+        $q->op1=$request->op1;
+        $q->tc2=$request->tc2;
+        $q->op2=$request->op2;
+        $q->tc3=$request->tc3;
+        $q->op3=$request->op3;
+        // $q->choices=json_encode($request->choices);
         $q->save();
         return;
     }

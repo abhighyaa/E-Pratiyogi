@@ -12,7 +12,7 @@ use App\Result;
 use App\Coding;
 class Test extends Model
 {
-    protected $fillable=['id','test'];
+    protected $fillable=['id','test','duration','calc'];
     public function users(){
         
         return $this->belongsToMany(User::class);
