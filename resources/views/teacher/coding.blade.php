@@ -66,6 +66,7 @@
        var minn = {!! json_encode($min) !!};
        var secc = {!! json_encode($sec) !!};
        var test = {!! json_encode($test_id) !!}; 
+       var codestring = {!! json_encode($code) !!};
        var timm,m,s;
        var attempt = 0;
        var n1,n2,tim2;
@@ -228,11 +229,35 @@ $(window).blur(function(){
         refs.redoButton.disabled = !editor.session.getUndoManager().hasRedo();
     }
     editor.on("input", updateToolbar);
-    editor.session.setValue(localStorage.savedValue || "//Write your code here..")
+    if(codestring != null) 
+        editor.session.setValue(codestring);
+    else
+    editor.session.setValue("//Write your code here..");
+
+
+    
     function save() {
         localStorage.savedValue = editor.getValue(); 
+        $.ajaxSetup({
+            headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+        });
+    $.ajax({
+        type : "post",
+        url : "/savetimecode",           
+        data: {
+        min:m,
+        sec:s,
+        id:a_id,
+        code:editor.getValue()
+        },
+        success : function(response) {
+
+        } });
         editor.session.getUndoManager().markClean();
         updateToolbar();
+       
     }
     function compile(){
         var code=editor.getValue();
@@ -284,6 +309,9 @@ $(window).blur(function(){
     
     window.editor = editor;
 </script>
+<span>{{$name}}</span>
+
+<br>
 
 <span id='minp'>{{$min}} </span> <span id='secp'>{{$sec}}</span>
 <button onclick="answer()">Submit test</button>

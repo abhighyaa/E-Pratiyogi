@@ -67,7 +67,7 @@
 
 
 
-<continuetest-component  :test="{{ json_encode($test) }}" :questions="{{ json_encode($questions) }}" :email="{{ json_encode($email) }}" :status="{{ json_encode($status) }}" :review="{{ json_encode($review) }}" :attempt="{{ json_encode($attempt) }}" :min="{{ json_encode($min) }}"  :sec="{{ json_encode($sec) }}">
+<continuetest-component  :test="{{ json_encode($test) }}" :questions="{{ json_encode($questions) }}" :email="{{ json_encode($email) }}" :status="{{ json_encode($status) }}" :review="{{ json_encode($review) }}" :attempt="{{ json_encode($attempt) }}" :min="{{ json_encode($min) }}"  :sec="{{ json_encode($sec) }}"  :code="{{ json_encode($code) }} " :code_id="{{ json_encode($code_id) }}">
 
 </continuetest-component>
 

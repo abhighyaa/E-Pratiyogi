@@ -9,13 +9,13 @@ $('#calc').on('click',function(){
 })
 
 
-// $(window).on("unload", function(e) {
-//     $('#testfinishh').click();
-//    });
+$(window).on("unload", function(e) {
+    $('#testfinishh').click();
+   });
 
-// $(window).bind('beforeunload', function(){
-//     return ' want to leave??';
-// });
+$(window).bind('beforeunload', function(){
+    return ' want to leave??';
+});
 
 
 function generatenoti(){
@@ -42,7 +42,7 @@ $(window).blur(function(){
     }
     else{
         $(window).off("beforeunload");
-        $('#testfinish').click();        
+        $('#testfinishh').click();        
     }
   });
   
@@ -51,7 +51,7 @@ $(window).blur(function(){
     if (n1+20 <= n2++) {
     alert('20 seconds up test over');
     $(window).off("beforeunload");
-    $('#testfinish').click();
+    $('#testfinishh').click();
     }
     });
 

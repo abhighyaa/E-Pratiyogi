@@ -1,9 +1,14 @@
 <template>
 <div>
-<div>
+<div v-if='code == 0'>
       <button class="submitButton btn btn-success" @click='checkanswer' id='testfinish'>Submit Test</button>
+</div>
+<div v-if='code == 1'>
+      <button class="submitButton btn btn-success" @click='checkanswer' id='testfinish'>Next Section</button>
 
 </div>
+      <button class="submitButton btn btn-success" @click='checkanswerr' id='testfinishh' style='display:none'>Submit Test</button>
+
 
        <div class="timer">{{min}} min:{{sec}} sec</div>
         
@@ -61,7 +66,7 @@
  var tim,arq;
     export default {
     name:"continuetest-component",
-    props:['status','review','questions','attempt','min','sec','email','test'],
+    props:['status','review','questions','attempt','min','sec','email','test','code','code_id'],
     data(){
          return{
     curques:'',
@@ -290,6 +295,33 @@
             }
             
         }
+               if(this.code == 1){
+            $(window).off("unload");
+            
+                this.per = (this.marks/this.total)*100;
+                var idd;
+             $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+                });
+            $.ajax({
+                type : "post",
+                url : "/savesection",         
+                data: {
+                email:this.email,
+                per:this.per,
+                id:this.id,
+                code:this.code_id
+                },
+                success : function(response) {
+                        location.replace("/teacher/coding/"+response[0]+'/'+response[1]);    
+     
+                }
+            });
+          
+            }
+            else{
            this.per = (this.marks/this.total)*100;
             $.ajaxSetup({
                 headers: {
@@ -309,7 +341,69 @@
                 }
             });
              location.replace("/results/"+this.id+"/"+this.email);
-       },
+       }}, checkanswerr:function(){ 
+        this.marks=0;
+        this.total=0;
+        clearInterval(tim);
+        clearInterval(arq);
+ 
+        this.total=this.totalmarks();
+        for(var cnt=0;cnt<this.questions.length;cnt++){
+            if(this.questions[cnt].type == 'mcq'){
+                if(this.questions[cnt].answer == this.attempt[cnt]){
+                    if(this.questions[cnt].complexity == 'low'){
+                        this.marks+=1;
+                    }
+                    else if(this.questions[cnt].complexity == 'medium'){
+                        this.marks+=2;
+                    }
+                    else if(this.questions[cnt].complexity == 'high'){
+                        this.marks+=3;
+                    }
+                }
+              
+            }
+
+        else if(this.questions[cnt].type == 'fub'){
+             if(typeof this.attempt[cnt] === 'undefined') {
+                continue;
+            }
+             if(this.questions[cnt].answer.toLowerCase() == this.attempt[cnt].toLowerCase()){
+                    if(this.questions[cnt].complexity == 'low'){
+                        this.marks+=1;
+                    }
+                    else if(this.questions[cnt].complexity == 'medium'){
+                        this.marks+=2;
+                    }
+                    else if(this.questions[cnt].complexity == 'high'){
+                        this.marks+=3;
+                    }
+                }
+              
+            }
+            
+        }
+       
+            this.per = (this.marks/this.total)*100;
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+                });
+            $.ajax({
+                type : "post",
+                url : "/saveresults",         
+                data: {
+                email:this.email,
+                per:this.per,
+                id:this.id
+                },
+                success : function(response) {
+                    console.log(response);
+                }
+            });
+            location.replace("/resultss/"+this.id+"/"+this.email);
+     },
        changedanswer:function(val){
             this.attempt[this.qno]=this.answer;
             if(this.status[this.qno]==2 || this.status[this.qno]==3)

@@ -395,7 +395,7 @@
                     console.log(response);
                 }
             });
-            
+            location.replace("/resultss/"+this.id+"/"+this.email);
      },
        changedanswer:function(val){
             this.attempt[this.qno]=this.answer;

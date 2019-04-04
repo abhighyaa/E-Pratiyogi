@@ -129,7 +129,8 @@ class TestController extends Controller
         $min = $att->min;
         $sec = $att->sec;
         $name = $att->email;
-        return view('teacher.coding',compact('id','codee','min','sec','idd','name','test_id'));
+        $code = NULL;
+        return view('teacher.coding',compact('id','codee','min','sec','idd','name','test_id','code'));
     }
 
     public function getoutput(Request $request)
