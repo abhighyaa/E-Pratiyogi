@@ -158,3 +158,5 @@ Route::get('/results/{id}/{email}','TeacherTestController@results');
 Route::post('/savecode','TeacherTestController@savecoderesults');
 
 Route::get('/result/{id}','TeacherTestController@display');
+
+Route::post('/savetimecode','TeacherTestController@savetimecode');

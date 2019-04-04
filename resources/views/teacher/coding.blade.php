@@ -69,9 +69,10 @@
        var timm,m,s;
        var attempt = 0;
        var n1,n2,tim2;
-       var notify;
+       var notify,arq;
        var timer =Number(minn)*60+Number(secc);
        startTimer();
+       attemptrequest();
 
 
 
@@ -136,16 +137,49 @@ $(window).blur(function(){
                 $("#minp").html(m);
                 $("#secp").html(s);
                 if (--timer < 0) {
-                    answer();
                 clearInterval(timm);
+                clearInterval(arq);
+                answer();
+                
                 // $(window).off("beforeunload");
                 // obj.checkanswer();
                 }
                 }, 1000);
        }
 
+
+         function attemptrequest() {
+                arq = setInterval(function () {
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                        });
+                    $.ajax({
+                        type : "post",
+                        url : "/savetimecode",           
+                        data: {
+                        min:m,
+                        sec:s,
+                        id:a_id,
+                        code:editor.getValue()
+                        },
+                        success : function(response) {
+             
+                        }
+                    });
+                            
+                   
+                   
+                }, 5000);
+            }
+
+
+
+
+
        function answer(){
-        compile();
+        $("#compile").click();
         $(window).off("unload");
         // $(window).off("beforeunload");
         
@@ -224,7 +258,8 @@ $(window).blur(function(){
     buildDom(["div", { class: "toolbar" },
         ["button", {
             ref: "compileButton",
-            onclick: compile
+            onclick: compile,
+            id:'compile'
         }, "Compile"],
         ["button", {
             ref: "saveButton",
