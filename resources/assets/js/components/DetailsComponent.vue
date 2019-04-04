@@ -44,14 +44,14 @@
                         <br>Coding Questions<br><br>
                         <div v-for="coding in codings" :key="coding.index">
                             <div class="question"><b style="color:black;">Question : </b> {{coding.question}}
-                                <!--<div class="float-right" v-if="addtest">
+                                <div class="float-right" v-if="addtest">
                                     <button class="btn btn-primary" @click="geteditcoding(coding.id)">Edit</button>
                                     <button class="btn btn-danger" @click="deletecodingtest(coding.id)">Delete</button>
                                 </div>
                                 <div class="float-right" v-else>
                                     <button class="btn btn-primary" @click="geteditcoding(coding.id)">Edit</button>
                                     <button class="btn btn-danger" @click="deletecoding(coding.id)">Delete</button>
-                                </div>-->
+                                </div>
                             </div>
                             <div>
                                 <table>
@@ -114,6 +114,39 @@
                         <button class="btn btn-primary">Edit</button>
                     </form>
                 </div>
+
+                <div v-if="editcoding">
+                    <form method="POST" v-on:submit.prevent="editcod">
+                        <div class="form-group row ml-2">
+                            <label for="question"><b style="color:black;">Question</b></label>
+                            <input type="text" v-model="ecquestion.question" autofocus class="form-control">
+                        </div>
+                        
+                         <div>
+                                <table>
+                                    <tr>
+                                        <th>Test cases</th>
+                                        <th>Output</th>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" v-model='ecquestion["tc1"]'></input></td>
+                                        <td><input type="text" v-model='ecquestion["op1"]'></input></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" v-model='ecquestion["tc2"]'></input></td>
+                                        <td><input type="text" v-model='ecquestion["op2"]'></input></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" v-model='ecquestion["tc3"]'></input></td>
+                                        <td><input type="text" v-model='ecquestion["op3"]'></input></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                        <button class="btn btn-primary">Edit</button>
+                    </form>
+                </div>
+
 
                 <div v-if="addquestion">
                     <form method="POST" v-on:submit.prevent="saveque">
@@ -202,12 +235,27 @@
                 <div v-if="createtst">
                     <form method="POST" v-on:submit.prevent="create">
                         <div class="form-group row ml-2">
-                            <label for="test">Test</label>
+                            <label for="test">Test Name</label>
 
                             <div class="col-md-6">
                                 <input id="test_name" type="text" v-model='crtest'>
                             </div>
                         </div>
+                        <div class="form-group row ml-2">
+                            <label for="calc">Show Calculator</label>
+
+                            <div class="col-md-6">
+                                <input type="radio" name="calc" value="yes" v-model='calc'> Yes<br>
+                                <input type="radio" name="calc" value="no"  v-model='calc'> No<br>
+                            </div>
+                        </div>   
+                        <div class="form-group row ml-2">
+                            <label for="timer">Timer(in minutes)</label>
+
+                            <div class="col-md-6">
+                                <input id="timer" type="text" v-model='timer'>
+                            </div>
+                        </div>                     
                         <button class="btn btn-success create_btn"> Create</button>
                     </form>
                 </div>
@@ -334,11 +382,13 @@
                 questions:[],
                 codings:[],
                 equestion:[],
+                ecquestion:[],
                 add:[],
                 question:'',
                 showcategories:true,
                 showquestions:false,
                 editquestion:false,
+                editcoding:false,
                 addtest:false,
                 addquestion:false,
                 createtst:false,
@@ -353,6 +403,8 @@
                 testid:'',
                 quetest:[],
                 crtest:'',
+                calc:'',
+                timer:'',
                 edittest:false,
             };
         },
@@ -362,7 +414,8 @@
                 this.subject =  data.subjectKey;
                 this.showcategories = data.showcategoriesKey;
                 this.showquestions = data.showquestionsKey;
-                this.editquestion = data.showquestionKey;   
+                this.editquestion = data.showquestionKey;  
+                this.editcoding=data.showcodingKey; 
                 this.addquestion=data.addquestionKey;
                 this.createtst=data.createtstKey;
                 this.viewtst=data.viewtstKey;
@@ -373,7 +426,8 @@
                 this.categories = data.categoriesKey;
                 this.showcategories = data.showcategoriesKey;
                 this.showquestions = data.showquestionsKey;
-                this.editquestion = data.showquestionKey;   
+                this.editquestion = data.showquestionKey;  
+                this.editcoding=data.showcodingKey; 
                 this.addquestion=data.addquestionKey;
                 this.createtst=data.createtstKey;
                 this.viewtst=data.viewtstKey;
@@ -387,6 +441,7 @@
                 this.showcategories = data.showcategoriesKey;
                 this.showquestions = data.showquestionsKey;
                 this.editquestion = data.showquestionKey;   
+                this.editcoding=data.showcodingKey;
                 this.addquestion=data.addquestionKey;
                 this.createtst=data.createtstKey;
                 this.viewtst=data.viewtstKey;
@@ -403,6 +458,7 @@
                 this.category=cid;
                 this.showcategories=false;
                 this.editquestion=false;
+                this.editcoding=false;
                 this.showquestions=true;
                 this.addquestion=false;
                 this.createtst=false;
@@ -422,13 +478,15 @@
                 this.viewtst=false;
                 this.addquetotest=false;
                 this.addtest=false;
+                this.editcoding=false;
             },
             async geteditcoding(qid){
                 await axios.get('/teacher/editcoding/'+qid)
-                .then((response)=>(this.equestion = response.data))
+                .then((response)=>(this.ecquestion = response.data))
                 .catch(function(error){console.log(error)});
                 this.showcategories=false;
-                this.editquestion=true;
+                this.editquestion=false;
+                this.editcoding=true;
                 this.showquestions=false;
                 this.addquestion=false;
                 this.createtst=false;
@@ -459,6 +517,29 @@
                     this.showque(this.category,this.subject)
                 }
             },
+            async editcod(){
+                await axios.post('/teacher/saveeditscoding', {
+                    id:this.ecquestion.id,
+                    question:this.ecquestion.question,
+                    tc1:this.ecquestion.tc1,
+                    op1:this.ecquestion.op1,
+                    tc2:this.ecquestion.tc2,
+                    op2:this.ecquestion.op2,
+                    tc3:this.ecquestion.tc3,
+                    op3:this.ecquestion.op3,
+                })
+                .then((response) =>(alert("Edit saved")))
+                .catch(function (error){console.log(error)});
+                
+                alert(this.edittest)
+                 if(this.edittest==true){
+                    //  alert('true')
+                     this.testdetails(this.testid)
+                }
+                else{
+                    this.showque(this.category,this.subject)
+                }
+            },
             async deleteque(qid){
                 await axios.get('/teacher/delete/'+qid)
                 .then((response)=>(alert('Deleted')),
@@ -468,6 +549,7 @@
                 this.showcategories=false;
                 this.addtest=false;
                 this.editquestion=false;
+                this.editcoding=false;
                 this.showquestions=true;
                 this.addquestion=false;
                 this.createtst=false;
@@ -482,6 +564,7 @@
                 this.showcategories=false;
                 this.addtest=false;
                 this.editquestion=false;
+                this.editcoding=false;
                 this.showquestions=false;
                 this.addquestion=false;
                 this.createtst=false;
@@ -497,6 +580,7 @@
                 this.showcategories=false;
                 this.addtest=false;
                 this.editquestion=false;
+                this.editcoding=false;
                 this.showquestions=false;
                 this.addquestion=false;
                 this.createtst=false;
@@ -512,6 +596,23 @@
                 this.showcategories=false;
                 this.addtest=false;
                 this.editquestion=false;
+                this.editcoding=false;
+                this.showquestions=true;
+                this.addquestion=false;
+                this.createtst=false;
+                this.viewtst=false
+                this.addquetotest=false;
+                this.testdetails(this.testid)
+            },
+            async deletecodingtest(qid){
+                await axios.get('/teacher/deletecoding/'+qid)
+                .then((response)=>(alert('Deleted')),)
+                .catch(function(error){console.log(error)});
+                
+                this.showcategories=false;
+                this.addtest=false;
+                this.editquestion=false;
+                this.editcoding=false;
                 this.showquestions=true;
                 this.addquestion=false;
                 this.createtst=false;
@@ -527,6 +628,7 @@
                 
                 this.showcategories=false;
                 this.editquestion=false;
+                this.editcoding=false;
                 this.showquestions=false;
                 this.addquestion=true;
                 this.createtst=false;
@@ -630,12 +732,15 @@
             async create(){
                 await axios.post('/teacher/createtest', {
                     test:this.crtest,
+                    calc:this.calc,
+                    timer:this.timer
                 })
                 .then((response) =>(alert("Test created!! Add some Questions")))
                 .catch(function (error){console.log(error)});
                 
                 this.showcategories=false;
                 this.editquestion=false;
+                this.editcoding=false;
                 this.showquestions=false;
                 this.addquestion=false;
                 this.createtst=false;
@@ -644,6 +749,8 @@
                 this.addtest=false;
                 this.quetest['test']=this.crtest;
                 this.crtest='';
+                this.calc='';
+                this.timer='';
             },
             async testdetails(tid){
                 await axios.get('/teacher/gettestdetails/'+tid)
@@ -653,6 +760,7 @@
                 .catch(function(error){console.log(error)});
                 this.showcategories=false;
                 this.editquestion=false;
+                this.editcoding=false;
                 this.showquestions=true;
                 this.addquestion=false;
                 this.createtst=false;

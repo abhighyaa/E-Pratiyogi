@@ -13,9 +13,17 @@ use App\Attempt;
 class TestController extends Controller
 {
     public function createtest(){
-
+        
+        if(request('calc')=="yes"){
+            $calc=1;
+        }
+        else{
+            $calc=0;
+        }
         $t=Test::Create([
-            'test'=> request('test')
+            'test'=> request('test'),
+            'calc'=>$calc,
+            'duration'=>request('timer'),
         ]);
         $t->save();
         $t->users()->attach(auth()->user()->id);
@@ -661,9 +669,13 @@ class TestController extends Controller
             echo "Verdict : WA";
             return;
         }
+        else if($count==0){
+            echo "Verdict : PA";
+            return 2;
+        }
         else{
             echo "Verdict : PA";
-            return;
+            return 1; 
         }
     }
 
