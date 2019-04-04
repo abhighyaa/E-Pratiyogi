@@ -229,6 +229,15 @@ class TeacherTestController extends Controller
         
         return view('result',compact('result','code_r'));
 
+    }
+
+    public function savetimecode(Request $request){
+        $t=Attempt::findOrFail($request->id);    
+        $t->min = $request->min;
+        $t->sec = $request->sec;
+        $t->code_attempt = $request->code;
+        $t->save();
+      
 
     }
 }
