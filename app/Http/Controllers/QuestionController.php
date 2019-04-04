@@ -35,13 +35,15 @@ class QuestionController extends Controller
         {
             $questions=array();
             $que=$sub->questions()->get();
-            
+            // dd($que->categories());
             foreach($que as $q){
-                if($q->categories()->where('id',$cat->id)->exists()&&$q->users()->where('id',auth()->user()->id)->exists()){
-                    $q->choices=json_decode($q->choices);
+                
+                if(($q->categories()->where('category_id',$cat->id)->exists())&&($q->users()->where('id',auth()->user()->id)->exists())){
+                    // $q->choices=json_decode($q->choices);
                     array_push($questions,$q);
                 }
-            }
+            }   
+            
             return response()->json($questions);
         }
     public function addquestions(Request $request){
@@ -130,7 +132,9 @@ class QuestionController extends Controller
         $s = Subject::where('subject','=',request('subject'))->first();
         $c = Category::where('category','=',request('category'))->first();
         $q->subjects()->attach($s->id);
-        $q->categories()->attach($c->id);
+        // $q->categories()->attach($c->id);
+        $q->categories()->attach($c->id, ['category'=> $c->category ]);
+
         $q->users()->attach(auth()->user()->id);
         return;
     }
