@@ -10,7 +10,7 @@
     <style>
     .content {
         width: 600px;
-        height: 100px;
+        height: 80px;
         background-color:rgb(66, 206, 244);
 
         position:absolute; 
@@ -27,8 +27,8 @@
 
 <body>
     <div class='content'>
-    <div style='font-size:25px'>TEST RESULT {{$result}}%</div>
-    <div style='font-size:25px'>CODE TEST RESULT {{$code_r}}%</div>
+    <div style='font-size:25px;text-align:center'>TEST RESULT {{$result}}%</div>
+    <div style='font-size:25px;text-align:center'>CODE TEST RESULT {{$code_r}}%</div>
    </div>
 </body>
 </html>
