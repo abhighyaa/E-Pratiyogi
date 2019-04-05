@@ -9,13 +9,13 @@ $('#calc').on('click',function(){
 })
 
 
-$(window).on("unload", function(e) {
-    $('#testfinishh').click();
-   });
+// $(window).on("unload", function(e) {
+//     $('#testfinishh').click();
+//    });
 
-$(window).bind('beforeunload', function(){
-    return ' want to leave??';
-});
+// $(window).bind('beforeunload', function(){
+//     return ' want to leave??';
+// });
 
 
 function generatenoti(){

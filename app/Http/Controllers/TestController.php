@@ -674,7 +674,7 @@ class TestController extends Controller
             return ;
         }
         else{
-            echo "Verdict : 1";
+            echo "1";
             return ; 
         }
     }

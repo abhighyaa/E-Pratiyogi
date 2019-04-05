@@ -77,9 +77,9 @@
 
 
 
-$(window).on("unload", function(e) {
-    answer();
-   });
+// $(window).on("unload", function(e) {
+//     answer();
+//    });
 
 // $(window).bind('beforeunload', function(){
 //     return ' want to leave??';
