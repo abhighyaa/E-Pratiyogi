@@ -15,7 +15,7 @@
 
         
         <div class="ques"><span id="questionNum">Q{{noqs}}</span>. {{curques.question}}</div>
-        <div v-for="value in curques.choices" :key="value">
+        <div v-for="value in JSON.parse(curques.choices)" :key="value">
         <input type="radio"  v-bind:value="value" v-model="answer">&nbsp;{{ value }}
         </div>
         <button class="submitButton btn btn-success" @click='checkanswer'>submit</button>

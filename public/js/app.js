@@ -116268,7 +116268,7 @@ var render = function() {
               _vm._v(". " + _vm._s(_vm.curques.question))
             ]),
             _vm._v(" "),
-            _vm._l(_vm.curques.choices, function(value) {
+            _vm._l(JSON.parse(_vm.curques.choices), function(value) {
               return _c("div", { key: value }, [
                 _c("input", {
                   directives: [
