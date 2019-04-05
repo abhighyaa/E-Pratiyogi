@@ -130,6 +130,8 @@ Route::get('open/request/form','ChangeRoleController@open_request_form');
 
 Route::get('/teacher/test/{id}','TeacherTestController@infoform');
 
+Route::get('/teacher/test/results/{id}','TeacherTestController@showallresults');
+
 Route::post('/infodetails','TeacherTestController@info');
 
 Route::view('/infodetails','infoform');
