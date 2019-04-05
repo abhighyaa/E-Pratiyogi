@@ -1,5 +1,2 @@
-#include<stdio.h>
-
-void main(){
-    printf("")
-}
+//Write your code here..bhb
+jnj

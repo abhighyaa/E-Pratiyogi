@@ -109,10 +109,10 @@ class SubjectController extends Controller
         $subjects=array();
         // $subjects=auth()->user()->subjects()->get();
         $sub=Subject::with('categories')->get();
-        foreach($sub as $s)
-            if($s->users()->where('id', auth()->user()->id)->exists())
-                array_push($subjects,$s);
-        return response()->json($subjects);
+        // foreach($sub as $s)
+        //     if($s->users()->where('id', auth()->user()->id)->exists())
+        //         array_push($subjects,$s);
+        return response()->json($sub);
         // return view('backend.library',compact('subjects'));
     }
     public function testQuestion($id){

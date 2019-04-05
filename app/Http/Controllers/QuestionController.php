@@ -39,7 +39,7 @@ class QuestionController extends Controller
             foreach($que as $q){
                 
                 if(($q->categories()->where('category_id',$cat->id)->exists())&&($q->users()->where('id',auth()->user()->id)->exists())){
-                    // $q->choices=json_decode($q->choices);
+                    $q->choices=json_decode($q->choices);
                     array_push($questions,$q);
                 }
             }   

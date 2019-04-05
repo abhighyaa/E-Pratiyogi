@@ -662,7 +662,7 @@ class TestController extends Controller
             $count += $res[$i];
         }
         if($count==-1){
-            echo "Verdict : AC";
+            echo "3";
             return;
         }
         else if($count==2){
@@ -670,12 +670,12 @@ class TestController extends Controller
             return;
         }
         else if($count==0){
-            echo "Verdict : PA";
-            return 2;
+            echo "2";
+            return ;
         }
         else{
-            echo "Verdict : PA";
-            return 1; 
+            echo "Verdict : 1";
+            return ; 
         }
     }
 
