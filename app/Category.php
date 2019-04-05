@@ -8,6 +8,7 @@ use App\Question;
 
 class Category extends Model
 {
+    // protected $fillable=['id'];
     public function subjects()
     {
         return $this->belongsToMany(Subject::class);
