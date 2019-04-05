@@ -274,6 +274,24 @@ class TeacherTestController extends Controller
       
 
     }
+
+
+    public function showallresults($id){
+        $test=Test::findOrFail($id); 
+        $code=0;  
+        if(sizeof($test->results->all()) > 0 ){
+            if(sizeof($test->codings->all()) >0)
+                $code=1;
+            
+            $r = $test->results->all();
+            return view('allresults',compact('r','code'));
+        }
+        else{
+            $empty=true;
+            return view('allresults',compact('empty'));
+        }
+
+    }
 }
 
 

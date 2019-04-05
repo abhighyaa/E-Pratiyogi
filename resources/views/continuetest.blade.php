@@ -8,23 +8,53 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
+
+<style>
+    body {
+      margin: 0;
+      font-family: "Raleway", sans-serif;
+      font-size: 0.9rem;
+      font-weight: 400;
+      line-height: 1.6;
+      color: #212529;
+      text-align: left;
+      background-color: #f5f8fa;
+  }
+  
+  .content {
+          background-color:white;
+          height:400px;
+          position:absolute; 
+          left:0; right:0;
+          top:0; bottom:0;
+          margin:auto;
+          overflow:auto;
+          box-shadow: 2px 3px 15px rgba(0, 0, 0, 0.3)
+        }
+    
+    </style>
 <body>
 
-<div class="container" id='infoform' style='display:none'>
+<div class="container content" id='infoform' style='display:none' style='display:none;'>
     @if(Session::has('message'))
     <p id='msg' class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
     @endif
-<h2>Submit your information</h2>
-
+    <br>
+<h2 style='background:indigo;color:white;text-align:center'>Continue Test Information</h2>
+<br>
   <form method="POST" action="/continuetestdetails" target="print_popup"  onsubmit="location.reload();window.open('about:blank','print_popup','resizable=0,toolbar=no,scrollbars=no,menubar=0,status=no,directories=no,width='+screen.availWidth+',height='+screen.availHeight);">
     @csrf
     <input type='hidden' value="{{$id}}" name='id'> 
-    <div class="form-group">
-      <label for="email">Email:</label>
+ 
+ 
+    <div class="form-group row">
+      <label for="email" class="col-sm-4 col-form-label text-md-right">Email:</label>
+      <div class="col-md-6">
       <input type="email" class="form-control"  id="email" placeholder="Enter email" name="email" required>
     </div>
+  </div>
   
-    <label for="sq">Sequrity question:</label>
+    <label for="sq" class="col-sm-4 col-form-label text-md-right">Sequrity question:</label>
       <select class="security" name="securityques" required>
         <option value="">Select a question from the following options.</option>
         <option >Who's your daddy?</option>
@@ -37,11 +67,13 @@
     <br>
 
     <br>
-     <div class="form-group">
+     <div class="form-group row">
+        <label for="sq" class="col-sm-4 col-form-label text-md-right">Security answer:</label>
+        <div class="col-md-6">
         <input type="text" class="form-control" id='sq' placeholder="Enter answer" name="securityanswer" required>
       </div>
-     
-    <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    <button type="submit" class="btn btn-primary" style=' margin:0 auto;display:block;'>Submit</button>
   </form>
 
   @if($errors->any())
