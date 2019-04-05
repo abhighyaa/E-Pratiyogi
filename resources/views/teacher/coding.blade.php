@@ -49,6 +49,15 @@
     .ace_editor {
         height: 200px;
     }
+    .timer{
+    width:fit-content;
+    margin-right: 5px;
+    margin-top: 5px;
+    font-size: 20px;
+    position:absolute;
+    right:10px; 
+    top:60px;
+}
 </style>
 </head>
 <body>
@@ -81,9 +90,6 @@ $(window).on("unload", function(e) {
     answer();
    });
 
-// $(window).bind('beforeunload', function(){
-//     return ' want to leave??';
-// });
 
 
 
@@ -185,11 +191,23 @@ $(window).blur(function(){
         // $(window).off("beforeunload");
         
         var per=0;
-        if( $("#output").html() == 'Verdict : AC')
-            per = 100; 
+        if( $("#outputt").html() == '1')
+            {
+                per = 33; 
+                $("#output").html('PA');
+            }
 
-        if( $("#output").html() == 'Verdict : PA')
-            per =50;
+        if( $("#outputt").html() == '2'){
+            per =66;
+            $("#output").html('PA');
+        }
+            
+
+        if( $("#outputt").html() == '3'){
+            per =100;
+            $("#output").html('AC');
+        }
+
 
 
 
@@ -261,7 +279,7 @@ $(window).blur(function(){
     }
     function compile(){
         var code=editor.getValue();
-        // var code = $(".ace_content").text();
+                // var code = $(".ace_content").text();
         var lang =  $("#language").val();
         
         $.ajax({
@@ -269,10 +287,23 @@ $(window).blur(function(){
             url: "/teacher/getoutput", 
             data: {lang:lang,code:code,id:id},
             success: function(data) {
-               $("#output").html(data);  
-            }
-         });
+               $("#outputt").html(data);
+               if( $("#outputt").html() == '1')
+                    document.getElementById('output').innerHTML = 'Verdict : PA';
+                              
+                else if( $("#outputt").html() == '2')
+                document.getElementById('output').innerHTML = 'Verdict : PA';
+                    
 
+                else if( $("#outputt").html() == '3')
+                document.getElementById('output').innerHTML = 'Verdict : AC';
+                
+                else 
+                document.getElementById('output').innerHTML = data;
+                
+         }});
+                    
+            
     }
     editor.commands.addCommand({
         name: "save",
@@ -309,22 +340,26 @@ $(window).blur(function(){
     
     window.editor = editor;
 </script>
-<span>{{$name}}</span>
-
+  <span><img src="/user.png"style=width:40px;height:40px;></span>
+  <span style='background:black;color:white;font-size:20px;'>{{$name}}</span></div>
 <br>
 
-<span id='minp'>{{$min}} </span> <span id='secp'>{{$sec}}</span>
-<button onclick="answer()">Submit test</button>
-<h1>Q:-{{$codee->question}}</h1>
-<label for="lang">Choose Language</label>
 
-<select class="form-control float-right" name="language"  id="language" >
+<div class="timer">
+    <span id='minp'>{{$min}} </span> :<span id='secp'>{{$sec}}</span>
+</div>
+      
+<button onclick="answer()" style="position:absolute;right:10px;top:20px" class='btn btn-primary' >Submit test</button>
+<div style='font-size:20px;text-align:center'>Q:-{{$codee->question}}</div>
+<label for="lang" >Choose Language</label>   
+<select class="form-control" name="language"  id="language"  style='width:300px'>
 <option value="c">C</option>
 <option value="cpp">C++</option>
 <!-- <option value="java">Java</option>
 <option value="python">Python</option> -->
 </select>
 <div id="output"></div>
+<div id="outputt" style='display:none'></div>
     <!-- <input id="run" type="submit" class="btn btn-success float-right" value="Run Code"><br><br><br> -->
 </main>
 
